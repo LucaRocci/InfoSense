@@ -1,5 +1,9 @@
+//react imports
 import { useEffect } from 'react';
+//React router dom imports
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+//Components imports
+import NavbarCustom from '../Navbar/Navbar.component';
 
 const Root = () => {
 
@@ -14,7 +18,8 @@ const Root = () => {
 
 
     return(
-        <><>NAVBAR</>
+        <>
+        <NavbarCustom />
         <Outlet />
         </>
     )

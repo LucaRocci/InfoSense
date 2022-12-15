@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './components/Root/Root.component';
