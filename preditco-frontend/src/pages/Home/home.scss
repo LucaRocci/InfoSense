@@ -1,0 +1,42 @@
+svg {
+    width: 85%;
+    height: 85%;
+    opacity: 75%;
+}
+
+@keyframes plantMovement {
+    from {
+        transform: scaleY(100%);
+    }
+
+    to {
+        transform: scaleY(50%);
+    }
+}
+
+@keyframes lineMovement {
+    from {
+        transform: rotateX(0deg) translate(0, 0%);
+    }
+
+    to {
+        transform: rotateX(180deg) translate(0, 20%);
+    }
+}
+
+#plant {
+    transform-origin: bottom;
+    animation: 1.8s ease-in-out infinite alternate plantMovement;
+}
+
+#plant1 {
+    transform-origin: bottom;
+    animation: 1.5s ease-in-out infinite alternate plantMovement;
+    animation-delay: 0.5s;
+}
+
+#plant2 {
+    transform-origin: bottom;
+    animation: 1s ease-in-out infinite alternate plantMovement;
+    animation-delay: 1s;
+}

@@ -2,13 +2,14 @@ import React from 'react';
 import './App.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './components/Root/Root.component';
+import Home from './pages/Home/Home.page';
 
 const router = createBrowserRouter([
   {path:'/', element:  <Root />,
   children:[
     {
       path:'home',
-      element: <>HOME</>
+      element: <Home />
     },
     {
       path:'statistics',
