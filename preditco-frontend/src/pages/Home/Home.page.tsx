@@ -1,8 +1,7 @@
 import "./home.scss";
 import logo from "../../assets/logos/logo-short-predicto.svg";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 import Button from "react-bootstrap/Button";
 
 const Home = () => {
@@ -24,15 +23,15 @@ const Home = () => {
           <div className="d-flex flex-column flex-md-row mt-2">
             <Button
               variant="primary"
-              size="sm"
-              className="my-2 my-md-0 mx-md-2 rounded"
+              size="lg"
+              className="my-2 my-md-0 mx-md-2 rounded-50"
             >
               Primary
             </Button>
             <Button
               variant="secondary"
-              size="sm"
-              className="my-2 my-md-0 mx-md-2 rounded"
+              size="lg"
+              className="my-2 my-md-0 mx-md-2 rounded-50"
             >
               Primary
             </Button>
