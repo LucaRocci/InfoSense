@@ -14,14 +14,8 @@ svg {
     }
 }
 
-@keyframes lineMovement {
-    from {
-        transform: rotateX(0deg) translate(0, 0%);
-    }
-
-    to {
-        transform: rotateX(180deg) translate(0, 20%);
-    }
+section {
+    min-height: 100vh;
 }
 
 #plant {

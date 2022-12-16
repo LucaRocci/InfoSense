@@ -1,26 +1,27 @@
 //Bootstrap components imports
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import logo from '../../assets/logos/logo-predicto.svg';
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { ReactComponent as ReactLogo } from "../../assets/logos/logo-predicto.svg";
 //Import style
-import './Navbar.scss'
-
+import "./Navbar.scss";
 
 const NavbarCustom = () => {
-    return(
-        <Navbar bg="light" expand="lg">
-        <Container fluid>
-          <Navbar.Brand><img src={logo} /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link>Home</Nav.Link>
-              <Nav.Link>Statistics</Nav.Link>
-              <Nav.Link>Predictions</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    )
-}
+  return (
+    <Navbar bg="ligth" expand="md" className="fixed-top">
+      <Container fluid>
+        <Navbar.Brand>
+          <ReactLogo className="w-75" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>Statistics</Nav.Link>
+            <Nav.Link>Predictions</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
 
 export default NavbarCustom;
