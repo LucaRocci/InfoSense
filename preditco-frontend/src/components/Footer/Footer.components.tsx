@@ -8,23 +8,29 @@ import { Github } from "react-bootstrap-icons";
 const FooterCustom = () => {
   return (
     <>
-      <Container fluid>
-        <Card>
+      {/* FOOTER CARD */}
+      <Card>
+        <Container fluid>
+          {/* HEADER */}
+          {/* Logo Infosense */}
           <Card.Header className="text-center m-2">
             <InfosenseLogo style={{ width: "25vh" }} />
           </Card.Header>
 
+          {/* BODY */}
           <Card.Body>
-            <Row>
-              <Col xs="6" className="m-2">
+            <Row className="d-flex align-items-start">
+              {/* 1° column: logo predicto */}
+              <Col xs="5" className="m-2">
                 <Card.Title className="text-center">
-                  <PredictoLogo style={{ width: "15vh" }}/>
+                  <PredictoLogo style={{ width: "15vh" }} />
                 </Card.Title>
                 <div className="container d-flex justify-content-center mt-4">
                   <Github style={{ width: "5vh" }} />
                 </div>
               </Col>
 
+              {/* 2° column: simple explain predicto */}
               <Col className="m-2">
                 <Card.Title className="text-center">PREDICTO</Card.Title>
                 <Card.Text>
@@ -33,6 +39,7 @@ const FooterCustom = () => {
                 </Card.Text>
               </Col>
 
+              {/* 3° column: small link for navigate through the app */}
               <Col className="m-2">
                 <Card.Title className="text-center">APP</Card.Title>
                 <ListGroup variant="flush">
@@ -42,6 +49,7 @@ const FooterCustom = () => {
                 </ListGroup>
               </Col>
 
+              {/* 4° column: predicto products */}
               <Col className="m-2">
                 <Card.Title className="text-center">PRODUCT</Card.Title>
                 <ListGroup variant="flush">
@@ -52,20 +60,12 @@ const FooterCustom = () => {
             </Row>
           </Card.Body>
 
+          {/* FOOTER */}
           <Card.Footer className="text-muted text-center m-2">
             © Infosense, 2022. All rights reserved.
           </Card.Footer>
-          {/* <Card.Header>Featured</Card.Header>
-          <Card.Body>
-            <Card.Title>Special title treatment</Card.Title>
-            <Card.Text>
-              With supporting text below as a natural lead-in to additional
-              content.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
-        </Card>
-      </Container>
+        </Container>
+      </Card>
     </>
   );
 };
