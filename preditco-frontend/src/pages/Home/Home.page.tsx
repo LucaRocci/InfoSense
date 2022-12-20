@@ -130,14 +130,15 @@ const Home = () => {
             </mask>
           </defs>
         </svg>{" "}
-        <div className="p-1 text-center">
-          <p className="text-white display-6">
+        <div className="p-1 ">
+          <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
+          <p className="text-white p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, distinctio explicabo dolore, placeat sint accusamus enim omnis ratione, voluptatem ut temporibus similique suscipit ab sequi reiciendis quo? Illum, cum aliquam.</p>
         </div>
       </Container>
       <Container className="contactUs p-3">
-        <Card className="p-3 m-3">
+        <div className="p-3 m-3">
         <h2 >Contact Us</h2>
 
           <Card.Body>
@@ -158,7 +159,7 @@ const Home = () => {
               <a href="mailto:">fintech@finteh.com</a>
             </Card.Text>
           </Card.Body>
-        </Card>
+        </div>
       </Container>
     </>
   );
