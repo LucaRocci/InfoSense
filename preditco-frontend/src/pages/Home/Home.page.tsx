@@ -1,9 +1,10 @@
 import "./home.scss";
 import Container from "react-bootstrap/Container";
-import { ReactComponent as Placeholder } from "../../assets/placeholder/card-placeholder.svg";
+import placeholder from "../../assets/placeholder/predicto-home.png";
+import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import Button from "react-bootstrap/Button";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Image } from "react-bootstrap";
 
 const Home = () => {
   return (
@@ -69,9 +70,9 @@ const Home = () => {
           </svg>
         </section>
         <section id="card" className="d-sm-flex  flex-md-row pt-4">
-          <Col className="mt-5 mx-2 mt-md-3">
+          <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
             <Card>
-              <Placeholder />
+              <Image src={placeholderFirst} className="img-fluid rounded" />
               <Card.Body>
                 <Card.Title>Actual Statistic</Card.Title>
                 <Card.Text>
@@ -82,9 +83,9 @@ const Home = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="mt-5 mx-2 mt-md-3">
+          <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
             <Card>
-              <Placeholder />
+            <Image src={placeholder} className="img-fluid rounded"/>
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
                 <Card.Text>
@@ -129,7 +130,7 @@ const Home = () => {
             </mask>
           </defs>
         </svg>{" "}
-        <div className="p-5 text-center">
+        <div className="p-1 text-center">
           <p className="text-white display-6">
             Source data from <span className="display-1">Istat</span>
           </p>

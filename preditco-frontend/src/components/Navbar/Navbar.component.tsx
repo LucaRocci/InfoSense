@@ -34,12 +34,12 @@ const NavbarCustom = () => {
         <Navbar expand="md" className={`fixed-top ${show?'bg-blue':'bg-skyblue'}`}>
         <Container fluid>
           <Navbar.Brand>{show?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
+          <Navbar.Toggle aria-controls="basic-navbar-nav text-white" onClick={handleToggle} />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className={`ms-md-auto text-white ${show?'min-h-90':''}`}>
-              <Link className={`nav-link text-white nav-link-font ${show?'mt-4 mx-2':''}`} to='/home'>Home</Link>
-              <Link className={`nav-link text-white nav-link-font ${show?'m-2':''}`} to='/statistics'>Statistics</Link>
-              <Link className={`nav-link text-white nav-link-font ${show?'m-2':''}`} to='/predictions'>Predictions</Link>
+            <Nav className={`ms-md-auto text-black ${show?'min-h-90 text-white':''}`}>
+              <Link className={`nav-link text-black nav-link-font ${show?'mt-4 mx-2 text-white':''}`} to='/home'>Home</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics'>Statistics</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/predictions'>Predictions</Link>
               {show? 
               <Row className='d-flex flex-row align-items-center mt-4'>
                 <Github className='nav-svg-github ms-2' /> <IstatLogo className='nav-svg-istat' />

@@ -9,11 +9,11 @@ const FooterCustom = () => {
   return (
     <>
       {/* FOOTER CARD */}
-      <Card>
+      <Card className="m-3">
         <Container fluid>
           {/* HEADER */}
           {/* Logo Infosense */}
-          <Card.Header className="text-center m-2">
+          <Card.Header className="text-center m-2 bg-white">
             <InfosenseLogo style={{ width: "25vh" }} />
           </Card.Header>
 
@@ -25,7 +25,7 @@ const FooterCustom = () => {
                 <Card.Title className="text-center">
                   <PredictoLogo style={{ width: "15vh" }} />
                 </Card.Title>
-                <div className="container d-flex justify-content-center mt-4">
+                <div className="d-flex justify-content-center mt-4">
                   <Github style={{ width: "5vh" }} />
                 </div>
               </Col>
