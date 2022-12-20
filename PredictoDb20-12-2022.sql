@@ -50,15 +50,15 @@ INSERT INTO `contesto` (`Id_contesto`, `arrivo_presenza`, `nazione`) VALUES
 --
 
 CREATE TABLE `esercizi` (
-  `Id` int(11) NOT NULL,
-  `nome_eserczio` varchar(25) NOT NULL
+  `id_esercizio` int(11) NOT NULL,
+  `nome_esercizio` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `esercizi`
 --
 
-INSERT INTO `esercizi` (`Id`, `nome_eserczio`) VALUES
+INSERT INTO `esercizi` (`Id`, `nome_esercizio`) VALUES
 (1, 'alberghi'),
 (2, 'extra-alberghieri'),
 (3, 'alberghi 3 stelle'),
