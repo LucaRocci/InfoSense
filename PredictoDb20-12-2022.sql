@@ -67,7 +67,7 @@ INSERT INTO `esercizi` (`Id`, `nome_eserczio`) VALUES
 (6, 'campeggi '),
 (7, 'altri esercizi'),
 (8, 'agriturismi'),
-(9, 'bed and brekfast'),
+(9, 'bed and breakfast'),
 (10, 'alberghi 5 stelle');
 
 -- --------------------------------------------------------
