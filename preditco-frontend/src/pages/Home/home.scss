@@ -1,10 +1,47 @@
-svg {
-    width: 85%;
-    height: 85%;
-    opacity: 75%;
+section {
+    min-height: 100vh;
 }
 
-@keyframes plantMovement {
+.animated-svg{
+    width: 100%;
+}
+
+
+
+.card{
+    
+   
+    top: 10%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+}
+
+.container{
+    background-color: #A1E1FA;
+    max-width: none;
+}
+
+
+
+.istat, .contactUs{
+    background-color: #4a8db7;
+}
+
+
+
+.istat>svg{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+@keyframes waveMovement {
     from {
         transform: scaleY(100%);
     }
@@ -14,23 +51,21 @@ svg {
     }
 }
 
-section {
-    min-height: 100vh;
+
+
+#wave {
+    transform-origin: bottom;
+    animation: 1.8s ease-in-out infinite alternate waveMovement;
 }
 
-#plant {
+#wave1 {
     transform-origin: bottom;
-    animation: 1.8s ease-in-out infinite alternate plantMovement;
-}
-
-#plant1 {
-    transform-origin: bottom;
-    animation: 1.5s ease-in-out infinite alternate plantMovement;
+    animation: 1.5s ease-in-out infinite alternate waveMovement;
     animation-delay: 0.5s;
 }
 
-#plant2 {
+#wave2 {
     transform-origin: bottom;
-    animation: 1s ease-in-out infinite alternate plantMovement;
+    animation: 1s ease-in-out infinite alternate waveMovement;
     animation-delay: 1s;
 }
