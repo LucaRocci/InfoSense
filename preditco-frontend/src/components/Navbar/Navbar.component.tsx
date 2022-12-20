@@ -6,10 +6,10 @@ import "./Navbar.scss";
 
 const NavbarCustom = () => {
   return (
-    <Navbar bg="ligth" expand="md" className="fixed-top">
+    <Navbar expand="md" className="fixed-top">
       <Container fluid>
         <Navbar.Brand>
-          <ReactLogo className="w-75" />
+          <ReactLogo className="w-50" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
