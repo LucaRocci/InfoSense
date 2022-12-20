@@ -1,18 +1,62 @@
-
+/* Nav Style */
 .nav-link {
     a {
         text-decoration: none;
         color: black;
     }
 }
-
-.min-h-90 {
-    min-height: 90vh;
-}
-
 .navbar-collapse {
-    transition: none!important;
     &.show {
         min-height: 90vh;
     }
+}
+.nav-svg-github {
+    max-height: 70px;
+    max-width: 70px;
+    color: white;
+}
+.nav-svg-istat {
+    max-height: 70px;
+    max-width: 120px;
+    color: white;
+}
+.nav-link-font {
+    font-size: 1.3em;
+}
+.nav-footer {
+    position: relative;
+    margin-bottom: 5em;
+}
+.nav-footer::after,.nav-footer::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: white;
+    width: 130%;
+}
+.nav-footer::after {
+    top: 0;
+    left: -12px;
+}
+.nav-footer::before {
+    bottom: 0;
+    right: -12px;
+}
+
+.nav-copyrigth-text {
+    font-size: 0.8em;
+}
+
+/* Utility class for heigth */
+.min-h-90 {
+    min-height: 95vh;
+}
+
+
+/* Color test */
+.bg-blue {
+    background-color: #280E71;
+}
+.bg-skyblue {
+    background-color: #A1E1FA;
 }
