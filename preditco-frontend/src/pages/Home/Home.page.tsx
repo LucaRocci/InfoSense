@@ -5,6 +5,7 @@ import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import Button from "react-bootstrap/Button";
 import { Card, Col, Image } from "react-bootstrap";
+import FooterCustom from '../../components/Footer/Footer.components';
 
 const Home = () => {
   return (
@@ -161,6 +162,7 @@ const Home = () => {
           </Card.Body>
         </div>
       </Container>
+      <FooterCustom/>
     </>
   );
 };
