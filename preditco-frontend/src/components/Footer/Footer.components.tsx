@@ -1,4 +1,4 @@
-import { Card, Container, ListGroup } from "react-bootstrap";
+import { Container, ListGroup } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ReactComponent as InfosenseLogo } from "../../assets/logos/logo-infosense.svg";
@@ -13,7 +13,7 @@ const FooterCustom = () => {
       {/* FOOTER */}
       <Container fluid className="mt-4">
         <div className="w-xxl-80 mx-auto">
-          
+
           {/* ROWS */}
           <Row className="row-cols-2 row-cols-sm-2 row-cols-md-4 m-4">
             {/* 1° column: logo predicto */}
