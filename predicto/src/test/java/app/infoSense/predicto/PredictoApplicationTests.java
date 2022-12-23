@@ -7,9 +7,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PredictoApplicationTests {
 
-	@Ignore
-	@Test
-	void contextLoads() {
-	}
-
 }

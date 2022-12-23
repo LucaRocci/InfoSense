@@ -13,9 +13,14 @@ import java.util.Objects;
 public class Province {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProvincia;
+    private Long idProvincia;
+
     @Column(length = 25)
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name = "id_regione")
+    private Regioni idRegione;
 
     @Override
     public boolean equals(Object o) {

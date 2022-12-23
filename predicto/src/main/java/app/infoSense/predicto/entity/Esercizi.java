@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Esercizi {
 
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEsercizio;
+    private Long idEsercizio;
     @Column(length = 25)
     private String nomeEsercizio;
 

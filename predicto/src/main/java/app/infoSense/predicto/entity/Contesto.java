@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Contesto {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idContesto;
+    private Long idContesto;
 
     @Column(length = 10)
     private String arrivoPresenza;

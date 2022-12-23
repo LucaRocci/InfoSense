@@ -14,7 +14,7 @@ import java.util.Objects;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class StatisticheProvince {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_provincia")
@@ -28,9 +28,9 @@ public class StatisticheProvince {
     @JoinColumn(name = "id_esercizio")
     private Esercizi idEsercizio;
 
-    private Year anno;
+    private int anno;
 
-    private Month mese;
+    private int mese;
 
     private int valore;
 
