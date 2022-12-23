@@ -228,38 +228,19 @@ const Home = () => {
           </CardGroup>
         </section>
       </Container>
+      <svg width="auto" height="auto" viewBox="0 0 857 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M220 56H620C610.829 46.2145 591.203 24.8187 586.067 17.5192C579.647 8.39495 563.139 17.5192 558.554 29.4205C553.968 41.3218 535.895 23.8378 521.221 23.8378C506.548 23.8378 495.273 34.5777 477.848 34.9744C460.423 35.3711 456.754 5.61796 444.832 0.460747C432.91 -4.69647 431.075 34.9744 406.313 42.9086C381.551 50.8428 373.297 23.4699 353.121 17.5192C332.945 11.5686 325.608 32.9909 295.343 29.4205C265.079 25.8501 267.887 9.96492 261.938 17.5192C248.194 34.9744 231.617 45.8178 220 56Z" fill="#3B7197"/>
+<path d="M643 57H214H0V51H217.501C225.726 44.7149 245.968 43.1081 250.996 43.1081C254.713 43.1081 256.385 43.5449 258.961 44.2176C263.003 45.2732 269.269 46.9095 289.146 48.3503C306.364 49.5984 318.007 43.73 328.367 38.5081C337.59 33.8598 345.796 29.7236 356.014 31.5752C364.493 33.1118 371.015 36.8103 377.403 40.4332C387.36 46.0803 396.993 51.5438 413.214 48.3503C427.763 45.486 434.951 36.3614 440.571 29.2287C445.236 23.3074 448.819 18.7588 454.634 20.3044C459.992 21.7283 463.799 25.9899 467.784 30.4498C473.335 36.6628 479.23 43.2607 490.138 43.1081C499.982 42.9704 504.927 45.1477 509.691 47.2456C513.995 49.141 518.152 50.9714 525.641 50.9714C533.55 50.9714 544.163 47.5314 553.911 44.3719C563.611 41.2278 572.454 38.3614 576.924 39.4385C593.33 43.3917 601.04 36.5994 606.568 31.7295C611.343 27.5234 614.49 24.7514 620.205 31.5752C623.88 35.9639 630.908 43.7034 637.546 51H857V57H643Z" fill="#4A8DB7"/>
+</svg>
+
+
+
+
       <Container className="istat p-0">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          width="1440"
-          height="252"
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 252"
-        >
-          <g mask='url("#SvgjsMask1471")' fill="none">
-            <rect
-              width="1440"
-              height="252"
-              x="0"
-              y="0"
-              fill="rgba(161, 225, 250, 1)"
-            ></rect>
-            <path
-              d="M 0,137 C 57.6,128.6 172.8,91.8 288,95 C 403.2,98.2 460.8,159 576,153 C 691.2,147 748.8,50.6 864,65 C 979.2,79.4 1036.8,218 1152,225 C 1267.2,232 1382.4,125 1440,100L1440 252L0 252z"
-              fill="rgba(61, 108, 140, 1)"
-            ></path>
-            <path
-              d="M 0,136 C 72,122 216,55.2 360,66 C 504,76.8 576,198 720,190 C 864,182 936,25 1080,26 C 1224,27 1368,161.2 1440,195L1440 252L0 252z"
-              fill="rgba(74, 141, 183, 1)"
-            ></path>
-          </g>
-          <defs>
-            <mask id="SvgjsMask1471">
-              <rect width="1440" height="252" fill="#ffffff"></rect>
-            </mask>
-          </defs>
-        </svg>{" "}
+ 
+
+
+
         <div className="p-1 ">
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
@@ -292,18 +273,8 @@ const Home = () => {
                 Infosense is a small start up where students are ledears.
                 Infosense is a project of ITS-ICT Torino School
               </p>
-              <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          Enter your e-mail.
-        </Form.Text>
-      </Form.Group>
-      <Button variant="primary rounded-pill" type="submit">
-        Submit
-      </Button>
-    </Form>
+          <h5>CONTACT</h5>
+          <p><a>infosense@infosense.it</a></p>
             </Col>
           </Row>
         </div>

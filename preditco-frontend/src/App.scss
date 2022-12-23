@@ -10,3 +10,8 @@ body {
 .overflow-y-hidden {
     overflow-y: hidden;
 }
+
+.btn-primary{
+    --bs-btn-bg: #4A8DB7;
+    --bs-btn-border-color: #4A8DB7;
+}
