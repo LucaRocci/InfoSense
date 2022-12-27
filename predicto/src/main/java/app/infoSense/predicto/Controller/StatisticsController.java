@@ -1,7 +1,5 @@
 package app.infoSense.predicto.Controller;
 
-import app.infoSense.predicto.entity.Esercizi;
-import app.infoSense.predicto.entity.Province;
 import app.infoSense.predicto.payload.response.DatiResponse;
 import app.infoSense.predicto.service.ContestoService;
 import app.infoSense.predicto.service.EserciziService;
@@ -67,9 +65,6 @@ public class StatisticsController {
         return new ResponseEntity<>(list,HttpStatus.OK);
 
   }
-
-
-
 
     // API DI PROVA
 /*    @GetMapping("get/{prov}")
