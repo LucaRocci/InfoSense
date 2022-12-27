@@ -20,11 +20,11 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <div>
                 <InfosenseLogo className="w-100" />
-                <PredictoLogo className="w-75" />
+                {/* <PredictoLogo className="w-75" /> */}
               </div>
-              <div className="d-flex justify-content-left mt-4">
+              {/* <div className="d-flex justify-content-left mt-4">
                 <Github className="footer-svg-github" />
-              </div>
+              </div> */}
             </Col>
 
             {/* 2° column: simple explain predicto */}

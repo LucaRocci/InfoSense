@@ -5,9 +5,49 @@ import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import Button from "react-bootstrap/Button";
 import { Card, Col, Image } from "react-bootstrap";
-import FooterCustom from '../../components/Footer/Footer.components';
+import FooterCustom from "../../components/Footer/Footer.components";
+import imagemia from "../../assets/images/immagine-html.jpeg";
 
 const Home = () => {
+  interface Worker {
+    name: string;
+    field: string;
+  }
+  const workers: Worker[] = [
+    {
+      name: "Gabriele",
+      field: "Web Develop",
+    },
+    {
+      name: "Pietro",
+      field: "Web Develop",
+    },
+    {
+      name: "Simone",
+      field: "Web Develop",
+    },
+    {
+      name: "Luca",
+      field: "Backend",
+    },
+    {
+      name: "Luca",
+      field: "Backend",
+    },
+    {
+      name: "Luca",
+      field: "Backend",
+    },
+    {
+      name: "Federico",
+      field: "Fintech",
+    },
+    {
+      name: "Matteo",
+      field: "Fintech",
+    },
+  ];
+
   return (
     <>
       <Container>
@@ -86,7 +126,7 @@ const Home = () => {
           </Col>
           <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
             <Card>
-            <Image src={placeholder} className="img-fluid rounded"/>
+              <Image src={placeholder} className="img-fluid rounded" />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
                 <Card.Text>
@@ -135,12 +175,37 @@ const Home = () => {
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
-          <p className="text-white p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, distinctio explicabo dolore, placeat sint accusamus enim omnis ratione, voluptatem ut temporibus similique suscipit ab sequi reiciendis quo? Illum, cum aliquam.</p>
+          <p className="text-white p-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
+            distinctio explicabo dolore, placeat sint accusamus enim omnis
+            ratione, voluptatem ut temporibus similique suscipit ab sequi
+            reiciendis quo? Illum, cum aliquam.
+          </p>
+        </div>
+      </Container>
+
+      <Container className="our-team">
+        <h2 className="text-center p-4">OUR TEAM</h2>
+        <div className="d-flex justify-content-center flex-wrap">
+          {workers.map((el: Worker) => (
+            <>
+              <div className="m-2 text-center">
+                <img
+                  src={imagemia}
+                  alt="..."
+                  className="rounded-circle"
+                  style={{ width: "200px", height: "200px" }}
+                />
+                <h3 className="mt-4">{el.name}</h3>
+                <p>{el.field}</p>
+              </div>
+            </>
+          ))}
         </div>
       </Container>
       <Container className="contactUs p-3">
         <div className="p-3 m-3">
-        <h2 >Contact Us</h2>
+          <h2>Contact Us</h2>
 
           <Card.Body>
             <Card.Title>Fintech</Card.Title>
@@ -162,7 +227,7 @@ const Home = () => {
           </Card.Body>
         </div>
       </Container>
-      <FooterCustom/>
+      <FooterCustom />
     </>
   );
 };
