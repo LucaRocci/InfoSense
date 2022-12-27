@@ -4,9 +4,11 @@ import placeholder from "../../assets/placeholder/predicto-home.png";
 import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import Button from "react-bootstrap/Button";
-import { Card, Col, Image } from "react-bootstrap";
-import FooterCustom from "../../components/Footer/Footer.components";
 import imagemia from "../../assets/images/immagine-html.jpeg";
+import { Card, CardGroup, Col, Row, Image } from "react-bootstrap";
+import FooterCustom from "../../components/Footer/Footer.components";
+import Form from 'react-bootstrap/Form';
+
 
 const Home = () => {
   interface Worker {
@@ -111,66 +113,175 @@ const Home = () => {
           </svg>
         </section>
         <section id="card" className="d-sm-flex  flex-md-row pt-4">
-          <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
-            <Card>
-              <Image src={placeholderFirst} className="img-fluid rounded" />
-              <Card.Body>
-                <Card.Title>Actual Statistic</Card.Title>
-                <Card.Text>
-                  This tool provides actual and past statistics. Select your
-                  period, view and download data you need.
-                </Card.Text>
-                <Button variant="primary rounded-pill">Open</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
-            <Card>
-              <Image src={placeholder} className="img-fluid rounded" />
-              <Card.Body>
-                <Card.Title>Prediction</Card.Title>
-                <Card.Text>
-                  If you need prevision data this is the tool you need. Start
-                  planning your business looking for prediction data.
-                </Card.Text>
-                <Button variant="primary rounded-pill">Open</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          <CardGroup className="mx-md-5">
+            <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
+              <Card>
+                {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
+                <svg
+                  width="275"
+                  height="246"
+                  viewBox="0 0 275 246"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="wave">
+                    <path
+                      d="M50 78C50 74.134 53.134 71 57 71H79C82.866 71 86 74.134 86 78V212C86 215.866 82.866 219 79 219H57C53.134 219 50 215.866 50 212V78Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="wave1">
+                    <path
+                      d="M0 7C0 3.13401 3.13401 0 7 0H29C32.866 0 36 3.13401 36 7V212C36 215.866 32.866 219 29 219H7C3.13401 219 0 215.866 0 212V7Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="wave2">
+                    <path
+                      d="M100 135C100 131.134 103.134 128 107 128H129C132.866 128 136 131.134 136 135V212C136 215.866 132.866 219 129 219H107C103.134 219 100 215.866 100 212V135Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="wave1">
+                    <path
+                      d="M150 78C150 74.134 153.134 71 157 71H179C182.866 71 186 74.134 186 78V212C186 215.866 182.866 219 179 219H157C153.134 219 150 215.866 150 212V78Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="wave">
+                    <path
+                      d="M200 172C200 168.134 203.134 165 207 165H229C232.866 165 236 168.134 236 172V212C236 215.866 232.866 219 229 219H207C203.134 219 200 215.866 200 212V172Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="wave2">
+                    <path
+                      d="M218 201C218 197.134 221.134 194 225 194H247C250.866 194 254 197.134 254 201V225C254 228.866 250.866 232 247 232H225C221.134 232 218 228.866 218 225V201Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="wave1">
+                    <path
+                      d="M168 145C168 141.134 171.134 138 175 138H197C200.866 138 204 141.134 204 145V225C204 228.866 200.866 232 197 232H175C171.134 232 168 228.866 168 225V145Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="wave">
+                    <path
+                      d="M118 113C118 109.134 121.134 106 125 106H147C150.866 106 154 109.134 154 113V225C154 228.866 150.866 232 147 232H125C121.134 232 118 228.866 118 225V113Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="wave2">
+                    <path
+                      d="M68 164C68 160.134 71.134 157 75 157H97C100.866 157 104 160.134 104 164V225C104 228.866 100.866 232 97 232H75C71.134 232 68 228.866 68 225V164Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="wave">
+                    <path
+                      d="M18 46C18 42.134 21.134 39 25 39H47C50.866 39 54 42.134 54 46V225C54 228.866 50.866 232 47 232H25C21.134 232 18 228.866 18 225V46Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="wave1">
+                    <path
+                      d="M89 199C89 195.134 92.134 192 96 192H118C121.866 192 125 195.134 125 199V239C125 242.866 121.866 246 118 246H96C92.134 246 89 242.866 89 239V199Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                  <g id="wave2">
+                    <path
+                      d="M39 96C39 92.134 42.134 89 46 89H68C71.866 89 75 92.134 75 96V239C75 242.866 71.866 246 68 246H46C42.134 246 39 242.866 39 239V96Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                  <g id="wave1">
+                    <path
+                      d="M139 162C139 158.134 142.134 155 146 155H168C171.866 155 175 158.134 175 162V239C175 242.866 171.866 246 168 246H146C142.134 246 139 242.866 139 239V162Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                  <g id="wave">
+                    <path
+                      d="M189 215C189 211.134 192.134 208 196 208H218C221.866 208 225 211.134 225 215V239C225 242.866 221.866 246 218 246H196C192.134 246 189 242.866 189 239V215Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                  <g id="wave2">
+                    <path
+                      d="M239 199C239 195.134 242.134 192 246 192H268C271.866 192 275 195.134 275 199V239C275 242.866 271.866 246 268 246H246C242.134 246 239 242.866 239 239V199Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                </svg>
+
+                <Card.Body>
+                  <Card.Title>Actual Statistic</Card.Title>
+                  <Card.Text>
+                    This tool provides actual and past statistics. Select your
+                    period, view and download data you need.
+                  </Card.Text>
+                  <Button variant="primary rounded-pill">Open</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
+              <Card>
+                {/* <Image src={placeholder} className="img-fluid rounded"/> */}
+                <svg
+                  width="275"
+                  height="246"
+                  viewBox="0 0 275 246"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="circle">
+                    <path
+                      d="M253 126.5C253 102.492 246.168 78.9805 233.303 58.711C220.438 38.4416 202.07 22.2516 180.346 12.0324C158.622 1.81329 134.439 -2.013 110.621 1.00057C86.8033 4.01413 64.3349 13.7431 45.8407 29.0509C27.3465 44.3587 13.5901 64.6132 6.17873 87.4482C-1.23265 110.283 -1.99303 134.756 3.98643 158.007C9.96589 181.258 22.4383 202.327 39.9465 218.754C57.4547 235.18 79.2758 246.285 102.86 250.772L113.707 193.751C100.944 191.323 89.1352 185.314 79.6604 176.424C70.1856 167.535 63.436 156.133 60.2001 143.55C56.9643 130.968 57.3758 117.724 61.3865 105.367C65.3973 93.0091 72.8417 82.0481 82.8501 73.7641C92.8585 65.4801 105.018 60.2151 117.907 58.5843C130.796 56.9535 143.883 59.0241 155.64 64.5543C167.396 70.0846 177.336 78.846 184.298 89.8151C191.26 100.784 194.957 113.508 194.957 126.5H253Z"
+                      fill="#280E71"
+                    />
+                  </g>
+                  <g id="circle1">
+                    <path
+                      d="M80.915 26.9061C61.9528 35.6183 45.8613 49.5466 34.5203 67.0637C23.1794 84.5809 17.0573 104.964 16.8693 125.831C16.6813 146.698 22.4352 167.187 33.4587 184.906C44.4823 202.625 60.3203 216.841 79.1225 225.893C97.9247 234.945 118.915 238.46 139.64 236.028C160.366 233.595 179.971 225.314 196.166 212.154C212.361 198.993 224.476 181.496 231.097 161.706C237.717 141.917 238.57 120.651 233.555 100.395L164.881 117.398C166.67 124.621 166.366 132.204 164.005 139.261C161.644 146.318 157.324 152.557 151.549 157.25C145.774 161.943 138.783 164.896 131.392 165.763C124.002 166.631 116.517 165.377 109.812 162.149C103.108 158.921 97.4599 153.852 93.529 147.534C89.5981 141.215 87.5463 133.909 87.6133 126.468C87.6804 119.027 89.8634 111.759 93.9075 105.512C97.9516 99.2657 103.69 94.299 110.451 91.1923L80.915 26.9061Z"
+                      fill="#86D1FF"
+                    />
+                  </g>
+                  <g id="circle">
+                    <path
+                      d="M62.3483 143.405C65.4956 155.641 72.0598 166.728 81.274 175.372C90.4882 184.016 101.972 189.86 114.384 192.22C126.795 194.581 139.623 193.361 151.367 188.702C163.111 184.044 173.287 176.14 180.706 165.914C188.125 155.687 192.481 143.561 193.264 130.951C194.048 118.341 191.227 105.769 185.132 94.7021C179.036 83.6357 169.917 74.5324 158.84 68.4557C147.764 62.379 135.186 59.5797 122.578 60.385L125.278 102.668C129.862 102.375 134.435 103.393 138.462 105.602C142.489 107.811 145.804 111.121 148.02 115.144C150.237 119.167 151.262 123.738 150.977 128.323C150.692 132.907 149.109 137.316 146.411 141.033C143.714 144.751 140.014 147.625 135.745 149.319C131.475 151.012 126.812 151.456 122.299 150.598C117.787 149.739 113.612 147.615 110.262 144.472C106.912 141.33 104.526 137.299 103.381 132.85L62.3483 143.405Z"
+                      fill="#74BDE0"
+                    />
+                  </g>
+                </svg>
+
+                <Card.Body>
+                  <Card.Title>Prediction</Card.Title>
+                  <Card.Text>
+                    This tool provide prediction feature income. Start planning
+                    your business looking for prediction.
+                  </Card.Text>
+                  <Button variant="primary rounded-pill">Open</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </CardGroup>
         </section>
       </Container>
+      <svg width="auto" height="auto" viewBox="0 0 857 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M220 56H620C610.829 46.2145 591.203 24.8187 586.067 17.5192C579.647 8.39495 563.139 17.5192 558.554 29.4205C553.968 41.3218 535.895 23.8378 521.221 23.8378C506.548 23.8378 495.273 34.5777 477.848 34.9744C460.423 35.3711 456.754 5.61796 444.832 0.460747C432.91 -4.69647 431.075 34.9744 406.313 42.9086C381.551 50.8428 373.297 23.4699 353.121 17.5192C332.945 11.5686 325.608 32.9909 295.343 29.4205C265.079 25.8501 267.887 9.96492 261.938 17.5192C248.194 34.9744 231.617 45.8178 220 56Z" fill="#3B7197"/>
+<path d="M643 57H214H0V51H217.501C225.726 44.7149 245.968 43.1081 250.996 43.1081C254.713 43.1081 256.385 43.5449 258.961 44.2176C263.003 45.2732 269.269 46.9095 289.146 48.3503C306.364 49.5984 318.007 43.73 328.367 38.5081C337.59 33.8598 345.796 29.7236 356.014 31.5752C364.493 33.1118 371.015 36.8103 377.403 40.4332C387.36 46.0803 396.993 51.5438 413.214 48.3503C427.763 45.486 434.951 36.3614 440.571 29.2287C445.236 23.3074 448.819 18.7588 454.634 20.3044C459.992 21.7283 463.799 25.9899 467.784 30.4498C473.335 36.6628 479.23 43.2607 490.138 43.1081C499.982 42.9704 504.927 45.1477 509.691 47.2456C513.995 49.141 518.152 50.9714 525.641 50.9714C533.55 50.9714 544.163 47.5314 553.911 44.3719C563.611 41.2278 572.454 38.3614 576.924 39.4385C593.33 43.3917 601.04 36.5994 606.568 31.7295C611.343 27.5234 614.49 24.7514 620.205 31.5752C623.88 35.9639 630.908 43.7034 637.546 51H857V57H643Z" fill="#4A8DB7"/>
+</svg>
+
+
+
+
       <Container className="istat p-0">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          width="1440"
-          height="252"
-          preserveAspectRatio="none"
-          viewBox="0 0 1440 252"
-        >
-          <g mask='url("#SvgjsMask1471")' fill="none">
-            <rect
-              width="1440"
-              height="252"
-              x="0"
-              y="0"
-              fill="rgba(161, 225, 250, 1)"
-            ></rect>
-            <path
-              d="M 0,137 C 57.6,128.6 172.8,91.8 288,95 C 403.2,98.2 460.8,159 576,153 C 691.2,147 748.8,50.6 864,65 C 979.2,79.4 1036.8,218 1152,225 C 1267.2,232 1382.4,125 1440,100L1440 252L0 252z"
-              fill="rgba(61, 108, 140, 1)"
-            ></path>
-            <path
-              d="M 0,136 C 72,122 216,55.2 360,66 C 504,76.8 576,198 720,190 C 864,182 936,25 1080,26 C 1224,27 1368,161.2 1440,195L1440 252L0 252z"
-              fill="rgba(74, 141, 183, 1)"
-            ></path>
-          </g>
-          <defs>
-            <mask id="SvgjsMask1471">
-              <rect width="1440" height="252" fill="#ffffff"></rect>
-            </mask>
-          </defs>
-        </svg>{" "}
+ 
+
+
+
         <div className="p-1 ">
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
@@ -206,25 +317,31 @@ const Home = () => {
       <Container className="contactUs p-3">
         <div className="p-3 m-3">
           <h2>Contact Us</h2>
-
-          <Card.Body>
-            <Card.Title>Fintech</Card.Title>
-            <Card.Text>
-              <a href="mailto:">fintech@finteh.com</a>
-            </Card.Text>
-          </Card.Body>
-          <Card.Body>
-            <Card.Title>Fintech</Card.Title>
-            <Card.Text>
-              <a href="mailto:">fintech@finteh.com</a>
-            </Card.Text>
-          </Card.Body>
-          <Card.Body>
-            <Card.Title>Fintech</Card.Title>
-            <Card.Text>
-              <a href="mailto:">fintech@finteh.com</a>
-            </Card.Text>
-          </Card.Body>
+        </div>
+      </Container>
+      <Container className="contactUs p-3">
+        <div className="w-xxl-80 mx-auto p-3 m-3">
+          {/* <h2>Where we are</h2> */}
+          <Row className="m-auto">
+            <Col xs={12} md={6} className=" p-2">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22541.995642265392!2d7.6516714180993155!3d45.07059331227261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886d71c8d8bb55%3A0xaf5abbd586b9f391!2sFondazione%20ITS%20Turismo%20e%20attivit%C3%A0%20culturali!5e0!3m2!1sit!2sit!4v1671721136537!5m2!1sit!2sit"
+                width="600"
+                height="500"
+                loading="lazy"
+              ></iframe>
+            </Col>
+            <Col xs={12} md={4} className="m-2 p-2">
+              <h4>Infosense</h4>
+              <h4>ITS-ICT TORINO</h4>
+              <p>
+                Infosense is a small start up where students are ledears.
+                Infosense is a project of ITS-ICT Torino School
+              </p>
+          <h5>CONTACT</h5>
+          <p><a>infosense@infosense.it</a></p>
+            </Col>
+          </Row>
         </div>
       </Container>
       <FooterCustom />

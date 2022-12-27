@@ -40,17 +40,17 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <h4 className="text-center">APP</h4>
               <ListGroup variant="flush">
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">
                   <Link className="link-footer" to="/home">
                     Home
                   </Link>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">
                   <Link className="link-footer" to="/statistics">
                     Statistic
                   </Link>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">
                   <Link className="link-footer" to="/predictions">
                     Prediction
                   </Link>
@@ -62,8 +62,8 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <h4 className="text-center">PRODUCT</h4>
               <ListGroup variant="flush">
-                <ListGroup.Item>Predicto</ListGroup.Item>
-                <ListGroup.Item>Stay Tuned</ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">Predicto</ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">Stay Tuned</ListGroup.Item>
               </ListGroup>
             </Col>
           </Row>

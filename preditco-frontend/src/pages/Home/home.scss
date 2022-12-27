@@ -2,43 +2,47 @@ section {
     min-height: 100vh;
 }
 
-.animated-svg{
+.animated-svg {
     width: 100%;
 }
 
 
 
-.card{
-    
-   
+.card {
     top: 10%;
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
     border-radius: 20px;
 }
 
-.container{
+.container {
     background-color: #A1E1FA;
     max-width: none;
 }
 
 
 
-.istat{
+.istat {
     background-color: #4a8db7;
 }
 
-.contactUs{
+.contactUs {
     background-color: #A1E1FA;
 }
 
 
 
-.istat>svg{
-    width: 100%;
-    height: 100%;
+.card>svg{
+    width: 55%;
+    margin: auto;
 }
 
+iframe{
+    width: 100%;
+    
+    box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+}
 
 
 
@@ -53,6 +57,19 @@ section {
 
     to {
         transform: scaleY(50%);
+    }
+}
+
+@keyframes circleMovement {
+    from {
+        
+        transform: rotate(0deg) scale(1); 
+        
+    }
+
+    to {
+        transform: rotate(180deg) scale(0.7); 
+        
     }
 }
 
@@ -86,3 +103,16 @@ section {
         -webkit-filter: grayscale(0);
     }
 }
+
+#circle {
+    transform-origin: 50% 50%; 
+    transform-box: fill-box;
+    animation: 1.8s ease-in-out infinite alternate circleMovement;
+}
+#circle1 {
+    transform-origin: 50% 50%; 
+    transform-box: fill-box;
+    animation: 1.5s ease-in-out infinite alternate circleMovement;
+}
+
+
