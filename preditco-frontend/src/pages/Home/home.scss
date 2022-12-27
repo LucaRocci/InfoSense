@@ -1,118 +1,102 @@
+@import "../../colors.scss";
+
 section {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .animated-svg {
-    width: 100%;
+  width: 100%;
 }
 
-
-
 .card {
-    top: 10%;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
-    border-radius: 20px;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
+  border-radius: 20px;
 }
 
 .container {
-    background-color: #A1E1FA;
-    max-width: none;
+  background-color: $blue-100;
+  max-width: none;
 }
 
-
-
 .istat {
-    background-color: #4a8db7;
+  background-color: $blue-300;
 }
 
 .contactUs {
-    background-color: #A1E1FA;
+  background-color: $blue-100;
 }
 
-
-
-.card>svg{
-    width: 55%;
-    margin: auto;
+.card > svg {
+  width: 55%;
+  margin: auto;
 }
 
-iframe{
-    width: 100%;
-    
-    box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
-    border-radius: 20px;
+iframe {
+  width: 100%;
+
+  box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
+  border-radius: 20px;
 }
-
-
-
-
-
-
 
 @keyframes waveMovement {
-    from {
-        transform: scaleY(100%);
-    }
+  from {
+    transform: scaleY(100%);
+  }
 
-    to {
-        transform: scaleY(50%);
-    }
+  to {
+    transform: scaleY(50%);
+  }
 }
 
 @keyframes circleMovement {
-    from {
-        
-        transform: rotate(0deg) scale(1); 
-        
-    }
+  from {
+    transform: rotate(0deg) scale(1);
+  }
 
-    to {
-        transform: rotate(180deg) scale(0.7); 
-        
-    }
+  to {
+    transform: rotate(180deg) scale(0.7);
+  }
 }
 
-
-
 #wave {
-    transform-origin: bottom;
-    animation: 1.8s ease-in-out infinite alternate waveMovement;
+  transform-origin: bottom;
+  animation: 1.8s ease-in-out infinite alternate waveMovement;
 }
 
 #wave1 {
-    transform-origin: bottom;
-    animation: 1.5s ease-in-out infinite alternate waveMovement;
-    animation-delay: 0.5s;
+  transform-origin: bottom;
+  animation: 1.5s ease-in-out infinite alternate waveMovement;
+  animation-delay: 0.5s;
 }
 
 #wave2 {
-    transform-origin: bottom;
-    animation: 1s ease-in-out infinite alternate waveMovement;
-    animation-delay: 1s;
+  transform-origin: bottom;
+  animation: 1s ease-in-out infinite alternate waveMovement;
+  animation-delay: 1s;
 }
 
 .our-team {
-    img {
-        filter: grayscale(100%);
-        -webkit-filter: grayscale(100%);
-    }
-    
-    img:hover {
-        filter: none;
-        -webkit-filter: grayscale(0);
-    }
+  img {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+  }
 }
 
 #circle {
-    transform-origin: 50% 50%; 
-    transform-box: fill-box;
-    animation: 1.8s ease-in-out infinite alternate circleMovement;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: 1.8s ease-in-out infinite alternate circleMovement;
 }
+
 #circle1 {
-    transform-origin: 50% 50%; 
-    transform-box: fill-box;
-    animation: 1.5s ease-in-out infinite alternate circleMovement;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  animation: 1.5s ease-in-out infinite alternate circleMovement;
 }
-
-

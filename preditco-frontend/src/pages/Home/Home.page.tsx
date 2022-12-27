@@ -52,7 +52,7 @@ const Home = () => {
 
   return (
     <>
-      <Container>
+      <Container className="home">
         <section className="d-flex flex-column align-items-center justify-content-between">
           <div className="d-flex flex-column align-items-center my-auto">
             <Logo />
