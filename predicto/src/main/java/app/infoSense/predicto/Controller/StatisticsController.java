@@ -1,6 +1,7 @@
 package app.infoSense.predicto.Controller;
 
 import app.infoSense.predicto.payload.response.DatiResponse;
+import app.infoSense.predicto.payload.response.DatiResponseCalcolati;
 import app.infoSense.predicto.service.ContestoService;
 import app.infoSense.predicto.service.EserciziService;
 import app.infoSense.predicto.service.ProvinceService;
@@ -30,8 +31,11 @@ public class StatisticsController {
     StatisticheProvinceService statisticheProvinceService;
 
     @GetMapping("/province")
-    public ResponseEntity<List<String>> getProvince(){
+    public ResponseEntity<?> getProvince(){
       List<String> lista=  provinceService.findNomiProvince();
+      if(lista.isEmpty()){
+          return new ResponseEntity<>("Empty List",HttpStatus.BAD_REQUEST);
+      }
       return new ResponseEntity<List<String>>(lista, HttpStatus.OK);
     }
 
@@ -46,7 +50,7 @@ public class StatisticsController {
 
     // li mandi indietro tutti i dati che corrispondono
   @GetMapping("/{provincia}/{esercizio}/{provenienza}")
-   public ResponseEntity<?> getAnni(@PathVariable String provincia, @PathVariable String esercizio, @PathVariable("provenienza") String from ){
+   public ResponseEntity<?> getDatiProvince(@PathVariable String provincia, @PathVariable String esercizio, @PathVariable("provenienza") String from ){
 
         Optional<Long> idProv = provinceService.findIdByNome(provincia);
         if(idProv.isEmpty()){
@@ -64,6 +68,23 @@ public class StatisticsController {
         List<DatiResponse>list=statisticheProvinceService.getDati((Long)arr[0],(Long)arr[1],idEser,idProv);
         return new ResponseEntity<>(list,HttpStatus.OK);
 
+  }
+
+
+  @GetMapping("/totali/{esercizio}/{provenienza}")
+  public ResponseEntity<?> getTotaliRegione(@PathVariable String esercizio, @PathVariable("provenienza") String from){
+
+      Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+      if(idEser.isEmpty()){
+          return new ResponseEntity<>("Esercizio inesistente",HttpStatus.NOT_FOUND);
+      }
+      List<Long> idContesti = contestoService.findbyNazione(from);
+      if(idContesti.isEmpty()){
+          return new ResponseEntity<>("Provenienza non valida",HttpStatus.NOT_FOUND);
+      }
+      Object[] arr= idContesti.toArray();
+      List<DatiResponseCalcolati>list = statisticheProvinceService.getTotaliRegione((Long)arr[0],(Long)arr[1],idEser);
+        return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
     // API DI PROVA
