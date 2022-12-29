@@ -33,11 +33,11 @@ const Home = () => {
       field: "Backend",
     },
     {
-      name: "Luca",
+      name: "Marco",
       field: "Backend",
     },
     {
-      name: "Luca",
+      name: "Sara",
       field: "Backend",
     },
     {
@@ -228,7 +228,6 @@ const Home = () => {
             </Col>
             <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
               <Card>
-                {/* <Image src={placeholder} className="img-fluid rounded"/> */}
                 <svg
                   width="275"
                   height="246"
@@ -269,7 +268,7 @@ const Home = () => {
           </CardGroup>
         </section>
       </Container>
-      <svg width="auto" height="auto" viewBox="0 0 857 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100%" height="100%" viewBox="0 0 857 57" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M220 56H620C610.829 46.2145 591.203 24.8187 586.067 17.5192C579.647 8.39495 563.139 17.5192 558.554 29.4205C553.968 41.3218 535.895 23.8378 521.221 23.8378C506.548 23.8378 495.273 34.5777 477.848 34.9744C460.423 35.3711 456.754 5.61796 444.832 0.460747C432.91 -4.69647 431.075 34.9744 406.313 42.9086C381.551 50.8428 373.297 23.4699 353.121 17.5192C332.945 11.5686 325.608 32.9909 295.343 29.4205C265.079 25.8501 267.887 9.96492 261.938 17.5192C248.194 34.9744 231.617 45.8178 220 56Z" fill="#3B7197"/>
 <path d="M643 57H214H0V51H217.501C225.726 44.7149 245.968 43.1081 250.996 43.1081C254.713 43.1081 256.385 43.5449 258.961 44.2176C263.003 45.2732 269.269 46.9095 289.146 48.3503C306.364 49.5984 318.007 43.73 328.367 38.5081C337.59 33.8598 345.796 29.7236 356.014 31.5752C364.493 33.1118 371.015 36.8103 377.403 40.4332C387.36 46.0803 396.993 51.5438 413.214 48.3503C427.763 45.486 434.951 36.3614 440.571 29.2287C445.236 23.3074 448.819 18.7588 454.634 20.3044C459.992 21.7283 463.799 25.9899 467.784 30.4498C473.335 36.6628 479.23 43.2607 490.138 43.1081C499.982 42.9704 504.927 45.1477 509.691 47.2456C513.995 49.141 518.152 50.9714 525.641 50.9714C533.55 50.9714 544.163 47.5314 553.911 44.3719C563.611 41.2278 572.454 38.3614 576.924 39.4385C593.33 43.3917 601.04 36.5994 606.568 31.7295C611.343 27.5234 614.49 24.7514 620.205 31.5752C623.88 35.9639 630.908 43.7034 637.546 51H857V57H643Z" fill="#4A8DB7"/>
 </svg>
@@ -279,9 +278,6 @@ const Home = () => {
 
       <Container className="istat p-0">
  
-
-
-
         <div className="p-1 ">
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
@@ -298,30 +294,30 @@ const Home = () => {
       <Container className="our-team">
         <h2 className="text-center p-4">OUR TEAM</h2>
         <div className="d-flex justify-content-center flex-wrap">
-          {workers.map((el: Worker) => (
-            <>
-              <div className="m-2 text-center">
+          {workers.map((el: Worker, index: number) => (
+            
+              <div key={index} className="m-2 text-center">
                 <img
+
                   src={imagemia}
                   alt="..."
                   className="rounded-circle"
-                  style={{ width: "200px", height: "200px" }}
+                  style={{ width: "50px", height: "50px" }}
                 />
                 <h3 className="mt-4">{el.name}</h3>
                 <p>{el.field}</p>
               </div>
-            </>
+            
           ))}
         </div>
       </Container>
-      <Container className="contactUs p-3">
-        <div className="p-3 m-3">
+      <Container className="contactUs">
+        <div className="ps-3">
           <h2>Contact Us</h2>
         </div>
       </Container>
       <Container className="contactUs p-3">
         <div className="w-xxl-80 mx-auto p-3 m-3">
-          {/* <h2>Where we are</h2> */}
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">
               <iframe
