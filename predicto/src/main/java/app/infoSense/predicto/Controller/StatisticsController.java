@@ -9,16 +9,14 @@ import app.infoSense.predicto.service.StatisticheProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/statistics")
+//@CrossOrigin
 public class StatisticsController {
 
     @Autowired
@@ -71,7 +69,7 @@ public class StatisticsController {
   }
 
 
-  @GetMapping("/totali/{esercizio}/{provenienza}")
+  @GetMapping("/regione/{esercizio}/{provenienza}")
   public ResponseEntity<?> getTotaliRegione(@PathVariable String esercizio, @PathVariable("provenienza") String from){
 
       Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
@@ -86,29 +84,5 @@ public class StatisticsController {
       List<DatiResponseCalcolati>list = statisticheProvinceService.getTotaliRegione((Long)arr[0],(Long)arr[1],idEser);
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
-
-    // API DI PROVA
-/*    @GetMapping("get/{prov}")
-    public ResponseEntity<String> prova(@PathVariable String prov){
-         Optional<Long> entita = eserciziService.findIdByNomeEsercizio(prov);
-         if(!entita.isEmpty()){
-             return  new ResponseEntity<String>("L'id corrispondente è "+entita,HttpStatus.OK);
-         }
-         else {
-             return new ResponseEntity<String>("L'id corrispondente non esiste ", HttpStatus.OK);
-         }
-    }
-
-    @GetMapping("get2/{nation}")
-    public ResponseEntity<?> prova2(@PathVariable String nation){
-
-        List<Long> corrispondenze = contestoService.findbyNazione(nation);
-        if(!corrispondenze.isEmpty()){
-            return new ResponseEntity<List<Long>>(corrispondenze,HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity<String>("L'id corrispondente non esiste ", HttpStatus.OK);
-        }
-    }*/
 
 }
