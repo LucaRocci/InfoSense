@@ -53,40 +53,13 @@ const options = {
   plugins: {
     legend: {
       position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart Bar Chart",
-    },
+    }
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: [122, 786, 343, 764, 567, 123, 456],
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
-      data: [192, 726, 34, 764, 57, 13, 406],
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-    {
-      label: "Dataset 3",
-      data: [192, 76, 34, 74, 57, 13, 40],
-      backgroundColor: "rgba(53, 152, 237, 1)",
-    },
-  ],
-};
-
 const Statistics = () => {
-  const [province, setProvince] = useState<string>("Torino");
-  const [activityType, setActivityType] = useState<string>("alberghi 2 stelle");
+  const [province, setProvince] = useState<string>("Cuneo");
+  const [activityType, setActivityType] = useState<string>("alberghi 3 stelle");
   const [country, setCountry] = useState<string>("Italia");
   const [show, setShow] = useState(false);
 
