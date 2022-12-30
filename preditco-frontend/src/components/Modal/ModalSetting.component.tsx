@@ -4,14 +4,14 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { useState } from "react";
+import { useState, FC } from "react";
 
+type ModalSettingProps = {
+  show:boolean,
+  handleClose: () => void
+}
 
-const ModalSetting = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-
+const ModalSetting:FC<ModalSettingProps> = ({show, handleClose}) => {
   
 
     return(

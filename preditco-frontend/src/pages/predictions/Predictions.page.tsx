@@ -10,8 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./Statistics.scss";
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Radar } from "react-chartjs-2";
 //React-bootstrap import
 import { Container } from "react-bootstrap";
 //Hooks imorts
@@ -43,7 +42,7 @@ ChartJS.register(
   Legend
 );
 
-const options = {
+const optionsBar = {
   maintainAspectRatio: false,
   plugins: {
     legend: {
@@ -52,8 +51,16 @@ const options = {
   },
 };
 
+const optionsLine = {
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "top" as const,
+    }
+  },
+};
 
-const Statistics = () => {
+const Predictions = () => {
   //Input state for api req
   const [province, setProvince] = useState<string>("Torino");
   const [activityType, setActivityType] = useState<string>("alberghi 3 stelle");
@@ -83,12 +90,11 @@ const Statistics = () => {
   );
 
   const graphRef = useRef();
-  const graphRef2 = useRef();
 
   //Effect for change the chart settings on api change request
   useEffect(() => {
     if(graphRef.current)
-       console.log(graphRef.current, graphRef2.current);
+       console.log(graphRef.current);
     const mappedLabels: string[] = [];
     const arriveValue: number[] = [];
     const presValue: number[] = [];
@@ -169,12 +175,12 @@ const Statistics = () => {
         {error ? <>Error...</>:''}
         <button type="submit">Submit</button>
       </form> */}
-        <div  className="chart-view">
-          <Bar id="1" ref={graphRef} options={options} data={data} />
+        <div id="2" className="chart-view">
+          <Bar id="2" ref={graphRef} options={optionsBar} data={data} />
         </div> 
       </Container>
     </>
   );
 };
 
-export default Statistics;
+export default Predictions;
