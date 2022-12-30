@@ -15,7 +15,7 @@ import { Bar, Line } from "react-chartjs-2";
 //React-bootstrap import
 import { Container } from "react-bootstrap";
 //Hooks imorts
-import useFetch from "../../hooks/useFetch/useFetch.hook";
+import useFetch from "../../hooks/useFetch.hook";
 import Card from "react-bootstrap/Card";
 
 import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
@@ -59,9 +59,8 @@ const Statistics = () => {
   const [activityType, setActivityType] = useState<string>("alberghi 3 stelle");
   const [country, setCountry] = useState<string>("Italia");
   //Char setting state
-  const [labels, setLabels] = useState<string[]>([]);
   const [data, setData] = useState<DataChart>({
-    labels,
+    labels: [],
     datasets: [
       {
         label: "Arrivi",
@@ -83,12 +82,15 @@ const Statistics = () => {
   );
 
   const graphRef = useRef();
-  const graphRef2 = useRef();
+
 
   //Effect for change the chart settings on api change request
   useEffect(() => {
-    if(graphRef.current)
-       console.log(graphRef.current, graphRef2.current);
+/*     if(graphRef.current)
+       console.log(graphRef.current, graphRef2.current); */
+
+       console.log(apiData)
+
     const mappedLabels: string[] = [];
     const arriveValue: number[] = [];
     const presValue: number[] = [];
@@ -102,22 +104,22 @@ const Statistics = () => {
         presValue.push(e.valore);
       }
     })
-    setLabels(mappedLabels)
-    setData({
-      labels,
-      datasets: [
-        {
-          label: "Arrivi",
-          data: arriveValue,
-          backgroundColor: "rgba(255, 99, 132, 0.5)",
-        },
-        {
-          label: "Presenze",
-          data: presValue,
-          backgroundColor: "rgba(53, 162, 235, 0.5)",
-        },
-      ]
-    })
+      setData({
+       labels: mappedLabels,
+        datasets: [
+          {
+            label: "Arrivi",
+            data: arriveValue,
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+          {
+            label: "Presenze",
+            data: presValue,
+            backgroundColor: "rgba(53, 162, 235, 0.5)",
+          },
+        ]
+      })
+    
     console.log(data)
   }, [apiData]);
 
@@ -144,7 +146,7 @@ const Statistics = () => {
         <h2>{province}</h2>
         <p>Start Date: MAY/2028 - End Date: JUNE/2020</p>
         <div className="d-flex flex-row">
-          <button className="setting btn btn-primary" onClick={handleShow}>
+          <button className="setting btn btn-primary" onClick={handleShow} >
             <SettingIcon title="Setting" />
           </button>
           <button className="chart btn btn-primary  mx-2">
@@ -159,7 +161,7 @@ const Statistics = () => {
 
         </div>
       </Card>
-      <ModalSetting show={show} handleClose={handleClose} />
+      <ModalSetting show={show} handleClose={handleClose} setProvince={setProvince} setActivityType={setActivityType} setCountry={setCountry} />
       <Container className="d-flex justify-content-center">
         {/*       <form onSubmit={handleSubmit}>
         <input type="text" />

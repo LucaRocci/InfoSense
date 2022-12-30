@@ -14,7 +14,6 @@ const useFetch = (url: string) => {
 
     useEffect(() => {
         setLoading(true)
-        setData(null);
         setError(null);
 
         fetch(url , {

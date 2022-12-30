@@ -1,4 +1,4 @@
-import useFetch from "../../hooks/useFetch/useFetch.hook";
+import useFetch from "../../hooks/useFetch.hook";
 import Form from "react-bootstrap/Form";
 import { FC, useEffect } from "react";
 import { setDefaultResultOrder } from "dns/promises";
@@ -11,30 +11,26 @@ const provItems = ['Italia', 'Estero']
 
 type DropDownProps = {
   type: string,
-  onSelect: () => void
 }
 
 
 
-const DropDown: FC<DropDownProps> = ({type, onSelect}) => {
+const DropDown: FC<DropDownProps> = ({type}) => {
   const { apiData, loading, error } = useFetch(
     
     type === 'activity' ? ActivityUrl : type === 'province' ? ProvinceUrl : ''
    
   );
 
-
-
-
   return (
     
-      <Form.Select onSelect={(e) => onSelect(e)} className="mb-2">
+      <Form.Select className="mb-2">
         {apiData
           ? apiData.map((el) => {
               if (typeof el === "string")
-                return <option value={el}>{el}</option>;
+                return <option key={el} value={el}>{el}</option>;
             })
-          : provItems.map((e) => <option value={e}>{e}</option> )}
+          : provItems.map((e) => <option key={e} value={e}>{e}</option> )}
       </Form.Select>
     
   );
