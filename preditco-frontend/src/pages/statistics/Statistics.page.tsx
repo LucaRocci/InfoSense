@@ -38,7 +38,7 @@ ChartJS.register(
 );
 
 const options = {
-  responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: "top" as const,
@@ -134,7 +134,7 @@ const Statistics = () => {
        
      
       <Form.Select aria-label="Default select example">
-      <option>Open this select menu</option>
+      
       <option value="1">One</option>
       <option value="2">Two</option>
       <option value="3">Three</option>
@@ -176,7 +176,7 @@ const Statistics = () => {
         <button type="submit">Submit</button>
       </form> */}
 
-        <div style={{ height: "500px", width: "600px" }}>
+        <div className="chart-view">
           <Bar options={options} data={data} />
         </div>
       </Container>
