@@ -10,6 +10,8 @@ import { ReactComponent as CardAnimationSecond } from "../../assets/animation/ca
 import Button from "react-bootstrap/Button";
 import avatarSara from "../../assets/images/avatar-sara.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
+import avatarPietro from "../../assets/images/avatar-pietro.svg";
+import avatarSimone from "../../assets/images/avatar-simone.svg";
 import { Card, CardGroup, Col, Row, Image } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 import Form from 'react-bootstrap/Form';
@@ -23,17 +25,17 @@ const Home = () => {
   }
   const workers: Worker[] = [
     {
-      src: "avatar-gabriele",
+      src: `${avatarLuca}`,
       name: "Gabriele",
       field: "Web Develop",
     },
     {
-      src: "avatar-pietro",
+      src: `${avatarPietro}`,
       name: "Pietro",
       field: "Web Develop",
     },
     {
-      src: "avatar-simone",
+      src: `${avatarSimone}`,
       name: "Simone",
       field: "Web Develop",
     },
@@ -53,12 +55,12 @@ const Home = () => {
       field: "Backend",
     },
     {
-      src: "avatar-federico",
+      src: `${avatarLuca}`,
       name: "Federico",
       field: "Fintech",
     },
     {
-      src: "avatar-matteo",
+      src: `${avatarLuca}`,
       name: "Matteo",
       field: "Fintech",
     },

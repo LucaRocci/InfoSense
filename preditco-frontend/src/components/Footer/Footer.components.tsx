@@ -3,7 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ReactComponent as InfosenseLogo } from "../../assets/logos/logo-infosense.svg";
 import { ReactComponent as PredictoLogo } from "../../assets/logos/logo-predicto.svg";
-import { Github } from "react-bootstrap-icons";
+import { ReactComponent as GitHubLogo } from "../../assets/logos/gitHub.svg";
+import { ReactComponent as ITSLogo } from "../../assets/logos/logo-its.svg";
+
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 
@@ -23,9 +25,13 @@ const FooterCustom = () => {
                 <InfosenseLogo className="w-75" />
                 <PredictoLogo className="w-75" />
               </div>
-              {/* <div className="d-flex justify-content-left mt-4">
-                <Github className="footer-svg-github" />
-              </div> */}
+              <div className="d-flex justify-content-left mt-4">
+               
+                
+                <a href="https://github.com/logos" target="_blank" className="w-50  ms-2"> <ITSLogo className="w-100" /></a>
+              </div>
+              <div className="d-flex justify-content-left mt-4"><a href="https://github.com/logos" target="_blank" className="w-25"><GitHubLogo className="w-75"/></a></div>
+              
             </Col>
 
             {/* 2° column: simple explain predicto */}

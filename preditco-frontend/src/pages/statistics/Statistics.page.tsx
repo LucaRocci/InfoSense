@@ -105,20 +105,21 @@ const Statistics = () => {
 
   return (
     <>
-      <Card className="board px-5 pb-3 rounded-3 ">
+      <Card className="board px-5 py-3 rounded-3 ">
         <h2>{province}</h2>
         <p>Start Date: MAY/2028 - End Date: JUNE/2020</p>
         <div className="d-flex flex-row">
         <button className="setting btn btn-primary" onClick={handleShow}>
-        <SettingIcon/>
+        <SettingIcon title="Setting"/>
         </button>
-        <button className="btn btn-primary rounded-pill  mx-2">
-        <LineChartIcon/>
-        <span className="px-2 fs-6">Line Chart</span>
+        <button className="chart btn btn-primary  mx-2">
+        <LineChartIcon title="Line Chart"/>
+        <span className="button-text-chart">Line Chart</span>
+        
         </button>
-        <button className="btn btn-secondary mx-2">
-        <PieChartIcon/>
-        <span className="px-2 fs-6">Pie Chart</span>
+        <button className="chart btn btn-secondary">
+        <PieChartIcon title="Pie Chart"/>
+        <span className="button-text-chart">Pie Chart</span>
         </button>
         
         </div>
