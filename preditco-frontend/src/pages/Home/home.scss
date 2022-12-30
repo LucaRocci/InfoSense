@@ -81,14 +81,18 @@ iframe {
 }
 
 .our-team {
+ 
   img {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    filter: none;
+    -webkit-filter: hue-rotate(0);;
+    cursor: pointer;
   }
 
   img:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
+    filter: hue-rotate(90deg);;
+    -webkit-filter: hue-rotate(190deg);
+    cursor: pointer;
+    scale: 105%;
   }
 }
 

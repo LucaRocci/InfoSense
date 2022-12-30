@@ -8,7 +8,8 @@ import { ReactComponent as StaticWave } from "../../assets/animation/home-wave-s
 import { ReactComponent as CardAnimationFirst } from "../../assets/animation/card-animation-first.svg";
 import { ReactComponent as CardAnimationSecond } from "../../assets/animation/card-animation-second.svg";
 import Button from "react-bootstrap/Button";
-import imagemia from "../../assets/images/immagine-html.jpeg";
+import avatarSara from "../../assets/images/avatar-sara.svg";
+import avatarLuca from "../../assets/images/avatar-luca.svg";
 import { Card, CardGroup, Col, Row, Image } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 import Form from 'react-bootstrap/Form';
@@ -16,39 +17,48 @@ import Form from 'react-bootstrap/Form';
 
 const Home = () => {
   interface Worker {
+    src: string;
     name: string;
     field: string;
   }
   const workers: Worker[] = [
     {
+      src: "avatar-gabriele",
       name: "Gabriele",
       field: "Web Develop",
     },
     {
+      src: "avatar-pietro",
       name: "Pietro",
       field: "Web Develop",
     },
     {
+      src: "avatar-simone",
       name: "Simone",
       field: "Web Develop",
     },
     {
+      src: `${avatarLuca}`,
       name: "Luca",
       field: "Backend",
     },
     {
+      src: `${avatarLuca}`,
       name: "Marco",
       field: "Backend",
     },
     {
+      src: `${avatarSara}`,
       name: "Sara",
       field: "Backend",
     },
     {
+      src: "avatar-federico",
       name: "Federico",
       field: "Fintech",
     },
     {
+      src: "avatar-matteo",
       name: "Matteo",
       field: "Fintech",
     },
@@ -152,10 +162,10 @@ const Home = () => {
               <div key={index} className="m-2 text-center">
                 <img
 
-                  src={imagemia}
+                  src={el.src}
                   alt="..."
                   className="rounded-circle"
-                  style={{ width: "50px", height: "50px" }}
+                  style={{ width: "80px", height: "80px" }}
                 />
                 <h3 className="mt-4">{el.name}</h3>
                 <p>{el.field}</p>

@@ -154,10 +154,6 @@ const Statistics = () => {
         <Form.Control aria-label="Text input with dropdown button" />
       </InputGroup>
 
-     
-
-     
-
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
