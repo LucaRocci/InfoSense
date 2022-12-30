@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-type dataResponse = {
+export type dataResponse = {
     anno: number,
     mese?: number,
     valore: number,
