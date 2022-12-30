@@ -10,6 +10,7 @@ import "./Footer.scss";
 const FooterCustom = () => {
   return (
     <>
+    <hr></hr>
       {/* FOOTER */}
       <Container fluid className="mt-4">
         <div className="w-xxl-80 mx-auto">
@@ -19,8 +20,8 @@ const FooterCustom = () => {
             {/* 1° column: logo predicto */}
             <Col className="mt-2 mb-2">
               <div>
-                <InfosenseLogo className="w-100" />
-                {/* <PredictoLogo className="w-75" /> */}
+                <InfosenseLogo className="w-75" />
+                <PredictoLogo className="w-75" />
               </div>
               {/* <div className="d-flex justify-content-left mt-4">
                 <Github className="footer-svg-github" />
