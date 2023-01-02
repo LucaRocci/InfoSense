@@ -4,6 +4,11 @@ section {
   min-height: 100vh;
 }
 
+.home{
+  background-color: $blue-100;
+
+}
+
 .animated-svg {
   width: 100%;
 }
@@ -16,7 +21,7 @@ section {
 }
 
 .container {
-  background-color: $blue-100;
+  
   max-width: none;
 }
 
@@ -24,9 +29,7 @@ section {
   background-color: $blue-300;
 }
 
-.contactUs {
-  background-color: $blue-100;
-}
+  
 
 .card > svg {
   width: 55%;
@@ -78,14 +81,18 @@ iframe {
 }
 
 .our-team {
+ 
   img {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    filter: none;
+    -webkit-filter: hue-rotate(0);;
+    cursor: pointer;
   }
 
   img:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
+    filter: hue-rotate(90deg);;
+    -webkit-filter: hue-rotate(190deg);
+    cursor: pointer;
+    scale: 105%;
   }
 }
 

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     },
     {
       path:'predictions',
-      element: <>PREDICTIONS</>
+      element: <>HHHHHHH</>
     }
   ]},
   {
