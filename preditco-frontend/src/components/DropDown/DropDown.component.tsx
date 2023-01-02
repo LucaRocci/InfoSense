@@ -18,7 +18,7 @@ type DropDownProps = {
 
 const DropDown: FC<DropDownProps> = ({type}) => {
 
-  const [ searchParam,] = useSearchParams()
+  const [ searchParam,] = useSearchParams();
 
   const { apiData, loading, error } = useFetch( type === 'activityType' ? ActivityUrl : type === 'province' ? ProvinceUrl : '' );
 
