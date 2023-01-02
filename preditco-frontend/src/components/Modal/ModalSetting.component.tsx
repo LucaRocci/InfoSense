@@ -4,27 +4,25 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { useState, FC, Dispatch, SetStateAction } from "react";
+import { useState, FC, Dispatch, SetStateAction, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import DropDown from "../DropDown/DropDown.component";
 
 type ModalSettingProps = {
   show:boolean,
   handleClose: () => void,
-  setProvince: Dispatch<SetStateAction<string>>,
-  setActivityType: Dispatch<SetStateAction<string>>
-  setCountry: Dispatch<SetStateAction<string>>
 }
 
-const ModalSetting:FC<ModalSettingProps> = ({show, handleClose, setProvince, setActivityType, setCountry }) => {
+const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
+
+  const [, setSearchParam] = useSearchParams();
   
   const handleOnSubmit = (e:any) => {
 
     e.preventDefault();
     e.stopPropagation();
 
-    setActivityType(e.target[0].value);
-    setProvince(e.target[1].value);
-    setCountry(e.target[2].value);
+    setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value})
   }
 
     return(
@@ -35,9 +33,9 @@ const ModalSetting:FC<ModalSettingProps> = ({show, handleClose, setProvince, set
       </Modal.Header>
       <form onSubmit={handleOnSubmit}>
       <Modal.Body>
-     <DropDown type="activity" />
+     <DropDown type="activityType" />
      <DropDown type="province" />
-     <DropDown type="nationality" />
+     <DropDown type="country" />
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

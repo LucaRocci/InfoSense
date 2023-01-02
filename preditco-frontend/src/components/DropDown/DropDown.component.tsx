@@ -2,6 +2,7 @@ import useFetch from "../../hooks/useFetch.hook";
 import Form from "react-bootstrap/Form";
 import { FC, useEffect } from "react";
 import { setDefaultResultOrder } from "dns/promises";
+import { useSearchParams } from "react-router-dom";
 
 
 const ActivityUrl = "http://18.102.24.178:8000/statistics/esercizi"
@@ -16,11 +17,10 @@ type DropDownProps = {
 
 
 const DropDown: FC<DropDownProps> = ({type}) => {
-  const { apiData, loading, error } = useFetch(
-    
-    type === 'activity' ? ActivityUrl : type === 'province' ? ProvinceUrl : ''
-   
-  );
+
+  const [ searchParam,] = useSearchParams()
+
+  const { apiData, loading, error } = useFetch( type === 'activityType' ? ActivityUrl : type === 'province' ? ProvinceUrl : '' );
 
   return (
     
@@ -28,9 +28,9 @@ const DropDown: FC<DropDownProps> = ({type}) => {
         {apiData
           ? apiData.map((el) => {
               if (typeof el === "string")
-                return <option key={el} value={el}>{el}</option>;
+                return <option key={el} selected={searchParam.get(type.toString()) === el} value={el}>{el}</option>;
             })
-          : provItems.map((e) => <option key={e} value={e}>{e}</option> )}
+          : provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> )}
       </Form.Select>
     
   );

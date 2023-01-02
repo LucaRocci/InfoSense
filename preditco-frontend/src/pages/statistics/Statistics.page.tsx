@@ -1,5 +1,7 @@
 //React core imports
 import React, { useEffect, useRef, useState } from "react";
+//React router imports
+import { useSearchParams } from "react-router-dom";
 //Charjs impoprts
 import {
   Chart as ChartJS,
@@ -54,10 +56,8 @@ const options = {
 
 
 const Statistics = () => {
-  //Input state for api req
-  const [province, setProvince] = useState<string>("Torino");
-  const [activityType, setActivityType] = useState<string>("alberghi 3 stelle");
-  const [country, setCountry] = useState<string>("Italia");
+  //SearchParams for api req
+  const [searchParam, setSearchParam] = useSearchParams();
   //Char setting state
   const [data, setData] = useState<DataChart>({
     labels: [],
@@ -78,18 +78,22 @@ const Statistics = () => {
   const [show, setShow] = useState<boolean>(false);
   //UseFetch hook
   const { apiData, loading, error } = useFetch(
-    `http://18.102.24.178:8000/statistics/${province}/${activityType}/${country}`
+    `http://18.102.24.178:8000/statistics/${searchParam.get("province")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );
 
   const graphRef = useRef();
+
+  useEffect(() => {
+    setSearchParam({ province: "Torino", activityType: "alberghi 3 stelle", country: "Italia"});
+
+    console.log(searchParam.get("activityType"))
+  },[])
 
 
   //Effect for change the chart settings on api change request
   useEffect(() => {
 /*     if(graphRef.current)
        console.log(graphRef.current, graphRef2.current); */
-
-       console.log(apiData)
 
     const mappedLabels: string[] = [];
     const arriveValue: number[] = [];
@@ -119,31 +123,16 @@ const Statistics = () => {
           },
         ]
       })
-    
-    console.log(data)
   }, [apiData]);
 
     //Modal functions
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-  /*   const handleSubmit = async (event: any) => {
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    setProvince(event.target[0].value);
-    setActivityType(event.target[1].value);
-    setCountry(event.target[2].value)
-    console.log(province, activityType, country)
-
-  
-  } */
-
   return (
     <>
       <Card className="board px-5 py-3 rounded-3 ">
-        <h2>{province}</h2>
+        <h2>{searchParam.get("province")}</h2>
         <p>Start Date: MAY/2028 - End Date: JUNE/2020</p>
         <div className="d-flex flex-row">
           <button className="setting btn btn-primary" onClick={handleShow} >
@@ -161,16 +150,8 @@ const Statistics = () => {
 
         </div>
       </Card>
-      <ModalSetting show={show} handleClose={handleClose} setProvince={setProvince} setActivityType={setActivityType} setCountry={setCountry} />
+      <ModalSetting show={show} handleClose={handleClose} />
       <Container className="d-flex justify-content-center">
-        {/*       <form onSubmit={handleSubmit}>
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        {loading ? <>Loading...</>:''}
-        {error ? <>Error...</>:''}
-        <button type="submit">Submit</button>
-      </form> */}
         <div  className="chart-view">
           <Bar id="1" ref={graphRef} options={options} data={data} />
         </div> 
