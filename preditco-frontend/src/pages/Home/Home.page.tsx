@@ -4,7 +4,7 @@ import placeholder from "../../assets/placeholder/predicto-home.png";
 import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import Button from "react-bootstrap/Button";
-import imagemia from "../../assets/images/immagine-html.jpeg";
+import gabriele from "../../assets/avatar/gabriele.svg";
 import { Card, CardGroup, Col, Row, Image } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 import Form from 'react-bootstrap/Form';
@@ -14,39 +14,48 @@ const Home = () => {
   interface Worker {
     name: string;
     field: string;
+    avatar: string;
   }
   const workers: Worker[] = [
     {
       name: "Gabriele",
       field: "Web Develop",
+      avatar: gabriele,
     },
     {
       name: "Pietro",
       field: "Web Develop",
+      avatar: gabriele,
     },
     {
       name: "Simone",
       field: "Web Develop",
+      avatar: gabriele,
     },
     {
       name: "Luca",
       field: "Backend",
+      avatar: gabriele,
     },
     {
       name: "Luca",
       field: "Backend",
+      avatar: gabriele,
     },
     {
       name: "Luca",
       field: "Backend",
+      avatar: gabriele,
     },
     {
       name: "Federico",
       field: "Fintech",
+      avatar: gabriele,
     },
     {
       name: "Matteo",
       field: "Fintech",
+      avatar: gabriele,
     },
   ];
 
@@ -302,7 +311,7 @@ const Home = () => {
             <>
               <div className="m-2 text-center">
                 <img
-                  src={imagemia}
+                  src={el.avatar}
                   alt="..."
                   className="rounded-circle"
                   style={{ width: "200px", height: "200px" }}
