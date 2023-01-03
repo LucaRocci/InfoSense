@@ -5,7 +5,6 @@ import { ReactComponent as InfosenseLogo } from "../../assets/logos/logo-infosen
 import { ReactComponent as PredictoLogo } from "../../assets/logos/logo-predicto.svg";
 import { ReactComponent as GitHubLogo } from "../../assets/logos/gitHub.svg";
 import { ReactComponent as ITSLogo } from "../../assets/logos/logo-its.svg";
-
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 

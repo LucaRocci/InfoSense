@@ -1,7 +1,5 @@
 import "./home.scss";
 import Container from "react-bootstrap/Container";
-import placeholder from "../../assets/placeholder/predicto-home.png";
-import placeholderFirst from "../../assets/placeholder/predicto-home-first.png";
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
 import { ReactComponent as AnimationWave } from "../../assets/animation/home-wave-animation.svg";
 import { ReactComponent as StaticWave } from "../../assets/animation/home-wave-static.svg";
@@ -12,59 +10,59 @@ import avatarSara from "../../assets/images/avatar-sara.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
-import { Card, CardGroup, Col, Row, Image } from "react-bootstrap";
+import { Card, CardGroup, Col, Row } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
-import Form from 'react-bootstrap/Form';
 
+interface Worker {
+  src: string;
+  name: string;
+  field: string;
+}
+
+const workers: Worker[] = [
+  {
+    src: `${avatarLuca}`,
+    name: "Gabriele",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarPietro}`,
+    name: "Pietro",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarSimone}`,
+    name: "Simone",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Luca",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Marco",
+    field: "Backend",
+  },
+  {
+    src: `${avatarSara}`,
+    name: "Sara",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Federico",
+    field: "Fintech",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Matteo",
+    field: "Fintech",
+  },
+];
 
 const Home = () => {
-  interface Worker {
-    src: string;
-    name: string;
-    field: string;
-  }
-  const workers: Worker[] = [
-    {
-      src: `${avatarLuca}`,
-      name: "Gabriele",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarPietro}`,
-      name: "Pietro",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarSimone}`,
-      name: "Simone",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Luca",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Marco",
-      field: "Backend",
-    },
-    {
-      src: `${avatarSara}`,
-      name: "Sara",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Federico",
-      field: "Fintech",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Matteo",
-      field: "Fintech",
-    },
-  ];
 
   return (
     <>
@@ -104,6 +102,7 @@ const Home = () => {
         </section>
         <section id="card" className="d-sm-flex  flex-md-row pt-4">
           <CardGroup className="mx-md-5">
+            <Row>
             <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
               <Card>
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
@@ -133,6 +132,7 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
+            </Row>
           </CardGroup>
         </section>
       </Container>

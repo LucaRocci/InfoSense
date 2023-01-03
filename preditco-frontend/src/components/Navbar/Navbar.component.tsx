@@ -38,7 +38,7 @@ const NavbarCustom = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={`ms-md-auto text-black ${show?'min-h-90 text-white':''}`}>
               <Link className={`nav-link text-black nav-link-font ${show?'mt-4 mx-2 text-white':''}`} to='/home'>Home</Link>
-              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics'>Statistics</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia'>Statistics</Link>
               <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/predictions'>Predictions</Link>
               {show? 
               <Row className='d-flex flex-row align-items-center mt-4'>
