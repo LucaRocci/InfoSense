@@ -16,4 +16,10 @@ public class ContestoService {
     public List<Long> findbyNazione(String nazione){
        return contestoRepository.findByNazione(nazione);
     }
+
+   public boolean existsByNazione(String naz){
+        return contestoRepository.existsByNazione(naz);
+    }
+
+
 }

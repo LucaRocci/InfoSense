@@ -23,4 +23,7 @@ public class ProvinceService {
        return provinceRepository.findAll();
     }
 
+    public boolean existsByNome(String nome){
+        return provinceRepository.existsByNome(nome);
+    }
 }

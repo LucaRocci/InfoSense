@@ -18,4 +18,6 @@ public interface ProvinceRepository  extends JpaRepository<Province, Long> {
   @Query(value = "SELECT p.id_provincia  FROM province p WHERE p.nome = :nome",nativeQuery = true)
   Optional<Long> findIdProcinciaByNome(String nome);
 
+  boolean existsByNome(String nome);
+
 }

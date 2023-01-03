@@ -1,9 +1,12 @@
 package app.infoSense.predicto.service;
 
 import app.infoSense.predicto.payload.response.DatiResponse;
+import app.infoSense.predicto.payload.response.DatiResponseByProvincia;
 import app.infoSense.predicto.payload.response.DatiResponseCalcolati;
+import app.infoSense.predicto.payload.response.DatiResponseWithProvincia;
 import app.infoSense.predicto.repository.StatisticheProvincerepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Tuple;
@@ -18,10 +21,25 @@ public class StatisticheProvinceService {
     @Autowired
     StatisticheProvincerepository statisticheProvincerepository;
 
+    // dati per una provincia, un esercizio e una provenienza
     public List<DatiResponse> getDati(long conts1, long conts2, Optional<Long> eser, Optional<Long> prov){
         List<Tuple> tuple=  statisticheProvincerepository.getDati(conts1,conts2,eser,prov);
 
         List<DatiResponse> response = tuple.stream().map(r-> new DatiResponse(
+                r.get(0, Integer.class),
+                r.get(1,Integer.class),
+                r.get(2, Integer.class),
+                r.get(3,String.class)
+        )).collect(Collectors.toList());
+        return response;
+    }
+
+
+    // dati per una provincia, un esercizio una provenienza e oltre un anno dato
+    public List<DatiResponse> getDatiByYear(int anno, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
+        List<Tuple> res = statisticheProvincerepository.getDatiByYear(anno,eser,const1,const2,prov);
+
+        List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
                 r.get(0, Integer.class),
                 r.get(1,Integer.class),
                 r.get(2, Integer.class),
@@ -42,4 +60,36 @@ public class StatisticheProvinceService {
         )).collect(Collectors.toList());
         return  list;
     }
+
+    // tutti i dati di una provincia
+    public List<DatiResponseByProvincia> getDatibyProvincia(Optional<Long> prov){
+        List<Tuple> tup = statisticheProvincerepository.getDatiProvincia(prov);
+
+        List<DatiResponseByProvincia> lista = tup.stream().map(tp -> new DatiResponseByProvincia(
+                tp.get(0,Integer.class),
+                tp.get(1,Integer.class),
+                tp.get(2,Integer.class),
+                tp.get(3,String.class),
+                tp.get(4,String.class),
+                tp.get(5,String.class)
+        )).collect(Collectors.toList());
+        return lista;
+    }
+
+    // same data but about two province
+    public List<DatiResponseWithProvincia> getDatiByTwoProvince(long conts1, long conts2, Optional<Long> eser, Optional<Long> prov1, Optional<Long> prov2){
+        List<Tuple> tpl = statisticheProvincerepository.getDatiTwoProvince(conts1,conts2,eser,prov1,prov2);
+
+        List<DatiResponseWithProvincia> list = tpl.stream().map(r -> new DatiResponseWithProvincia(
+                r.get(0,Integer.class),
+                r.get(1,Integer.class),
+                r.get(2,Integer.class),
+                r.get(3,String.class),
+                r.get(4,String.class)
+        )).collect(Collectors.toList());
+        return list;
+    }
+
+    /// TODO metodi di utility per mappare le tuple a DAO
+
 }

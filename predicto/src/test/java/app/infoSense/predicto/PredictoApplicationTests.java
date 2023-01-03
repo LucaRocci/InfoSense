@@ -16,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(StatisticsController.class)
+@SpringBootTest
 class PredictoApplicationTests {
 
     @Autowired

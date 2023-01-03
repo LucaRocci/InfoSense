@@ -16,4 +16,6 @@ public interface EserciziRepository extends JpaRepository<Esercizi,Long> {
 
     @Query(value = "SELECT e.nome_esercizio FROM esercizi e",nativeQuery = true)
     List<String> findNomiEsercizi();
+
+    boolean existsByNomeEsercizio(String nomeEs);
 }

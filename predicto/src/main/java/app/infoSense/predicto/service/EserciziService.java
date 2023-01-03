@@ -24,4 +24,8 @@ public class EserciziService {
     public List<String> findNomiEsercizi(){
         return eserciziRepository.findNomiEsercizi();
     }
+
+    public boolean existsbyNomeEsercizio(String eser){
+        return eserciziRepository.existsByNomeEsercizio(eser);
+    }
 }
