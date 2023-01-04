@@ -7,7 +7,7 @@ import "./Statistics.scss";
 //Assets imports
 import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
 import { ReactComponent as LineChartIcon } from "../../assets/icons/line-chart.svg";
-import { ReactComponent as PieChartIcon } from "../../assets/icons/pie-chart.svg";
+import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg";
 //Components imports
 import Card from "react-bootstrap/Card";
 import ModalSetting from "../../components/Modal/ModalSetting.component";
@@ -48,8 +48,8 @@ const Statistics = () => {
             }`}
             onClick={() => setToggleChart("Bar")}
           >
-            <LineChartIcon title="Line Chart" />
-            <span className="button-text-chart">Line Chart</span>
+            <BarChartIcon title="Bar Chart" />
+            <span className="button-text-chart">Bar Chart</span>
           </button>
           <button
             className={`chart btn ${
@@ -57,8 +57,8 @@ const Statistics = () => {
             }`}
             onClick={() => setToggleChart("Line")}
           >
-            <PieChartIcon title="Pie Chart" />
-            <span className="button-text-chart">Pie Chart</span>
+            <LineChartIcon title="Line Chart" />
+            <span className="button-text-chart">Line Chart</span>
           </button>
         </div>
       </Card>
