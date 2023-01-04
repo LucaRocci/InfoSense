@@ -115,7 +115,6 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                           },
                         ],
                       })
-                      console.log(filteredArray)
                     arriveFilterMonth = [];
                 }
             } else if(e.arrivoPresenza === "Presenza" ) {
@@ -135,8 +134,8 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
           });
         }
 
-        setFilterData(filteredArray);
-    
+        setFilterData(filteredArray.length === 0 ? false : filteredArray);
+
         setData({
           labels: mappedLabels,
           datasets: [
