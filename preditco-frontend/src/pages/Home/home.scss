@@ -5,11 +5,12 @@ section {
 }
 
 .home{
-  background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3)), url('../../assets/images/blue-1.jpeg');
+  background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/blue-1.jpeg');
   background-position: left;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  color: white;
 }
 
 .animated-svg {
