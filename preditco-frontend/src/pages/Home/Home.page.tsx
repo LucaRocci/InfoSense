@@ -111,7 +111,7 @@ const Home = () => {
           </div>
           <AnimationWave/>
         </section>
-        <section id="card" className="d-sm-flex  flex-md-row pt-4">
+        <section id="card" className="d-sm-flex justify-content-md-center flex-md-row pt-4">
           <CardGroup className="mx-md-5">
             <Row sm={1} md={2} className="justify-content-md-center">
             <Col xs={12} md={5} className="mt-5  mt-md-3 ">
