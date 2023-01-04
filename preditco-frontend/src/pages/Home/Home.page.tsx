@@ -7,6 +7,7 @@ import { ReactComponent as CardAnimationFirst } from "../../assets/animation/car
 import { ReactComponent as CardAnimationSecond } from "../../assets/animation/card-animation-second.svg";
 import Button from "react-bootstrap/Button";
 import avatarSara from "../../assets/images/avatar-sara.svg";
+import avatarSaraHover from "../../assets/images/avatar-sara-hover.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
@@ -14,54 +15,65 @@ import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
 import { Card, CardGroup, Col, Row } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 
+interface Worker {
+  src: string;
+  srcHover: string;
+  name: string;
+  field: string;
+}
+
+const workers: Worker[] = [
+  {
+    src: `${avatarGabriele}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Gabriele",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarPietro}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Pietro",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarSimone}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Simone",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarLuca}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Luca",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Marco",
+    field: "Backend",
+  },
+  {
+    src: `${avatarSara}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Sara",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Federico",
+    field: "Fintech",
+  },
+  {
+    src: `${avatarLuca}`,
+    srcHover: `${avatarSaraHover}`,
+    name: "Matteo",
+    field: "Fintech",
+  },
+];
+
 const Home = () => {
-  interface Worker {
-    src: string;
-    name: string;
-    field: string;
-  }
-  const workers: Worker[] = [
-    {
-      src: `${avatarGabriele}`,
-      name: "Gabriele",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarPietro}`,
-      name: "Pietro",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarSimone}`,
-      name: "Simone",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Luca",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Marco",
-      field: "Backend",
-    },
-    {
-      src: `${avatarSara}`,
-      name: "Sara",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Federico",
-      field: "Fintech",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Matteo",
-      field: "Fintech",
-    },
-  ];
 
   return (
     <>
@@ -101,7 +113,8 @@ const Home = () => {
         </section>
         <section id="card" className="d-sm-flex  flex-md-row pt-4">
           <CardGroup className="mx-md-5">
-            <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
+            <Row sm={1} md={2} className="justify-content-md-center">
+            <Col xs={12} md={5} className="mt-5  mt-md-3 ">
               <Card>
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
                 <CardAnimationFirst />
@@ -116,7 +129,7 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
+            <Col xs={12} md={5} className="mt-5 mt-md-3 ">
               <Card>
                 <CardAnimationSecond/>
 
@@ -130,6 +143,7 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
+            </Row>
           </CardGroup>
         </section>
       </Container>
@@ -160,6 +174,9 @@ const Home = () => {
             
               <div key={index} className="m-2 text-center">
                 <img
+                  onMouseOver={(e)=> e.currentTarget.src=el.srcHover}
+                  onMouseLeave={(e)=> e.currentTarget.src=el.src}
+
                   src={el.src}
                   alt="..."
                   className="rounded-circle"
