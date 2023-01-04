@@ -80,21 +80,21 @@ iframe {
   animation-delay: 1s;
 }
 
-.our-team {
+// .our-team {
  
-  img {
-    filter: none;
-    -webkit-filter: hue-rotate(0);;
-    cursor: pointer;
-  }
+//   img {
+//     filter: none;
+//     -webkit-filter: hue-rotate(0);;
+//     cursor: pointer;
+//   }
 
-  img:hover {
-    filter: hue-rotate(90deg);;
-    -webkit-filter: hue-rotate(190deg);
-    cursor: pointer;
-    scale: 105%;
-  }
-}
+//   img:hover {
+//     filter: hue-rotate(90deg);;
+//     -webkit-filter: hue-rotate(190deg);
+//     cursor: pointer;
+//     scale: 105%;
+//   }
+// }
 
 #circle {
   transform-origin: 50% 50%;
