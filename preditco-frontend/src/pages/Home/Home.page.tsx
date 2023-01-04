@@ -11,6 +11,7 @@ import avatarSaraHover from "../../assets/images/avatar-sara-hover.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
+import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
 import { Card, CardGroup, Col, Row } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 
@@ -23,7 +24,7 @@ interface Worker {
 
 const workers: Worker[] = [
   {
-    src: `${avatarLuca}`,
+    src: `${avatarGabriele}`,
     srcHover: `${avatarSaraHover}`,
     name: "Gabriele",
     field: "Web Develop",
