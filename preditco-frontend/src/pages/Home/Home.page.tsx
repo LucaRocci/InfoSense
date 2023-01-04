@@ -10,58 +10,59 @@ import avatarSara from "../../assets/images/avatar-sara.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
-import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
 import { Card, CardGroup, Col, Row } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 
+interface Worker {
+  src: string;
+  name: string;
+  field: string;
+}
+
+const workers: Worker[] = [
+  {
+    src: `${avatarLuca}`,
+    name: "Gabriele",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarPietro}`,
+    name: "Pietro",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarSimone}`,
+    name: "Simone",
+    field: "Web Develop",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Luca",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Marco",
+    field: "Backend",
+  },
+  {
+    src: `${avatarSara}`,
+    name: "Sara",
+    field: "Backend",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Federico",
+    field: "Fintech",
+  },
+  {
+    src: `${avatarLuca}`,
+    name: "Matteo",
+    field: "Fintech",
+  },
+];
+
 const Home = () => {
-  interface Worker {
-    src: string;
-    name: string;
-    field: string;
-  }
-  const workers: Worker[] = [
-    {
-      src: `${avatarGabriele}`,
-      name: "Gabriele",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarPietro}`,
-      name: "Pietro",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarSimone}`,
-      name: "Simone",
-      field: "Web Develop",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Luca",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Marco",
-      field: "Backend",
-    },
-    {
-      src: `${avatarSara}`,
-      name: "Sara",
-      field: "Backend",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Federico",
-      field: "Fintech",
-    },
-    {
-      src: `${avatarLuca}`,
-      name: "Matteo",
-      field: "Fintech",
-    },
-  ];
 
   return (
     <>
@@ -101,6 +102,7 @@ const Home = () => {
         </section>
         <section id="card" className="d-sm-flex  flex-md-row pt-4">
           <CardGroup className="mx-md-5">
+            <Row>
             <Col className="mt-5 mx-2 mt-md-3 mx-md-5">
               <Card>
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
@@ -130,6 +132,7 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
+            </Row>
           </CardGroup>
         </section>
       </Container>
@@ -154,23 +157,27 @@ const Home = () => {
       </Container>
 
       <Container className="our-team bg-skyblue">
-        <h2 className="p-4">Our Team</h2>
+        <h2 className=" p-4">Our Team</h2>
         <div className="d-flex justify-content-center flex-wrap">
           {workers.map((el: Worker, index: number) => (
             
               <div key={index} className="m-2 text-center">
                 <img
+
                   src={el.src}
                   alt="..."
                   className="rounded-circle"
-                  style={{ width: "100px", height: "100px" }}
+                  style={{ width: "80px", height: "80px" }}
                 />
                 <h3 className="mt-4">{el.name}</h3>
                 <p>{el.field}</p>
               </div>
+            
           ))}
         </div>
       </Container>
+    
+       
     
       <Container className="contactUs p-3">
       <div className="ps-3">
@@ -194,7 +201,7 @@ const Home = () => {
                 Infosense is a project of ITS-ICT Torino School
               </p>
           <h5>CONTACT</h5>
-          <p>infosense@infosense.it</p>
+          <p><a>infosense@infosense.it</a></p>
             </Col>
           </Row>
         </div>
