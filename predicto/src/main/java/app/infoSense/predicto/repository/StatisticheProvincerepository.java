@@ -55,4 +55,12 @@ public interface StatisticheProvincerepository extends JpaRepository<Statistiche
             "AND p.id_provincia = sp.id_provincia \n" +
             "AND sp.id_provincia IN (:pr1, :pr2)",nativeQuery = true)
     List<Tuple> getDatiTwoProvince(@Param("const1")long contst1 , @Param("const2") long contst2, @Param("eser") Optional<Long> esrc, @Param("pr1") Optional<Long> prov,@Param("pr2") Optional<Long> prov2);
+
+
+    @Query(value = "SELECT sp.anno, sp.mese, sp.valore, c.arrivo_presenza " +
+            "FROM statistiche_province sp, province p, contesto c " +
+            "WHERE sp.id_contesto = c.id_contesto AND p.id_provincia = sp.id_provincia AND sp.anno = :anno " +
+            "AND sp.id_esercizio= :eser AND sp.id_contesto IN (:const1,:const2) AND sp.id_provincia= :prov" ,nativeQuery = true)
+    List<Tuple> getDatiForAYear(@Param("anno") int anno,@Param("eser") Optional<Long>eser,@Param("const1") long const1, @Param("const2") long const2,@Param("prov")Optional<Long> prov);
+
 }

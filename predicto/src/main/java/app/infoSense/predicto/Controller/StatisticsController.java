@@ -8,6 +8,7 @@ import app.infoSense.predicto.service.ContestoService;
 import app.infoSense.predicto.service.EserciziService;
 import app.infoSense.predicto.service.ProvinceService;
 import app.infoSense.predicto.service.StatisticheProvinceService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 @RestController
 @RequestMapping("/statistics")
@@ -31,7 +31,7 @@ public class StatisticsController {
     @Autowired
     StatisticheProvinceService statisticheProvinceService;
 
-    // API that return a list of province
+    @Operation(description = "API that return a list of province")
     @GetMapping("/province")
     public ResponseEntity<?> getProvince(){
       List<String> lista=  provinceService.findNomiProvince();
@@ -41,7 +41,7 @@ public class StatisticsController {
       return new ResponseEntity<List<String>>(lista, HttpStatus.OK);
     }
 
-    // API that return a list of structure
+    @Operation(description = "API that return a list of structure")
     @GetMapping("/esercizi")
     public ResponseEntity<?> getEsercizi(){
         List<String> list = eserciziService.findNomiEsercizi();
@@ -51,7 +51,7 @@ public class StatisticsController {
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
-    // send data by a given region , a structure and a provenance
+    @Operation(description = "send data that correspond at a given region, a structure and a provenance")
   @GetMapping("/{provincia}/{esercizio}/{provenienza}")
    public ResponseEntity<?> getDatiProvince(@PathVariable String provincia, @PathVariable String esercizio, @PathVariable("provenienza") String from ){
 
@@ -59,18 +59,18 @@ public class StatisticsController {
         boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
         boolean p = contestoService.existsByNazione(from);
 
-        if(c == false || b == false || p == false){
+        if(!c || !b || !p){
             return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
         }
         Optional<Long> idProv = provinceService.findIdByNome(provincia);
         Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
-        List<Long> idContesti = contestoService.findbyNazione(from);
-        Object[] arr= idContesti.toArray();
-        List<DatiResponse>list=statisticheProvinceService.getDati((Long)arr[0],(Long)arr[1],idEser,idProv);
+        Long[] arr = contestoService.findByNazione(from);
+
+        List<DatiResponse>list=statisticheProvinceService.getDati(arr[0],arr[1],idEser,idProv);
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
-  // get API with the filter of the start year
+    @Operation(description = "send data that correspond at a given region, a structure and a provenance by a start year declared")
   @GetMapping("/{provincia}/{esercizio}/{provenienza}/{year}")
   public ResponseEntity<?> getDatiFromAyear(@PathVariable String provincia, @PathVariable String esercizio, @PathVariable("provenienza") String from, @PathVariable int year){
 
@@ -78,14 +78,14 @@ public class StatisticsController {
       boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
       boolean p = contestoService.existsByNazione(from);
 
-      if(c == false || b == false || p == false){
+      if(!c || !b || !p){
           return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
       }
       Optional<Long> idProv = provinceService.findIdByNome(provincia);
       Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
-      List<Long> idContesti = contestoService.findbyNazione(from);
-      Object[] arr= idContesti.toArray();
-      List<DatiResponse>list= statisticheProvinceService.getDatiByYear(year,idEser,(long)arr[0],(long)arr[1],idProv);
+      Long[] arr = contestoService.findByNazione(from);
+
+      List<DatiResponse>list= statisticheProvinceService.getDatiByYear(year,idEser,arr[0],arr[1],idProv);
       return new ResponseEntity<>(list,HttpStatus.OK);
 
   }
@@ -97,21 +97,20 @@ public class StatisticsController {
         boolean es = eserciziService.existsbyNomeEsercizio(esercizio);
         boolean pr = contestoService.existsByNazione(from);
 
-        if(es == false || pr == false){
+        if(!es || !pr){
             return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
         }
       Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
-      List<Long> idContesti = contestoService.findbyNazione(from);
-      Object[] arr= idContesti.toArray();
-      List<DatiResponseCalcolati>list = statisticheProvinceService.getTotaliRegione((Long)arr[0],(Long)arr[1],idEser);
+      Long[] arr = contestoService.findByNazione(from);
+      List<DatiResponseCalcolati>list = statisticheProvinceService.getTotaliRegione(arr[0],arr[1],idEser);
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
-  // All the Data about the province
+    @Operation(description = "All the Data about the given province")
   @GetMapping("/allData/{provincia}")
     public ResponseEntity<?> getDatiByProv(@PathVariable String provincia){
         boolean prv = provinceService.existsByNome(provincia);
-        if(prv == false){
+        if(!prv){
             return new ResponseEntity<>("dati non corretti ", HttpStatus.BAD_REQUEST);
         }
         Optional<Long> idProv = provinceService.findIdByNome(provincia);
@@ -119,7 +118,7 @@ public class StatisticsController {
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
-  // Same API but with 2 province
+    @Operation(description = "API that send data by a given structure and a provenance about two province in order to compare it")
   @GetMapping("compare/{prov1}/{prov2}/{esercizio}/{provenienza}")
     public ResponseEntity<?> getDatiwithTwoProvince(@PathVariable String prov1,@PathVariable String prov2, @PathVariable String esercizio, @PathVariable("provenienza") String from ){
 
@@ -128,16 +127,36 @@ public class StatisticsController {
         boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
         boolean p = contestoService.existsByNazione(from);
 
-        if(c == false || b == false || p == false || p2 == false){
+        if(!c || !b || !p || !p2){
             return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
         }
         Optional<Long> idProv = provinceService.findIdByNome(prov1);
         Optional<Long> idProv2 = provinceService.findIdByNome(prov2);
         Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
-        List<Long> idContesti = contestoService.findbyNazione(from);
-        Object[] arr= idContesti.toArray();
-        List<DatiResponseWithProvincia>list=statisticheProvinceService.getDatiByTwoProvince((long)arr[0],(long)arr[1], idEser,idProv, idProv2);
+        Long[] arr = contestoService.findByNazione(from);
+        List<DatiResponseWithProvincia>list=statisticheProvinceService.getDatiByTwoProvince(arr[0],arr[1], idEser,idProv, idProv2);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
+
+@Operation(description = " the most specific request: send data about a province in a structure in a specific year")
+    @GetMapping("/year/{provincia}/{esercizio}/{provenienza}/{year}")
+    public ResponseEntity<?> getDatiByAyear(@PathVariable String provincia, @PathVariable String esercizio, @PathVariable("provenienza") String from, @PathVariable int year){
+
+        boolean c = provinceService.existsByNome(provincia);
+        boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
+        boolean p = contestoService.existsByNazione(from);
+
+        if(!c || !b || !p){
+            return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+        }
+        Optional<Long> idProv = provinceService.findIdByNome(provincia);
+        Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+        Long[] arr = contestoService.findByNazione(from);
+
+        List<DatiResponse>list= statisticheProvinceService.getDatiForAYear(year,idEser,arr[0],arr[1],idProv);
+        return new ResponseEntity<>(list,HttpStatus.OK);
+
+    }
+
 
 }

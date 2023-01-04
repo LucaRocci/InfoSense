@@ -13,10 +13,9 @@ public class ContestoService {
     @Autowired
     ContestoRepository contestoRepository;
 
-    public List<Long> findbyNazione(String nazione){
-       return contestoRepository.findByNazione(nazione);
+    public Long[] findByNazione(String nazione){
+        return contestoRepository.findByNazione(nazione);
     }
-
    public boolean existsByNazione(String naz){
         return contestoRepository.existsByNazione(naz);
     }

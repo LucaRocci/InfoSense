@@ -11,7 +11,7 @@ import java.util.List;
 public interface ContestoRepository extends JpaRepository<Contesto,Long> {
 
      @Query(value ="SELECT c.id_contesto  FROM contesto c WHERE c.nazione = :naz ", nativeQuery = true)
-     List<Long> findByNazione(String naz);
+     Long[] findByNazione(String naz);
 
      boolean existsByNazione(String naz);
 }

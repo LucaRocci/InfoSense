@@ -90,6 +90,19 @@ public class StatisticheProvinceService {
         return list;
     }
 
+
+    public List<DatiResponse> getDatiForAYear(int anno, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
+        List<Tuple> res = statisticheProvincerepository.getDatiForAYear(anno,eser,const1,const2,prov);
+
+        List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
+                r.get(0, Integer.class),
+                r.get(1,Integer.class),
+                r.get(2, Integer.class),
+                r.get(3,String.class)
+        )).collect(Collectors.toList());
+        return response;
+    }
+
     /// TODO metodi di utility per mappare le tuple a DAO
 
 }
