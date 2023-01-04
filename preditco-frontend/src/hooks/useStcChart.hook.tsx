@@ -31,7 +31,7 @@ type OptionChart = {
     },
   }
 
-  const Month = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+  const Month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 
 
@@ -95,7 +95,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
             } else if(e.arrivoPresenza === "Arrivo" ){
                 valueCounter += e.valore;
                 arriveFilterMonth.push(e.valore);
-                if(i % 12 === 0) {
+                if((i + 1) % 12 === 0) {
                     mappedLabels.push(e.anno.toString());
                     arriveValue.push(valueCounter);
                     valueCounter = 0;
@@ -118,12 +118,10 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                       console.log(filteredArray)
                     arriveFilterMonth = [];
                 }
-
-
             } else if(e.arrivoPresenza === "Presenza" ) {
                 valueCounter += e.valore;
                 presFilterMonth.push(e.valore);
-                if(i % 12 === 0) {
+                if((i + 1) % 12 === 0) {
                     presValue.push(valueCounter);
                     valueCounter = 0;
 

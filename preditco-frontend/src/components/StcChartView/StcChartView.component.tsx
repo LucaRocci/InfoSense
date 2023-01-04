@@ -48,7 +48,7 @@ const StcChartView:FC<{toggleChart:string}> = ({toggleChart}) => {
 
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
-    {/* loading ? 'Loading...' :  */toggleChart === "Bar" ? (
+    {/* loading ? 'Loading...' :  *//* toggleChart === "Bar" ? (
       <div className="chart-view">
         <Bar id="1" options={option} data={data} />
       </div>
@@ -56,14 +56,14 @@ const StcChartView:FC<{toggleChart:string}> = ({toggleChart}) => {
       <div className="chart-view">
         <Line id="3" options={option} data={data} />
       </div>
-    ) : null}
+    ) : null */}
 {  /* Monthly filter for alberghi e extra-alberghi */}
-     {/* typeof filterData !== 'boolean'? filterData.map((e,i) =>  <div key={i} className="chart-view"><Bar options={option} data={e} /></div>): null */} 
+     { typeof filterData !== 'boolean'? filterData.map((e,i) =>  <div key={i} className="chart-view"><Bar options={option} data={e} /></div>): null } 
 
-{/*    <div className="d-flex align-items-center justify-content-between w-100">
+  <div className="d-flex align-items-center justify-content-between w-100">
         <button>{'<-'}</button>
         <button>{'->'}</button>
-   </div>  */}
+   </div>  
   </Container>
   );
 }
