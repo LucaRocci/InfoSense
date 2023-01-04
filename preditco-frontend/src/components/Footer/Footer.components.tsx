@@ -26,8 +26,6 @@ const FooterCustom = () => {
                 <PredictoLogo className="w-75" />
               </div>
               <div className="d-flex justify-content-left mt-4">
-               
-                
                 <a href="https://github.com/logos" target="_blank" className="w-50  ms-2"> <ITSLogo className="w-100" /></a>
               </div>
               <div className="d-flex justify-content-left mt-4"><a href="https://github.com/logos" target="_blank" className="w-25"><GitHubLogo className="w-75"/></a></div>

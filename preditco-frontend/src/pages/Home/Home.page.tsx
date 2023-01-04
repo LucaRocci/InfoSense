@@ -14,7 +14,6 @@ import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
 import { Card, CardGroup, Col, Row } from "react-bootstrap";
 import FooterCustom from "../../components/Footer/Footer.components";
 
-
 const Home = () => {
   interface Worker {
     src: string;
@@ -155,27 +154,23 @@ const Home = () => {
       </Container>
 
       <Container className="our-team bg-skyblue">
-        <h2 className=" p-4">Our Team</h2>
+        <h2 className="p-4">Our Team</h2>
         <div className="d-flex justify-content-center flex-wrap">
           {workers.map((el: Worker, index: number) => (
             
               <div key={index} className="m-2 text-center">
                 <img
-
                   src={el.src}
                   alt="..."
                   className="rounded-circle"
-                  style={{ width: "160px", height: "160px" }}
+                  style={{ width: "100px", height: "100px" }}
                 />
                 <h3 className="mt-4">{el.name}</h3>
                 <p>{el.field}</p>
               </div>
-            
           ))}
         </div>
       </Container>
-    
-       
     
       <Container className="contactUs p-3">
       <div className="ps-3">
@@ -184,12 +179,12 @@ const Home = () => {
         <div className="w-xxl-80 mx-auto p-3 m-3">
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">
-              {/* <iframe
+              <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22541.995642265392!2d7.6516714180993155!3d45.07059331227261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886d71c8d8bb55%3A0xaf5abbd586b9f391!2sFondazione%20ITS%20Turismo%20e%20attivit%C3%A0%20culturali!5e0!3m2!1sit!2sit!4v1671721136537!5m2!1sit!2sit"
                 width="600"
                 height="500"
                 loading="lazy"
-              ></iframe> */}
+              ></iframe>
             </Col>
             <Col xs={12} md={4} className="m-2 p-2">
               <h4>Infosense</h4>
