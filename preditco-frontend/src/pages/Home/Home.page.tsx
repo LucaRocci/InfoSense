@@ -77,7 +77,7 @@ const Home = () => {
 
   return (
     <>
-      <Container className="home">
+      <Container className="home" >
         <section className="d-flex flex-column align-items-center justify-content-between">
           <div className="d-flex flex-column align-items-center my-auto">
             <Logo />
@@ -111,14 +111,15 @@ const Home = () => {
           </div>
           <AnimationWave/>
         </section>
-        <section id="card" className="d-sm-flex justify-content-md-center flex-md-row pt-4">
-          <CardGroup className="mx-md-5">
-            <Row sm={1} md={2} className="justify-content-md-center">
-            <Col xs={12} md={5} className="my-5  mt-md-3 ">
-              <Card>
+        </Container>
+
+        <Container className="section-2" >
+        <section id="card" className="">
+            <Row className="w-100 m-0 min-h-100">
+            <Col xs={12} md={6} className="d-flex align-items-center justify-content-center my-4 col-h-100"> 
+              <Card className="card-home">
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
                 <CardAnimationFirst />
-
                 <Card.Body>
                   <Card.Title>Actual Statistic</Card.Title>
                   <Card.Text>
@@ -129,10 +130,10 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col xs={12} md={5} className="mt-5 mt-md-3 ">
-              <Card>
-                <CardAnimationSecond/>
 
+            <Col xs={12} md={6} className="d-flex align-items-center justify-content-center my-4 col-h-100">
+              <Card className="card-home">
+                <CardAnimationSecond/>
                 <Card.Body>
                   <Card.Title>Prediction</Card.Title>
                   <Card.Text>
@@ -143,14 +144,11 @@ const Home = () => {
                 </Card.Body>
               </Card>
             </Col>
+
             </Row>
-          </CardGroup>
         </section>
-      <StaticWave className="staticwave"/>
-      </Container>
-
-
-
+        <StaticWave className="staticwave"/>
+        </Container>
 
       <Container className="istat p-0">
  

@@ -13,12 +13,21 @@ section {
   color: white;
 }
 
+.section-2 {
+   background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background02.svg');
+   background-position: left;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
 .animated-svg {
   width: 100%;
 }
 
-.card {
- 
+.card-home {
+  height: 440px;
+  width: 350px;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
   border-radius: 20px;
@@ -113,4 +122,28 @@ iframe {
   transform-origin: 50% 50%;
   transform-box: fill-box;
   animation: 1.5s ease-in-out infinite alternate circleMovement;
+}
+
+@media only screen and (min-width: 768px) {
+  .col-h-100 {
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card-home {
+    width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .card-home {
+    width: 600px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .card-home{
+    width: 800px;
+  }
 }
