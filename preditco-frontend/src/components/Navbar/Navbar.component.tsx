@@ -1,7 +1,7 @@
 //React core imports
 import { useEffect, useState } from 'react';
 //Bootstrap components imports
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Github } from 'react-bootstrap-icons';
 //Import logos 
@@ -16,8 +16,11 @@ import "./Navbar.scss";
 const NavbarCustom = () => {
 
   const [ show, setShow ] = useState<boolean>(false);
+  const [ navbarOpen, setNavbarOpen ] = useState<boolean>(false);
 
   const handleToggle = () => {
+    setNavbarOpen(!navbarOpen);
+
     if(show){
     setTimeout(() => {
       setShow(!show)
@@ -34,12 +37,12 @@ const NavbarCustom = () => {
         <Navbar expand="md" className={`fixed-top ${show?'bg-blue':'bg-skyblue'}`}>
         <Container fluid>
           <Navbar.Brand>{show?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav text-white" onClick={handleToggle} />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Button onClick={handleToggle} className='navbar-button d-md-none'/>
+          <Navbar.Collapse className={`${navbarOpen ? 'show' : ''}`}>
             <Nav className={`ms-md-auto text-black ${show?'min-h-90 text-white':''}`}>
-              <Link className={`nav-link text-black nav-link-font ${show?'mt-4 mx-2 text-white':''}`} to='/home'>Home</Link>
-              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia'>Statistics</Link>
-              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/predictions'>Predictions</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'mt-4 mx-2 text-white':''}`} to='/home' onClick={() => {setNavbarOpen(false); setShow(false)}}>Home</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia' onClick={() => {setNavbarOpen(false); setShow(false)}}>Statistics</Link>
+              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/predictions' onClick={() => {setNavbarOpen(false); setShow(false)}}>Predictions</Link>
               {show? 
               <Row className='d-flex flex-row align-items-center mt-4'>
                 <Github className='nav-svg-github ms-2' /> <IstatLogo className='nav-svg-istat' />
