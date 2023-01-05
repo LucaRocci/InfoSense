@@ -146,8 +146,8 @@ const Home = () => {
             </Row>
           </CardGroup>
         </section>
+      <StaticWave />
       </Container>
-      <StaticWave className="bg-skyblue"/>
 
 
 
