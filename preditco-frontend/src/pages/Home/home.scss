@@ -18,7 +18,7 @@ section {
 }
 
 .card {
-  top: 10%;
+ 
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
   border-radius: 20px;
@@ -33,6 +33,9 @@ section {
   background-color: $blue-300;
 }
 
+.staticwave{
+margin-bottom: -10px;
+}
   
 
 .card > svg {

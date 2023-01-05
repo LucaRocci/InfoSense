@@ -114,7 +114,7 @@ const Home = () => {
         <section id="card" className="d-sm-flex justify-content-md-center flex-md-row pt-4">
           <CardGroup className="mx-md-5">
             <Row sm={1} md={2} className="justify-content-md-center">
-            <Col xs={12} md={5} className="mt-5  mt-md-3 ">
+            <Col xs={12} md={5} className="my-5  mt-md-3 ">
               <Card>
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
                 <CardAnimationFirst />
@@ -146,7 +146,7 @@ const Home = () => {
             </Row>
           </CardGroup>
         </section>
-      <StaticWave />
+      <StaticWave className="staticwave"/>
       </Container>
 
 
