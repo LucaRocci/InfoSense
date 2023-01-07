@@ -22,6 +22,8 @@ import CarouselChart from "./CarouselChart.component";
 //Hooks imorts
 import useFetch from "../../hooks/useFetch.hook";
 import useStcChart from "../../hooks/useStcChart.hook";
+//Assets imput
+import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
 
 //Register all tools for chart
 ChartJS.register(
@@ -46,7 +48,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       "province"
     )}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );
-  const [data, option, filterData] = useStcChart(apiData); 
+  const [data, option, filterData, rangeYear] = useStcChart(apiData); 
 
   //Array of chart for carousel with same value
   //Array of Bar chart
@@ -69,13 +71,13 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       : null;
 
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center" >
-      {loading ? <h1 style={{height: '60vh'}}>LOADING...</h1>:null}
-      {error ? <h1>ERROR OCCURRED</h1>:null}
+    <Container className="d-flex flex-column justify-content-center align-items-center pb-4" >
+      { loading ?  <div className="min-h-60 d-flex align-items-center"><LogoLoading className="loading-svg"/></div> :null }
+  {error ? <div className="min-h-60 d-flex align-items-center"><div className="alert alert-danger" role="alert">Database error occurred!</div></div>:null}
    {//Change view when searchParam.get("type") change 
     (searchParam.get("type") === null || searchParam.get("type") === 'Year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
-    searchParam.get("type") === 'Month' && !loading && !error ? <CarouselChart toggleChart={toggleChart} renderBar={renderBar} renderLine={renderLine}  />:null
-   }   
+    searchParam.get("type") === 'Month' && !loading && !error ? <CarouselChart toggleChart={toggleChart} rangeYear={rangeYear} renderBar={renderBar} renderLine={renderLine}  />:null
+   }    
     </Container>
   );
 };

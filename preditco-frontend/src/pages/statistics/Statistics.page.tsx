@@ -13,7 +13,6 @@ import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container, Card } from "react-bootstrap";
 import TutorialOverlay from "../../components/tutorial.component";
-import Loading from "../../components/ChartLoadingError/loading.component";
 
 
 
@@ -30,7 +29,7 @@ const Statistics = () => {
     <div className="min-h-100 bg-custom sky-blue">
     <Container fluid >
       <Card className="board px-5 py-3 rounded-3 shadow-lg text-white">
-        <h2>{searchParam.get("province")}</h2>
+       <div className="d-flex align-items-center justify-content-between mb-3"><h2 className="m-0">{searchParam.get("province")}</h2> <TutorialOverlay  setToggleChart={setToggleChart}/></div>
         <p className="ms-1">
           {searchParam
             .get("activityType")
@@ -55,7 +54,7 @@ const Statistics = () => {
             <BarChartIcon  title="Bar Chart" />
             <span className="button-text-chart">Bar Chart</span>
           </button>
-          <button
+          <button id="line"
             className={`chart btn ${
               toggleChart === "Line" ? "btn-primary" : "btn-secondary"
             }`}
@@ -68,8 +67,6 @@ const Statistics = () => {
       </Card>
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       <StcChartView toggleChart={toggleChart} />
-      <TutorialOverlay></TutorialOverlay>
-      
     </Container>
     </div>
   );

@@ -1,24 +1,23 @@
 //React core imports
-import React, { useState, useEffect } from 'react';
-//Components imports
+import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react';
+//Bootstrap icons imports
+import { QuestionDiamondFill } from 'react-bootstrap-icons'
 /* import ModalSetting from './Modal/ModalSetting.component'; */
 import TutorialModal from './tutorial-modal.component';
+//Props type
+type TutorialOverlayType = {
+  setToggleChart:Dispatch<SetStateAction<string>>
+}
 
-
-function TutorialOverlay() {
+const TutorialOverlay:FC<TutorialOverlayType> = ({setToggleChart}) => {
 
   const [showTutorial, setShowTutorial] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [show, setShow] = useState<boolean>(false);
 
     //Function to handle the form submit
-    const handleClick = (e:any) => {
-      //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
-      e.preventDefault();
-      e.stopPropagation();
-
+    const handleClick = () => {
       setCurrentStep(currentStep + 1)
-
     }
 
     const tutorialSteps = [
@@ -40,7 +39,7 @@ function TutorialOverlay() {
       {
         heading: 'Step 3: Wrapping Up',
         content: '',
-        element: '#bar',
+        element: '#line',
       },
       {
         heading: 'Step 3: Wrapping Up',
@@ -61,13 +60,17 @@ function TutorialOverlay() {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add('highlight');
     }
+    if(currentStep === 3)
+      setToggleChart('Bar')
+    if(currentStep === 4)
+      setToggleChart('Line')
   }, [currentStep, currentTutorialStep]);
 
   return (
     <div>
       { showTutorial &&
         <div className="tutorial-overlay">
-          <div className="tutorial-content">
+          <div className="tutorial-content text-dark">
             <h1>{currentTutorialStep.heading}</h1>
             <p>{currentTutorialStep.content}</p>
            
@@ -81,7 +84,7 @@ function TutorialOverlay() {
           </div>
         </div>
       }
-      <button onClick={() => setShowTutorial(true)}>Show Tutorial</button>
+      <QuestionDiamondFill className='tutorial-svg' onClick={() => setShowTutorial(true)} />
     </div>
   );
 }
