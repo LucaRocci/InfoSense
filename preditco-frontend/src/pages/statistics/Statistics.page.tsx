@@ -9,10 +9,9 @@ import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
 import { ReactComponent as LineChartIcon } from "../../assets/icons/line-chart.svg";
 import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg";
 //Components imports
-import Card from "react-bootstrap/Card";
 import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 
 const Statistics = () => {

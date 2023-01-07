@@ -35,10 +35,11 @@ ChartJS.register(
   Legend
 );
 
+//Chart view component to use in statistic page
 const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
+
   //SearchParams for api req
   const [searchParam] = useSearchParams();
-
   //Custom hook
   const [apiData, loading, error] = useFetch(
     `http://18.102.24.178:8000/statistics/${searchParam.get(
@@ -47,6 +48,8 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   );
   const [data, option, filterData] = useStcChart(apiData); 
 
+  //Array of chart for carousel with same value
+  //Array of Bar chart
   const renderBar =
     typeof filterData !== "boolean"
       ? filterData.map((e, i) => (
@@ -55,6 +58,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
           </div>
         ))
       : null;
+  //Array of Line chart
   const renderLine =
     typeof filterData !== "boolean"
       ? filterData.map((e, i) => (
@@ -63,16 +67,13 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
           </div>
         ))
       : null;
-  return (
-    <Container
-      className="d-flex flex-column justify-content-center align-items-center"
-    >
 
-   {
+  return (
+    <Container className="d-flex flex-column justify-content-center align-items-center" >
+   {//Change view when searchParam.get("type") change 
     searchParam.get("type") === null || searchParam.get("type") === 'Year' ? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
     searchParam.get("type") === 'Month' ? <CarouselChart toggleChart={toggleChart} renderBar={renderBar} renderLine={renderLine}  />:null
-   }
-      
+   }   
     </Container>
   );
 };
