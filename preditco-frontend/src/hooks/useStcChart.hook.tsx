@@ -30,13 +30,13 @@ export type OptionChart = {
       },
       tooltip: {
         titleFont: {
-          size: 30
+          size: number
         },
         bodyFont: {
-          size: 30
+          size: number
         },
         footerFont: {
-          size: 20 // there is no footer by default
+          size: number // there is no footer by default
         }
       }
     },
@@ -81,13 +81,13 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
       },
       tooltip: {
         titleFont: {
-          size: 30
+          size: 20
         },
         bodyFont: {
-          size: 30
+          size: 20
         },
         footerFont: {
-          size: 20 // there is no footer by default
+          size: 10 // there is no footer by default
         }
       }
     },

@@ -27,6 +27,8 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
       setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value})
     else
     setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value, type:e.target[3].value})
+    //Close the modal
+    handleClose()
   }
 
     return(
