@@ -1,24 +1,18 @@
 @import "../../colors.scss";
 
-section {
-  min-height: 100vh;
-}
-
-.home{
-  background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background.svg');
+.bg-home {
   background-position: left;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: white;
-}
 
-.section-2 {
-   background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background02.svg');
-   background-position: left;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
+  &.sky-blue{
+    background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background.svg');
+  }
+
+  &.blue{
+    background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background02.svg');  
+  }
 }
 
 .animated-svg {
@@ -30,14 +24,8 @@ section {
 .card-home {
   height: 440px;
   width: 350px;
-  background: rgba(255, 255, 255, 0.8);
   box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
   border-radius: 20px;
-}
-
-.container {
-  
-  max-width: none;
 }
 
 .istat {

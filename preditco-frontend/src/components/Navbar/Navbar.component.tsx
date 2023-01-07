@@ -15,39 +15,27 @@ import "./Navbar.scss";
 
 const NavbarCustom = () => {
 
-  const [ show, setShow ] = useState<boolean>(false);
   const [ navbarOpen, setNavbarOpen ] = useState<boolean>(false);
-
-  const handleToggle = () => {
-    setNavbarOpen(!navbarOpen);
-
-    if(show){
-    setTimeout(() => {
-      setShow(!show)
-    },300)
-  }else
-   setShow(!show)
-  }
 
   useEffect(() => {
     document.body.classList.toggle('overflow-y-hidden');
-  }, [show]) 
+  }, [navbarOpen]) 
 
     return(
-        <Navbar expand="md" className={`fixed-top ${show?'bg-blue':'bg-skyblue'}`}>
+        <Navbar expand="md" className={`fixed-top shadow ${navbarOpen?'bg-blue':'bg-skyblue'}`}>
         <Container fluid>
-          <Navbar.Brand>{show?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Navbar.Brand>
-          <Button onClick={handleToggle} className='navbar-button d-md-none'/>
+          <Navbar.Brand>{navbarOpen?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Navbar.Brand>
+          <Button onClick={() => setNavbarOpen(!navbarOpen)} className='navbar-button d-md-none'/>
           <Navbar.Collapse className={`${navbarOpen ? 'show' : ''}`}>
-            <Nav className={`ms-md-auto text-black ${show?'min-h-90 text-white':''}`}>
-              <Link className={`nav-link text-black nav-link-font ${show?'mt-4 mx-2 text-white':''}`} to='/home' onClick={() => {setNavbarOpen(false); setShow(false)}}>Home</Link>
-              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia' onClick={() => {setNavbarOpen(false); setShow(false)}}>Statistics</Link>
-              <Link className={`nav-link text-black nav-link-font ${show?'m-2 text-white':''}`} to='/predictions' onClick={() => {setNavbarOpen(false); setShow(false)}}>Predictions</Link>
-              {show? 
+            <Nav className={`ms-md-auto text-black ${navbarOpen?'min-h-90 text-white':''}`}>
+              <Link className={`nav-link text-black nav-link-font ${navbarOpen?'mt-4 mx-2 text-white':''}`} to='/home' onClick={() => {setNavbarOpen(false)}}>Home</Link>
+              <Link className={`nav-link text-black nav-link-font ${navbarOpen?'m-2 text-white':''}`} to='/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia' onClick={() => {setNavbarOpen(false)}}>Statistics</Link>
+              <Link className={`nav-link text-black nav-link-font ${navbarOpen?'m-2 text-white':''}`} to='/predictions' onClick={() => {setNavbarOpen(false)}}>Predictions</Link>
+              {navbarOpen? 
               <Row className='d-flex flex-row align-items-center mt-4'>
                 <Github className='nav-svg-github ms-2' /> <IstatLogo className='nav-svg-istat' />
               </Row>:''}
-              {show?
+              {navbarOpen?
               <footer className='mt-auto py-3 nav-footer'>
                 <Row className='mb-4'>
                   <Col className='text-center'>Privacy</Col>

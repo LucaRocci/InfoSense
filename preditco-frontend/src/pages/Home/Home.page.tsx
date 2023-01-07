@@ -76,9 +76,9 @@ const workers: Worker[] = [
 const Home = () => {
 
   return (
-    <>
-      <Container className="home" >
-        <section className="d-flex flex-column align-items-center justify-content-between">
+      <Container fluid className="px-0">
+        
+        <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-home sky-blue text-white px-3">
           <div className="d-flex flex-column align-items-center my-auto">
             <Logo />
             <h1 className="text-center">
@@ -109,15 +109,13 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <AnimationWave/>
+          <AnimationWave /* className="d-none d-md-block" *//>
         </section>
-        </Container>
 
-        <Container className="section-2" >
-        <section id="card" className="">
+        <section id="card" className="min-h-100 bg-home blue px-3">
             <Row className="w-100 m-0 min-h-100">
             <Col xs={12} md={6} className="d-flex align-items-center justify-content-center my-4 col-h-100"> 
-              <Card className="card-home">
+              <Card className="card-home shadow-lg bg-white">
                 {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
                 <CardAnimationFirst />
                 <Card.Body>
@@ -132,7 +130,7 @@ const Home = () => {
             </Col>
 
             <Col xs={12} md={6} className="d-flex align-items-center justify-content-center my-4 col-h-100">
-              <Card className="card-home">
+              <Card className="card-home shadow-lg bg-white">
                 <CardAnimationSecond/>
                 <Card.Body>
                   <Card.Title>Prediction</Card.Title>
@@ -146,13 +144,12 @@ const Home = () => {
             </Col>
 
             </Row>
+            <StaticWave className="staticwave"/>
         </section>
-        <StaticWave className="staticwave"/>
-        </Container>
 
-      <Container className="istat p-0">
- 
-        <div className="p-1 ">
+
+      <section className="istat px-3">
+        <div className="p-1">
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
@@ -163,10 +160,10 @@ const Home = () => {
             reiciendis quo? Illum, cum aliquam.
           </p>
         </div>
-      </Container>
+      </section>
 
-      <Container className="our-team bg-skyblue">
-        <h2 className="p-4">Our Team</h2>
+      <section className="our-team bg-skyblue px-3 shadow-lg">
+        <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
         <div className="d-flex justify-content-center flex-wrap">
           {workers.map((el: Worker, index: number) => (
             
@@ -185,12 +182,10 @@ const Home = () => {
               </div>
           ))}
         </div>
-      </Container>
+      </section>
     
-      <Container className="contactUs p-3">
-      <div className="ps-3">
-          <h2>Contact Us</h2>
-        </div>
+      <section className="contactUs p-3 bg-home sky-blue">
+          <h2 className="ms-3 text-center text-uppercase">Contact Us</h2>
         <div className="w-xxl-80 mx-auto p-3 m-3">
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">
@@ -201,7 +196,7 @@ const Home = () => {
                 loading="lazy"
               ></iframe>
             </Col>
-            <Col xs={12} md={4} className="m-2 p-2">
+            <Col xs={12} md={4} className="m-2 p-2 text-white">
               <h4>Infosense</h4>
               <h4>ITS-ICT TORINO</h4>
               <p>
@@ -213,9 +208,11 @@ const Home = () => {
             </Col>
           </Row>
         </div>
-      </Container>
+      </section>
+
       <FooterCustom />
-    </>
+
+    </Container>
   );
 };
 

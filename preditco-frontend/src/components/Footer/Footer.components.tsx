@@ -10,10 +10,10 @@ import "./Footer.scss";
 
 const FooterCustom = () => {
   return (
-    <>
+    <footer>
     <hr></hr>
       {/* FOOTER */}
-      <Container fluid className="mt-4">
+      <Container fluid className="mt-4 bg-white">
         <div className="w-xxl-80 mx-auto">
 
           {/* ROWS */}
@@ -78,7 +78,7 @@ const FooterCustom = () => {
           </div>
         </div>
       </Container>
-    </>
+    </footer>
   );
 };
 
