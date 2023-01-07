@@ -34,43 +34,6 @@ iframe {
   border-radius: 20px;
 }
 
-@keyframes waveMovement {
-  from {
-    transform: scaleY(100%);
-  }
-
-  to {
-    transform: scaleY(50%);
-  }
-}
-
-@keyframes circleMovement {
-  from {
-    transform: rotate(0deg) scale(1);
-  }
-
-  to {
-    transform: rotate(180deg) scale(0.7);
-  }
-}
-
-#wave {
-  transform-origin: bottom;
-  animation: 1.8s ease-in-out infinite alternate waveMovement;
-}
-
-#wave1 {
-  transform-origin: bottom;
-  animation: 1.5s ease-in-out infinite alternate waveMovement;
-  animation-delay: 0.5s;
-}
-
-#wave2 {
-  transform-origin: bottom;
-  animation: 1s ease-in-out infinite alternate waveMovement;
-  animation-delay: 1s;
-}
-
 // .our-team {
  
 //   img {
@@ -86,18 +49,6 @@ iframe {
 //     scale: 105%;
 //   }
 // }
-
-#circle {
-  transform-origin: 50% 50%;
-  transform-box: fill-box;
-  animation: 1.8s ease-in-out infinite alternate circleMovement;
-}
-
-#circle1 {
-  transform-origin: 50% 50%;
-  transform-box: fill-box;
-  animation: 1.5s ease-in-out infinite alternate circleMovement;
-}
 
 @media only screen and (min-width: 768px) {
   .col-h-100 {

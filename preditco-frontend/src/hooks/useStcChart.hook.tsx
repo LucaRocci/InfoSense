@@ -28,6 +28,17 @@ export type OptionChart = {
       legend: {
         position: "top",
       },
+      tooltip: {
+        titleFont: {
+          size: 30
+        },
+        bodyFont: {
+          size: 30
+        },
+        footerFont: {
+          size: 20 // there is no footer by default
+        }
+      }
     },
   }
 //Default label for monthly chart
@@ -35,10 +46,12 @@ const Month = ['January','February','March','April','May','June','July','August'
 
 
 //hook for mapping the api response to chartjs valid object
-const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data:DataChart, option:OptionChart, filterData:DataChart[] | boolean ] => {
+const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data:DataChart, option:OptionChart, filterData:DataChart[] | boolean, rangeYear:number[] ] => {
 
   //Array of data for chartjs to create the carousel for monthly chart
   const [filterData, setFilterData] = useState<DataChart[] | boolean>(false);
+  //Range of year 
+  const [rangeYear, setrangeYear] = useState<number[]>([]);
   //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],
@@ -66,6 +79,17 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
       legend: {
         position: "top" as const,
       },
+      tooltip: {
+        titleFont: {
+          size: 30
+        },
+        bodyFont: {
+          size: 30
+        },
+        footerFont: {
+          size: 20 // there is no footer by default
+        }
+      }
     },
   });
 
@@ -76,17 +100,26 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         const mappedLabels: string[] = [];
         const arriveValue: number[] = [];
         const presValue: number[] = [];
+        const range:number[] = [];
+      
 
         let arriveFilterMonth:number[] = [];
         let presFilterMonth:number[] = [];
         let counter = 0;
         let filteredArray:DataChart[] = [];
+        let startRangeYear:number[] = [];
 
     
         if (Array.isArray(apiData)) {
             let valueCounter = 0;
           apiData?.forEach((e,i) => {
             if (typeof e === "string") return;
+
+            if(i === 0)
+             startRangeYear.push(e.anno);
+
+            if(i === apiData.length - 1 )
+              startRangeYear.push(e.anno);
 
              if (e.arrivoPresenza === "Arrivo" && e.mese === 0 ) {
               mappedLabels.push(e.anno.toString());
@@ -130,10 +163,16 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                     counter++ ;
                 }
             }
-
-
           });
         }
+
+        //Cicle for create the range of year
+        for (let index = 0; index <= startRangeYear[1] - startRangeYear[0]; index++) {
+          range.push(startRangeYear[0] + index)
+        }
+        console.log(range)
+        //Set the range year
+        setrangeYear(range);
         //Set filterData state with mapped value
         setFilterData(filteredArray.length === 0 ? false : filteredArray);
         //Set Data state with mapped value
@@ -154,7 +193,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         });
       }, [apiData]);
   //Return the states
-  return [data, option, filterData];
+  return [data, option, filterData, rangeYear];
 };
 
 export default useStcChart;

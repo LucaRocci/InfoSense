@@ -1,12 +1,11 @@
 @import "../../colors.scss";
 
 .board{
-   
     margin: 0 auto 0 auto;
     padding-top: 90px!important;
-    background-color: $blue-100;
-    border: none;
+    background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background02.svg');  
     width: 80%;
+    border: transparent;
 }
 
 .setting {
