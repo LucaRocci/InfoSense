@@ -62,3 +62,52 @@
 
 
 
+.tutorial-overlay {
+    position: fixed; /* position the tutorial overlay on top of other content */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.085); /* make the background semi-transparent */
+    z-index: 999; /* make the tutorial overlay appear on top of other elements */
+    display: flex; /* center the tutorial content horizontally and vertically */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tutorial-content {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    max-width: 500px;
+  }
+  
+  .tutorial-content h1 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+  }
+  
+  .tutorial-content p {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+  }
+  
+  .tutorial-content button {
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .tutorial-content button:hover {
+    background-color: #444;
+  }
+
+
+  .highlight {
+    outline: 5px solid yellow;
+  }

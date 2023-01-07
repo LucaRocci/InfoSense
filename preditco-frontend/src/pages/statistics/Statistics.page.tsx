@@ -13,6 +13,7 @@ import Card from "react-bootstrap/Card";
 import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container } from "react-bootstrap";
+import TutorialOverlay from "../../components/tutorial.component";
 
 
 const Statistics = () => {
@@ -38,18 +39,19 @@ const Statistics = () => {
         </p>
         <div className="d-flex flex-row">
           <button
+          id="setting"
             className="setting btn btn-primary"
             onClick={() => setShow(true)}
           >
             <SettingIcon title="Setting" />
           </button>
-          <button
+          <button  id="bar"
             className={`chart btn mx-2 ${
               toggleChart === "Bar" ? "btn-primary" : "btn-secondary"
             }`}
             onClick={() => setToggleChart("Bar")}
           >
-            <BarChartIcon title="Bar Chart" />
+            <BarChartIcon  title="Bar Chart" />
             <span className="button-text-chart">Bar Chart</span>
           </button>
           <button
@@ -65,6 +67,7 @@ const Statistics = () => {
       </Card>
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       <StcChartView toggleChart={toggleChart} />
+      <TutorialOverlay></TutorialOverlay>
     </Container>
     </div>
   );
