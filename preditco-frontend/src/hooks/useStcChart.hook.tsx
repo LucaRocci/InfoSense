@@ -28,6 +28,17 @@ export type OptionChart = {
       legend: {
         position: "top",
       },
+      tooltip: {
+        titleFont: {
+          size: 30
+        },
+        bodyFont: {
+          size: 30
+        },
+        footerFont: {
+          size: 20 // there is no footer by default
+        }
+      }
     },
   }
 //Default label for monthly chart
@@ -68,6 +79,17 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
       legend: {
         position: "top" as const,
       },
+      tooltip: {
+        titleFont: {
+          size: 30
+        },
+        bodyFont: {
+          size: 30
+        },
+        footerFont: {
+          size: 20 // there is no footer by default
+        }
+      }
     },
   });
 
