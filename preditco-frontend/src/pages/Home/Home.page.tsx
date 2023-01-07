@@ -95,25 +95,45 @@ const workers: Worker[] = [
 ];
 
 const Home = () => {
-  const refPredicto = useRef<HTMLInputElement>(null);
+  const refStatisticCard = useRef<HTMLInputElement>(null);
+  const refPredictoCard = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const element = refPredicto.current;
+    const stcCard = refStatisticCard.current;
+    const predictoCard = refPredictoCard.current;
 
-    if (element) {
+    if (stcCard && predictoCard) {
       gsap.fromTo(
-        element,
+        stcCard,
         {
           opacity: 0,
-          x: -200,
+          x: -400,
         },
         {
           opacity: 1,
-          duration: 2,
+          duration: 0.5,
           x: 0,
           scrollTrigger: {
-            trigger: element,
-            start: "center center"
+            trigger: stcCard,
+            start: "top-=10% top+=600px",
+            markers: true
+          },
+        }
+      );
+      gsap.fromTo(
+        predictoCard,
+        {
+          opacity: 0,
+          x: +400,
+        },
+        {
+          opacity: 1,
+          duration: 0.5,
+          x: 0,
+          scrollTrigger: {
+            trigger: stcCard,
+            start: "top-=10% top+=600px",
+            markers: true
           },
         }
       );
@@ -168,7 +188,7 @@ const Home = () => {
             {/* Statistic chart card */}
             <Card
               className="card-home shadow-lg bg-white gsap-card"
-              ref={refPredicto}
+              ref={refStatisticCard}
             >
               {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
               <CardAnimationFirst />
@@ -189,7 +209,7 @@ const Home = () => {
             className="d-flex align-items-center justify-content-center my-4 col-h-100"
           >
             {/* Prediction chart card */}
-            <Card className="card-home shadow-lg bg-white gsap-card">
+            <Card ref={refPredictoCard} className="card-home shadow-lg bg-white gsap-card">
               <CardAnimationSecond />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
