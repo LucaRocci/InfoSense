@@ -50,7 +50,7 @@
   font-size: 0.8em;
 }
 
-// Hamburger menu
+// Hamburger menu with animation
   $buttonWidth: 30px;
   $buttonHeight: 26px;
   $buttonColor: darken(#2b32b2, 15%);
@@ -58,7 +58,6 @@
   $transitionSpeed: 0.25s;
   $transitionEasing: ease-in-out;
 
-  // Demo
   .menu-toggle {
     position: relative;
     display: block;
