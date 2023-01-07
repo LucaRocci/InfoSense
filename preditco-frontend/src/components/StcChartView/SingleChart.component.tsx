@@ -15,11 +15,11 @@ const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option}) => {
     return (<>
           {
         toggleChart === "Bar" ? (
-          <div className={`chart-view px-4 pb-4 rounded mt-4`}>
+          <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
             <Bar id="1" options={option} data={data} />
           </div>
         ) : toggleChart === "Line" ? (
-          <div className={`chart-view px-4 pb-4 rounded mt-4`}>
+          <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
             <Line id="3" options={option} data={data} />
           </div>
         ) : null

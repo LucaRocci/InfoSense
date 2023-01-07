@@ -17,17 +17,17 @@ const CarouselChart:FC<CarouselChartProps> = ({toggleChart, renderBar, renderLin
     {renderBar !== null && toggleChart === "Bar" ? renderBar[carouselIndex] : toggleChart === "Line" && renderLine !== null ? renderLine[carouselIndex] : null}
 
        <div className="d-flex align-items-center justify-content-between w-100 mt-2">
-          <button className="btn btn-primary rounded-circle"
+          <button style={{position:'relative'}} className="btn btn-primary rounded-circle shadow-lg"
             onClick={() => setCarouselIndex(carouselIndex - 1)}
             disabled={carouselIndex === 0}
           >
             <ArrowLeft className="arrow-svg "/>
           </button>
-          <button className="btn btn-primary rounded-circle" 
+          <button className="btn btn-primary rounded-circle shadow-lg" 
             onClick={() => setCarouselIndex(carouselIndex + 1)}
             disabled={carouselIndex + 1 === renderBar?.length}
           >
-            <ArrowRight className="arrow-svg " />
+            <ArrowRight className="arrow-svg" />
           </button>
         </div>
       </>)

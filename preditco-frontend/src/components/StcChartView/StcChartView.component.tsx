@@ -50,7 +50,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const renderBar =
     typeof filterData !== "boolean"
       ? filterData.map((e, i) => (
-          <div key={i} className="chart-view px-4 pb-4 rounded mt-4">
+          <div key={i} className="chart-view px-4 pb-4 rounded mt-4 shadow-lg">
             <Bar options={option} data={e} />
           </div>
         ))
@@ -58,7 +58,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const renderLine =
     typeof filterData !== "boolean"
       ? filterData.map((e, i) => (
-          <div key={i} className="chart-view px-4 pb-4 rounded mt-4">
+          <div key={i} className="chart-view px-4 pb-4 rounded mt-4 shadow-lg">
             <Line options={option} data={e} />
           </div>
         ))

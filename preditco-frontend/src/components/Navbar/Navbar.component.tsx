@@ -24,7 +24,7 @@ const NavbarCustom = () => {
     return(
         <Navbar expand="md" className={`fixed-top shadow ${navbarOpen?'bg-blue':'bg-skyblue'}`}>
         <Container fluid>
-          <Navbar.Brand>{navbarOpen?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Navbar.Brand>
+          <Navbar.Brand><Link to="/home">{navbarOpen?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Link></Navbar.Brand>
           <Button onClick={() => setNavbarOpen(!navbarOpen)} className='navbar-button d-md-none'/>
           <Navbar.Collapse className={`${navbarOpen ? 'show' : ''}`}>
             <Nav className={`ms-md-auto text-black ${navbarOpen?'min-h-90 text-white':''}`}>
