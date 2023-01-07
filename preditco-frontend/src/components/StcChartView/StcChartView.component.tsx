@@ -70,9 +70,11 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
 
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center" >
+      {loading ? <h1 style={{height: '60vh'}}>LOADING...</h1>:null}
+      {error ? <h1>ERROR OCCURRED</h1>:null}
    {//Change view when searchParam.get("type") change 
-    searchParam.get("type") === null || searchParam.get("type") === 'Year' ? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
-    searchParam.get("type") === 'Month' ? <CarouselChart toggleChart={toggleChart} renderBar={renderBar} renderLine={renderLine}  />:null
+    (searchParam.get("type") === null || searchParam.get("type") === 'Year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
+    searchParam.get("type") === 'Month' && !loading && !error ? <CarouselChart toggleChart={toggleChart} renderBar={renderBar} renderLine={renderLine}  />:null
    }   
     </Container>
   );

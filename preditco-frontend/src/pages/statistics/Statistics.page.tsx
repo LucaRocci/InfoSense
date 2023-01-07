@@ -28,7 +28,7 @@ const Statistics = () => {
   return (
     <div className="min-h-100 bg-custom sky-blue">
     <Container fluid >
-      <Card className="board px-5 py-3 rounded-3 shadow">
+      <Card className="board px-5 py-3 rounded-3 shadow-lg text-white">
         <h2>{searchParam.get("province")}</h2>
         <p className="ms-1">
           {searchParam

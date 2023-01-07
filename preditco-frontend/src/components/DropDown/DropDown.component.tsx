@@ -41,13 +41,16 @@ const DropDown: FC<DropDownProps> = ({type, setShowType}) => {
 
   return (
     
-      <Form.Select className="mb-2" onChange={handleChange}>
-        {Array.isArray(apiData)
+      <Form.Select className="mb-2" onChange={handleChange}>ù
+      {loading ? <option>Loading...</option>:null}
+        {Array.isArray(apiData) && !loading && !error
           ? apiData.map((el) => {
               if (typeof el === "string")
                 return <option key={el} selected={searchParam.get(type.toString()) === el} value={el}>{el}</option>;
             })
-          : type === 'country'? provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> ): type === 'type'?  filterValue.map((e) => <option key={e}  selected={e === searchParam.get("type")} value={e}>{e}</option>):null }
+          : null}
+          {type === 'country' && !loading ? provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> ): null } 
+          {type === 'type' && !loading  ?  filterValue.map((e) => <option key={e}  selected={e === searchParam.get("type")} value={e}>{e}</option>):null }
       </Form.Select>
     
   );
