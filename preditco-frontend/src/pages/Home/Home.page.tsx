@@ -1,3 +1,6 @@
+// React
+import React, { useEffect, useRef } from "react";
+
 // Style
 import "./home.scss";
 
@@ -5,6 +8,10 @@ import "./home.scss";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Card, Col, Row } from "react-bootstrap";
+
+// gsap
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // SVG for logos
 import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
@@ -23,6 +30,9 @@ import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
 
 // Component
 import FooterCustom from "../../components/Footer/Footer.components";
+
+// Register plugin ScrollTrigger of gsap
+gsap.registerPlugin(ScrollTrigger);
 
 // Interface for avatar
 interface Worker {
@@ -85,9 +95,33 @@ const workers: Worker[] = [
 ];
 
 const Home = () => {
+  const refPredicto = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const element = refPredicto.current;
+
+    if (element) {
+      gsap.fromTo(
+        element,
+        {
+          opacity: 0,
+          x: -200,
+        },
+        {
+          opacity: 1,
+          duration: 2,
+          x: 0,
+          scrollTrigger: {
+            trigger: element,
+            start: "center center"
+          },
+        }
+      );
+    }
+  }, []);
+
   return (
     <Container fluid className="px-0">
-
       {/* Introduction to Predicto with logos */}
       <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom sky-blue text-white px-3">
         <div className="d-flex flex-column align-items-center my-auto">
@@ -131,9 +165,11 @@ const Home = () => {
             md={6}
             className="d-flex align-items-center justify-content-center my-4 col-h-100"
           >
-
             {/* Statistic chart card */}
-            <Card className="card-home shadow-lg bg-white">
+            <Card
+              className="card-home shadow-lg bg-white gsap-card"
+              ref={refPredicto}
+            >
               {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
               <CardAnimationFirst />
               <Card.Body>
@@ -152,9 +188,8 @@ const Home = () => {
             md={6}
             className="d-flex align-items-center justify-content-center my-4 col-h-100"
           >
-
             {/* Prediction chart card */}
-            <Card className="card-home shadow-lg bg-white">
+            <Card className="card-home shadow-lg bg-white gsap-card">
               <CardAnimationSecond />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
@@ -213,6 +248,7 @@ const Home = () => {
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">
               <iframe
+                title="myFrame"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22541.995642265392!2d7.6516714180993155!3d45.07059331227261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886d71c8d8bb55%3A0xaf5abbd586b9f391!2sFondazione%20ITS%20Turismo%20e%20attivit%C3%A0%20culturali!5e0!3m2!1sit!2sit!4v1671721136537!5m2!1sit!2sit"
                 width="600"
                 height="500"
