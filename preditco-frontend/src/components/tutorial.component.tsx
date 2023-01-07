@@ -72,7 +72,7 @@ const TutorialOverlay:FC<TutorialOverlayType> = ({setToggleChart}) => {
         <div className="tutorial-overlay">
           <div className="tutorial-content text-dark">
             <h1>{currentTutorialStep.heading}</h1>
-            <p>{currentTutorialStep.content}</p>
+            <div>{currentTutorialStep.content}</div>
            
             { currentStep !== tutorialSteps.length && currentStep !== 2 ?
               <button type='submit' onClick={handleClick}>Next Step</button> : null
