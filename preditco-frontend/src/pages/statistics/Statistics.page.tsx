@@ -13,6 +13,7 @@ import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container, Card } from "react-bootstrap";
 import TutorialOverlay from "../../components/tutorial.component";
+import DropDown from "../../components/DropDown/DropDown.component";
 
 
 
@@ -23,6 +24,8 @@ const Statistics = () => {
   const [toggleChart, setToggleChart] = useState<string>("Bar");
   //Modal state
   const [show, setShow] = useState<boolean>(false);
+  //Compare state 
+  const [ compareShow, setCompareShow ] = useState<boolean>(false);
 
 
   return (
