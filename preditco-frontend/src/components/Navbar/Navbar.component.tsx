@@ -12,10 +12,24 @@ import {ReactComponent as IstatLogo} from '../../assets/logos/logo-istat.svg';
 
 //Import style
 import "./Navbar.scss";
+import React from 'react';
 
 const NavbarCustom = () => {
 
   const [ navbarOpen, setNavbarOpen ] = useState<boolean>(false);
+/*   const [ humbergerMenuActive, setHumbergerMenuActive ] = useState<boolean>(false);
+
+  const [currentClassName, setCurrentClassName] = React.useState(''); */
+/* 
+  const changeClassName = (newClassName: string) => {
+    setCurrentClassName(newClassName);
+  };
+
+  const handleNavbar = () => {
+    setNavbarOpen(!navbarOpen);
+    
+    setHumbergerMenuActive(!humbergerMenuActive)
+  } */
 
   useEffect(() => {
     document.body.classList.toggle('overflow-y-hidden');
@@ -25,7 +39,7 @@ const NavbarCustom = () => {
         <Navbar expand="md" className={`fixed-top shadow ${navbarOpen?'bg-blue':'bg-skyblue'}`}>
         <Container fluid>
           <Navbar.Brand><Link to="/home">{navbarOpen?<PredictoLogoWhite />:<PredictoLogo className='w-75' />}</Link></Navbar.Brand>
-          <Button onClick={() => setNavbarOpen(!navbarOpen)} className='navbar-button d-md-none'/>
+          <button onClick={() => setNavbarOpen(!navbarOpen)} className={`${navbarOpen ? 'is-active' : '' } menu-toggle d-md-none`}/>
           <Navbar.Collapse className={`${navbarOpen ? 'show' : ''}`}>
             <Nav className={`ms-md-auto text-black ${navbarOpen?'min-h-90 text-white':''}`}>
               <Link className={`nav-link text-black nav-link-font ${navbarOpen?'mt-4 mx-2 text-white':''}`} to='/home' onClick={() => {setNavbarOpen(false)}}>Home</Link>
