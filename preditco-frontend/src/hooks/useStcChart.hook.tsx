@@ -6,18 +6,18 @@ import useFetch from "./useFetch.hook";
 import { useSearchParams } from "react-router-dom";
 //Import Type 
 import { dataResponse } from "./useFetch.hook";
-
+//Dataset type
 type DataSetChart = {
     backgroundColor: string;
     data: number[] | never[];
     label: string;
   };
-  
+//Data chart type
 export  type DataChart = {
     labels: string[] | never[];
     datasets: DataSetChart[];
   };
-
+  //Option chart type
 export type OptionChart = {
     maintainAspectRatio: boolean,
     plugins: {
@@ -30,16 +30,16 @@ export type OptionChart = {
       },
     },
   }
+//Default label for monthly chart
+const Month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  const Month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-
-
+//hook for mapping the api response to chartjs valid object
 const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data:DataChart, option:OptionChart, filterData:DataChart[] | boolean ] => {
 
-  //Filter state
+  //Array of data for chartjs to create the carousel for monthly chart
   const [filterData, setFilterData] = useState<DataChart[] | boolean>(false);
-  //Char setting state
+  //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],
     datasets: [
@@ -71,7 +71,8 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
 
     //Effect for change the chart settings on api change request
     useEffect(() => {
-    
+
+      //Mapping the res of api
         const mappedLabels: string[] = [];
         const arriveValue: number[] = [];
         const presValue: number[] = [];
@@ -133,9 +134,9 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
 
           });
         }
-
+        //Set filterData state with mapped value
         setFilterData(filteredArray.length === 0 ? false : filteredArray);
-
+        //Set Data state with mapped value
         setData({
           labels: mappedLabels,
           datasets: [
@@ -152,7 +153,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
           ],
         });
       }, [apiData]);
-
+  //Return the states
   return [data, option, filterData];
 };
 

@@ -1,28 +1,28 @@
+//React core imports
+import { useState, FC } from "react";
+//Comopnents import
+import DropDown from "../DropDown/DropDown.component";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { useState, FC, Dispatch, SetStateAction, useEffect } from "react";
+//React-router-dom imports
 import { useSearchParams } from "react-router-dom";
-import DropDown from "../DropDown/DropDown.component";
-
+//Props type
 type ModalSettingProps = {
   show:boolean,
   handleClose: () => void,
 }
-
+//Modal component for setting the req.
 const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
-
+  //Hook for searchParam 
   const [, setSearchParam] = useSearchParams();
+  //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
   const [showType, setShowType] = useState<boolean>(false);
-  
+  //Function to handle the form submit
   const handleOnSubmit = (e:any) => {
-
+    //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
-
+    //Check if dropdwon for type has value or not to change the searchParams
     if(e.target[3].value.length === 0)
       setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value})
     else

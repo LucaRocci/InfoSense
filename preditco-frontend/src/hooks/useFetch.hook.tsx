@@ -1,17 +1,22 @@
+//React core import
 import { useState, useEffect } from 'react';
-
+//Data response type
 export type dataResponse = {
     anno: number,
     mese?: number,
     valore: number,
     arrivoPresenza: string
 }
-
+//Hook for fetch data
 const useFetch = (url: string) => {
+    //State for handle respopnse result
     const [apiData, setData] = useState<dataResponse[] | string[] | null>(null);
+    //State for handle loading
     const [loading, setLoading] = useState<boolean | null>(null);
+    //State for handle error
     const [error, setError] = useState<boolean | null>(null);
 
+    //useEffect that run on url change
     useEffect(() => {
         setLoading(true)
         setError(null);
@@ -34,6 +39,7 @@ const useFetch = (url: string) => {
 
     }, [url])
 
+    //Return the states
     return [ apiData, loading, error ]
 }
 
