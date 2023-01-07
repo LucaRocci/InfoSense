@@ -116,7 +116,7 @@ const Home = () => {
           scrollTrigger: {
             trigger: stcCard,
             start: "top-=10% top+=600px",
-            markers: true
+           /*  markers: true */
           },
         }
       );
@@ -133,7 +133,7 @@ const Home = () => {
           scrollTrigger: {
             trigger: stcCard,
             start: "top-=10% top+=600px",
-            markers: true
+            /* markers: true */
           },
         }
       );
