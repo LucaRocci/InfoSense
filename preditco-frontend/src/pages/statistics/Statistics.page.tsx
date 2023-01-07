@@ -13,6 +13,7 @@ import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container, Card } from "react-bootstrap";
 import TutorialOverlay from "../../components/tutorial.component";
+import Loading from "../../components/ChartLoadingError/loading.component";
 
 
 
@@ -68,6 +69,7 @@ const Statistics = () => {
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       <StcChartView toggleChart={toggleChart} />
       <TutorialOverlay></TutorialOverlay>
+      
     </Container>
     </div>
   );
