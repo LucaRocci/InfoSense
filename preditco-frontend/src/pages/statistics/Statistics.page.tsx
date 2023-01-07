@@ -69,7 +69,7 @@ const Statistics = () => {
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       <StcChartView toggleChart={toggleChart} />
       <TutorialOverlay></TutorialOverlay>
-      <Loading/>
+      
     </Container>
     </div>
   );
