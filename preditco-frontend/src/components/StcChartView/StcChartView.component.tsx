@@ -73,7 +73,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center pb-4" >
       { loading ?  <div className="min-h-60 d-flex align-items-center"><LogoLoading className="loading-svg"/></div> :null }
-  {error ? <div className="min-h-60 d-flex align-items-center"><div className="alert alert-danger" role="alert">Database error occurred!</div></div>:null}
+  {error ? <div className="min-h-60 d-flex align-items-center"><div className="alert alert-danger" role="alert">An error occurred!</div></div>:null}
    {//Change view when searchParam.get("type") change 
     (searchParam.get("type") === null || searchParam.get("type") === 'Year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
     searchParam.get("type") === 'Month' && !loading && !error ? <CarouselChart toggleChart={toggleChart} rangeYear={rangeYear} renderBar={renderBar} renderLine={renderLine}  />:null
