@@ -16,7 +16,7 @@ const filterValue = ['Year','Month']
 //Props type
 type DropDownProps = {
   type: string,
-  setShowType: Dispatch<SetStateAction<boolean>>
+  setShowType?: Dispatch<SetStateAction<boolean>>
 }
 //DropDown Comopnent
 const DropDown: FC<DropDownProps> = ({type, setShowType}) => {
@@ -32,9 +32,11 @@ const DropDown: FC<DropDownProps> = ({type, setShowType}) => {
 
   const handleChange = (e:any) => {
     if(type === 'activityType'){
-      if(e.target.value === 'alberghi' || e.target.value === 'extra-alberghieri')
+      if(e.target.value === 'alberghi' || e.target.value === 'extra-alberghieri'){
+        if(typeof setShowType !== 'undefined')
         setShowType(true)
-      else
+      }
+      else if(typeof setShowType !== 'undefined')
         setShowType(false)
     }
   }
