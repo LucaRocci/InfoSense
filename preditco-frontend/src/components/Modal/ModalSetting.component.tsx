@@ -16,13 +16,17 @@ type ModalSettingProps = {
 const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
 
   const [, setSearchParam] = useSearchParams();
+  const [showType, setShowType] = useState<boolean>(false);
   
   const handleOnSubmit = (e:any) => {
 
     e.preventDefault();
     e.stopPropagation();
 
-    setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value})
+    if(e.target[3].value.length === 0)
+      setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value})
+    else
+    setSearchParam({ province: e.target[1].value, activityType: e.target[0].value, country: e.target[2].value, type:e.target[3].value})
   }
 
     return(
@@ -33,9 +37,10 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
       </Modal.Header>
       <form onSubmit={handleOnSubmit}>
       <Modal.Body>
-     <DropDown type="activityType" />
-     <DropDown type="province" />
-     <DropDown type="country" />
+     <DropDown type="activityType" setShowType={setShowType} />
+     <DropDown type="province" setShowType={setShowType} />
+     <DropDown type="country" setShowType={setShowType} />
+     {showType ? <DropDown type="type" setShowType={setShowType} /> : null }
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

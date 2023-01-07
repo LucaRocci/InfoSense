@@ -13,12 +13,12 @@ type DataSetChart = {
     label: string;
   };
   
-  type DataChart = {
+export  type DataChart = {
     labels: string[] | never[];
     datasets: DataSetChart[];
   };
 
-type OptionChart = {
+export type OptionChart = {
     maintainAspectRatio: boolean,
     plugins: {
       title: {

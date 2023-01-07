@@ -25,7 +25,8 @@ const Statistics = () => {
 
 
   return (
-    <Container fluid>
+    <div className="min-h-100 bg-custom sky-blue">
+    <Container fluid >
       <Card className="board px-5 py-3 rounded-3 ">
         <h2>{searchParam.get("province")}</h2>
         <p className="ms-1">
@@ -65,6 +66,7 @@ const Statistics = () => {
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       <StcChartView toggleChart={toggleChart} />
     </Container>
+    </div>
   );
 };
 
