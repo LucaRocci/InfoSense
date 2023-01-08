@@ -24,9 +24,19 @@ import { ReactComponent as CardAnimationSecond } from "../../assets/animation/ca
 import avatarSara from "../../assets/images/avatar-sara.svg";
 import avatarSaraHover from "../../assets/images/avatar-sara-hover.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
+import avatarLucaHover from "../../assets/images/avatar-luca-hover.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
+import avatarPietroHover from "../../assets/images/avatar-pietro-hover.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
+import avatarSimoneHover from "../../assets/images/avatar-simone-hover.svg";
 import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
+import avatarGabrieleHover from "../../assets/images/avatar-gabriele-hover.svg";
+import avatarMarco from "../../assets/images/avatar-marco.svg";
+import avatarMarcoHover from "../../assets/images/avatar-marco-hover.svg";
+import avatarFederico from "../../assets/images/avatar-federico.svg";
+import avatarFedericoHover from "../../assets/images/avatar-federico-hover.svg";
+import avatarMatteo from "../../assets/images/avatar-matteo.svg";
+import avatarMatteoHover from "../../assets/images/avatar-matteo-hover.svg";
 
 // Component
 import FooterCustom from "../../components/Footer/Footer.components";
@@ -46,31 +56,31 @@ interface Worker {
 const workers: Worker[] = [
   {
     src: `${avatarGabriele}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarGabrieleHover}`,
     name: "Gabriele",
     field: "Web Develop",
   },
   {
     src: `${avatarPietro}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarPietroHover}`,
     name: "Pietro",
     field: "Web Develop",
   },
   {
     src: `${avatarSimone}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarSimoneHover}`,
     name: "Simone",
     field: "Web Develop",
   },
   {
     src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarLucaHover}`,
     name: "Luca",
     field: "Backend",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarMarco}`,
+    srcHover: `${avatarMarcoHover}`,
     name: "Marco",
     field: "Backend",
   },
@@ -81,14 +91,14 @@ const workers: Worker[] = [
     field: "Backend",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarFederico}`,
+    srcHover: `${avatarFedericoHover}`,
     name: "Federico",
     field: "Fintech",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarMatteo}`,
+    srcHover: `${avatarMatteoHover}`,
     name: "Matteo",
     field: "Fintech",
   },
