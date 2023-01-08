@@ -1,5 +1,5 @@
 //React core imports
-import { useState, FC } from "react";
+import { useState, FC, useRef } from "react";
 //Comopnents import
 import DropDown from "../DropDown/DropDown.component";
 import Button from "react-bootstrap/Button";
@@ -19,8 +19,9 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
   const [, setSearchParam] = useSearchParams();
   //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
   const [showType, setShowType] = useState<boolean>(false);
-  //State to ompare province
-   const [ formType, setformType ] = useState<string>('standard');
+
+  const provinceDropdwonRef = useRef();
+  const secondProvinceDropdwonRef = useRef();
   //Function to handle the form submit
   const handleOnStandardSubmit = (e:any) => {
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
@@ -40,10 +41,7 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
     e.preventDefault();
     e.stopPropagation();
     //Check if dropdwon for type has value or not to change the searchParams
-     if(e.target[4].value.length === 0)
       setSearchParam({kind: 'compare', province: e.target[1].value, provinceSecond: e.target[2].value, activityType: e.target[0].value, country: e.target[3].value})
-    else 
-      setSearchParam({kind: 'compare', province: e.target[1].value, provinceSecond: e.target[2].value, activityType: e.target[0].value, country: e.target[3].value, type:e.target[4].value})
       
       handleClose();
   }
@@ -55,11 +53,11 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
           <h4>TITLE</h4>
         </Modal.Header>
       <Tabs
-      defaultActiveKey="profile"
+      defaultActiveKey="standard"
       id="uncontrolled-tab-example"
       className="mb-3"
     >
-      <Tab eventKey="home" title="Standard">
+      <Tab eventKey="standard" title="Standard">
       <form onSubmit={handleOnStandardSubmit}>
       <Modal.Body>
      <DropDown type="activityType" setShowType={setShowType} />
@@ -77,14 +75,13 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
       </Modal.Footer>
       </form>
       </Tab>
-      <Tab eventKey="profile" title="Compare">
+      <Tab eventKey="compare" title="Compare">
       <form onSubmit={handleOnCompareSubmit}>
       <Modal.Body>
-     <DropDown type="activityType" setShowType={setShowType} />
+     <DropDown type="activityType" />
      <DropDown type="province"  />
-     <DropDown type="province"  />
+     <DropDown type="provinceSecond"  />
      <DropDown type="country"  />
-     {showType ? <DropDown type="type"  /> : null }
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
@@ -98,7 +95,6 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
       </Tab>
     </Tabs>
     </Modal>
-        
     )
 }
 

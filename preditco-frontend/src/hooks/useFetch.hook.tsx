@@ -5,6 +5,7 @@ export type dataResponse = {
     anno: number,
     mese?: number,
     valore: number,
+    provincia?:string,
     arrivoPresenza: string
 }
 //Hook for fetch data

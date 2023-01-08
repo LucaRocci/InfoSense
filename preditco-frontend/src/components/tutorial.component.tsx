@@ -44,7 +44,7 @@ const TutorialOverlay:FC<TutorialOverlayType> = ({setToggleChart}) => {
       {
         heading: 'Step 3: Wrapping Up',
         content: 'Thats it for the tutorial! Thank you for trying it out.',
-        element: null,
+        element: '#setting',
       },
     ];
     const currentTutorialStep = tutorialSteps[currentStep - 1];

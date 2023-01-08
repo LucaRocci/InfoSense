@@ -59,12 +59,12 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
       {
         label: "Arrivi",
         data: [],
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: "#4571eb",
       },
       {
         label: "Presenze",
         data: [],
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        backgroundColor: "#aa23c5",
       },
     ],
   });
@@ -140,12 +140,12 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                           {
                             label: "Arrivi",
                             data: arriveFilterMonth,
-                            backgroundColor: "rgba(255, 99, 132, 0.5)",
+                            backgroundColor: "#4571eb",
                           },
                           {
                             label: "Presenze",
                             data: [],
-                            backgroundColor: "rgba(53, 162, 235, 0.5)",
+                            backgroundColor: "#aa23c5",
                           },
                         ],
                       })
@@ -170,7 +170,6 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         for (let index = 0; index <= startRangeYear[1] - startRangeYear[0]; index++) {
           range.push(startRangeYear[0] + index)
         }
-        console.log(range)
         //Set the range year
         setrangeYear(range);
         //Set filterData state with mapped value
@@ -182,12 +181,12 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
             {
               label: "Arrivi",
               data: arriveValue,
-              backgroundColor: "rgba(255, 99, 132, 0.5)",
+              backgroundColor: "#4571eb",
             },
             {
               label: "Presenze",
               data: presValue,
-              backgroundColor: "rgba(53, 162, 235, 0.5)",
+              backgroundColor: "#aa23c5",
             },
           ],
         });
