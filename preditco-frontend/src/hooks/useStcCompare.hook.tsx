@@ -77,11 +77,11 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
 
         if(Array.isArray(apiData)) {
                             //Mapping data
-                            const mappedLabel = new Set<string>() 
+                            const mappedLabel = new Set<string>() ;
         const mappedFirstPrvArrival:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('province') && e.mese === 0) {
+            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('province')) {
                 mappedLabel.add(e.anno.toString());
                 return e.valore;
             }else return 0
@@ -89,126 +89,46 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         const mappedFirstPrvPres:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('province') && e.mese === 0) {
+            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('province')) {
                 return e.valore;
             }else return 0
         }).filter(e => e !== 0);
         const mappedSecondPrvArrival:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('provinceSecond') && e.mese === 0) {
+            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('provinceSecond')) {
                 return e.valore;
             }else return 0
         }).filter(e => e !== 0);
         const mappedSecondPrvPres:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('provinceSecond') && e.mese === 0) {
+            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('provinceSecond')) {
                 return e.valore;
             }else return 0
-        }).filter(e => e !== 0);
-
-            
-        let sumCount = 0;  
-        let sumCount1 = 0;  
-        let sumCount2 = 0;  
-        let sumCount3 = 0;  
-        const  mappedFirstPrvArrivalAllValueFinal:number[] = [];
-        const  mappedFirstPrvPresAllValueFinal:number[] = [];
-
-        const  mappedSecondPrvArrivalAllValueFinal:number[] = [];
-        const  mappedSecondPrvPresAllValueFinal:number[] = [];
-
-        const mappedFirstPrvArrivalAllValue = apiData.map((e) => {
-            if(typeof e === 'string')
-               return e;
-            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('province') && e.mese !== 0) {
-                mappedLabel.add(e.anno.toString());
-                return e.valore;
-            }else return 0
-        }).filter(e => e !== 0).forEach((e,i) =>{
-            if(typeof e === 'string')
-               return e;
-
-            sumCount += e; 
-            if((i + 1 ) % 12 === 0){
-                mappedFirstPrvArrivalAllValueFinal.push(sumCount);
-                sumCount = 0;
-            }
-        });
-
-        const mappedFirstPrvPresAllValue = apiData.map((e) => {
-            if(typeof e === 'string')
-               return e;
-            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('province') && e.mese !== 0) {
-                return e.valore;
-            }else return 0
-        }).filter(e => e !== 0).forEach((e,i) =>{
-            if(typeof e === 'string')
-               return e;
-               
-            sumCount1 += e; 
-            if((i + 1 ) % 12 === 0){
-                mappedFirstPrvPresAllValueFinal.push(sumCount1);
-                sumCount1 = 0;
-            }
-        });;
-
-        const mappedSecondPrvArrivalAllValue = apiData.map((e) => {
-            if(typeof e === 'string')
-               return e;
-            else if(e.arrivoPresenza === 'Arrivo' && e.provincia === searchParam.get('provinceSecond') && e.mese !== 0) {
-                return e.valore;
-            }else return 0
-        }).filter(e => e !== 0).forEach((e,i) =>{
-            if(typeof e === 'string')
-               return e;
-
-            sumCount2 += e; 
-            if((i + 1 ) % 12 === 0){
-                mappedSecondPrvArrivalAllValueFinal.push(sumCount2);
-                sumCount2 = 0;
-            }
-        });
-
-        const mappedSecondPrvPresAllValue = apiData.map((e) => {
-            if(typeof e === 'string')
-               return e;
-            else if(e.arrivoPresenza === 'Presenza' && e.provincia === searchParam.get('provinceSecond') && e.mese !== 0) {
-                return e.valore;
-            }else return 0
-        }).filter(e => e !== 0).forEach((e,i) =>{
-            if(typeof e === 'string')
-               return e;
-
-            sumCount3 += e; 
-            if((i + 1 ) % 12 === 0){
-                mappedSecondPrvPresAllValueFinal.push(sumCount3);
-                sumCount3 = 0;
-            }
-        });   
+        }).filter(e => e !== 0); 
 
         setData({
           labels: Array.from(mappedLabel),
           datasets: [
             {
                 label: `Arrivi ${searchParam.get('province')}`,
-                data: mappedFirstPrvArrival.length === 0 ? mappedFirstPrvArrivalAllValueFinal : mappedFirstPrvArrival,
+                data:  mappedFirstPrvArrival,
                 backgroundColor: "#4571eb",
               },
               {
                 label: `Presenze ${searchParam.get('province')}`,
-                data: mappedFirstPrvPres.length === 0 ? mappedFirstPrvPresAllValueFinal : mappedFirstPrvPres,
+                data: mappedFirstPrvPres,
                 backgroundColor: "#45c6eb",
               },
               {
                 label: `Arrivi ${searchParam.get('provinceSecond')}`,
-                data: mappedSecondPrvArrival.length === 0 ? mappedSecondPrvArrivalAllValueFinal : mappedSecondPrvArrival,
+                data:  mappedSecondPrvArrival,
                 backgroundColor: "#aa23c5",
               },
               {
                 label: `Presenze ${searchParam.get('provinceSecond')}`,
-                data: mappedSecondPrvPres.length === 0 ? mappedSecondPrvPresAllValueFinal : mappedSecondPrvPres,
+                data:  mappedSecondPrvPres,
                 backgroundColor: "#d7239f",
               }
           ],
