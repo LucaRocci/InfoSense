@@ -37,7 +37,7 @@ public interface StatisticheProvincerepository extends JpaRepository<Statistiche
 
 
     // dati una provincia ho tutti i dati
-    @Query(value = "SELECT sp.anno, sp.mese, sp.valore, e.nome_esercizio , c.arrivo_presenza, c.nazione \n" +
+    @Query(value = "SELECT sp.anno, sp.mese, sp.valore, c.arrivo_presenza, e.nome_esercizio , c.nazione \n" +
             "FROM statistiche_province sp, province p, contesto c, esercizi e \n" +
             "WHERE sp.id_provincia = p.id_provincia\n" +
             "AND sp.id_provincia= :nome " +
