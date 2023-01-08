@@ -7,6 +7,9 @@ import React, {
   SetStateAction,
 } from "react";
 
+// Style
+import './Tutorial.scss'
+
 // Bootstrap icons imports
 import { QuestionDiamondFill } from "react-bootstrap-icons";
 
@@ -31,44 +34,44 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   const tutorialSteps = [
     {
       heading: "Welcome to the tutorial!",
-      content: "This is an example of an in-app tutorial overlay.",
+      content: "We'll show you how this incredible app works and how you can easily change your setting and see different kind of chart. Let's go!",
       element: null,
     },
     {
-      heading: "Step 1: App Navigation",
+      heading: "Step 1: Setting",
       content: <TutorialModalStandard setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
     {
-      heading: "Step 2: App Features",
+      heading: "Step 2: Bar Chart",
       content:
-        "In this step, we will show you some of the main features of the app.",
+        "After savign your changes, the chart will show you all the data trhought diffent years. this is our bar chart.",
       element: "#bar",
     },
     {
-      heading: "Step 3: Wrapping Up",
-      content: "",
+      heading: "Step 3: Bar Chart",
+      content: "You can easily view other different chart clicking the other icon. This is our line chart.",
       element: "#line",
     },
     {
-      heading: "Step 4: App Navigation",
+      heading: "Step 4: Comapare",
       content: <TutorialModalCompare setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
     {
-      heading: "Step 5: App Features",
+      heading: "Step 5: Bar chart comparision",
       content:
-        "In this step, we will show you some of the main features of the app.",
+        "Different data of different cities in the same chart, amazing!",
       element: "#bar",
     },
     {
-      heading: "Step 6: Wrapping Up",
-      content: "other chart",
+      heading: "Step 6: Line chart comparision",
+      content: "Check also our line chart with our comparision mode",
       element: "#line",
     },
     {
-      heading: "Step 7: Wrapping Up",
-      content: "Thats it for the tutorial! Thank you for trying it out.",
+      heading: "Step 7: Thanks, now have fun!",
+      content: "We have done, now it's your turn.",
       element: "",
     },
   ];
@@ -95,16 +98,16 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       {showTutorial && (
         <div className="tutorial-overlay">
           <div className="tutorial-content text-dark">
-            <h1>{currentTutorialStep.heading}</h1>
-            <div>{currentTutorialStep.content}</div>
+            <h1 className="tutorail-header-step">{currentTutorialStep.heading}</h1>
+            <div className="tutorial-content-step">{currentTutorialStep.content}</div>
 
             {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5? (
-              <button type="submit" onClick={handleClick}>
+              <button style={{ backgroundColor: 'blue' }} type="submit" onClick={handleClick}>
                 Next Step
               </button>
             ) : null}
             {currentStep === tutorialSteps.length && (
-              <button
+              <button style={{ backgroundColor: 'purple' }}
                 onClick={() => {
                   setShowTutorial(false);
                   setCurrentStep(1);
