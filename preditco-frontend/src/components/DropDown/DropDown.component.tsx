@@ -16,15 +16,16 @@ const filterValue = ['Year','Month']
 //Props type
 type DropDownProps = {
   type: string,
-  setShowType?: Dispatch<SetStateAction<boolean>>
+  setShowType?: Dispatch<SetStateAction<boolean>>,
+  ref?:React.MutableRefObject<undefined>
 }
 //DropDown Comopnent
-const DropDown: FC<DropDownProps> = ({type, setShowType}) => {
+const DropDown: FC<DropDownProps> = ({type, setShowType, ref}) => {
 
   //SearchParam hook for dynamic defaultValue
   const [ searchParam,] = useSearchParams();
   //useFetch hook for call api
-  const [ apiData, loading, error ] = useFetch( type === 'activityType' ? ActivityUrl : type === 'province' ? ProvinceUrl : '' );
+  const [ apiData, loading, error ] = useFetch( type === 'activityType' ? ActivityUrl : type === 'province' || type === 'provinceSecond' ? ProvinceUrl : '' );
   
 /*   useEffect(() => {
     console.log(loading, error)
@@ -43,14 +44,19 @@ const DropDown: FC<DropDownProps> = ({type, setShowType}) => {
 
   return (
     
-      <Form.Select className="mb-2" onChange={handleChange}>ù
+      <Form.Select className="mb-2" onChange={handleChange} >
       {loading ? <option>Loading...</option>:null}
-        {Array.isArray(apiData) && !loading && !error
+        {Array.isArray(apiData) && !loading && !error && type !== 'province2'
           ? apiData.map((el) => {
               if (typeof el === "string")
                 return <option key={el} selected={searchParam.get(type.toString()) === el} value={el}>{el}</option>;
             })
           : null}
+          {type === 'provinceSecond' && Array.isArray(apiData) ? apiData.map((el) => {
+              if (typeof el === "string")
+                return <option key={el} selected={searchParam.get(type.toString()) === el} value={el}>{el}</option>;
+            })
+          : null }
           {type === 'country' && !loading ? provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> ): null } 
           {type === 'type' && !loading  ?  filterValue.map((e) => <option key={e}  selected={e === searchParam.get("type")} value={e}>{e}</option>):null }
       </Form.Select>
