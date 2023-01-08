@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class DatiResponseWithProvincia {
 
     private int anno;
-    private int mese;
-    private int valore;
+    private BigDecimal valore;
     private String arrivoPresenza;
     private String provincia;
 }

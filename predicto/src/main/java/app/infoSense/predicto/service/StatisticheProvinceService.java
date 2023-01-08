@@ -82,10 +82,9 @@ public class StatisticheProvinceService {
 
         List<DatiResponseWithProvincia> list = tpl.stream().map(r -> new DatiResponseWithProvincia(
                 r.get(0,Integer.class),
-                r.get(1,Integer.class),
-                r.get(2,Integer.class),
-                r.get(3,String.class),
-                r.get(4,String.class)
+                r.get(1,BigDecimal.class),
+                r.get(2,String.class),
+                r.get(3,String.class)
         )).collect(Collectors.toList());
         return list;
     }

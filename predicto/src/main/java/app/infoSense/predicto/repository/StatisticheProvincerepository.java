@@ -47,13 +47,14 @@ public interface StatisticheProvincerepository extends JpaRepository<Statistiche
 
 
     // date 2 province 1 esercizio e i contesti
-    @Query(value = "SELECT sp.anno, sp.mese, sp.valore, c.arrivo_presenza, p.nome \n" +
+    @Query(value = "SELECT sp.anno, SUM(sp.valore) as 'valore', c.arrivo_presenza, p.nome\n" +
             "FROM statistiche_province sp, province p, contesto c \n" +
-            "WHERE  sp.id_contesto = c.id_contesto \n" +
-            "AND sp.id_contesto IN ( :const1, :const2)" +
-            "AND sp.id_esercizio = :eser " +
-            "AND p.id_provincia = sp.id_provincia \n" +
-            "AND sp.id_provincia IN (:pr1, :pr2)",nativeQuery = true)
+            "WHERE sp.id_contesto = c.id_contesto\n" +
+            "AND p.id_provincia = sp.id_provincia\n" +
+            "AND sp.id_contesto IN (:const1, :const2)\n" +
+            "AND sp.id_provincia IN (:pr1, :pr2)\n" +
+            "AND sp.id_esercizio = :eser\n" +
+            "GROUP BY sp.anno, p.nome, c.id_contesto",nativeQuery = true)
     List<Tuple> getDatiTwoProvince(@Param("const1")long contst1 , @Param("const2") long contst2, @Param("eser") Optional<Long> esrc, @Param("pr1") Optional<Long> prov,@Param("pr2") Optional<Long> prov2);
 
 
