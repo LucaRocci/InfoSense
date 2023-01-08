@@ -98,7 +98,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             <h1>{currentTutorialStep.heading}</h1>
             <div>{currentTutorialStep.content}</div>
 
-            {currentStep !== tutorialSteps.length && currentStep !== 2 ? (
+            {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5? (
               <button type="submit" onClick={handleClick}>
                 Next Step
               </button>
