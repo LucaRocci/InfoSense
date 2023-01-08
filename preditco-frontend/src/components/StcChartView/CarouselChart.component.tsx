@@ -18,7 +18,7 @@ const CarouselChart:FC<CarouselChartProps> = ({toggleChart, rangeYear, renderBar
     {/* Monthly chart for alberghi or extra-alberghi */}
     {renderBar !== null && toggleChart === "Bar" ? renderBar[carouselIndex] : toggleChart === "Line" && renderLine !== null ? renderLine[carouselIndex] : null}
     {/* Print the year */}
-    <h3 className="text-white my-3">{rangeYear[carouselIndex].toString()}</h3>
+    <h3 className="text-white my-3">{rangeYear[carouselIndex]}</h3>
       {/* Buttons to handle the carousel slide */}
        <div className="d-flex align-items-center justify-content-between w-100 mt-2">
           <button style={{position:'relative'}} className={`btn rounded-circle shadow-lg ${carouselIndex === 0 ? 'btn-secondary':'btn-primary'}`}

@@ -198,7 +198,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
               },
               {
                 label: `Presenze ${searchParam.get('province')}`,
-                data: mappedFirstPrvPres.length === 0 ? mappedFirstPrvPresAllValueFinal : mappedFirstPrvArrival,
+                data: mappedFirstPrvPres.length === 0 ? mappedFirstPrvPresAllValueFinal : mappedFirstPrvPres,
                 backgroundColor: "#45c6eb",
               },
               {
