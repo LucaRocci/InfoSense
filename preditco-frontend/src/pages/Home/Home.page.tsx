@@ -209,7 +209,10 @@ const Home = () => {
             className="d-flex align-items-center justify-content-center my-4 col-h-100"
           >
             {/* Prediction chart card */}
-            <Card ref={refPredictoCard} className="card-home shadow-lg bg-white gsap-card">
+            <Card
+              ref={refPredictoCard}
+              className="card-home shadow-lg bg-white gsap-card"
+            >
               <CardAnimationSecond />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
@@ -231,12 +234,24 @@ const Home = () => {
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
-          <p className="text-white p-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            distinctio explicabo dolore, placeat sint accusamus enim omnis
-            ratione, voluptatem ut temporibus similique suscipit ab sequi
-            reiciendis quo? Illum, cum aliquam.
-          </p>
+          <blockquote className="blockquote">
+            <h4 className="w-75 m-auto text-white mb-2">What is?</h4>
+            <p className="w-75 m-auto text-white mb-3">
+              Our app collects tourism data from the Istat website for a
+              specific province in the Piemonte region of Italy. We present this
+              data in visually appealing charts, making it easy for you to
+              understand and analyze. 
+              </p><h4 className="w-75 m-auto text-white mb-2">How it works?</h4><p className="w-75 m-auto text-white mb-4">
+              In addition, our app has a feature that allows you to see
+              predictions for future tourism data . These predictions are made
+              using machine learning algorithms that have been trained on the
+              data we have collected.
+            </p>
+            <p className="w-75 m-auto text-white mb-4">
+              We hope you find our app helpful in understanding and analyzing
+              tourism data for the Piemonte region. Thank you for using our app!
+            </p>
+          </blockquote>
         </div>
       </section>
 
