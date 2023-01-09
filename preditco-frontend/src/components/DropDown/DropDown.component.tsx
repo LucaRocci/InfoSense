@@ -18,11 +18,11 @@ const filterValue = ['Year','Month']
 
 //object of label
 const label = {
-  province: <div className="d-flex align-items-center ms-2">Province <GeoFill className="ms-2" /></div>,
-  provinceSecond: <div className="d-flex align-items-center ms-2">Second Province <GeoFill className="ms-2" /></div>,
-  activityType: <div className="d-flex align-items-center ms-2">Activity Type <Building className="ms-2" /></div>,
-  country: <div className="d-flex align-items-center ms-2">Country <GlobeEuropeAfrica className="ms-2" /></div>,
-  type:<div className="d-flex align-items-center ms-2">Month or Year <Calendar3 className="ms-2" /></div>
+  province: <div className="d-flex align-items-center ms-2"><GeoFill className="me-2" />Province</div>,
+  provinceSecond: <div className="d-flex align-items-center ms-2"><GeoFill className="me-2" />Second Province</div>,
+  activityType: <div className="d-flex align-items-center ms-2"><Building className="me-2" />Activity Type</div>,
+  country: <div className="d-flex align-items-center ms-2"><GlobeEuropeAfrica className="me-2" />Country</div>,
+  type:<div className="d-flex align-items-center ms-2"><Calendar3 className="me-2" />Month or Year</div>
 
 }
 //Props type

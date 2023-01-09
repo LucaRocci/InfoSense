@@ -17,6 +17,10 @@ body {
     --bs-btn-border-color: #4A8DB7;
 }
 
+.modal-header {
+  border-bottom: none;
+}
+
 .min-h-100 {
     min-height: 100vh;
 }
