@@ -9,9 +9,9 @@ import { dataResponse } from "./useFetch.hook";
 //Dataset type
 type DataSetChart = {
     fill?:boolean;
-    backgroundColor: string;
+    backgroundColor: string | string [];
     data: number[] | never[];
-    label: string;
+    label?: string;
     tension?:number;
     borderColor?:string;
   };
@@ -30,6 +30,7 @@ export type OptionChart = {
       },
       legend: {
         position: "top",
+        display?: boolean,
       },
       tooltip: {
         titleFont: {

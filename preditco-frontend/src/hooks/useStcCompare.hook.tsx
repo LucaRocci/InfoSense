@@ -1,26 +1,18 @@
 //React core and hooks
 import { useState, useEffect } from "react";
-//Custom hooks
-import useFetch from "./useFetch.hook";
+
 //React router dom imports
 import { useSearchParams } from "react-router-dom";
+
 //Import Type 
 import { dataResponse } from "./useFetch.hook";
 import { DataChart, OptionChart } from "./useStcChart.hook";
-
-//Default label for monthly chart
-const Month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
 
 //hook for mapping the api response to chartjs valid object
 const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data:DataChart , option:OptionChart ] => {
 
   //SearchParam hook
   const [ searchParam ] = useSearchParams();
-  //Array of data for chartjs to create the carousel for monthly chart
-  const [filterData, setFilterData] = useState<DataChart[] | boolean>(false);
-  //Range of year 
-  const [rangeYear, setrangeYear] = useState<number[]>([]);
   //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],

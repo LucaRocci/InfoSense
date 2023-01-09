@@ -8,6 +8,7 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   LineElement,
   PointElement,
   Title,
@@ -22,6 +23,7 @@ import useFetch from "../../hooks/useFetch.hook";
 import useStcCompare from '../../hooks/useStcCompare.hook'
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
+import useStcSingleYear from "../../hooks/useStcSingleYear.hook";
 
 //Register all tools for chart
 ChartJS.register(
@@ -30,21 +32,22 @@ ChartJS.register(
   LineElement,
   PointElement,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
 );
 
 //Chart view component to use in statistic page
-const StcCompareView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
+const StcSingleYearView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
 
   //SearchParams for api req
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://18.102.24.178:8000/statistics/compare/${searchParam.get("province")}/${searchParam.get("provinceSecond")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
+    `http://18.102.24.178:8000/statistics/year/${searchParam.get("province")}/${searchParam.get("activityType")}/${searchParam.get("country")}/${searchParam.get("year")}`
   );
-  const [data, option] = useStcCompare(apiData); 
+  const [data, option] = useStcSingleYear(apiData); 
 
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center pb-4" >
@@ -57,4 +60,4 @@ const StcCompareView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   );
 };
 
-export default StcCompareView;
+export default StcSingleYearView;

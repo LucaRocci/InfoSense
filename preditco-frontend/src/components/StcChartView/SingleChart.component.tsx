@@ -3,13 +3,15 @@ import { FC } from "react";
 //Type imports
 import { DataChart, OptionChart } from "../../hooks/useStcChart.hook";
 //Chart imports
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Line, Doughnut } from "react-chartjs-2";
+
 //Props type
 type SingleChartProps = {
     toggleChart:string,
     data: DataChart,
     option: OptionChart
 }
+
 //Single chart for type=Year or null searchParam
 const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option}) => {
 
@@ -23,8 +25,12 @@ const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option}) => {
           <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
             <Line id="3" options={option} data={data} />
           </div>
-        ) : null
-      }</>)
+        ) : toggleChart === "Doughnut" ? (
+          <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
+            <Doughnut id="5" options={option} data={data} />
+          </div>
+        )  : null
+      } </>)
 }
 
 export default SingleChart;

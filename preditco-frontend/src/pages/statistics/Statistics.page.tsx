@@ -15,6 +15,7 @@ import { Container, Card } from "react-bootstrap";
 import TutorialOverlay from "../../components/Tutorial/tutorial.component";
 import StcCompareView from '../../components/StcChartView/stcCompareView.component'
 import DropDown from "../../components/DropDown/DropDown.component";
+import StcSingleYearView from "../../components/StcChartView/StcSingleYearView.component";
 
 
 
@@ -72,11 +73,13 @@ const Statistics = () => {
       </Card>
       <ModalSetting show={show} handleClose={() => setShow(false)} />
       {
-        searchParam.get("kind") === null || searchParam.get("kind") === 'standard' ? <StcChartView toggleChart={toggleChart} /> : null
+        /* searchParam.get("kind") === null || searchParam.get("kind") === 'standard' ? <StcChartView toggleChart={toggleChart} /> : null */
       } 
       {
-        searchParam.get("kind") === 'compare' ? <StcCompareView toggleChart={toggleChart} /> : null
+        /* searchParam.get("kind") === 'compare' ? <StcCompareView toggleChart={toggleChart} /> : null */
+        
       }
+      <StcSingleYearView toggleChart={toggleChart} />
     </Container>
     </div>
   );
