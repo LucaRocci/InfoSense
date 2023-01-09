@@ -177,7 +177,7 @@ const Home = () => {
             >
               Get Started
             </Button>
-            <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia&tutorial=open"> 
+            <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia&tutorial=open" className="d-flex justify-content-center"> 
             <Button
               variant="secondary rounded-pill"
               size="lg"
