@@ -1,19 +1,25 @@
 //React core imports
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 //Type imports
 import { DataChart, OptionChart } from "../../hooks/useStcChart.hook";
 //Chart imports
-import { Bar, Line, Doughnut } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 //Props type
 type SingleChartProps = {
     toggleChart:string,
     data: DataChart,
-    option: OptionChart
+    option: OptionChart,
+    doughnutData?: JSX.Element[]
 }
 
 //Single chart for type=Year or null searchParam
-const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option}) => {
+const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option, doughnutData }) => {
+
+  const [ doughnutToggle, setDoughnutToggle ] = useState<number>(0);
+
+
+  const handleClick = ()  => {setDoughnutToggle(doughnutToggle === 0 ? doughnutToggle + 1 : doughnutToggle - 1)};
 
     return (<>
           {//Check the toggleChart to show the rigth chart.
@@ -26,9 +32,11 @@ const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option}) => {
             <Line id="3" options={option} data={data} />
           </div>
         ) : toggleChart === "Doughnut" ? (
+          <> <button onClick={handleClick}>CLICK</button>
           <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
-            <Doughnut id="5" options={option} data={data} />
+            {typeof doughnutData !== 'undefined' ?  doughnutData[doughnutToggle] : null }
           </div>
+          </>
         )  : null
       } </>)
 }

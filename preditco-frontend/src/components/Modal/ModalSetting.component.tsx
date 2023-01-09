@@ -71,10 +71,9 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
      //Check if dropdwon for type has value or not to change the searchParams
      setSearchParam({
        kind: "year",
-       province: e.target[1].value,
-       activityType: e.target[0].value,
-       country: e.target[2].value,
-       year: e.target[3].value,
+       province: e.target[0].value,
+       country: e.target[1].value,
+       year: e.target[2].value,
      });
  
      handleClose();
@@ -132,7 +131,6 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
         <Tab eventKey="year" title="Year">
           <form onSubmit={handleOnYearSubmit}>
             <Modal.Body>
-              <DropDown type="activityType" />
               <DropDown type="province" />
               <DropDown type="country" />
               <DropDown type="year" />

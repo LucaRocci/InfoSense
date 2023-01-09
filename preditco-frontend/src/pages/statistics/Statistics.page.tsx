@@ -1,5 +1,5 @@
 //React core imports
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //React router imports
 import { useSearchParams } from "react-router-dom";
 //Style Imports
@@ -8,6 +8,7 @@ import "./Statistics.scss";
 import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
 import { ReactComponent as LineChartIcon } from "../../assets/icons/line-chart.svg";
 import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg";
+import { ReactComponent as DoughnutChartIcon } from "../../assets/icons/doughnut-chart.svg";
 //Components imports
 import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
@@ -23,6 +24,12 @@ const Statistics = () => {
   const [toggleChart, setToggleChart] = useState<string>("Bar");
   //Modal state
   const [show, setShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log('render')
+    if((searchParam.get('kind') === 'standard' || searchParam.get('kind') === 'compare' || searchParam.get('kind') === null || searchParam.get('kind') !== null ) && toggleChart === 'Doughnut')
+      setToggleChart('Bar');
+  }, [searchParam.get('kind')])
 
   return (
     <div className="min-h-100 bg-custom sky-blue">
@@ -84,7 +91,7 @@ const Statistics = () => {
                 }`}
                 onClick={() => setToggleChart("Doughnut")}
               >
-                <LineChartIcon title="Doughnut Chart" />
+                <DoughnutChartIcon title="Doughnut Chart" />
                 <span className="button-text-chart">Doughnut Chart</span>
               </button>
             )}

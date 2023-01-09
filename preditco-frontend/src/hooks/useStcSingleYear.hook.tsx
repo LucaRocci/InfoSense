@@ -11,9 +11,61 @@ import { DataChart, OptionChart } from "./useStcChart.hook";
 //hook for mapping the api response to chartjs valid object
 const useStcSingleYear = (
   apiData: dataResponse[] | string[] | null | boolean
-): [data: DataChart, option: OptionChart] => {
+): [data: DataChart, option: OptionChart, doughnutData: DataChart[]] => {
   //SearchParam hook
-  const [searchParam] = useSearchParams();
+  const [doughnutData, setDoughnutData] = useState<DataChart[]>([
+    {
+    labels: [],
+    datasets: [
+      {
+        label: '# of Arrivals',
+        data: [],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  {
+    labels: [],
+    datasets: [
+      {
+        label: '# of Pres',
+        data: [],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  }]);
   //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],
@@ -22,12 +74,7 @@ const useStcSingleYear = (
         label: "",
         data: [],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      {
-        label: "",
-        data: [],
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-      },
+      }
     ],
   });
 
@@ -40,8 +87,7 @@ const useStcSingleYear = (
         text: "",
       },
       legend: {
-        position: "top" as const,
-        display: false,
+        position: "top" as const
       },
       tooltip: {
         titleFont: {
@@ -60,68 +106,116 @@ const useStcSingleYear = (
   //Effect for change the chart settings on api change request
   useEffect(() => {
     if (Array.isArray(apiData)) {
-      //Mapping data
-      const mappedYearArrival: any[] = apiData
-        .map((e) => {
-          if (typeof e === "string") return e;
-          else if (e.arrivoPresenza === "Arrivo" && e.mese === 0) {
-            return e.valore;
-          } else return 0;
-        })
-        .filter((e) => e !== 0);
 
-      const mappedYearPres: any[] = apiData
-        .map((e) => {
-          if (typeof e === "string") return e;
-          else if (e.arrivoPresenza === "Presenza" && e.mese === 0) {
-            return e.valore;
-          } else return 0;
-        })
-        .filter((e) => e !== 0);
+      const labels:any[] = [];
 
-      const mappedYearData = [mappedYearArrival[0], mappedYearPres[0]];
+      const mappedArrival: any[] = apiData
+      .map((e) => {
+        if (typeof e === "string") return e;
+        else if (e.arrivoPresenza === "Arrivo") {
+          labels.push(e.esercizio);
+          return e.valore;
+        } else return 0;
+      })
+      .filter((e) => e !== 0);
 
-      const mappedMonthArrivals: any = apiData
-        .map((e) => {
-          if (typeof e === "string") return e;
-          else if (e.arrivoPresenza === "Arrivo" && e.mese !== 0) {
-            return e.valore;
-          } else return 0;
-        })
-        .filter((e) => e !== 0);
-
-      const mappedMonthPres: any = apiData
-        .map((e) => {
-          if (typeof e === "string") return e;
-          else if (e.arrivoPresenza === "Presenza" && e.mese !== 0) {
-            return e.valore;
-          } else return 0;
-        })
-        .filter((e) => e !== 0);
-
-      let monthSumArrivals: number = 0;
-      let monthSumPres: number = 0;
-
-      if (mappedMonthArrivals.length !== 0 && mappedMonthPres.length !== 0) {
-        monthSumArrivals = mappedMonthArrivals.reduce((acc: number, current: number) => {
-          return acc + current;
-        }, 0);
+      const mappedPres : any[] = apiData
+      .map((e) => {
+        if (typeof e === "string") return e;
+        else if (e.arrivoPresenza === "Presenza") {
+          return e.valore;
+        } else return 0;
+      })
+      .filter((e) => e !== 0);
       
-        monthSumPres = mappedMonthPres.reduce((acc: number, current: number) => {
-          return acc + current;
-        }, 0);
-      }
-      const total = [monthSumArrivals, monthSumPres];
-      console.log(total);
-      
+
+
+      const mappedDoudhnutData = [
+        {
+          labels: labels,
+          datasets: [
+            {
+              label: '# of Arrivals',
+              data: mappedArrival,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        {
+          labels: labels,
+          datasets: [
+            {
+              label: '# of Pres',
+              data: mappedPres,
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1,
+            },
+          ],
+        }
+       ]
+
+      setDoughnutData(mappedDoudhnutData);
 
       setData({
-        labels: ["Arrivi", "Presenze"],
+        labels: labels,
         datasets: [
           {
-            /* data: mappedYearData.length === 0 ? total : mappedYearData, */
-            data: total,
-            backgroundColor: ["#4571eb", "#aa23c5"],
+            label: 'Arrivi',
+            data: mappedArrival,
+            backgroundColor: "#4571eb" ,
+            tension: 0.2,
+          },
+          {
+            label:'Presenza',
+            data: mappedPres,
+            backgroundColor: "#aa23c5",
             tension: 0.2,
           },
         ],
@@ -129,7 +223,7 @@ const useStcSingleYear = (
     }
   }, [apiData]);
   //Return the states
-  return [data, option];
+  return [data, option, doughnutData ];
 };
 
 export default useStcSingleYear;

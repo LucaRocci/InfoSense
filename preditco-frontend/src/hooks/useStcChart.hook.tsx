@@ -13,7 +13,8 @@ type DataSetChart = {
     data: number[] | never[];
     label?: string;
     tension?:number;
-    borderColor?:string;
+    borderColor?:string | string[];
+    borderWidth?:number;
   };
 //Data chart type
 export  type DataChart = {
