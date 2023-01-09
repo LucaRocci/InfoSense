@@ -58,10 +58,24 @@ public interface StatisticheProvincerepository extends JpaRepository<Statistiche
     List<Tuple> getDatiTwoProvince(@Param("const1")long contst1 , @Param("const2") long contst2, @Param("eser") Optional<Long> esrc, @Param("pr1") Optional<Long> prov,@Param("pr2") Optional<Long> prov2);
 
 
-    @Query(value = "SELECT sp.anno, sp.mese, sp.valore, c.arrivo_presenza " +
-            "FROM statistiche_province sp, province p, contesto c " +
-            "WHERE sp.id_contesto = c.id_contesto AND p.id_provincia = sp.id_provincia AND sp.anno = :anno " +
-            "AND sp.id_esercizio= :eser AND sp.id_contesto IN (:const1,:const2) AND sp.id_provincia= :prov" ,nativeQuery = true)
-    List<Tuple> getDatiForAYear(@Param("anno") int anno,@Param("eser") Optional<Long>eser,@Param("const1") long const1, @Param("const2") long const2,@Param("prov")Optional<Long> prov);
+    @Query(value = "SELECT sp.anno,SUM(sp.valore) as 'valore', c.arrivo_presenza, e.nome_esercizio  " +
+            "FROM statistiche_province sp, province p, contesto c, esercizi e " +
+            "WHERE sp.id_contesto = c.id_contesto " +
+            "AND p.id_provincia = sp.id_provincia " +
+            "AND sp.id_esercizio = e.id_esercizio  " +
+            "AND sp.anno = :anno " +
+            "AND sp.id_contesto IN (:const1, :const2) " +
+            "AND sp.id_provincia = :prov " +
+            "GROUP BY e.id_esercizio, sp.id_contesto" ,nativeQuery = true)
+    List<Tuple> getDatiForAYear(@Param("anno") int anno,@Param("const1") long const1, @Param("const2") long const2,@Param("prov")Optional<Long> prov);
 
+
+
+    // list of year for a given structure
+    @Query(value= "SELECT sp.anno " +
+            "FROM statistiche_province sp, esercizi e " +
+            "WHERE sp.id_esercizio = e.id_esercizio  " +
+            "AND sp.id_esercizio= :es " +
+            "GROUP BY sp.anno", nativeQuery = true)
+    List<String> getYearsByEsercizio(@Param("es") Optional<Long> idEser);
 }

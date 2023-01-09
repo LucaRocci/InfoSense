@@ -1,16 +1,14 @@
 package app.infoSense.predicto.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
+@Builder
 public class Esercizi {
 
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,12 +1,8 @@
 package app.infoSense.predicto.service;
 
-import app.infoSense.predicto.payload.response.DatiResponse;
-import app.infoSense.predicto.payload.response.DatiResponseByProvincia;
-import app.infoSense.predicto.payload.response.DatiResponseCalcolati;
-import app.infoSense.predicto.payload.response.DatiResponseWithProvincia;
+import app.infoSense.predicto.payload.response.*;
 import app.infoSense.predicto.repository.StatisticheProvincerepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Tuple;
@@ -90,16 +86,21 @@ public class StatisticheProvinceService {
     }
 
 
-    public List<DatiResponse> getDatiForAYear(int anno, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
-        List<Tuple> res = statisticheProvincerepository.getDatiForAYear(anno,eser,const1,const2,prov);
+// THIS
+    public List<DatiResponseWithEsercizio> getDatiForAYear(int anno,long const1, long const2, Optional<Long> prov){
+        List<Tuple> res = statisticheProvincerepository.getDatiForAYear(anno,const1,const2,prov);
 
-        List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
+        List<DatiResponseWithEsercizio> response = res.stream().map(r-> new DatiResponseWithEsercizio(
                 r.get(0, Integer.class),
-                r.get(1,Integer.class),
-                r.get(2, Integer.class),
+                r.get(1, BigDecimal.class),
+                r.get(2, String.class),
                 r.get(3,String.class)
         )).collect(Collectors.toList());
         return response;
+    }
+
+    public List<String> getYearsByEsercizio(Optional<Long> idEser){
+        return statisticheProvincerepository.getYearsByEsercizio(idEser);
     }
 
     /// TODO metodi di utility per mappare le tuple a DAO

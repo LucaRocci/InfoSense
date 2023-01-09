@@ -1,9 +1,13 @@
 package app.infoSense.predicto.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Builder @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter
 public class Regioni {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
