@@ -54,7 +54,7 @@ const StcSingleYearView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       { loading ?  <div className="min-h-60 d-flex align-items-center"><LogoLoading className="loading-svg"/></div> :null }
   {error ? <div className="min-h-60 d-flex align-items-center"><div className="alert alert-danger" role="alert">An error occurred!</div></div>:null}
    {//Change view when searchParam.get("type") change 
-     (searchParam.get("type") === null || searchParam.get("type") === 'Year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} /> : null 
+     (searchParam.get("type") === null || searchParam.get("type") === 'year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} /> : null 
    }    
     </Container>
   );

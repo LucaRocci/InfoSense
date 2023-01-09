@@ -15,6 +15,7 @@ const ProvinceUrl = "http://18.102.24.178:8000/statistics/province"
 //Default value 
 const provItems = ['Italia', 'Estero']
 const filterValue = ['Year','Month']
+const years = [2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 
 //object of label
 const label = {
@@ -22,9 +23,10 @@ const label = {
   provinceSecond: <div className="d-flex align-items-center ms-2"><GeoFill className="me-2" />Second Province</div>,
   activityType: <div className="d-flex align-items-center ms-2"><Building className="me-2" />Activity Type</div>,
   country: <div className="d-flex align-items-center ms-2"><GlobeEuropeAfrica className="me-2" />Country</div>,
-  type:<div className="d-flex align-items-center ms-2"><Calendar3 className="me-2" />Month or Year</div>
-
+  type:<div className="d-flex align-items-center ms-2"><Calendar3 className="me-2" />Month or Year</div>,
+  year:<div className="d-flex align-items-center ms-2"><Calendar3 className="me-2" />Year</div>
 }
+
 //Props type
 type DropDownProps = {
   type: string,
@@ -56,7 +58,7 @@ const DropDown: FC<DropDownProps> = ({type, setShowType, ref}) => {
 
   return (
     <>
-    <label>{type === 'activityType' && label.activityType}{type === 'province' && label.province}{type === 'provinceSecond' && label.provinceSecond}{type === 'country' && label.country}{type === 'type' && label.type}</label>
+    <label>{type === 'activityType' && label.activityType}{type === 'province' && label.province}{type === 'provinceSecond' && label.provinceSecond}{type === 'country' && label.country}{type === 'type' && label.type}{type === 'year' && label.year}</label>
       <Form.Select className="mb-2" onChange={handleChange} >
       {loading ? <option>Loading...</option>:null}
         {Array.isArray(apiData) && !loading && !error && type !== 'province2'
@@ -72,6 +74,7 @@ const DropDown: FC<DropDownProps> = ({type, setShowType, ref}) => {
           : null }
           {type === 'country' && !loading ? provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> ): null } 
           {type === 'type' && !loading  ?  filterValue.map((e) => <option key={e}  selected={e === searchParam.get("type")} value={e}>{e}</option>):null }
+          {type === 'year' && !loading  ?  years.map((e) => <option key={e} value={e}>{e}</option>):null }
       </Form.Select>
       </>
   );

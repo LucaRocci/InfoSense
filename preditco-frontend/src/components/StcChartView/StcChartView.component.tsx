@@ -13,7 +13,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
 } from "chart.js";
 import { Bar, Line } from "react-chartjs-2";
 //Components import
@@ -41,7 +41,6 @@ ChartJS.register(
 
 //Chart view component to use in statistic page
 const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
-
   //SearchParams for api req
   const [searchParam] = useSearchParams();
   //Custom hook
@@ -50,7 +49,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       "province"
     )}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );
-  const [data, option, filterData, rangeYear] = useStcChart(apiData); 
+  const [data, option, filterData, rangeYear] = useStcChart(apiData);
 
   //Array of chart for carousel with same value
   //Array of Bar chart
@@ -73,13 +72,35 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       : null;
 
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center pb-4" >
-      { loading ?  <div className="min-h-60 d-flex align-items-center"><LogoLoading className="loading-svg"/></div> :null }
-  {error ? <div className="min-h-60 d-flex align-items-center"><div className="alert alert-danger" role="alert">An error occurred!</div></div>:null}
-   {//Change view when searchParam.get("type") change 
-    (searchParam.get("type") === null || searchParam.get("type") === 'Year') && !loading && !error? <SingleChart toggleChart={toggleChart} data={data} option={option} />: 
-    searchParam.get("type") === 'Month' && !loading && !error ? <CarouselChart toggleChart={toggleChart} rangeYear={rangeYear} renderBar={renderBar} renderLine={renderLine}  />:null
-   }    
+    <Container className="d-flex flex-column justify-content-center align-items-center pb-4">
+      {loading ? (
+        <div className="min-h-60 d-flex align-items-center">
+          <LogoLoading className="loading-svg" />
+        </div>
+      ) : null}
+      {error ? (
+        <div className="min-h-60 d-flex align-items-center">
+          <div className="alert alert-danger" role="alert">
+            An error occurred!
+          </div>
+        </div>
+      ) : null}
+      {
+        //Change view when searchParam.get("type") change
+        (searchParam.get("type") === null ||
+          searchParam.get("type") === "Year") &&
+        !loading &&
+        !error ? (
+          <SingleChart toggleChart={toggleChart} data={data} option={option} />
+        ) : searchParam.get("type") === "Month" && !loading && !error ? (
+          <CarouselChart
+            toggleChart={toggleChart}
+            rangeYear={rangeYear}
+            renderBar={renderBar}
+            renderLine={renderLine}
+          />
+        ) : null
+      }
     </Container>
   );
 };
