@@ -16,6 +16,7 @@ import { QuestionDiamondFill } from "react-bootstrap-icons";
 // Import ModalSetting from './Modal/ModalSetting.component'; */
 import TutorialModalStandard from "./tutorial-modal-standard.component";
 import TutorialModalCompare from "./tutorial-modal-compare.component";
+import { useSearchParams } from "react-router-dom";
 
 // Props type
 type TutorialOverlayType = {
@@ -25,6 +26,13 @@ type TutorialOverlayType = {
 const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   const [showTutorial, setShowTutorial] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+
+  const [ searchParam ] = useSearchParams();
+
+  useEffect(() => {
+    if(searchParam.get('tutorial') === 'open')
+      setShowTutorial(true)
+  }, [searchParam.get('tutorial')])
 
   //Function to handle the form submit
   const handleClick = () => {

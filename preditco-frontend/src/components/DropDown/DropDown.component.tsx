@@ -6,6 +6,8 @@ import useFetch from "../../hooks/useFetch.hook";
 import Form from "react-bootstrap/Form";
 //React-router-dom imports
 import { useSearchParams } from "react-router-dom";
+//Bootstrap icons
+import { GeoFill, Building, GlobeEuropeAfrica, Calendar3 } from 'react-bootstrap-icons'
 
 //Possible URL to call in fetch
 const ActivityUrl = "http://18.102.24.178:8000/statistics/esercizi"
@@ -13,6 +15,16 @@ const ProvinceUrl = "http://18.102.24.178:8000/statistics/province"
 //Default value 
 const provItems = ['Italia', 'Estero']
 const filterValue = ['Year','Month']
+
+//object of label
+const label = {
+  province: <div className="d-flex align-items-center ms-2"><GeoFill className="me-2" />Province</div>,
+  provinceSecond: <div className="d-flex align-items-center ms-2"><GeoFill className="me-2" />Second Province</div>,
+  activityType: <div className="d-flex align-items-center ms-2"><Building className="me-2" />Activity Type</div>,
+  country: <div className="d-flex align-items-center ms-2"><GlobeEuropeAfrica className="me-2" />Country</div>,
+  type:<div className="d-flex align-items-center ms-2"><Calendar3 className="me-2" />Month or Year</div>
+
+}
 //Props type
 type DropDownProps = {
   type: string,
@@ -43,7 +55,8 @@ const DropDown: FC<DropDownProps> = ({type, setShowType, ref}) => {
   }
 
   return (
-    
+    <>
+    <label>{type === 'activityType' && label.activityType}{type === 'province' && label.province}{type === 'provinceSecond' && label.provinceSecond}{type === 'country' && label.country}{type === 'type' && label.type}</label>
       <Form.Select className="mb-2" onChange={handleChange} >
       {loading ? <option>Loading...</option>:null}
         {Array.isArray(apiData) && !loading && !error && type !== 'province2'
@@ -60,7 +73,7 @@ const DropDown: FC<DropDownProps> = ({type, setShowType, ref}) => {
           {type === 'country' && !loading ? provItems.map((e) => <option key={e} selected={e === searchParam.get("country")} value={e}>{e}</option> ): null } 
           {type === 'type' && !loading  ?  filterValue.map((e) => <option key={e}  selected={e === searchParam.get("type")} value={e}>{e}</option>):null }
       </Form.Select>
-    
+      </>
   );
 };
 

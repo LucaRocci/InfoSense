@@ -115,21 +115,25 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                 label: `Arrivi ${searchParam.get('province')}`,
                 data:  mappedFirstPrvArrival,
                 backgroundColor: "#4571eb",
+                tension: 0.2
               },
               {
                 label: `Presenze ${searchParam.get('province')}`,
                 data: mappedFirstPrvPres,
                 backgroundColor: "#45c6eb",
+                tension: 0.2
               },
               {
                 label: `Arrivi ${searchParam.get('provinceSecond')}`,
                 data:  mappedSecondPrvArrival,
                 backgroundColor: "#aa23c5",
+                tension: 0.2
               },
               {
                 label: `Presenze ${searchParam.get('provinceSecond')}`,
                 data:  mappedSecondPrvPres,
                 backgroundColor: "#d7239f",
+                tension: 0.2
               }
           ],
         });

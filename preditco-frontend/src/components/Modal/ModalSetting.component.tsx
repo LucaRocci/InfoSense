@@ -50,7 +50,10 @@ const ModalSetting:FC<ModalSettingProps> = ({ show, handleClose }) => {
       
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <h4>TITLE</h4>
+          <div className="d-flex flex-column">
+          <h4>Setting</h4>
+          <p className="text-muted m-0">Select option to search data</p>
+          </div>
         </Modal.Header>
       <Tabs
       defaultActiveKey="standard"

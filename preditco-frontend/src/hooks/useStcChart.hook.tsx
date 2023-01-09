@@ -8,9 +8,12 @@ import { useSearchParams } from "react-router-dom";
 import { dataResponse } from "./useFetch.hook";
 //Dataset type
 type DataSetChart = {
+    fill?:boolean;
     backgroundColor: string;
     data: number[] | never[];
     label: string;
+    tension?:number;
+    borderColor?:string;
   };
 //Data chart type
 export  type DataChart = {
@@ -141,11 +144,13 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
                             label: "Arrivi",
                             data: arriveFilterMonth,
                             backgroundColor: "#4571eb",
+                            tension: 0.2
                           },
                           {
                             label: "Presenze",
                             data: [],
                             backgroundColor: "#aa23c5",
+                            tension: 0.2
                           },
                         ],
                       })
@@ -182,11 +187,15 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
               label: "Arrivi",
               data: arriveValue,
               backgroundColor: "#4571eb",
+              /* borderColor: "#45c6eb", */
+              tension: 0.2
             },
             {
               label: "Presenze",
               data: presValue,
               backgroundColor: "#aa23c5",
+              /* borderColor: "#d7239f", */
+              tension: 0.2
             },
           ],
         });
