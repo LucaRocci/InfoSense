@@ -24,9 +24,19 @@ import { ReactComponent as CardAnimationSecond } from "../../assets/animation/ca
 import avatarSara from "../../assets/images/avatar-sara.svg";
 import avatarSaraHover from "../../assets/images/avatar-sara-hover.svg";
 import avatarLuca from "../../assets/images/avatar-luca.svg";
+import avatarLucaHover from "../../assets/images/avatar-luca-hover.svg";
 import avatarPietro from "../../assets/images/avatar-pietro.svg";
+import avatarPietroHover from "../../assets/images/avatar-pietro-hover.svg";
 import avatarSimone from "../../assets/images/avatar-simone.svg";
+import avatarSimoneHover from "../../assets/images/avatar-simone-hover.svg";
 import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
+import avatarGabrieleHover from "../../assets/images/avatar-gabriele-hover.svg";
+import avatarMarco from "../../assets/images/avatar-marco.svg";
+import avatarMarcoHover from "../../assets/images/avatar-marco-hover.svg";
+import avatarFederico from "../../assets/images/avatar-federico.svg";
+import avatarFedericoHover from "../../assets/images/avatar-federico-hover.svg";
+import avatarMatteo from "../../assets/images/avatar-matteo.svg";
+import avatarMatteoHover from "../../assets/images/avatar-matteo-hover.svg";
 
 // Component
 import FooterCustom from "../../components/Footer/Footer.components";
@@ -46,31 +56,31 @@ interface Worker {
 const workers: Worker[] = [
   {
     src: `${avatarGabriele}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarGabrieleHover}`,
     name: "Gabriele",
     field: "Web Develop",
   },
   {
     src: `${avatarPietro}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarPietroHover}`,
     name: "Pietro",
     field: "Web Develop",
   },
   {
     src: `${avatarSimone}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarSimoneHover}`,
     name: "Simone",
     field: "Web Develop",
   },
   {
     src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    srcHover: `${avatarLucaHover}`,
     name: "Luca",
     field: "Backend",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarMarco}`,
+    srcHover: `${avatarMarcoHover}`,
     name: "Marco",
     field: "Backend",
   },
@@ -81,14 +91,14 @@ const workers: Worker[] = [
     field: "Backend",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarFederico}`,
+    srcHover: `${avatarFedericoHover}`,
     name: "Federico",
     field: "Fintech",
   },
   {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarSaraHover}`,
+    src: `${avatarMatteo}`,
+    srcHover: `${avatarMatteoHover}`,
     name: "Matteo",
     field: "Fintech",
   },
@@ -209,7 +219,10 @@ const Home = () => {
             className="d-flex align-items-center justify-content-center my-4 col-h-100"
           >
             {/* Prediction chart card */}
-            <Card ref={refPredictoCard} className="card-home shadow-lg bg-white gsap-card">
+            <Card
+              ref={refPredictoCard}
+              className="card-home shadow-lg bg-white gsap-card"
+            >
               <CardAnimationSecond />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
@@ -231,12 +244,24 @@ const Home = () => {
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
-          <p className="text-white p-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
-            distinctio explicabo dolore, placeat sint accusamus enim omnis
-            ratione, voluptatem ut temporibus similique suscipit ab sequi
-            reiciendis quo? Illum, cum aliquam.
-          </p>
+          <blockquote className="blockquote">
+            <h4 className="w-75 m-auto text-white mb-2">What is?</h4>
+            <p className="w-75 m-auto text-white mb-3">
+              Our app collects tourism data from the Istat website for a
+              specific province in the Piemonte region of Italy. We present this
+              data in visually appealing charts, making it easy for you to
+              understand and analyze. 
+              </p><h4 className="w-75 m-auto text-white mb-2">How it works?</h4><p className="w-75 m-auto text-white mb-4">
+              In addition, our app has a feature that allows you to see
+              predictions for future tourism data . These predictions are made
+              using machine learning algorithms that have been trained on the
+              data we have collected.
+            </p>
+            <p className="w-75 m-auto text-white mb-4">
+              We hope you find our app helpful in understanding and analyzing
+              tourism data for the Piemonte region. Thank you for using our app!
+            </p>
+          </blockquote>
         </div>
       </section>
 
