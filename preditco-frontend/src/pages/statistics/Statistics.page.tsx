@@ -33,7 +33,7 @@ const Statistics = () => {
     <div className="min-h-100 bg-custom sky-blue">
     <Container fluid >
       <Card className="board px-5 py-3 rounded-3 shadow-lg text-white">
-       <div className="d-flex align-items-center justify-content-between mb-3"><h2 className="m-0">{searchParam.get("province")}</h2> <TutorialOverlay  setToggleChart={setToggleChart}/></div>
+       <div className="d-flex align-items-center justify-content-between mb-3"><h2 className="m-0">{searchParam.get("province")}{searchParam.get("provinceSecond") === null ? '' : ' - ' + searchParam.get("provinceSecond") }</h2><TutorialOverlay  setToggleChart={setToggleChart}/></div>
         <p className="ms-1">
           {searchParam
             .get("activityType")
@@ -41,6 +41,7 @@ const Statistics = () => {
             .replace(/\b(\w)/g, (s) => s.toUpperCase())}{" "}
           ({searchParam.get("country")})
         </p>
+  
         <div className="d-flex flex-row">
           <button
           id="setting"

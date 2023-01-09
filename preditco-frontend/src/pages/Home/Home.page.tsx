@@ -1,5 +1,7 @@
 // React
 import React, { useEffect, useRef } from "react";
+//React-router-dom imports
+import { Link } from "react-router-dom";
 
 // Style
 import "./home.scss";
@@ -175,13 +177,15 @@ const Home = () => {
             >
               Get Started
             </Button>
+            <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia&tutorial=open"> 
             <Button
               variant="secondary rounded-pill"
               size="lg"
               className="my-2 my-md-0 mx-md-2 rounded-50"
             >
-              Tutorial
+            Tutorial
             </Button>
+            </Link>
           </div>
         </div>
         <AnimationWave /* className="d-none d-md-block" */ />
@@ -208,7 +212,9 @@ const Home = () => {
                   This tool provides actual and past statistics. Select your
                   period, view and download data you need.
                 </Card.Text>
+                <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia">
                 <Button variant="primary rounded-pill">Open</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
@@ -230,7 +236,9 @@ const Home = () => {
                   This tool provide prediction feature income. Start planning
                   your business looking for prediction.
                 </Card.Text>
+                <Link to="/predictions">
                 <Button variant="primary rounded-pill">Open</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
