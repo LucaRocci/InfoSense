@@ -42,12 +42,12 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
   return (
     <>
       <p>Here you can change your setting and chose your filter. Save your change!</p>
-      <form style={{ margin: "20px" }} onSubmit={handleOnStandardSubmit}>
+      <form className="tutorial-form" onSubmit={handleOnStandardSubmit}>
         <DropDown type="activityType" setShowType={setShowType} />
         <DropDown type="province" />
         <DropDown type="country" />
         {showType ? <DropDown type="type" /> : null}
-
+        <div className="d-flex justify-content-center">
         <Button
           style={{ backgroundColor: "blue", margin: "15px" }}
           variant="primary"
@@ -55,6 +55,7 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
         >
           Save Changes
         </Button>
+        </div>
       </form>
     </>
   );

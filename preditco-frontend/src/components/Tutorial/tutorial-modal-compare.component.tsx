@@ -39,14 +39,16 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
   return (
     <>
     <p>You can compare other cities to compare different kind of data. Save your settings!</p>
-      <form style={{ margin: '20px'}} onSubmit={handleOnCompareSubmit}>
+      <form className="tutorial-form" onSubmit={handleOnCompareSubmit}>
         <DropDown type="activityType" />
         <DropDown type="province" />
         <DropDown type="provinceSecond" />
         <DropDown type="country" />
+        <div className="d-flex justify-content-center"> 
         <Button style={{ backgroundColor: 'blue', marginTop: '15px' }} variant="primary" type="submit">
           Save Changes
         </Button>
+        </div>
       </form>
     </>
   );
