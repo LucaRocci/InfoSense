@@ -12,7 +12,7 @@ import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg
 import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container, Card } from "react-bootstrap";
-import TutorialOverlay from "../../components/tutorial.component";
+import TutorialOverlay from "../../components/Tutorial/tutorial.component";
 import StcCompareView from '../../components/StcChartView/stcCompareView.component'
 import DropDown from "../../components/DropDown/DropDown.component";
 

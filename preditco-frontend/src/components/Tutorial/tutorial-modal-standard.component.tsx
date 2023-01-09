@@ -3,7 +3,7 @@ import React, { useState, FC, Dispatch, SetStateAction } from "react";
 // React-router-dom imports
 import { useSearchParams } from "react-router-dom";
 // Components impoprts
-import DropDown from "./DropDown/DropDown.component";
+import DropDown from "../DropDown/DropDown.component";
 import { Button } from "react-bootstrap";
 
 type TutorialModalType = {
@@ -40,16 +40,23 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
   };
 
   return (
-    <form onSubmit={handleOnStandardSubmit}>
-      <DropDown type="activityType" setShowType={setShowType} />
-      <DropDown type="province" />
-      <DropDown type="country" />
-      {showType ? <DropDown type="type" /> : null}
+    <>
+      <p>Here you can change your setting and chose your filter. Save your change!</p>
+      <form style={{ margin: "20px" }} onSubmit={handleOnStandardSubmit}>
+        <DropDown type="activityType" setShowType={setShowType} />
+        <DropDown type="province" />
+        <DropDown type="country" />
+        {showType ? <DropDown type="type" /> : null}
 
-      <Button variant="primary" type="submit">
-        Save Changes
-      </Button>
-    </form>
+        <Button
+          style={{ backgroundColor: "blue", margin: "15px" }}
+          variant="primary"
+          type="submit"
+        >
+          Save Changes
+        </Button>
+      </form>
+    </>
   );
 };
 

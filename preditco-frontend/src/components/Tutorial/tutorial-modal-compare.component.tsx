@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 
 // Components imports
-import DropDown from "./DropDown/DropDown.component";
+import DropDown from "../DropDown/DropDown.component";
 
 // Props type
 type TutorialModalType = {
@@ -38,12 +38,13 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-      <form onSubmit={handleOnCompareSubmit}>
+    <p>You can compare other cities to compare different kind of data. Save your settings!</p>
+      <form style={{ margin: '20px'}} onSubmit={handleOnCompareSubmit}>
         <DropDown type="activityType" />
         <DropDown type="province" />
         <DropDown type="provinceSecond" />
         <DropDown type="country" />
-        <Button variant="primary" type="submit">
+        <Button style={{ backgroundColor: 'blue', marginTop: '15px' }} variant="primary" type="submit">
           Save Changes
         </Button>
       </form>
