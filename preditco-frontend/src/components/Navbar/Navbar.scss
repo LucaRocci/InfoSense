@@ -13,13 +13,16 @@
   }
 }
 .nav-svg-github {
-  max-height: 70px;
-  max-width: 70px;
+  height: 40px;
+  width: 40px;
+  margin-left: 6px;
   color: $white;
 }
 .nav-svg-istat {
   max-height: 70px;
-  max-width: 120px;
+  max-width: 100px;
+  margin-left: 6px;
+
   color: $white;
 }
 .nav-link-font {
@@ -27,7 +30,6 @@
 }
 .nav-footer {
   position: relative;
-  margin-bottom: 5em;
 }
 .nav-footer::after,
 .nav-footer::before {

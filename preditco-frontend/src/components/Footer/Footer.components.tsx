@@ -35,8 +35,7 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <h4 className="text-center">PREDICTO</h4>
               <p className="m-4">
-                With supporting text below as a natural lead-in to additional
-                content.
+              Discover the future of tourism with our data analysis and prediction app.
               </p>
             </Col>
 
@@ -64,17 +63,17 @@ const FooterCustom = () => {
 
             {/* 4° column: predicto products */}
             <Col className="mt-2 mb-2">
-              <h4 className="text-center">PRODUCT</h4>
+              <h4 className="text-center">LEGACY</h4>
               <ListGroup variant="flush">
                 <ListGroup.Item className="bg-transparent">Predicto</ListGroup.Item>
-                <ListGroup.Item className="bg-transparent">Stay Tuned</ListGroup.Item>
+                <ListGroup.Item className="bg-transparent">Terms of use</ListGroup.Item>
               </ListGroup>
             </Col>
           </Row>
 
           {/* FOOTER */}
           <div className="text-muted text-center m-2">
-            © Infosense, 2022. All rights reserved.
+            © Infosense, 2023. All rights reserved.
           </div>
         </div>
       </Container>

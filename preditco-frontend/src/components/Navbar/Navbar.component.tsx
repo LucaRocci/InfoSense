@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 //Bootstrap components imports
 import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Github } from "react-bootstrap-icons";
+
 //Import logos
 import { ReactComponent as PredictoLogo } from "../../assets/logos/logo-predicto.svg";
 import { ReactComponent as PredictoLogoWhite } from "../../assets/logos/logo-predicto-white.svg";
 import { ReactComponent as InfosenseLogo } from "../../assets/logos/logo-infosense-navbar.svg";
 import { ReactComponent as IstatLogo } from "../../assets/logos/logo-istat.svg";
+import { ReactComponent as Github } from "../../assets/logos/gitHubwhite.svg";
 
 //Import style
 import "./Navbar.scss";
@@ -94,10 +95,14 @@ const NavbarCustom = () => {
               Predictions
             </Link>
             {navbarOpen ? (
-              <Row className="d-flex flex-row align-items-center mt-4">
-                <Github className="nav-svg-github ms-2" />{" "}
+              <div>
+                <Link className="nav-link text-black nav-link-font" to="#">
+                  <Github className="nav-svg-github ms-2 text-white" />
+                  </Link>
+                <Link className="nav-link text-black nav-link-font" to="#">
                 <IstatLogo className="nav-svg-istat" />
-              </Row>
+                  </Link>
+              </div>
             ) : (
               ""
             )}
@@ -112,7 +117,7 @@ const NavbarCustom = () => {
                 </Row>
                 <Row className="mb-3">
                   <Col className="text-muted d-flex justify-content-start nav-copyrigth-text">
-                    2022 @ all right reserved
+                    2023 @ all right reserved
                   </Col>
                   <Col className="d-flex justify-content-end">
                     <InfosenseLogo className="w-75" />
