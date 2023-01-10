@@ -60,11 +60,11 @@ a {
     background-size: cover;
   
     &.sky-blue{
-      background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('./assets/images/background.svg');
+      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */ url('./assets/images/background.svg');
     }
   
     &.blue{
-      background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('./assets/images/background02.svg');  
+      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */url('./assets/images/background02.svg');  
     }
   }
 
