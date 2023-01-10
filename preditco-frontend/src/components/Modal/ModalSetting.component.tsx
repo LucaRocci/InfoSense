@@ -101,10 +101,10 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
               {showType ? <DropDown type="type" /> : null}
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" className="rounded-pill" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" className="rounded-pill" type="submit">
                 Save Changes
               </Button>
             </Modal.Footer>
@@ -119,10 +119,10 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
               <DropDown type="country" />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" className="rounded-pill" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary"  className="rounded-pill" type="submit">
                 Save Changes
               </Button>
             </Modal.Footer>
@@ -136,10 +136,10 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
               <DropDown type="year" />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary"  className="rounded-pill" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="primary"  className="rounded-pill" type="submit">
                 Save Changes
               </Button>
             </Modal.Footer>

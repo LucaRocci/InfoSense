@@ -49,9 +49,10 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
         {showType ? <DropDown type="type" /> : null}
         <div className="d-flex justify-content-center">
         <Button
-          style={{ backgroundColor: "blue", margin: "15px" }}
+          style={{ margin: "15px" }}
           variant="primary"
           type="submit"
+          className="rounded-50 btn btn-primary rounded-pill"
         >
           Save Changes
         </Button>

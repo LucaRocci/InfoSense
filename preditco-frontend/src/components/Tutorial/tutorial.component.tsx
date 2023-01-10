@@ -110,12 +110,12 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             <div className="tutorial-content-step">{currentTutorialStep.content}</div>
 
             {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5? (
-              <button style={{ backgroundColor: 'blue' }} type="submit" onClick={handleClick}>
+              <button className="rounded-50 btn btn-primary rounded-pill" type="submit" onClick={handleClick}>
                 Next Step
               </button>
             ) : null}
             {currentStep === tutorialSteps.length && (
-              <button style={{ backgroundColor: 'purple' }}
+              <button className="rounded-50 btn btn-primary rounded-pill" style={{ backgroundColor: 'purple' }}
                 onClick={() => {
                   setShowTutorial(false);
                   setCurrentStep(1);
