@@ -34,7 +34,7 @@ const Statistics = () => {
   return (
     <div className="min-h-100 bg-custom sky-blue">
       <Container fluid>
-        <Card className="board px-5 py-3 rounded-3 shadow-lg text-white">
+        <Card className="board px-3 py-3 rounded-3 shadow-lg text-white">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h2 className="m-0">
               {searchParam.get("province")}
@@ -92,7 +92,7 @@ const Statistics = () => {
                 onClick={() => setToggleChart("Doughnut")}
               >
                 <DoughnutChartIcon title="Doughnut Chart" />
-                <span className="button-text-chart">Doughnut Chart</span>
+                <span className="button-text-chart">Dghnut Chart</span>
               </button>
             )}
           </div>
