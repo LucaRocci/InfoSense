@@ -32,7 +32,7 @@ const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option, doughnutData
             <Line id="3" options={option} data={data} />
           </div>
         ) : toggleChart === "Doughnut" ? (
-          <> <button onClick={handleClick}>CLICK</button>
+         <> <button className="btn btn-primary mt-2 shadow-lg rounded-pill" onClick={handleClick}>{doughnutToggle === 0 && 'Arrivi'} {doughnutToggle === 1 && 'Presenze'} </button>
           <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
             {typeof doughnutData !== 'undefined' ?  doughnutData[doughnutToggle] : null }
           </div>

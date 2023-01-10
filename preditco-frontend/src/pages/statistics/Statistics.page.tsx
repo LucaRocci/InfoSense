@@ -45,6 +45,10 @@ const Statistics = () => {
             <TutorialOverlay setToggleChart={setToggleChart} />
           </div>
           <p className="ms-1">
+          {searchParam
+              .get("year")
+              ?.toLowerCase()
+              .replace(/\b(\w)/g, (s) => s.toUpperCase())}
             {searchParam
               .get("activityType")
               ?.toLowerCase()

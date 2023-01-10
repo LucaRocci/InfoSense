@@ -110,25 +110,35 @@ const Home = () => {
   const refStatisticCard = useRef<HTMLInputElement>(null);
   const refPredictoCard = useRef<HTMLInputElement>(null);
 
+  const refIstatSection = useRef<HTMLInputElement>(null);
+  const refTeamSection = useRef<HTMLInputElement>(null);
+
+  const refLandingBlock = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     const stcCard = refStatisticCard.current;
     const predictoCard = refPredictoCard.current;
+
+    const istat = refIstatSection.current;
+    const team = refTeamSection.current;
+
+    const landing = refLandingBlock.current;
 
     if (stcCard && predictoCard) {
       gsap.fromTo(
         stcCard,
         {
           opacity: 0,
-          x: -400,
+          y: +400,
         },
         {
           opacity: 1,
-          duration: 0.5,
-          x: 0,
+          duration: 0.4,
+          y: 0,
           scrollTrigger: {
             trigger: stcCard,
-            start: "top-=10% top+=600px",
-           /*  markers: true */
+            start: "top-=20% top+=600px",
+             /* markers: true  */
           },
         }
       );
@@ -136,27 +146,71 @@ const Home = () => {
         predictoCard,
         {
           opacity: 0,
-          x: +400,
+          y: +400,
         },
         {
           opacity: 1,
-          duration: 0.5,
-          x: 0,
+          duration: 0.4,
+          y: 0,
           scrollTrigger: {
-            trigger: stcCard,
+            trigger: predictoCard,
+            start: "top-=20% top+=600px",
+            /* markers: true */
+          },
+        }
+      );
+
+      gsap.fromTo(
+        istat,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: istat,
+            start: "top-=10% top+=600px",
+             /* markers: true */ 
+          },
+        }
+      );
+
+      gsap.fromTo(
+        team,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 1.5,
+          scrollTrigger: {
+            trigger: team,
             start: "top-=10% top+=600px",
             /* markers: true */
           },
         }
       );
     }
+
+    gsap.fromTo(
+      landing,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 3,
+
+      }
+    );
   }, []);
 
   return (
     <Container fluid className="px-0">
       {/* Introduction to Predicto with logos */}
       <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom sky-blue text-white px-3">
-        <div className="d-flex flex-column align-items-center my-auto">
+        <div className="d-flex flex-column align-items-center my-auto" ref={refLandingBlock}>
           <Logo />
           <h1 className="text-center">
             Make your analyisis better with Predicto.
@@ -192,7 +246,7 @@ const Home = () => {
       </section>
 
       {/* Cards of our charts */}
-      <section id="card" className="min-h-100 bg-custom blue px-3">
+      <section id="card" className="min-h-100 bg-custom blue px-3 pt-3 pt-md-0">
         <Row className="w-100 m-0 min-h-100">
           <Col
             xs={12}
@@ -247,8 +301,8 @@ const Home = () => {
       </section>
 
       {/* Istat data and explanations of the data we use */}
-      <section className="istat px-3">
-        <div className="p-1">
+      <section className="istat px-3" >
+        <div className="p-1" ref={refIstatSection}>
           <p className="text-white display-6 text-center">
             Source data from <span className="display-1">Istat</span>
           </p>
@@ -275,6 +329,7 @@ const Home = () => {
 
       {/* Our team section with avatar */}
       <section className="our-team bg-skyblue px-3 shadow-lg">
+        <div ref={refTeamSection}>
         <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
         <div className="d-flex justify-content-center flex-wrap">
           {workers.map((el: Worker, index: number) => (
@@ -291,6 +346,7 @@ const Home = () => {
               <p>{el.field}</p>
             </div>
           ))}
+        </div>
         </div>
       </section>
 
