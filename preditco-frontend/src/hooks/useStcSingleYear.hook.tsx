@@ -140,18 +140,18 @@ const useStcSingleYear = (
               label: '# of Arrivals',
               data: mappedArrival,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+                '#dfff00',
+                '#ffbf00',
+                '#ff7f50',
+                '#de3163',
+                '#9fe2bf',
+                '#40e0d0',
+                '#6495ed',
+                '#ccccff',
+                '#d735ff',
+                '#08d889'
               ],
-              borderColor: [
+/*               borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
@@ -163,7 +163,7 @@ const useStcSingleYear = (
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
               ],
-              borderWidth: 1,
+              borderWidth: 1, */
             },
           ],
         },
@@ -173,18 +173,18 @@ const useStcSingleYear = (
             {
               label: '# of Pres',
               data: mappedPres,
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
-              ],
+              backgroundColor:  [
+                '#dfff00',
+                '#ffbf00',
+                '#ff7f50',
+                '#de3163',
+                '#9fe2bf',
+                '#40e0d0',
+                '#6495ed',
+                '#ccccff',
+                '#d735ff',
+                '#08d889'
+              ]/* ,
               borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -197,7 +197,7 @@ const useStcSingleYear = (
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
               ],
-              borderWidth: 1,
+              borderWidth: 1, */
             },
           ],
         }

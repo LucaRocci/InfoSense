@@ -6,6 +6,8 @@ import useFetch from "./useFetch.hook";
 import { useSearchParams } from "react-router-dom";
 //Import Type 
 import { dataResponse } from "./useFetch.hook";
+//Mapping function imports
+import { stcChartMap } from "../__functions/map.functions";
 //Dataset type
 type DataSetChart = {
     fill?:boolean;
@@ -100,101 +102,26 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
 
     //Effect for change the chart settings on api change request
     useEffect(() => {
-
-      //Mapping the res of api
-        const mappedLabels: string[] = [];
-        const arriveValue: number[] = [];
-        const presValue: number[] = [];
-        const range:number[] = [];
-      
-
-        let arriveFilterMonth:number[] = [];
-        let presFilterMonth:number[] = [];
-        let counter = 0;
-        let filteredArray:DataChart[] = [];
-        let startRangeYear:number[] = [];
-
-    
-        if (Array.isArray(apiData)) {
-            let valueCounter = 0;
-          apiData?.forEach((e,i) => {
-            if (typeof e === "string") return;
-
-            if(i === 0)
-             startRangeYear.push(e.anno);
-
-            if(i === apiData.length - 1 )
-              startRangeYear.push(e.anno);
-
-             if (e.arrivoPresenza === "Arrivo" && e.mese === 0 ) {
-              mappedLabels.push(e.anno.toString());
-              arriveValue.push(e.valore);
-            } else if(e.arrivoPresenza === "Presenza" && e.mese === 0){
-              presValue.push(e.valore);
-            } else if(e.arrivoPresenza === "Arrivo" ){
-                valueCounter += e.valore;
-                arriveFilterMonth.push(e.valore);
-                if((i + 1) % 12 === 0) {
-                    mappedLabels.push(e.anno.toString());
-                    arriveValue.push(valueCounter);
-                    valueCounter = 0;
-                    
-                    filteredArray.push({
-                        labels: Month,
-                        datasets: [
-                          {
-                            label: "Arrivi",
-                            data: arriveFilterMonth,
-                            backgroundColor: "#4571eb",
-                            tension: 0.2
-                          },
-                          {
-                            label: "Presenze",
-                            data: [],
-                            backgroundColor: "#aa23c5",
-                            tension: 0.2
-                          },
-                        ],
-                      })
-                    arriveFilterMonth = [];
-                }
-            } else if(e.arrivoPresenza === "Presenza" ) {
-                valueCounter += e.valore;
-                presFilterMonth.push(e.valore);
-                if((i + 1) % 12 === 0) {
-                    presValue.push(valueCounter);
-                    valueCounter = 0;
-
-                    filteredArray[counter].datasets[1].data = presFilterMonth;
-                    presFilterMonth = [];
-                    counter++ ;
-                }
-            }
-          });
-        }
-
-        //Cicle for create the range of year
-        for (let index = 0; index <= startRangeYear[1] - startRangeYear[0]; index++) {
-          range.push(startRangeYear[0] + index)
-        }
+        //mapping res
+        const mappedValue = stcChartMap(apiData);
         //Set the range year
-        setrangeYear(range);
+        setrangeYear(mappedValue.range);
         //Set filterData state with mapped value
-        setFilterData(filteredArray.length === 0 ? false : filteredArray);
+        setFilterData(mappedValue.filteredArray.length === 0 ? false : mappedValue.filteredArray);
         //Set Data state with mapped value
         setData({
-          labels: mappedLabels,
+          labels: mappedValue.mappedLabels,
           datasets: [
             {
               label: "Arrivi",
-              data: arriveValue,
+              data: mappedValue.arriveValue,
               backgroundColor: "#4571eb",
               /* borderColor: "#45c6eb", */
               tension: 0.2
             },
             {
               label: "Presenze",
-              data: presValue,
+              data: mappedValue.presValue,
               backgroundColor: "#aa23c5",
               /* borderColor: "#d7239f", */
               tension: 0.2

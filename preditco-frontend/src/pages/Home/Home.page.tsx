@@ -168,7 +168,7 @@ const Home = () => {
         },
         {
           opacity: 1,
-          duration: 1.5,
+          duration: 2,
           scrollTrigger: {
             trigger: istat,
             start: "top+=30% top+=600px",
@@ -185,10 +185,10 @@ const Home = () => {
         },
         {
           opacity: 1,
-          duration: 1.5,
+          duration: 2,
           scrollTrigger: {
             trigger: team,
-            start: "top+=30% top+=600px",
+            start: "top+=40% top+=600px",
              /* markers: true  */
           },
         }
@@ -203,7 +203,7 @@ const Home = () => {
       },
       {
         opacity: 1,
-        duration: 4,
+        duration: 2.5,
       }
     );
   }, []);
