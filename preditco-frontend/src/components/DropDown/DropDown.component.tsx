@@ -108,7 +108,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
       </label>
       <Form.Select className="mb-2" onChange={handleChange}>
         {loading ? <option>Loading...</option> : null}
-        {Array.isArray(apiData) && !loading && !error && type !== "province2"
+        {Array.isArray(apiData) && !loading && !error && type !== "provinceSecond"
           ? apiData.map((el) => {
               if (typeof el === "string")
                 return (
