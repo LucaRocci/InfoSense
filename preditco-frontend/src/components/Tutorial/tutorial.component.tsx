@@ -16,6 +16,7 @@ import { QuestionDiamondFill } from "react-bootstrap-icons";
 // Import ModalSetting from './Modal/ModalSetting.component'; */
 import TutorialModalStandard from "./tutorial-modal-standard.component";
 import TutorialModalCompare from "./tutorial-modal-compare.component";
+import TutorialYearCompare from "./tutorial-modal-year.components";
 import { useSearchParams } from "react-router-dom";
 
 // Props type
@@ -75,11 +76,32 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 6: Line chart comparision",
-      content: "Check also our line chart with our comparision mode",
+      content: "Check our line chart with our comparision mode",
       element: "#line",
     },
     {
-      heading: "Step 7: Thanks, now have fun!",
+      heading: "Step 7: Comapare",
+      content: <TutorialYearCompare setCurrentStep={setCurrentStep} />,
+      element: "#setting",
+    },
+    {
+      heading: "Step 8: Bar chart year mode",
+      content:
+        "Different data of different years in the same chart, amazing!",
+      element: "#bar",
+    },
+    {
+      heading: "Step 9: Line chart year mode",
+      content: "Check our line chart with our year mode",
+      element: "#line",
+    },
+    {
+      heading: "Step 10: Doughnut chart year",
+      content: "Our Single year mode you can analyze different Esercizi in the specific year",
+      element: "#doughnut",
+    },
+    {
+      heading: "Step 11: Thanks, now have fun!",
       content: "We have done, now it's your turn.",
       element: "",
     },
@@ -98,9 +120,10 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add("highlight");
     }
-    if (currentStep === 3 || currentStep === 6) setToggleChart("Bar");
-    if (currentStep === 4 || currentStep === 7) setToggleChart("Line");
-  }, [currentStep, currentTutorialStep, setToggleChart]);
+    if (currentStep === 3 || currentStep === 6 || currentStep === 9) setToggleChart("Bar");
+    if (currentStep === 4 || currentStep === 7 || currentStep === 10) setToggleChart("Line");
+    if (currentStep === 11) setToggleChart("Doughnut")
+  }, [currentTutorialStep]);
 
   return (
     <div>
@@ -110,7 +133,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             <h1 className="tutorail-header-step">{currentTutorialStep.heading}</h1>
             <div className="tutorial-content-step">{currentTutorialStep.content}</div>
 
-            {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5? (
+            {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5 && currentStep !== 8? (
               <button className="rounded-50 btn btn-primary rounded-pill" type="submit" onClick={handleClick}>
                 Next Step
               </button>
