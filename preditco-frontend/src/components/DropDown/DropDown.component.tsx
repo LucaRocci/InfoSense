@@ -28,35 +28,35 @@ const years = [
 const label = {
   province: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">📍</div> <div>Province</div>
+      <div className="me-1">📍</div> <div>Province</div>
     </div>
   ),
   provinceSecond: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">📍</div> <div>Second Province</div>
+      <div className="me-1">📍</div> <div>Second Province</div>
     </div>
   ),
   activityType: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">🛏️</div>
+      <div className="me-1">🛏️</div>
       <div>Activity Type</div>
     </div>
   ),
   country: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">🌍</div>
+      <div className="me-1">🌍</div>
       <div>Country</div>
     </div>
   ),
   type: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">📆</div>
+      <div className="me-1">📆</div>
       <div>Month or Year</div>
     </div>
   ),
   year: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-2">📆</div>
+      <div className="me-1">📆</div>
       <div>Year</div>
     </div>
   ),
