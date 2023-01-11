@@ -1,18 +1,19 @@
-//React core and hooks
+// React core and hooks
 import { useState, useEffect } from "react";
 
-//React router dom imports
+// React router dom imports
 import { useSearchParams } from "react-router-dom";
 
-//Import Type
+// Import Type
 import { dataResponse } from "./useFetch.hook";
 import { DataChart, OptionChart } from "./useStcChart.hook";
 
-//hook for mapping the api response to chartjs valid object
+// Hook for mapping the api response to chartjs valid object
 const useStcSingleYear = (
   apiData: dataResponse[] | string[] | null | boolean
 ): [data: DataChart, option: OptionChart, doughnutData: DataChart[]] => {
-  //SearchParam hook
+
+  // SearchParam hook
   const [doughnutData, setDoughnutData] = useState<DataChart[]>([
     {
     labels: [],
@@ -66,6 +67,7 @@ const useStcSingleYear = (
       },
     ],
   }]);
+
   //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],
@@ -78,7 +80,7 @@ const useStcSingleYear = (
     ],
   });
 
-  //Char option state
+  // Char option state
   const [option, setOption] = useState<OptionChart>({
     maintainAspectRatio: false,
     plugins: {
@@ -97,18 +99,19 @@ const useStcSingleYear = (
           size: 20,
         },
         footerFont: {
-          size: 10, // there is no footer by default
+          size: 10, // There is no footer by default
         },
       },
     },
   });
 
-  //Effect for change the chart settings on api change request
+  // Effect for change the chart settings on api change request
   useEffect(() => {
     if (Array.isArray(apiData)) {
 
       const labels:any[] = [];
 
+      // Mapping data api, divided by arrival and presense per each year
       const mappedArrival: any[] = apiData
       .map((e) => {
         if (typeof e === "string") return e;
@@ -128,8 +131,7 @@ const useStcSingleYear = (
       })
       .filter((e) => e !== 0);
       
-
-
+      // Structure chart Doudhnut
       const mappedDoudhnutData = [
         {
           labels: labels,
@@ -138,18 +140,18 @@ const useStcSingleYear = (
               label: '# of Arrivals',
               data: mappedArrival,
               backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+                '#dfff00',
+                '#ffbf00',
+                '#ff7f50',
+                '#de3163',
+                '#9fe2bf',
+                '#40e0d0',
+                '#6495ed',
+                '#ccccff',
+                '#d735ff',
+                '#08d889'
               ],
-              borderColor: [
+/*               borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
@@ -161,7 +163,7 @@ const useStcSingleYear = (
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
               ],
-              borderWidth: 1,
+              borderWidth: 1, */
             },
           ],
         },
@@ -171,18 +173,18 @@ const useStcSingleYear = (
             {
               label: '# of Pres',
               data: mappedPres,
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
-              ],
+              backgroundColor:  [
+                '#dfff00',
+                '#ffbf00',
+                '#ff7f50',
+                '#de3163',
+                '#9fe2bf',
+                '#40e0d0',
+                '#6495ed',
+                '#ccccff',
+                '#d735ff',
+                '#08d889'
+              ]/* ,
               borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -195,7 +197,7 @@ const useStcSingleYear = (
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
               ],
-              borderWidth: 1,
+              borderWidth: 1, */
             },
           ],
         }
@@ -203,6 +205,7 @@ const useStcSingleYear = (
 
       setDoughnutData(mappedDoudhnutData);
 
+      // Structure chart Doudhnut
       setData({
         labels: labels,
         datasets: [
@@ -222,6 +225,7 @@ const useStcSingleYear = (
       });
     }
   }, [apiData]);
+
   //Return the states
   return [data, option, doughnutData ];
 };
