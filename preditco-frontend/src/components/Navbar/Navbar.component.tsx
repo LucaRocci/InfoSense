@@ -20,7 +20,10 @@ const NavbarCustom = () => {
 
   // Navbar is always close when the page is rendered
   useEffect(() => {
-    document.body.classList.toggle("overflow-y-hidden");
+    if(navbarOpen) 
+       document.body.classList.add("overflow-y-hidden");
+    else  
+       document.body.classList.remove("overflow-y-hidden");
   }, [navbarOpen]);
 
   return (
