@@ -1,18 +1,19 @@
-//React core and hooks
+// React core and hooks
 import { useState, useEffect } from "react";
 
-//React router dom imports
+// React router dom imports
 import { useSearchParams } from "react-router-dom";
 
-//Import Type
+// Import Type
 import { dataResponse } from "./useFetch.hook";
 import { DataChart, OptionChart } from "./useStcChart.hook";
 
-//hook for mapping the api response to chartjs valid object
+// Hook for mapping the api response to chartjs valid object
 const useStcSingleYear = (
   apiData: dataResponse[] | string[] | null | boolean
 ): [data: DataChart, option: OptionChart, doughnutData: DataChart[]] => {
-  //SearchParam hook
+
+  // SearchParam hook
   const [doughnutData, setDoughnutData] = useState<DataChart[]>([
     {
     labels: [],
@@ -66,6 +67,7 @@ const useStcSingleYear = (
       },
     ],
   }]);
+
   //Single Chart setting state for year chart
   const [data, setData] = useState<DataChart>({
     labels: [],
@@ -78,7 +80,7 @@ const useStcSingleYear = (
     ],
   });
 
-  //Char option state
+  // Char option state
   const [option, setOption] = useState<OptionChart>({
     maintainAspectRatio: false,
     plugins: {
@@ -97,18 +99,19 @@ const useStcSingleYear = (
           size: 20,
         },
         footerFont: {
-          size: 10, // there is no footer by default
+          size: 10, // There is no footer by default
         },
       },
     },
   });
 
-  //Effect for change the chart settings on api change request
+  // Effect for change the chart settings on api change request
   useEffect(() => {
     if (Array.isArray(apiData)) {
 
       const labels:any[] = [];
 
+      // Mapping data api, divided by arrival and presense per each year
       const mappedArrival: any[] = apiData
       .map((e) => {
         if (typeof e === "string") return e;
@@ -128,8 +131,7 @@ const useStcSingleYear = (
       })
       .filter((e) => e !== 0);
       
-
-
+      // Structure chart Doudhnut
       const mappedDoudhnutData = [
         {
           labels: labels,
@@ -203,6 +205,7 @@ const useStcSingleYear = (
 
       setDoughnutData(mappedDoudhnutData);
 
+      // Structure chart Doudhnut
       setData({
         labels: labels,
         datasets: [
@@ -222,6 +225,7 @@ const useStcSingleYear = (
       });
     }
   }, [apiData]);
+
   //Return the states
   return [data, option, doughnutData ];
 };
