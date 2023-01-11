@@ -1,7 +1,9 @@
 // React core imports
 import React, { useState, FC, Dispatch, SetStateAction } from "react";
+
 // React-router-dom imports
 import { useSearchParams } from "react-router-dom";
+
 // Components impoprts
 import DropDown from "../DropDown/DropDown.component";
 import { Button } from "react-bootstrap";
@@ -11,16 +13,20 @@ type TutorialModalType = {
 };
 
 const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
+
   //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
   const [showType, setShowType] = useState<boolean>(false);
+
   //Hook for searchParam
   const [, setSearchParam] = useSearchParams();
 
   //Function to handle the form submit
   const handleOnStandardSubmit = (e: any) => {
+
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
+    
     //Check if dropdwon for type has value or not to change the searchParams
     if (e.target[3].value.length === 0)
       setSearchParam({

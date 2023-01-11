@@ -34,11 +34,12 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       setShowTutorial(true)
   }, [searchParam.get('tutorial')])
 
-  //Function to handle the form submit
+  // Function to handle the form submit
   const handleClick = () => {
     setCurrentStep(currentStep + 1);
   };
 
+  // Steps tutorial 
   const tutorialSteps = [
     {
       heading: "Welcome to the tutorial!",
@@ -88,11 +89,11 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
 
   useEffect(() => {
 
-    // remove the "highlight" class from all elements
+    // Remove the "highlight" class from all elements
     const elements = document.querySelectorAll(".highlight");
     elements.forEach((element) => element.classList.remove("highlight"));
 
-    // add the "highlight" class to the current tutorial step element, if it exists
+    // Add the "highlight" class to the current tutorial step element, if it exists
     if (currentTutorialStep.element) {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add("highlight");

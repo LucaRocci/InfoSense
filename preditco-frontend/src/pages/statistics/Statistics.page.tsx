@@ -1,15 +1,19 @@
-//React core imports
+// React core imports
 import React, { useEffect, useState } from "react";
-//React router imports
+
+// React router imports
 import { useSearchParams } from "react-router-dom";
-//Style Imports
+
+// Style Imports
 import "./Statistics.scss";
-//Assets imports
+
+// Assets imports
 import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
 import { ReactComponent as LineChartIcon } from "../../assets/icons/line-chart.svg";
 import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg";
 import { ReactComponent as DoughnutChartIcon } from "../../assets/icons/doughnut-chart.svg";
-//Components imports
+
+// Components imports
 import ModalSetting from "../../components/Modal/ModalSetting.component";
 import StcChartView from "../../components/StcChartView/StcChartView.component";
 import { Container, Card } from "react-bootstrap";
@@ -18,15 +22,14 @@ import StcCompareView from "../../components/StcChartView/stcCompareView.compone
 import StcSingleYearView from "../../components/StcChartView/StcSingleYearView.component";
 
 const Statistics = () => {
-  //SearchParams for api req
+  // SearchParams for api req
   const [searchParam] = useSearchParams();
-  //State for switching chart
+  // State for switching chart
   const [toggleChart, setToggleChart] = useState<string>("Bar");
-  //Modal state
+  // Modal state
   const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log('render')
     if((searchParam.get('kind') === 'standard' || searchParam.get('kind') === 'compare' || searchParam.get('kind') === null || searchParam.get('kind') !== null ) && toggleChart === 'Doughnut')
       setToggleChart('Bar');
   }, [searchParam.get('kind')])
@@ -65,6 +68,7 @@ const Statistics = () => {
               <SettingIcon title="Setting" />
             </button>
 
+            {/* Bar chart */}
             <button
               id="bar"
               className={`chart btn mx-2 ${
@@ -76,6 +80,7 @@ const Statistics = () => {
               <span className="button-text-chart">Bar Chart</span>
             </button>
 
+            {/* Line Chart */}
             <button
               id="line"
               className={`chart btn  ${
@@ -87,6 +92,7 @@ const Statistics = () => {
               <span className="button-text-chart">Line Chart</span>
             </button>
 
+            {/* Doudhnut Chart */}
             {searchParam.get("kind") === "year" && (
               <button
                 id="doughnut"
@@ -101,15 +107,21 @@ const Statistics = () => {
             )}
           </div>
         </Card>
+
         <ModalSetting show={show} handleClose={() => setShow(false)} />
         {searchParam.get("kind") === null ||
+
+        /* Standard chart */
         searchParam.get("kind") === "standard" ? (
           <StcChartView toggleChart={toggleChart} />
         ) : null}
+
+        {/* Compare chart */}
         {searchParam.get("kind") === "compare" ? (
           <StcCompareView toggleChart={toggleChart} />
         ) : null}
 
+        {/* Year chart */}
         {searchParam.get("kind") === "year" ? (
           <StcSingleYearView toggleChart={toggleChart} />
         ) : null}
