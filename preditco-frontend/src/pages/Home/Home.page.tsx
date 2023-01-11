@@ -164,13 +164,14 @@ const Home = () => {
         istat,
         {
           opacity: 0,
+          animationTimingFunction: 'ease-in'
         },
         {
           opacity: 1,
-          duration: 1.5,
+          duration: 2,
           scrollTrigger: {
             trigger: istat,
-            start: "top-=10% top+=600px",
+            start: "top+=30% top+=600px",
              /* markers: true */ 
           },
         }
@@ -180,14 +181,15 @@ const Home = () => {
         team,
         {
           opacity: 0,
+          animationTimingFunction: 'ease-in'
         },
         {
           opacity: 1,
-          duration: 1.5,
+          duration: 2,
           scrollTrigger: {
             trigger: team,
-            start: "top-=10% top+=600px",
-            /* markers: true */
+            start: "top+=40% top+=600px",
+             /* markers: true  */
           },
         }
       );
@@ -197,11 +199,11 @@ const Home = () => {
       landing,
       {
         opacity: 0,
+        animationTimingFunction: 'ease-in'
       },
       {
         opacity: 1,
-        duration: 3,
-
+        duration: 2.5,
       }
     );
   }, []);
