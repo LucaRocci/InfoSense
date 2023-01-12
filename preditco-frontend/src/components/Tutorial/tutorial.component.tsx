@@ -64,7 +64,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "#line",
     },
     {
-      heading: "Step 4: Comapare",
+      heading: "Step 4: Compare",
       content: <TutorialModalCompare setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
@@ -80,7 +80,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "#line",
     },
     {
-      heading: "Step 7: Comapare",
+      heading: "Step 7: Compare",
       content: <TutorialYearCompare setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
@@ -97,7 +97,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 10: Doughnut chart year",
-      content: "Our Single year mode you can analyze different Esercizi in the specific year",
+      content: "With our Single-year mode you can analyze different Activity in a specific year",
       element: "#doughnut",
     },
     {

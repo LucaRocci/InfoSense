@@ -36,7 +36,7 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-      <p>You can compare different esercizi in one year. Save your settings!</p>
+      <p>You can compare different activity type  filtered by year. Save your settings!</p>
       <form className="tutorial-form" onSubmit={handleOnYearSubmit}>
         <DropDown type="province" />
         <DropDown type="country" />
