@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/logos/logo-short-predicto.s
 
 const LoginPage = () => {
   return (
-    <>
+    <div className='login'>
       <div className="session">
         <div className="left">
           <Logo />
@@ -31,7 +31,7 @@ const LoginPage = () => {
           <button type="submit" /* onClick="return false;" */>Log in</button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
