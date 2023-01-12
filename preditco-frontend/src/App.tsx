@@ -3,8 +3,14 @@ import './App.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './components/Root/Root.component';
 import Home from './pages/Home/Home.page';
+import Login from './pages/Login/Login.page'
 import Statistics from './pages/statistics/Statistics.page';
+<<<<<<< HEAD
 import Predictions from './pages/predictions/Predictions.page';
+=======
+import Predictions from './pages/predictions/Predictions.page'
+
+>>>>>>> origin/Login
 
 const router = createBrowserRouter([
   {path:'/', element:  <Root />,
@@ -20,11 +26,12 @@ const router = createBrowserRouter([
     {
       path:'predictions',
       element: <Predictions />
+
     }
   ]},
   {
     path: '/login',
-    element: <>NO NAVBAR</>
+    element: <><Login /></>
   },
   {
     path:'*',
