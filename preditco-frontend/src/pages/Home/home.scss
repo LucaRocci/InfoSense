@@ -21,7 +21,6 @@
 margin-bottom: -10px;
 }
   
-
 .card > svg {
   width: 55%;
   margin: auto;
@@ -33,22 +32,6 @@ iframe {
   box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
   border-radius: 20px;
 }
-
-// .our-team {
- 
-//   img {
-//     filter: none;
-//     -webkit-filter: hue-rotate(0);;
-//     cursor: pointer;
-//   }
-
-//   img:hover {
-//     filter: hue-rotate(90deg);;
-//     -webkit-filter: hue-rotate(190deg);
-//     cursor: pointer;
-//     scale: 105%;
-//   }
-// }
 
 @media only screen and (min-width: 768px) {
   .col-h-100 {
