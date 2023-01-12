@@ -90,7 +90,7 @@ const NavbarCustom = () => {
               className={`nav-link text-black nav-link-font ${
                 navbarOpen ? "m-2 text-white" : ""
               }`}
-              to="/predictions"
+              to="/predictions?province=Torino&activityType=alberghi+3+stelle&country=Italia"
               onClick={() => {
                 setNavbarOpen(false);
               }}
