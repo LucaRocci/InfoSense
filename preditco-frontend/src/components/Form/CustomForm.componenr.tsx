@@ -1,5 +1,5 @@
 //React core imports
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 //React-router-dom imports 
 import { useSearchParams } from "react-router-dom";
 //Compopnents imports
@@ -14,9 +14,14 @@ type FormPropsType = {
 const CustomForm:FC<FormPropsType> = ({type, handleClose}) => {
 
       //Hook for searchParam
-  const [, setSearchParam] = useSearchParams();
+  const [searchParam, setSearchParam] = useSearchParams();
     //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
     const [showType, setShowType] = useState<boolean>(false);
+
+    useEffect(() => {
+      if(searchParam.get('activityType') === 'alberghi' || searchParam.get('activityType') === 'extra-alberghi')
+        setShowType(true);
+    }, [searchParam.get('activityType')])
 
      //Function to handle the form submit
   const handleOnStandardSubmit = (e: any) => {
