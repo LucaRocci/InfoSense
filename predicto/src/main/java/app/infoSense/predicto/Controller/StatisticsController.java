@@ -41,7 +41,7 @@ public class StatisticsController {
     }
 
     @Operation(description = "API that return a list of structure")
-    @GetMapping("/esercizi")
+    @GetMapping("/structures")
     public ResponseEntity<?> getEsercizi(){
         List<String> list = eserciziService.findNomiEsercizi();
         if(list.isEmpty()){
@@ -51,18 +51,18 @@ public class StatisticsController {
     }
 
     @Operation(description = "send data that correspond at a given region, a structure and a provenance")
-  @GetMapping("/{provincia}/{esercizio}/{provenienza}")
-   public ResponseEntity<?> getDatiProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String provincia, @PathVariable @NotBlank @Size(min = 3,max = 25) String esercizio, @PathVariable("provenienza") @NotBlank @Size(min = 4,max = 15) String from ){
+  @GetMapping("/{province}/{structure}/{provenance}")
+   public ResponseEntity<?> getDatiProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String province, @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from ){
 
-        boolean c = provinceService.existsByNome(provincia);
-        boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
+        boolean c = provinceService.existsByNome(province);
+        boolean b = eserciziService.existsbyNomeEsercizio(structure);
         boolean p = contestoService.existsByNazione(from);
 
         if(!c || !b || !p){
-            return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
         }
-        Optional<Long> idProv = provinceService.findIdByNome(provincia);
-        Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+        Optional<Long> idProv = provinceService.findIdByNome(province);
+        Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(structure);
         Long[] arr = contestoService.findByNazione(from);
 
         List<DatiResponse>list=statisticheProvinceService.getDati(arr[0],arr[1],idEser,idProv);
@@ -70,18 +70,18 @@ public class StatisticsController {
   }
 
     @Operation(description = "send data that correspond at a given region, a structure and a provenance by a start year declared")
-  @GetMapping("/{provincia}/{esercizio}/{provenienza}/{year}")
-  public ResponseEntity<?> getDatiFromAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String provincia , @PathVariable @NotBlank @Size(min = 3,max = 25) String esercizio, @PathVariable("provenienza") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable  @NotNull @Min(2000) @Max(2025) int year){
+  @GetMapping("/{province}/{structure}/{provenance}/{year}")
+  public ResponseEntity<?> getDatiFromAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String province , @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable  @NotNull @Min(2000) @Max(2025) int year){
 
-      boolean c = provinceService.existsByNome(provincia);
-      boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
+      boolean c = provinceService.existsByNome(province);
+      boolean b = eserciziService.existsbyNomeEsercizio(structure);
       boolean p = contestoService.existsByNazione(from);
 
       if(!c || !b || !p){
-          return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+          return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
       }
-      Optional<Long> idProv = provinceService.findIdByNome(provincia);
-      Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+      Optional<Long> idProv = provinceService.findIdByNome(province);
+      Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(structure);
       Long[] arr = contestoService.findByNazione(from);
 
       List<DatiResponse>list= statisticheProvinceService.getDatiByYear(year,idEser,arr[0],arr[1],idProv);
@@ -90,64 +90,64 @@ public class StatisticsController {
   }
 
  // an example of an API about  calculated value of the region
-  @GetMapping("/regione/{esercizio}/{provenienza}")
-  public ResponseEntity<?> getTotaliRegione(@PathVariable @NotBlank @Size(min = 3,max = 25) String esercizio, @PathVariable("provenienza") @NotBlank @Size(min = 4,max = 15) String from){
+  @GetMapping("/region/{structure}/{provenance}")
+  public ResponseEntity<?> getTotaliRegione(@PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from){
 
-        boolean es = eserciziService.existsbyNomeEsercizio(esercizio);
+        boolean es = eserciziService.existsbyNomeEsercizio(structure);
         boolean pr = contestoService.existsByNazione(from);
 
         if(!es || !pr){
-            return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
         }
-      Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+      Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(structure);
       Long[] arr = contestoService.findByNazione(from);
       List<DatiResponseCalcolati>list = statisticheProvinceService.getTotaliRegione(arr[0],arr[1],idEser);
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
     @Operation(description = "All the Data about the given province")
-  @GetMapping("/allData/{provincia}")
-    public ResponseEntity<?> getDatiByProv(@PathVariable @NotBlank @Size(min = 3,max = 20) String provincia){
-        boolean prv = provinceService.existsByNome(provincia);
+  @GetMapping("/allData/{province}")
+    public ResponseEntity<?> getDatiByProv(@PathVariable @NotBlank @Size(min = 3,max = 20) String province){
+        boolean prv = provinceService.existsByNome(province);
         if(!prv){
-            return new ResponseEntity<>("dati non corretti ", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Incorrect data ", HttpStatus.BAD_REQUEST);
         }
-        Optional<Long> idProv = provinceService.findIdByNome(provincia);
+        Optional<Long> idProv = provinceService.findIdByNome(province);
         List<DatiResponseByProvincia> list = statisticheProvinceService.getDatibyProvincia(idProv);
         return new ResponseEntity<>(list,HttpStatus.OK);
   }
 
     @Operation(description = "API that send data by a given structure and a provenance about two province in order to compare it")
-  @GetMapping("compare/{prov1}/{prov2}/{esercizio}/{provenienza}")
-    public ResponseEntity<?> getDatiwithTwoProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String prov1,@PathVariable @NotBlank @Size(min = 3,max = 20) String prov2, @PathVariable @NotBlank @Size(min = 3,max = 25) String esercizio, @PathVariable("provenienza") @NotBlank @Size(min = 4,max = 15) String from ){
+  @GetMapping("compare/{prov1}/{prov2}/{structure}/{provenance}")
+    public ResponseEntity<?> getDatiWithTwoProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String prov1,@PathVariable @NotBlank @Size(min = 3,max = 20) String prov2, @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from ){
 
         boolean c = provinceService.existsByNome(prov1);
         boolean p2 = provinceService.existsByNome(prov2);
-        boolean b = eserciziService.existsbyNomeEsercizio(esercizio);
+        boolean b = eserciziService.existsbyNomeEsercizio(structure);
         boolean p = contestoService.existsByNazione(from);
 
         if(!c || !b || !p || !p2){
-            return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
         }
         Optional<Long> idProv = provinceService.findIdByNome(prov1);
         Optional<Long> idProv2 = provinceService.findIdByNome(prov2);
-        Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(esercizio);
+        Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(structure);
         Long[] arr = contestoService.findByNazione(from);
         List<DatiResponseWithProvincia>list=statisticheProvinceService.getDatiByTwoProvince(arr[0],arr[1], idEser,idProv, idProv2);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
      @Operation(description = "An api that send data about value in all structure in a specific year")
-    @GetMapping("/year/{provincia}/{provenienza}/{year}")
-    public ResponseEntity<?> getDatiByAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String provincia, @PathVariable("provenienza") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable @NotNull @Min(2000) @Max(2025) int year){
+    @GetMapping("/year/{province}/{provenance}/{year}")
+    public ResponseEntity<?> getDatiByAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String province, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable @NotNull @Min(2000) @Max(2025) int year){
 
-        boolean c = provinceService.existsByNome(provincia);
+        boolean c = provinceService.existsByNome(province);
         boolean p = contestoService.existsByNazione(from);
 
         if(!c || !p ){
-            return new ResponseEntity<>("dati non corretti",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
         }
-        Optional<Long> idProv = provinceService.findIdByNome(provincia);
+        Optional<Long> idProv = provinceService.findIdByNome(province);
         Long[] arr = contestoService.findByNazione(from);
 
         List<DatiResponseWithEsercizio>list= statisticheProvinceService.getDatiForAYear(year,arr[0],arr[1],idProv);
@@ -155,14 +155,14 @@ public class StatisticsController {
 
     }
 
-    @Operation(description = "An API that return the year by a given structure ")
-    @GetMapping("/year/{esercizio}")
-    public ResponseEntity<?> getyearsbyEsercizio(@PathVariable @NotBlank @Size(min=3, max=25) String esercizio){
-      boolean ex = eserciziService.existsbyNomeEsercizio(esercizio);
+    @Operation(description = "An API that return all the year by a given structure ")
+    @GetMapping("/year/{structure}")
+    public ResponseEntity<?> getYearsByEsercizio(@PathVariable @NotBlank @Size(min=3, max=25) String structure){
+      boolean ex = eserciziService.existsbyNomeEsercizio(structure);
       if(!ex){
           return new ResponseEntity<String>("Dati non corretti",HttpStatus.BAD_REQUEST);
       }
-       Optional<Long> idEser  = eserciziService.findIdByNomeEsercizio(esercizio);
+       Optional<Long> idEser  = eserciziService.findIdByNomeEsercizio(structure);
        List<String> listAnni = statisticheProvinceService.getYearsByEsercizio(idEser);
        return new ResponseEntity<>(listAnni,HttpStatus.OK);
     }

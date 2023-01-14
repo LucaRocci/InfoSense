@@ -1,6 +1,7 @@
 package app.infoSense.predicto;
 
 import app.infoSense.predicto.controller.StatisticsController;
+import app.infoSense.predicto.entity.Esercizi;
 import app.infoSense.predicto.entity.Province;
 import app.infoSense.predicto.entity.Regioni;
 import app.infoSense.predicto.service.ContestoService;
@@ -67,8 +68,19 @@ public class PredictoApplicationTests {
     @Test
     public void testApiListEsercizi() throws Exception{
 
+        List<Esercizi> eserciciTest = new ArrayList<>();
+        eserciciTest.add(Esercizi.builder().idEsercizio(1L).nomeEsercizio("albergo").build());
+        eserciciTest.add(Esercizi.builder().idEsercizio(2L).nomeEsercizio("campeggio").build());
 
+        List<String> expected = new ArrayList<>();
+        expected.add("albergo");
+        expected.add("campeggio");
+        given(eserciziService.findNomiEsercizi()).willReturn(expected);
+
+        ResultActions resultActions = mockMvc.perform(get("/statistics/esercizi")
+                .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
+
 
 
 }
