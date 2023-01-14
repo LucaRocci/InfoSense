@@ -74,7 +74,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center pb-4">
       {loading ? (
-        <div className="min-h-60 d-flex align-items-center">
+        <div className="min-h-60 d-flex  align-items-center">
           <LogoLoading className="loading-svg" />
         </div>
       ) : null}

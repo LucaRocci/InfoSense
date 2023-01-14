@@ -6,13 +6,6 @@ import useFetch from "../../hooks/useFetch.hook";
 import Form from "react-bootstrap/Form";
 //React-router-dom imports
 import { useSearchParams } from "react-router-dom";
-//Bootstrap icons
-import {
-  GeoFill,
-  Building,
-  GlobeEuropeAfrica,
-  Calendar3,
-} from "react-bootstrap-icons";
 
 //Possible URL to call in fetch
 const ActivityUrl = "http://18.102.24.178:8000/statistics/esercizi";

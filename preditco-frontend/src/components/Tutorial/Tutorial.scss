@@ -1,5 +1,7 @@
+@import '../../colors.scss' ;
+
 .tutorail-header-step {
-    color: blue;
+    color: $blue-400;
 }
 
 .tutorial-content-step {
@@ -58,8 +60,13 @@
   }
 
   .tutorial-navigation-step {
-    width: 10px;
-    height: 10px;
-    border: 1.5px solid black;
-    border-radius: 50%
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid $blue-400;
+    border-radius: 50%;
+  }
+
+  .active-nav {
+    box-shadow: 0 0 10px $blue-400;
+    background-color: $blue-400;
   }

@@ -172,7 +172,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
               </button>
             )}
             <Row className="mt-4">
-                {tutorialSteps.map((e,i) => <Col key={i} className="d-flex justify-content-center px-1"><div className={`tutorial-navigation-step ${currentStep === (i + 1) ? 'bg-blue' : ''}`} role="button" onClick={() => setCurrentStep(i + 1)}></div></Col>)}
+                {tutorialSteps.map((e,i) => <Col key={i} className="d-flex justify-content-center px-0"><div className={`tutorial-navigation-step ${currentStep === (i + 1) ? 'active-nav text-white' : ''}`} role="button" onClick={() => setCurrentStep(i + 1)}>{i}</div></Col>)}
             </Row>
           </div>
         </div>
