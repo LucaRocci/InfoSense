@@ -11,13 +11,16 @@ import React, {
 import './Tutorial.scss'
 
 // Bootstrap icons imports
-import { QuestionDiamondFill, XLg } from "react-bootstrap-icons"
+import { QuestionDiamondFill, XLg, ArrowLeft } from "react-bootstrap-icons"
 
 // Import ModalSetting from './Modal/ModalSetting.component'; */
 import TutorialModalStandard from "./tutorial-modal-standard.component";
 import TutorialModalCompare from "./tutorial-modal-compare.component";
 import TutorialYearCompare from "./tutorial-modal-year.components";
 import { useSearchParams } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
+
+
 
 // Props type
 type TutorialOverlayType = {
@@ -29,6 +32,23 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const [searchParam] = useSearchParams();
+
+/*   const handleKeyPress = (e:any) => {
+    console.log(currentStep)
+    if(e.keyCode === 54 || e.key === 'ArrowRigth')
+      setCurrentStep(currentStep + 1)
+    
+    if(e.keyCode === 52 || e.key === 'ArrowLeft')
+      setCurrentStep(currentStep - 1)
+  }
+  useEffect(() => {
+    if(currentStep > 2) {
+      document.body.addEventListener('keydown',handleKeyPress)
+    }
+
+    if(currentStep === 13)
+     document.body.removeEventListener('keydown',handleKeyPress)
+  },[currentStep]) */
 
   useEffect(() => {
     if (searchParam.get('tutorial') === 'open')
@@ -44,7 +64,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 1: Setting",
-      content: <TutorialModalStandard setCurrentStep={setCurrentStep} />,
+      content: <TutorialModalStandard setCurrentStep={setCurrentStep}/>,
       element: "#setting",
     },
     {
@@ -76,7 +96,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 7: Single Year",
-      content: <TutorialYearCompare setCurrentStep={setCurrentStep} />,
+      content: <TutorialYearCompare setCurrentStep={setCurrentStep}/>,
       element: "#setting",
     },
     {
@@ -105,7 +125,6 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   const currentTutorialStep = tutorialSteps[currentStep - 1];
 
   useEffect(() => {
-
     // Remove the "highlight" class from all elements
     const elements = document.querySelectorAll(".highlight");
     elements.forEach((element) => element.classList.remove("highlight"));
@@ -128,15 +147,15 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   return (
     <div>
       {showTutorial && (
-        <div className="tutorial-overlay">
+        <div className="tutorial-overlay" /* onKeyDown={handleKeyPress} */>
           <div className="tutorial-content text-dark">
-            <div className="d-flex align-items-center justify-content-between mb-2"><h1 className="tutorail-header-step mx-auto mb-0">{currentTutorialStep.heading}</h1> <XLg  className="text-dark tutorial-close-svg" onClick={handleClose}/></div>
+            <div className="d-flex align-items-center justify-content-between mb-2">{currentStep !== 1  && <ArrowLeft className="text-dark tutorial-close-svg me-4" role="button" onClick={() => setCurrentStep(currentStep - 1)} />} <h1 className="tutorail-header-step mx-auto mb-0 mt-4">{currentTutorialStep.heading}</h1> <XLg  className={`text-dark tutorial-close-svg ${currentStep !== 1 ? 'ms-4':''}`} onClick={handleClose}/></div>
             <div className="tutorial-content-step">{currentTutorialStep.content}</div>
 
             {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5 && currentStep !== 8 ? (<>
-{   currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
+{   /*  currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
                 Previous Step
-              </button>}
+              </button>  */}
               <button className="rounded-50 btn btn-primary rounded-pill" type="button" onClick={() => setCurrentStep(currentStep + 1)}>
                 Next Step
               </button>
@@ -152,6 +171,9 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
                 Close Tutorial
               </button>
             )}
+            <Row className="mt-4">
+                {tutorialSteps.map((e,i) => <Col key={i} className="d-flex justify-content-center px-1"><div className={`tutorial-navigation-step ${currentStep === (i + 1) ? 'bg-blue' : ''}`} role="button" onClick={() => setCurrentStep(i + 1)}></div></Col>)}
+            </Row>
           </div>
         </div>
       )}

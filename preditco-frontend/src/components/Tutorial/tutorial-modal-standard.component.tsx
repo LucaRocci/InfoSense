@@ -8,9 +8,8 @@ import { useSearchParams } from "react-router-dom";
 import DropDown from "../DropDown/DropDown.component";
 import { Button } from "react-bootstrap";
 
-type TutorialModalType = {
-  setCurrentStep: Dispatch<SetStateAction<number>>;
-};
+//Type imports
+import { TutorialModalType } from "./tutorial-modal-compare.component";
 
 const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
@@ -48,15 +47,15 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
   return (
     <>
       <p>Here you can change your setting and chose your filter. Save your change!</p>
-      <form className="tutorial-form" onSubmit={handleOnStandardSubmit}>
+      <form className="tutorial-form" onSubmit={handleOnStandardSubmit} onChange={(e) => e.stopPropagation()}>
         <DropDown type="activityType" setShowType={setShowType} />
         <DropDown type="province" />
         <DropDown type="country" />
         {showType ? <DropDown type="type" /> : null}
         <div className="d-flex justify-content-center align-items-center">
-        <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(1)}>
+{/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(1)}>
                 Previous Step
-              </Button>
+              </Button> */}
         <Button
           variant="primary"
           type="submit"

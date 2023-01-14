@@ -10,10 +10,9 @@ import { useSearchParams } from "react-router-dom";
 // Components imports
 import DropDown from "../DropDown/DropDown.component";
 
-// Props type
-type TutorialModalType = {
-  setCurrentStep: Dispatch<SetStateAction<number>>;
-};
+//Type imports
+import { TutorialModalType } from "./tutorial-modal-compare.component";
+
 
 const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
   const [, setSearchParam] = useSearchParams();
@@ -42,9 +41,9 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
         <DropDown type="country" />
         <DropDown type="year" />
         <div className="d-flex justify-content-center align-items-center">
-        <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
+{/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
                 Previous Step
-              </Button>
+              </Button> */}
           <Button
             variant="primary"
             type="submit"
