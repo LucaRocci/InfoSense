@@ -11,7 +11,7 @@ import React, {
 import './Tutorial.scss'
 
 // Bootstrap icons imports
-import { QuestionDiamondFill } from "react-bootstrap-icons";
+import { QuestionDiamondFill, XLg } from "react-bootstrap-icons"
 
 // Import ModalSetting from './Modal/ModalSetting.component'; */
 import TutorialModalStandard from "./tutorial-modal-standard.component";
@@ -28,17 +28,12 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   const [showTutorial, setShowTutorial] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
 
-  const [ searchParam ] = useSearchParams();
+  const [searchParam] = useSearchParams();
 
   useEffect(() => {
-    if(searchParam.get('tutorial') === 'open')
+    if (searchParam.get('tutorial') === 'open')
       setShowTutorial(true)
   }, [searchParam.get('tutorial')])
-
-  // Function to handle the form submit
-  const handleClick = () => {
-    setCurrentStep(currentStep + 1);
-  };
 
   // Steps tutorial 
   const tutorialSteps = [
@@ -80,7 +75,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "#line",
     },
     {
-      heading: "Step 7: Compare",
+      heading: "Step 7: Single Year",
       content: <TutorialYearCompare setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
@@ -125,21 +120,30 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     if (currentStep === 11) setToggleChart("Doughnut")
   }, [currentTutorialStep]);
 
+  const handleClose = () => {
+    setShowTutorial(false);
+    setCurrentStep(1);
+  }
+
   return (
     <div>
       {showTutorial && (
         <div className="tutorial-overlay">
           <div className="tutorial-content text-dark">
-            <h1 className="tutorail-header-step">{currentTutorialStep.heading}</h1>
+            <div className="d-flex align-items-center justify-content-between mb-2"><h1 className="tutorail-header-step mx-auto mb-0">{currentTutorialStep.heading}</h1> <XLg  className="text-dark tutorial-close-svg" onClick={handleClose}/></div>
             <div className="tutorial-content-step">{currentTutorialStep.content}</div>
 
-            {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5 && currentStep !== 8? (
-              <button className="rounded-50 btn btn-primary rounded-pill" type="submit" onClick={handleClick}>
+            {currentStep !== tutorialSteps.length && currentStep !== 2 && currentStep !== 5 && currentStep !== 8 ? (<>
+{   currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
+                Previous Step
+              </button>}
+              <button className="rounded-50 btn btn-primary rounded-pill" type="button" onClick={() => setCurrentStep(currentStep + 1)}>
                 Next Step
               </button>
+            </>
             ) : null}
             {currentStep === tutorialSteps.length && (
-              <button className="rounded-50 btn btn-primary rounded-pill" style={{ backgroundColor: 'purple' }}
+              <button className="rounded-50 btn btn-primary rounded-pill" type="button" style={{ backgroundColor: 'purple' }}
                 onClick={() => {
                   setShowTutorial(false);
                   setCurrentStep(1);

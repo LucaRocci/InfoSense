@@ -41,12 +41,14 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
         <DropDown type="province" />
         <DropDown type="country" />
         <DropDown type="year" />
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center">
+        <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
+                Previous Step
+              </Button>
           <Button
-            style={{ margin: "15px" }}
             variant="primary"
             type="submit"
-            className="rounded-50 btn btn-primary rounded-pill"
+            className="rounded-50 btn btn-primary rounded-pill mt-2"
           >
             Save Changes
           </Button>

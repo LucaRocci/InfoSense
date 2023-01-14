@@ -44,8 +44,11 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
         <DropDown type="province" />
         <DropDown type="provinceSecond" />
         <DropDown type="country" />
-        <div className="d-flex justify-content-center"> 
-        <Button className="rounded-50 btn btn-primary rounded-pill" style={{ marginTop: '15px' }} variant="primary" type="submit">
+        <div className="d-flex justify-content-center align-items-center"> 
+        <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(4)}>
+                Previous Step
+              </Button>
+        <Button className="rounded-50 btn btn-primary rounded-pill mt-2" variant="primary" type="submit">
           Save Changes
         </Button>
         </div>
