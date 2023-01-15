@@ -55,9 +55,11 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   //Array of Bar chart
   const renderBar =
     typeof filterData !== "boolean"
-      ? filterData.map((e, i) => (
-          <div key={i} className="chart-view px-4 pb-4 rounded mt-4 shadow-lg">
+      ? filterData.map((e, i) => (<div key={i}>
+                  <h3 className="text-white text-center my-3">{rangeYear[i]}</h3>
+          <div className="chart-view mx-auto px-4 pb-4 rounded mt-4 shadow-lg">
             <Bar options={option} data={e} />
+          </div>
           </div>
         ))
       : null;
@@ -65,16 +67,19 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const renderLine =
     typeof filterData !== "boolean"
       ? filterData.map((e, i) => (
-          <div key={i} className="chart-view px-4 pb-4 rounded mt-4 shadow-lg">
+        <div key={i}>
+        <h3 className="text-white text-center my-3">{rangeYear[i]}</h3>
+          <div className="chart-view mx-auto px-4 pb-4 rounded mt-4 shadow-lg">
             <Line options={option} data={e} />
+          </div>
           </div>
         ))
       : null;
 
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center pb-4">
+    <Container /* className="d-flex flex-column justify-content-center align-items-center pb-4" */>
       {loading ? (
-        <div className="min-h-60 d-flex  align-items-center">
+        <div className="min-h-60 d-flex justify-content-center  align-items-center">
           <LogoLoading className="loading-svg" />
         </div>
       ) : null}

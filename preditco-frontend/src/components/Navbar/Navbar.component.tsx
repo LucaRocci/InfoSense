@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 //Bootstrap components imports
 import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigation } from "react-router-dom";
 
 //Import logos
 import { ReactComponent as PredictoLogo } from "../../assets/logos/logo-predicto.svg";
@@ -17,13 +17,15 @@ import "./Navbar.scss";
 const NavbarCustom = () => {
   // state to handle if the navbar is open or not
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
+  //state for handle active link
+  const { pathname } = useLocation();
 
   // Navbar is always close when the page is rendered
   useEffect(() => {
-    if(navbarOpen) 
-       document.body.classList.add("overflow-y-hidden");
-    else  
-       document.body.classList.remove("overflow-y-hidden");
+    if (navbarOpen)
+      document.body.classList.add("overflow-y-hidden");
+    else
+      document.body.classList.remove("overflow-y-hidden");
   }, [navbarOpen]);
 
   return (
@@ -49,9 +51,7 @@ const NavbarCustom = () => {
         */}
         <button
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className={`${
-            navbarOpen ? "is-active text-white" : ""
-          } menu-toggle d-md-none`}
+          className={`${navbarOpen ? "is-active text-white" : ""} menu-toggle d-md-none`}
         />
 
         {/* 
@@ -60,14 +60,11 @@ const NavbarCustom = () => {
         */}
         <Navbar.Collapse className={`${navbarOpen ? "show" : ""}`}>
           <Nav
-            className={`ms-md-auto text-black ${
-              navbarOpen ? "min-h-90 text-white" : ""
-            }`}
+            className={`ms-md-auto text-black ${navbarOpen ? "min-h-90 text-white" : ""}`}
           >
+            <div className={`${pathname === '/home' ? 'active' : ''}`}>
             <Link
-              className={`nav-link text-black nav-link-font ${
-                navbarOpen ? "mt-4 mx-2 text-white" : ""
-              }`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "mt-4 mx-2 text-white" : ""}${pathname === '/home' ? ' text-white' : ''}`}
               to="/home"
               onClick={() => {
                 setNavbarOpen(false);
@@ -75,10 +72,10 @@ const NavbarCustom = () => {
             >
               Home
             </Link>
+            </div>
+            <div className={`${pathname === '/statistics' ? 'active' : ''} mx-md-2`}>
             <Link
-              className={`nav-link text-black nav-link-font ${
-                navbarOpen ? "m-2 text-white" : ""
-              }`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/statistics' ? ' text-white' : ''}`}
               to="/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia"
               onClick={() => {
                 setNavbarOpen(false);
@@ -86,29 +83,26 @@ const NavbarCustom = () => {
             >
               Statistics
             </Link>
+            </div>
+            <div className={`${pathname === '/predictions' ? 'active' : ''}`}>
             <Link
-              className={`nav-link text-black nav-link-font ${
-                navbarOpen ? "m-2 text-white" : ""
-              }`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/predictions' ? ' text-white' : ''}`}
               to="/predictions?province=Torino&activityType=alberghi+3+stelle&country=Italia"
-              onClick={() => {
-                setNavbarOpen(false);
-              }}
+              onClick={() => setNavbarOpen(false)}
             >
               Predictions
             </Link>
+            </div>
             {navbarOpen ? (
               <div>
                 <Link className="nav-link text-black nav-link-font" to="#">
                   <Github className="nav-svg-github ms-2 text-white" />
-                  </Link>
+                </Link>
                 <Link className="nav-link text-black nav-link-font" to="#">
-                <IstatLogo className="nav-svg-istat" />
-                  </Link>
+                  <IstatLogo className="nav-svg-istat" />
+                </Link>
               </div>
-            ) : (
-              ""
-            )}
+            ) : null}
 
             {/* Navbar mobile footer */}
             {navbarOpen ? (

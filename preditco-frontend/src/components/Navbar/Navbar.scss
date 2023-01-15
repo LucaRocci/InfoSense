@@ -114,3 +114,30 @@
     cursor: pointer;
     outline: none;
   }
+  .nav-link-font {
+    position: relative;
+  }
+
+  .nav-link:hover::before {
+    width: 100%;
+  }
+
+.active {
+      .nav-link::before{
+        width: 100%;
+      }
+    
+    }
+
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  border-radius: 2px;
+  height: 3px;
+  width: 0%;
+  background-color: whitesmoke;
+  transition: width 1s ease;
+}

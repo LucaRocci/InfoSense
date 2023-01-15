@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import { useSearchParams } from "react-router-dom";
 
 //Possible URL to call in fetch
-const ActivityUrl = "http://18.102.24.178:8000/statistics/esercizi";
+const ActivityUrl = "http://18.102.24.178:8000/statistics/structures";
 const ProvinceUrl = "http://18.102.24.178:8000/statistics/province";
 //Default value
 const provItems = ["Italia", "Estero"];

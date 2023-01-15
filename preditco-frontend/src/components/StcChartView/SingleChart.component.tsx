@@ -24,11 +24,11 @@ const SingleChart:FC<SingleChartProps> = ({toggleChart,data,option, doughnutData
     return (<>
           {//Check the toggleChart to show the rigth chart.
         toggleChart === "Bar" ? (
-          <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
+          <div className={`chart-view mx-auto px-4 pb-4 rounded mt-4 shadow-lg`}>
             <Bar id="1" options={option} data={data} />
           </div>
         ) : toggleChart === "Line" ? (
-          <div className={`chart-view px-4 pb-4 rounded mt-4 shadow-lg`}>
+          <div className={`chart-view mx-auto px-4 pb-4 rounded mt-4 shadow-lg`}>
             <Line id="3" options={option} data={data} />
           </div>
         ) : toggleChart === "Doughnut" ? (

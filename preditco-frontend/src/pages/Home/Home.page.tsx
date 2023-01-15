@@ -211,7 +211,7 @@ const Home = () => {
   return (
     <Container fluid className="px-0">
       {/* Introduction to Predicto with logos */}
-      <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom sky-blue text-white px-3">
+      <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom blue text-white px-3">
         <div className="d-flex flex-column align-items-center my-auto" ref={refLandingBlock}>
           <Logo />
           <h1 className="text-center">
@@ -248,7 +248,7 @@ const Home = () => {
       </section>
 
       {/* Cards of our charts */}
-      <section id="card" className="min-h-100 bg-custom blue px-3 pt-3 pt-md-0">
+      <section id="card" className="min-h-100 bg-custom sky-blue px-3 pt-3 pt-md-0">
         <Row className="w-100 m-0 min-h-100">
           <Col
             xs={12}
@@ -353,8 +353,8 @@ const Home = () => {
       </section>
 
       {/* Contact us section */}
-      <section className="contactUs p-3 bg-custom sky-blue">
-        <h2 className="ms-3 text-center text-uppercase">Contact Us</h2>
+      <section className="contactUs p-3 bg-custom blue">
+        <h2 className="ms-3 text-center text-white text-uppercase">Contact Us</h2>
         <div className="w-xxl-80 mx-auto p-3 m-3">
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">
