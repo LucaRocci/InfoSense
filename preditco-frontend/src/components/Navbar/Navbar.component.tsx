@@ -64,7 +64,7 @@ const NavbarCustom = () => {
           >
             <div className={`${pathname === '/home' ? 'active' : ''}`}>
             <Link
-              className={`nav-link text-black nav-link-font ${navbarOpen ? "mt-4 mx-2 text-white" : ""}${pathname === '/home' ? ' text-white' : ''}`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "mt-4 mx-2 text-white" : ""}${pathname === '/home' ? ' text-blue' : ''}`}
               to="/home"
               onClick={() => {
                 setNavbarOpen(false);
@@ -75,7 +75,7 @@ const NavbarCustom = () => {
             </div>
             <div className={`${pathname === '/statistics' ? 'active' : ''} mx-md-2`}>
             <Link
-              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/statistics' ? ' text-white' : ''}`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/statistics' ? ' text-blue' : ''}`}
               to="/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia"
               onClick={() => {
                 setNavbarOpen(false);
@@ -86,7 +86,7 @@ const NavbarCustom = () => {
             </div>
             <div className={`${pathname === '/predictions' ? 'active' : ''}`}>
             <Link
-              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/predictions' ? ' text-white' : ''}`}
+              className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/predictions' ? ' text-blue' : ''}`}
               to="/predictions?province=Torino&activityType=alberghi+3+stelle&country=Italia"
               onClick={() => setNavbarOpen(false)}
             >

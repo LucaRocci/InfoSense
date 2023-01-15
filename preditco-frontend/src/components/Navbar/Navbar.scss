@@ -126,9 +126,11 @@
       .nav-link::before{
         width: 100%;
       }
-    
+    color: $blue-600!important;
     }
-
+.text-blue {
+  color: $blue-600!important;
+}
 
 .nav-link::before {
   content: '';
@@ -138,6 +140,6 @@
   border-radius: 2px;
   height: 3px;
   width: 0%;
-  background-color: whitesmoke;
+  background-color: $blue-600;
   transition: width 1s ease;
 }
