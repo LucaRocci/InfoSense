@@ -60,6 +60,7 @@ const Statistics = () => {
           </p>
 
           <div className="d-flex flex-row">
+            {/* Setting button */}
             <button
               id="setting"
               className="setting btn btn-primary"

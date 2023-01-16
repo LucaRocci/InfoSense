@@ -16,8 +16,12 @@ a {
 }
 
 .btn-primary{
-    --bs-btn-bg: #4A8DB7;
+    --bs-btn-bg: #4a8db7c5;
     --bs-btn-border-color: #4A8DB7;
+    &:hover {
+      background-color: #4A8DB7;
+      border-color: #4A8DB7;
+  }
 }
 
 .modal-header {
@@ -58,13 +62,14 @@ a {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    
   
     &.sky-blue{
-      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */ url('./assets/images/background.svg');
+      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */ url('./assets/images/backgroundb.png');
     }
   
     &.blue{
-      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */url('./assets/images/background02.svg');  
+      background-image: /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */url('./assets/images/background02b.png'); 
     }
   }
 

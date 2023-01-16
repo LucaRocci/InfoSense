@@ -63,7 +63,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: null,
     },
     {
-      heading: "Step 1: Setting",
+      heading: "Step 1: Standard",
       content: <TutorialModalStandard setCurrentStep={setCurrentStep}/>,
       element: "#setting",
     },

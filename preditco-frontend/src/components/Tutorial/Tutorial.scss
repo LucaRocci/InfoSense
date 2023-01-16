@@ -16,8 +16,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.329); /* make the background semi-transparent */
-    z-index: 999; /* make the tutorial overlay appear on top of other elements */
+    background-color: rgba(0, 0, 0, 0.61); /* make the background semi-transparent */
+    z-index: 1; /* make the tutorial overlay appear on top of other elements */
     display: flex; /* center the tutorial content horizontally and vertically */
     align-items: center;
     justify-content: center;
@@ -51,6 +51,8 @@
 
   .highlight {
     outline: 5px solid rgb(217, 255, 0);
+    z-index: 2;
+    pointer-events: none;
   }
 
   .tutorial-close-svg {
@@ -70,3 +72,4 @@
     box-shadow: 0 0 10px $blue-400;
     background-color: $blue-400;
   }
+

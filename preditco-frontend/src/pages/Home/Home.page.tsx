@@ -16,7 +16,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // SVG for logos
-import { ReactComponent as Logo } from "../../assets/logos/logo-short-predicto.svg";
+import { ReactComponent as Logo } from "../../assets/logos/logo-predicto-white.svg";
 import { ReactComponent as AnimationWave } from "../../assets/animation/home-wave-animation.svg";
 import { ReactComponent as StaticWave } from "../../assets/animation/home-wave-static.svg";
 import { ReactComponent as CardAnimationFirst } from "../../assets/animation/card-animation-first.svg";
@@ -213,7 +213,7 @@ const Home = () => {
       {/* Introduction to Predicto with logos */}
       <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom blue text-white px-3">
         <div className="d-flex flex-column align-items-center my-auto" ref={refLandingBlock}>
-          <Logo />
+          {/* <Logo /> */}
           <h1 className="text-center">
             Make your analyisis better with Predicto.
           </h1>
