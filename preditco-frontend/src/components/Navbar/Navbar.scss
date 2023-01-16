@@ -118,12 +118,12 @@
     position: relative;
   }
 
-  .nav-link:hover::before {
+  .nav-link-font:hover::before {
     width: 100%;
   }
 
 .active {
-      .nav-link::before{
+      .nav-link-font::before{
         width: 100%;
       }
     color: $blue-600!important;
@@ -132,7 +132,7 @@
   color: $blue-600!important;
 }
 
-.nav-link::before {
+.nav-link-font::before {
   content: '';
   position: absolute;
   bottom: 4px;

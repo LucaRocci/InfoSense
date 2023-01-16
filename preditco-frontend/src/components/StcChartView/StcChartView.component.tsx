@@ -85,7 +85,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       ) : null}
       {error ? (
         <div className="min-h-60 d-flex align-items-center">
-          <div className="alert alert-danger" role="alert">
+          <div className="alert alert-danger mx-auto" role="alert">
             An error occurred!
           </div>
         </div>
