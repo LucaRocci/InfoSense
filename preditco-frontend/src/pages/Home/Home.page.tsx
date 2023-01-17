@@ -22,89 +22,21 @@ import { ReactComponent as StaticWave } from "../../assets/animation/home-wave-s
 import { ReactComponent as CardAnimationFirst } from "../../assets/animation/card-animation-first.svg";
 import { ReactComponent as CardAnimationSecond } from "../../assets/animation/card-animation-second.svg";
 
-// SVG for avatar
-import avatarSara from "../../assets/images/avatar-sara.svg";
-import avatarSaraHover from "../../assets/images/avatar-sara-hover.svg";
-import avatarLuca from "../../assets/images/avatar-luca.svg";
-import avatarLucaHover from "../../assets/images/avatar-luca-hover.svg";
-import avatarPietro from "../../assets/images/avatar-pietro.svg";
-import avatarPietroHover from "../../assets/images/avatar-pietro-hover.svg";
-import avatarSimone from "../../assets/images/avatar-simone.svg";
-import avatarSimoneHover from "../../assets/images/avatar-simone-hover.svg";
-import avatarGabriele from "../../assets/images/avatar-gabriele.svg";
-import avatarGabrieleHover from "../../assets/images/avatar-gabriele-hover.svg";
-import avatarMarco from "../../assets/images/avatar-marco.svg";
-import avatarMarcoHover from "../../assets/images/avatar-marco-hover.svg";
-import avatarFederico from "../../assets/images/avatar-federico.svg";
-import avatarFedericoHover from "../../assets/images/avatar-federico-hover.svg";
-import avatarMatteo from "../../assets/images/avatar-matteo.svg";
-import avatarMatteoHover from "../../assets/images/avatar-matteo-hover.svg";
-
 // Component
 import FooterCustom from "../../components/Footer/Footer.components";
+
+// Enviroment variables
+import { workers } from '../../__functions/eviroment'
 
 // Register plugin ScrollTrigger of gsap
 gsap.registerPlugin(ScrollTrigger);
 
-// Interface for avatar
-interface Worker {
+interface WorkerType {
   src: string;
   srcHover: string;
   name: string;
   field: string;
 }
-
-// Our team members
-const workers: Worker[] = [
-  {
-    src: `${avatarGabriele}`,
-    srcHover: `${avatarGabrieleHover}`,
-    name: "Gabriele",
-    field: "Web Develop",
-  },
-  {
-    src: `${avatarPietro}`,
-    srcHover: `${avatarPietroHover}`,
-    name: "Pietro",
-    field: "Web Develop",
-  },
-  {
-    src: `${avatarSimone}`,
-    srcHover: `${avatarSimoneHover}`,
-    name: "Simone",
-    field: "Web Develop",
-  },
-  {
-    src: `${avatarLuca}`,
-    srcHover: `${avatarLucaHover}`,
-    name: "Luca",
-    field: "Backend",
-  },
-  {
-    src: `${avatarMarco}`,
-    srcHover: `${avatarMarcoHover}`,
-    name: "Marco",
-    field: "Backend",
-  },
-  {
-    src: `${avatarSara}`,
-    srcHover: `${avatarSaraHover}`,
-    name: "Sara",
-    field: "Backend",
-  },
-  {
-    src: `${avatarFederico}`,
-    srcHover: `${avatarFedericoHover}`,
-    name: "Federico",
-    field: "Fintech",
-  },
-  {
-    src: `${avatarMatteo}`,
-    srcHover: `${avatarMatteoHover}`,
-    name: "Matteo",
-    field: "Fintech",
-  },
-];
 
 const Home = () => {
   const refStatisticCard = useRef<HTMLInputElement>(null);
@@ -334,7 +266,7 @@ const Home = () => {
         <div ref={refTeamSection}>
         <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
         <div className="d-flex justify-content-center flex-wrap">
-          {workers.map((el: Worker, index: number) => (
+          {workers.map((el: WorkerType, index: number) => (
             <div key={index} className="m-2 text-center">
               <img
                 onMouseOver={(e) => (e.currentTarget.src = el.srcHover)}
