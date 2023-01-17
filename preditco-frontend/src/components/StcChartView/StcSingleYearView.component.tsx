@@ -45,7 +45,7 @@ const StcSingleYearView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://18.102.24.178:8000/statistics/year/${searchParam.get("province")}/${searchParam.get("country")}/${searchParam.get("year")}`
+    `http://localhost:8000/statistics/year/${searchParam.get("province")}/${searchParam.get("country")}/${searchParam.get("year")}`
   );
   const [data, option, doughnutData ] = useStcSingleYear(apiData); 
 

@@ -42,7 +42,7 @@ const StcCompareView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://18.102.24.178:8000/statistics/compare/${searchParam.get("province")}/${searchParam.get("provinceSecond")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
+    `http://localhost:8000/statistics/compare/${searchParam.get("province")}/${searchParam.get("provinceSecond")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );
   const [data, option] = useStcCompare(apiData); 
 

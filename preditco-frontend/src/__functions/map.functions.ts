@@ -31,12 +31,12 @@ export const stcChartMap = (apiData:dataResponse[] | string[] | null | boolean) 
         if(i === apiData.length - 1 )
           startRangeYear.push(e.anno);
 
-         if (e.arrivoPresenza === "Arrivo" && e.mese === 0 ) {
+         if (e.arrivoPresenza === "arrival" && e.mese === 0 ) {
           mappedLabels.push(e.anno.toString());
           arriveValue.push(e.valore);
-        } else if(e.arrivoPresenza === "Presenza" && e.mese === 0){
+        } else if(e.arrivoPresenza === "stay" && e.mese === 0){
           presValue.push(e.valore);
-        } else if(e.arrivoPresenza === "Arrivo" ){
+        } else if(e.arrivoPresenza === "arrival" ){
             valueCounter += e.valore;
             arriveFilterMonth.push(e.valore);
             if((i + 1) % 12 === 0) {
@@ -63,7 +63,7 @@ export const stcChartMap = (apiData:dataResponse[] | string[] | null | boolean) 
                   })
                 arriveFilterMonth = [];
             }
-        } else if(e.arrivoPresenza === "Presenza" ) {
+        } else if(e.arrivoPresenza === "stay" ) {
             valueCounter += e.valore;
             presFilterMonth.push(e.valore);
             if((i + 1) % 12 === 0) {

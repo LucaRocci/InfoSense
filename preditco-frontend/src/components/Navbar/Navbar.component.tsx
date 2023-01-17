@@ -76,7 +76,7 @@ const NavbarCustom = () => {
             <div className={`${pathname === '/statistics' ? 'active' : ''} mx-md-2`}>
             <Link
               className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/statistics' && !navbarOpen ? ' text-blue' : ''}`}
-              to="/statistics?province=Torino&activityType=alberghi+3+stelle&country=Italia"
+              to="/statistics?province=Torino&activityType=3+star+hotel&country=Italy"
               onClick={() => {
                 setNavbarOpen(false);
               }}
@@ -87,7 +87,7 @@ const NavbarCustom = () => {
             <div className={`${pathname === '/predictions' ? 'active' : ''}`}>
             <Link
               className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/predictions' && !navbarOpen ? ' text-blue' : ''}`}
-              to="/predictions?province=Torino&activityType=alberghi+3+stelle&country=Italia"
+              to="/predictions?province=Torino&activityType=3+star+hotel&country=Italy"
               onClick={() => setNavbarOpen(false)}
             >
               Predictions
