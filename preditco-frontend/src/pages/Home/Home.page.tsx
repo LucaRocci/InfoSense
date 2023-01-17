@@ -257,11 +257,11 @@ const Home = () => {
           >
             {/* Statistic chart card */}
             <Card
-              className="card-home shadow-lg bg-white gsap-card"
+              className="card-home bg-white gsap-card"
               ref={refStatisticCard}
             >
               {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
-              <CardAnimationFirst />
+              <CardAnimationFirst style={{ margin: "auto", marginTop: "30px"}} />
               <Card.Body>
                 <Card.Title>Actual Statistic</Card.Title>
                 <Card.Text>
@@ -283,9 +283,9 @@ const Home = () => {
             {/* Prediction chart card */}
             <Card
               ref={refPredictoCard}
-              className="card-home shadow-lg bg-white gsap-card"
+              className="card-home bg-white gsap-card"
             >
-              <CardAnimationSecond />
+              <CardAnimationSecond style={{ margin: "auto", marginTop: "30px"}}  />
               <Card.Body>
                 <Card.Title>Prediction</Card.Title>
                 <Card.Text>
