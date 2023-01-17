@@ -15,13 +15,18 @@ import java.util.List;
 public class PredictionsController {
 
     @GetMapping("/")
-    public ResponseEntity<List<Object>> getCountries(){
+    public ResponseEntity<?> getCountries(){
         // TODO validazione e cambio end point
-        String url = "https://restcountries.com/v3.1/region/europe";
-        RestTemplate restTemplate= new RestTemplate();
-        Object[] countries = restTemplate.getForObject(url, Object[].class);
+        String url = "http://127.0.0.1:5050/";
+        /*RestTemplate restTemplate= new RestTemplate();
+        Object[] countries = restTemplate.getForObject(url, Object[].class);*/
 
-        return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+        RestTemplate restTemplate = new RestTemplate();
+        String respone = restTemplate.getForObject(url,String.class);
+
+        //return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+        return new ResponseEntity<String>(respone,HttpStatus.OK);
     }
+
 
 }

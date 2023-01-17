@@ -70,8 +70,8 @@ public class StatisticsController {
   }
 
     @Operation(description = "send data that correspond at a given region, a structure and a provenance by a start year declared")
-  @GetMapping("/{province}/{structure}/{provenance}/{year}")
-  public ResponseEntity<?> getDatiFromAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String province , @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable  @NotNull @Min(2000) @Max(2025) int year){
+  @GetMapping("/{province}/{structure}/{provenance}/{startYear}/{endYear}")
+  public ResponseEntity<?> getDatiFromAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String province , @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable  @NotNull @Min(2000) @Max(2025) int startYear, @PathVariable @NotNull int endYear){
 
       boolean c = provinceService.existsByNome(province);
       boolean b = eserciziService.existsbyNomeEsercizio(structure);
@@ -84,14 +84,14 @@ public class StatisticsController {
       Optional<Long> idEser = eserciziService.findIdByNomeEsercizio(structure);
       Long[] arr = contestoService.findByNazione(from);
 
-      List<DatiResponse>list= statisticheProvinceService.getDatiByYear(year,idEser,arr[0],arr[1],idProv);
+      List<DatiResponse>list= statisticheProvinceService.getDatiByYear(startYear,endYear,idEser,arr[0],arr[1],idProv);
       return new ResponseEntity<>(list,HttpStatus.OK);
 
   }
 
  // an example of an API about  calculated value of the region
   @GetMapping("/region/{structure}/{provenance}")
-  public ResponseEntity<?> getTotaliRegione(@PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from){
+  public ResponseEntity<?> getDataProvince(@PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from){
 
         boolean es = eserciziService.existsbyNomeEsercizio(structure);
         boolean pr = contestoService.existsByNazione(from);
@@ -107,7 +107,7 @@ public class StatisticsController {
 
     @Operation(description = "All the Data about the given province")
   @GetMapping("/allData/{province}")
-    public ResponseEntity<?> getDatiByProv(@PathVariable @NotBlank @Size(min = 3,max = 20) String province){
+    public ResponseEntity<?> getAllDataByProv(@PathVariable @NotBlank @Size(min = 3,max = 20) String province){
         boolean prv = provinceService.existsByNome(province);
         if(!prv){
             return new ResponseEntity<>("Incorrect data ", HttpStatus.BAD_REQUEST);
@@ -119,7 +119,7 @@ public class StatisticsController {
 
     @Operation(description = "API that send data by a given structure and a provenance about two province in order to compare it")
   @GetMapping("compare/{prov1}/{prov2}/{structure}/{provenance}")
-    public ResponseEntity<?> getDatiWithTwoProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String prov1,@PathVariable @NotBlank @Size(min = 3,max = 20) String prov2, @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from ){
+    public ResponseEntity<?> getDataWithTwoProvince(@PathVariable @NotBlank @Size(min = 3,max = 20) String prov1,@PathVariable @NotBlank @Size(min = 3,max = 20) String prov2, @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from ){
 
         boolean c = provinceService.existsByNome(prov1);
         boolean p2 = provinceService.existsByNome(prov2);

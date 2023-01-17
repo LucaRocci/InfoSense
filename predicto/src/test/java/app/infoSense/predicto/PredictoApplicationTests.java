@@ -1,15 +1,11 @@
 package app.infoSense.predicto;
 
 import app.infoSense.predicto.controller.StatisticsController;
-import app.infoSense.predicto.entity.Esercizi;
-import app.infoSense.predicto.entity.Province;
-import app.infoSense.predicto.entity.Regioni;
+import app.infoSense.predicto.entity.*;
 import app.infoSense.predicto.service.ContestoService;
 import app.infoSense.predicto.service.EserciziService;
 import app.infoSense.predicto.service.ProvinceService;
 import app.infoSense.predicto.service.StatisticheProvinceService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +62,7 @@ public class PredictoApplicationTests {
     }
 
     @Test
-    public void testApiListEsercizi() throws Exception{
+    public void testApiListStructures() throws Exception{
 
         List<Esercizi> eserciciTest = new ArrayList<>();
         eserciciTest.add(Esercizi.builder().idEsercizio(1L).nomeEsercizio("albergo").build());
@@ -77,10 +73,19 @@ public class PredictoApplicationTests {
         expected.add("campeggio");
         given(eserciziService.findNomiEsercizi()).willReturn(expected);
 
-        ResultActions resultActions = mockMvc.perform(get("/statistics/esercizi")
+        ResultActions resultActions = mockMvc.perform(get("/statistics/structures")
                 .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
+    @Test
+    public void testApiGetDataProvince() throws Exception{
 
+        List<StatisticheProvince> list = new ArrayList<>();
+
+       // list.add(StatisticheProvince.builder().id(1L).valore(1234).anno(2021).mese(1).idContesto(2).ibuild());
+
+
+
+    }
 
 }

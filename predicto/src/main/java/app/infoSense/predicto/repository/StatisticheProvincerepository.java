@@ -31,9 +31,9 @@ public interface StatisticheProvincerepository extends JpaRepository<Statistiche
     // dati 1 provincia 2 contesti 1 esercizio e 1 anno
     @Query(value = "SELECT sp.anno, sp.mese, sp.valore, c.arrivo_presenza " +
             "FROM statistiche_province sp, province p, contesto c " +
-            "WHERE sp.id_contesto = c.id_contesto AND p.id_provincia = sp.id_provincia AND sp.anno >= :anno " +
+            "WHERE sp.id_contesto = c.id_contesto AND p.id_provincia = sp.id_provincia AND sp.anno >= :anno AND sp.anno <= :anno2 " +
             "AND sp.id_esercizio= :eser AND sp.id_contesto IN (:const1,:const2) AND sp.id_provincia= :prov" ,nativeQuery = true)
-    List<Tuple> getDatiByYear(@Param("anno") int anno,@Param("eser") Optional<Long>eser,@Param("const1") long const1, @Param("const2") long const2,@Param("prov")Optional<Long> prov);
+    List<Tuple> getDatiByYear(@Param("anno") int anno, @Param("anno2") int anno2 ,@Param("eser") Optional<Long>eser,@Param("const1") long const1, @Param("const2") long const2,@Param("prov")Optional<Long> prov);
 
 
     // dati una provincia ho tutti i dati

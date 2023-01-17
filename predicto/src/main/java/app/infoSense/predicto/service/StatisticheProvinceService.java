@@ -32,8 +32,8 @@ public class StatisticheProvinceService {
 
 
     // dati per una provincia, un esercizio una provenienza e oltre un anno dato
-    public List<DatiResponse> getDatiByYear(int anno, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
-        List<Tuple> res = statisticheProvincerepository.getDatiByYear(anno,eser,const1,const2,prov);
+    public List<DatiResponse> getDatiByYear(int anno, int anno2, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
+        List<Tuple> res = statisticheProvincerepository.getDatiByYear(anno,anno2,eser,const1,const2,prov);
 
         List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
                 r.get(0, Integer.class),
