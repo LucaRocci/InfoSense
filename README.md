@@ -10,6 +10,6 @@ As you can see in the picture we have implemented the open-api spring boot libra
 ![image](https://user-images.githubusercontent.com/100279349/212861785-ec8ae6d0-7bd0-4d67-93f7-b35c96ceec93.png)
 
 -------------------------------------------------------------------------------------------------------------------
-
+ Here is the schema of the DataBase, we use a relational database and this strucutre is meant for a future implemetation for the application
 ![image](https://user-images.githubusercontent.com/100279349/212885035-1d507576-338f-4d14-8bdd-938701e21aa6.png)
 
