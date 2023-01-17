@@ -25,6 +25,8 @@ import useFetch from "../../hooks/useFetch.hook";
 import useStcChart from "../../hooks/useStcChart.hook";
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
+//Env impports
+import { activeHost } from "../../__functions/eviroment";
 
 //Register all tools for chart
 ChartJS.register(
@@ -45,7 +47,7 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://localhost:8000/statistics/${searchParam.get(
+    `http://${activeHost}/statistics/${searchParam.get(
       "province"
     )}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );

@@ -24,6 +24,7 @@ import useFetch from "../../hooks/useFetch.hook";
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
 import useStcSingleYear from "../../hooks/useStcSingleYear.hook";
+import { activeHost } from "../../__functions/eviroment";
 
 //Register all tools for chart
 ChartJS.register(
@@ -45,7 +46,7 @@ const StcSingleYearView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://localhost:8000/statistics/year/${searchParam.get("province")}/${searchParam.get("country")}/${searchParam.get("year")}`
+    `http://${activeHost}/statistics/year/${searchParam.get("province")}/${searchParam.get("country")}/${searchParam.get("year")}`
   );
   const [data, option, doughnutData ] = useStcSingleYear(apiData); 
 

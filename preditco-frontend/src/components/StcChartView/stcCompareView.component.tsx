@@ -22,6 +22,7 @@ import useFetch from "../../hooks/useFetch.hook";
 import useStcCompare from '../../hooks/useStcCompare.hook'
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
+import { activeHost } from "../../__functions/eviroment";
 
 //Register all tools for chart
 ChartJS.register(
@@ -42,7 +43,7 @@ const StcCompareView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   const [searchParam] = useSearchParams();
   //Custom hook
   const [apiData, loading, error] = useFetch(
-    `http://localhost:8000/statistics/compare/${searchParam.get("province")}/${searchParam.get("provinceSecond")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
+    `http://${activeHost}/statistics/compare/${searchParam.get("province")}/${searchParam.get("provinceSecond")}/${searchParam.get("activityType")}/${searchParam.get("country")}`
   );
   const [data, option] = useStcCompare(apiData); 
 

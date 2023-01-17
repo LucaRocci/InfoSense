@@ -6,54 +6,9 @@ import useFetch from "../../hooks/useFetch.hook";
 import Form from "react-bootstrap/Form";
 //React-router-dom imports
 import { useSearchParams } from "react-router-dom";
+//Env imports
+import { label, ActivityUrl, ProvinceUrl, provItems, filterValue, years } from '../../__functions/eviroment'
 
-//Possible URL to call in fetch
-const ActivityUrl = "http://localhost:8000/statistics/structures";
-const ProvinceUrl = "http://localhost:8000/statistics/province";
-//Default value
-const provItems = ["Italy", "Abroad"];
-const filterValue = ["Year", "Month"];
-const years = [
-  2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
-];
-
-//object of label
-const label = {
-  province: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">📍</div> <div>Province</div>
-    </div>
-  ),
-  provinceSecond: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">📍</div> <div>Second Province</div>
-    </div>
-  ),
-  activityType: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">🛏️</div>
-      <div>Activity Type</div>
-    </div>
-  ),
-  country: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">🌍</div>
-      <div>Country</div>
-    </div>
-  ),
-  type: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">📆</div>
-      <div>Month or Year</div>
-    </div>
-  ),
-  year: (
-    <div className="d-flex align-items-center ms-2">
-      <div className="me-1">📆</div>
-      <div>Year</div>
-    </div>
-  ),
-};
 
 //Props type
 type DropDownProps = {
@@ -61,6 +16,7 @@ type DropDownProps = {
   setShowType?: Dispatch<SetStateAction<boolean>>;
   ref?: React.MutableRefObject<undefined>;
 };
+
 //DropDown Comopnent
 const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
   //SearchParam hook for dynamic defaultValue
