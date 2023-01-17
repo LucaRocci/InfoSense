@@ -2,15 +2,37 @@
 import './login.scss'
 
 import { ReactComponent as Logo } from '../../assets/logos/logo-short-predicto.svg'
+//Env imports
+import { activeHost } from '../../__functions/eviroment';
 
 const LoginPage = () => {
+
+  const handleSubmitForm = (e: any) => {
+    //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
+    e.preventDefault();
+    e.stopPropagation();
+
+    const user = {
+      email: e.target[0].value,
+      password: e.target[1].value
+    }
+
+    fetch(`http://${activeHost}/login`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(user)
+    }).then( res => console.log('Res :',res)).catch( err => console.log('Error :',err))
+  }
   return (
     <div className='login'>
       <div className="session">
         <div className="left">
           <Logo />
         </div>
-        <form action="" className="log-in">
+        <form className="log-in" onSubmit={handleSubmitForm}>
           <h4>
             We are <span>PREDICTO</span>
           </h4>

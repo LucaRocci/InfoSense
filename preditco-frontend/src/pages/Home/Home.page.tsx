@@ -175,7 +175,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <AnimationWave /* className="d-none d-md-block" */ />
+        <AnimationWave />
       </section>
 
       {/* Cards of our charts */}
