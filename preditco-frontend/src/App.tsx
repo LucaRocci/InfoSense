@@ -6,6 +6,8 @@ import Home from './pages/Home/Home.page';
 import Login from './pages/Login/Login.page'
 import Statistics from './pages/statistics/Statistics.page';
 import Predictions from './pages/predictions/Predictions.page';
+import TermsAndCondition from './pages/privacy/Terms.page';
+import Privacy from './pages/privacy/Privacy.page';
 
 const router = createBrowserRouter([
   {path:'/', element:  <Root />,
@@ -21,6 +23,16 @@ const router = createBrowserRouter([
     {
       path:'predictions',
       element: <Predictions />
+
+    },
+    {
+      path:'terms',
+      element: <TermsAndCondition />
+
+    },
+    {
+      path:'privacy',
+      element: <Privacy/>
 
     }
   ]},

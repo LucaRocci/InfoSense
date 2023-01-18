@@ -22,12 +22,12 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <div>
                 <InfosenseLogo className="w-75" />
-                <PredictoLogo className="w-75" />
+                <PredictoLogo className="w-sm-75 w-md-100" />
               </div>
               <div className="d-flex justify-content-left mt-4">
-                <a href="https://github.com/logos" target="_blank" className="w-50  ms-2"> <ITSLogo className="w-100" /></a>
+                <a href="#" target="_blank" className="w-50  ms-2"> <ITSLogo className="w-100" /></a>
               </div>
-              <div className="d-flex justify-content-left mt-4"><a href="https://github.com/logos" target="_blank" className="w-25"><GitHubLogo className="w-75"/></a></div>
+              <div className="d-flex justify-content-left mt-4"><a href="#" target="_blank" className="w-25"><GitHubLogo className="w-75"/></a></div>
               
             </Col>
 
@@ -65,8 +65,8 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <h4 className="text-center">LEGACY</h4>
               <ListGroup variant="flush">
-                <ListGroup.Item className="bg-transparent">Predicto</ListGroup.Item>
-                <ListGroup.Item className="bg-transparent">Terms of use</ListGroup.Item>
+                <ListGroup.Item className="bg-transparent"><Link to='/terms#terms' className="link-footer">Terms of use</Link></ListGroup.Item>
+                <ListGroup.Item className="bg-transparent"><Link to='/privacy#privacy' className="link-footer">Privacy</Link></ListGroup.Item>
               </ListGroup>
             </Col>
           </Row>
