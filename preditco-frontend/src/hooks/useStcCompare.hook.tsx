@@ -73,7 +73,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         const mappedFirstPrvArrival:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'arrival' && e.provincia === searchParam.get('province')) {
+            else if(e.arrivoPresenza === 'Arrival' && e.provincia === searchParam.get('province')) {
                 mappedLabel.add(e.anno.toString());
                 return e.valore;
             }else return 0
@@ -88,7 +88,7 @@ const useStcChart = (apiData:dataResponse[] | string[] | null | boolean) : [data
         const mappedSecondPrvArrival:any[] = apiData.map((e) => {
             if(typeof e === 'string')
                return e;
-            else if(e.arrivoPresenza === 'arrival' && e.provincia === searchParam.get('provinceSecond')) {
+            else if(e.arrivoPresenza === 'Arrival' && e.provincia === searchParam.get('provinceSecond')) {
                 return e.valore;
             }else return 0
         }).filter(e => e !== 0);
