@@ -194,7 +194,7 @@ const Home = () => {
               {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
               <CardAnimationFirst style={{ margin: "auto", marginTop: "30px"}} />
               <Card.Body>
-                <Card.Title>Actual Statistic</Card.Title>
+                <h2>Actual Statistic</h2>
                 <Card.Text>
                   This tool provides actual and past statistics. Select your
                   period, view and download data you need.
@@ -218,7 +218,7 @@ const Home = () => {
             >
               <CardAnimationSecond style={{ margin: "auto", marginTop: "30px"}}  />
               <Card.Body>
-                <Card.Title>Prediction</Card.Title>
+              <h2>Prediction</h2>
                 <Card.Text>
                   This tool provide prediction feature income. Start planning
                   your business looking for prediction.
