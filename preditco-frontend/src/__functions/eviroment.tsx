@@ -28,7 +28,7 @@ interface WorkerType {
 const localHost = 'localhost:8000';
 const server = '18.102.24.178:8000';
 
-export const activeHost = localHost;
+export const activeHost = server;
 
 // Our team members
 export const workers: WorkerType[] = [

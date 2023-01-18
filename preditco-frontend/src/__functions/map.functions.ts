@@ -31,12 +31,12 @@ export const stcChartMap = (apiData:dataResponse[] | string[] | null | boolean) 
         if(i === apiData.length - 1 )
           startRangeYear.push(e.anno);
 
-         if (e.arrivoPresenza === "arrival" && e.mese === 0 ) {
+         if (e.arrivoPresenza === "Arrival" && e.mese === 0 ) {
           mappedLabels.push(e.anno.toString());
           arriveValue.push(e.valore);
         } else if(e.arrivoPresenza === "stay" && e.mese === 0){
           presValue.push(e.valore);
-        } else if(e.arrivoPresenza === "arrival" ){
+        } else if(e.arrivoPresenza === "Arrival" ){
             valueCounter += e.valore;
             arriveFilterMonth.push(e.valore);
             if((i + 1) % 12 === 0) {
