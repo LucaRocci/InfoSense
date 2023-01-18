@@ -1,8 +1,9 @@
+//Component import
+import { Container } from "react-bootstrap";
+
 const TermsAndCondition = () => {
   return (
-    <>
-      <div id="terms" className="m-5 p-5">
-        {" "}
+    <Container className="my-5 pt-5">
         <h1>Terms and Conditions</h1>
         <p>Last updated: January 18, 2023</p>
         <p>
@@ -281,8 +282,7 @@ const TermsAndCondition = () => {
         <ul>
           <li>By email: infosense@infosense.it</li>
         </ul>
-      </div>
-    </>
+     </Container>
   );
 };
 

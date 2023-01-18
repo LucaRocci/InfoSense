@@ -65,8 +65,8 @@ const FooterCustom = () => {
             <Col className="mt-2 mb-2">
               <h4 className="text-center">LEGACY</h4>
               <ListGroup variant="flush">
-                <ListGroup.Item className="bg-transparent"><Link to='/terms#terms' className="link-footer">Terms of use</Link></ListGroup.Item>
-                <ListGroup.Item className="bg-transparent"><Link to='/privacy#privacy' className="link-footer">Privacy</Link></ListGroup.Item>
+                <ListGroup.Item className="bg-transparent"><Link to='/terms' target="_parent" className="link-footer">Terms of use</Link></ListGroup.Item>
+                <ListGroup.Item className="bg-transparent"><Link to='/privacy'target="_parent" className="link-footer">Privacy</Link></ListGroup.Item>
               </ListGroup>
             </Col>
           </Row>

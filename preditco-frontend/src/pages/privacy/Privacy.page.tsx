@@ -1,7 +1,9 @@
+//Component import
+import { Container } from "react-bootstrap";
+
 const Privacy = () => {
   return (
-    <>
-      <div id="privacy" className="m-5 p-5">
+        <Container className="my-5 pt-5 ">
         <h1>Privacy Policy</h1>
         <p>Last updated: January 18, 2023</p>
         <p>
@@ -494,8 +496,7 @@ const Privacy = () => {
         <ul>
           <li>By email: infosense@infosense.it</li>
         </ul>
-      </div>
-    </>
+        </Container>
   );
 };
 
