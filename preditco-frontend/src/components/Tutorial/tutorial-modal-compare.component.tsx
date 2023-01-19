@@ -19,11 +19,10 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
   const [, setSearchParam] = useSearchParams();
 
   const handleOnCompareSubmit = (e: any) => {
-
     // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
-    
+
     // Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "compare",
@@ -38,19 +37,26 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-    <p>You can compare other cities to compare different kind of data. Save your settings!</p>
+      <p>
+        Here you can compare two cities and see different kind of data. Save
+        your settings!
+      </p>
       <form className="tutorial-form" onSubmit={handleOnCompareSubmit}>
         <DropDown type="activityType" />
         <DropDown type="province" />
         <DropDown type="provinceSecond" />
         <DropDown type="country" />
-        <div className="d-flex justify-content-center align-items-center"> 
-{/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(4)}>
+        <div className="d-flex justify-content-center align-items-center">
+          {/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(4)}>
                 Previous Step
               </Button> */}
-        <Button className="rounded-50 btn btn-primary rounded-pill mt-2" variant="primary" type="submit">
-          Save Changes
-        </Button>
+          <Button
+            className="rounded-50 btn btn-primary rounded-pill mt-2"
+            variant="primary"
+            type="submit"
+          >
+            Save Changes
+          </Button>
         </div>
       </form>
     </>

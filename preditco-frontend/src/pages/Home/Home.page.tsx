@@ -20,12 +20,13 @@ import { ReactComponent as AnimationWave } from "../../assets/animation/home-wav
 import { ReactComponent as StaticWave } from "../../assets/animation/home-wave-static.svg";
 import { ReactComponent as CardAnimationFirst } from "../../assets/animation/card-animation-first.svg";
 import { ReactComponent as CardAnimationSecond } from "../../assets/animation/card-animation-second.svg";
+import { ReactComponent as Istat } from "../../assets/logos/logo-istat.svg";
 
 // Component
 import FooterCustom from "../../components/Footer/Footer.components";
 
 // Enviroment variables
-import { workers } from '../../__functions/eviroment'
+import { workers } from "../../__functions/eviroment";
 
 // Register plugin ScrollTrigger of gsap
 gsap.registerPlugin(ScrollTrigger);
@@ -69,7 +70,7 @@ const Home = () => {
           scrollTrigger: {
             trigger: stcCard,
             start: "top-=20% top+=600px",
-             /* markers: true  */
+            /* markers: true  */
           },
         }
       );
@@ -95,7 +96,7 @@ const Home = () => {
         istat,
         {
           opacity: 0,
-          animationTimingFunction: 'ease-in'
+          animationTimingFunction: "ease-in",
         },
         {
           opacity: 1,
@@ -103,7 +104,7 @@ const Home = () => {
           scrollTrigger: {
             trigger: istat,
             start: "top+=30% top+=600px",
-             /* markers: true */ 
+            /* markers: true */
           },
         }
       );
@@ -112,7 +113,7 @@ const Home = () => {
         team,
         {
           opacity: 0,
-          animationTimingFunction: 'ease-in'
+          animationTimingFunction: "ease-in",
         },
         {
           opacity: 1,
@@ -120,7 +121,7 @@ const Home = () => {
           scrollTrigger: {
             trigger: team,
             start: "top+=40% top+=600px",
-             /* markers: true  */
+            /* markers: true  */
           },
         }
       );
@@ -130,7 +131,7 @@ const Home = () => {
       landing,
       {
         opacity: 0,
-        animationTimingFunction: 'ease-in'
+        animationTimingFunction: "ease-in",
       },
       {
         opacity: 1,
@@ -143,7 +144,10 @@ const Home = () => {
     <Container fluid className="px-0">
       {/* Introduction to Predicto with logos */}
       <section className="d-flex flex-column align-items-center justify-content-between min-h-100 bg-custom blue text-white px-3">
-        <div className="d-flex flex-column align-items-center my-auto" ref={refLandingBlock}>
+        <div
+          className="d-flex flex-column align-items-center my-auto"
+          ref={refLandingBlock}
+        >
           {/* <Logo /> */}
           <h1 className="text-center">
             Make your analyisis better with Predicto.
@@ -164,14 +168,17 @@ const Home = () => {
             >
               Get Started
             </Button>
-            <Link to="/statistics?kind=standard&province=Torino&activityType=3+star+hote&country=Italy&tutorial=open" className="d-flex justify-content-center"> 
-            <Button
-              variant="secondary rounded-pill"
-              size="lg"
-              className="my-2 my-md-0 mx-md-2 rounded-50"
+            <Link
+              to="/statistics?kind=standard&province=Torino&activityType=3+star+hote&country=Italy&tutorial=open"
+              className="d-flex justify-content-center"
             >
-            Tutorial
-            </Button>
+              <Button
+                variant="secondary rounded-pill"
+                size="lg"
+                className="my-2 my-md-0 mx-md-2 rounded-50"
+              >
+                Tutorial
+              </Button>
             </Link>
           </div>
         </div>
@@ -179,7 +186,10 @@ const Home = () => {
       </section>
 
       {/* Cards of our charts */}
-      <section id="card" className="min-h-100 bg-custom sky-blue px-3 pt-3 pt-md-0">
+      <section
+        id="card"
+        className="min-h-100 bg-custom sky-blue px-3 pt-3 pt-md-0"
+      >
         <Row className="w-100 m-0 min-h-100">
           <Col
             xs={12}
@@ -192,7 +202,9 @@ const Home = () => {
               ref={refStatisticCard}
             >
               {/* <Image src={placeholderFirst} className="img-fluid rounded" /> */}
-              <CardAnimationFirst style={{ margin: "auto", marginTop: "30px"}} />
+              <CardAnimationFirst
+                style={{ margin: "auto", marginTop: "30px" }}
+              />
               <Card.Body>
                 <h2>Actual Statistic</h2>
                 <Card.Text>
@@ -200,7 +212,7 @@ const Home = () => {
                   period, view and download data you need.
                 </Card.Text>
                 <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia">
-                <Button variant="primary rounded-pill">Open</Button>
+                  <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
             </Card>
@@ -216,15 +228,17 @@ const Home = () => {
               ref={refPredictoCard}
               className="card-home bg-white gsap-card"
             >
-              <CardAnimationSecond style={{ margin: "auto", marginTop: "30px"}}  />
+              <CardAnimationSecond
+                style={{ margin: "auto", marginTop: "30px" }}
+              />
               <Card.Body>
-              <h2>Prediction</h2>
+                <h2>Prediction</h2>
                 <Card.Text>
                   This tool provide prediction feature income. Start planning
                   your business looking for prediction.
                 </Card.Text>
                 <Link to="/predictions">
-                <Button variant="primary rounded-pill">Open</Button>
+                  <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
             </Card>
@@ -234,19 +248,24 @@ const Home = () => {
       </section>
 
       {/* Istat data and explanations of the data we use */}
-      <section className="istat px-3" >
+      <section className="istat px-3">
         <div className="p-1" ref={refIstatSection}>
           <p className="text-white display-6 text-center">
-            Source data from <span className="display-1">Istat</span>
+            Source data from{" "}
+            <span className="display-1">
+              <Istat />
+            </span>
           </p>
           <blockquote className="blockquote">
-            <h4 className="w-75 m-auto text-white mb-2">What is?</h4>
+            <h3 className="w-75 m-auto text-white mb-2">What is?</h3>
             <p className="w-75 m-auto text-white mb-3">
               Our app collects tourism data from the Istat website for a
               specific province in the Piemonte region of Italy. We present this
               data in visually appealing charts, making it easy for you to
-              understand and analyze. 
-              </p><h4 className="w-75 m-auto text-white mb-2">How it works?</h4><p className="w-75 m-auto text-white mb-4">
+              understand and analyze.
+            </p>
+            <h3 className="w-75 m-auto text-white mb-2">How it works?</h3>
+            <p className="w-75 m-auto text-white mb-4">
               In addition, our app has a feature that allows you to see
               predictions for future tourism data . These predictions are made
               using machine learning algorithms that have been trained on the
@@ -263,29 +282,31 @@ const Home = () => {
       {/* Our team section with avatar */}
       <section className="our-team bg-skyblue px-3 shadow-lg">
         <div ref={refTeamSection}>
-        <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
-        <div className="d-flex justify-content-center flex-wrap">
-          {workers.map((el: WorkerType, index: number) => (
-            <div key={index} className="m-2 text-center">
-              <img
-                onMouseOver={(e) => (e.currentTarget.src = el.srcHover)}
-                onMouseLeave={(e) => (e.currentTarget.src = el.src)}
-                src={el.src}
-                alt="..."
-                className="rounded-circle"
-                style={{ width: "100px", height: "100px" }}
-              />
-              <h3 className="mt-4">{el.name}</h3>
-              <p>{el.field}</p>
-            </div>
-          ))}
-        </div>
+          <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
+          <div className="d-flex justify-content-center flex-wrap">
+            {workers.map((el: WorkerType, index: number) => (
+              <div key={index} className="m-2 text-center">
+                <img
+                  onMouseOver={(e) => (e.currentTarget.src = el.srcHover)}
+                  onMouseLeave={(e) => (e.currentTarget.src = el.src)}
+                  src={el.src}
+                  alt="..."
+                  className="rounded-circle"
+                  style={{ width: "100px", height: "100px" }}
+                />
+                <h3 className="mt-4">{el.name}</h3>
+                <p>{el.field}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Contact us section */}
       <section className="contactUs p-3 bg-custom blue">
-        <h2 className="ms-3 text-center text-white text-uppercase">Contact Us</h2>
+        <h2 className="ms-3 text-center text-white text-uppercase">
+          Contact Us
+        </h2>
         <div className="w-xxl-80 mx-auto p-3 m-3">
           <Row className="m-auto">
             <Col xs={12} md={6} className=" p-2">

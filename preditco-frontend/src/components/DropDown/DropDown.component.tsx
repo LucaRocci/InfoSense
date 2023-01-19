@@ -7,8 +7,14 @@ import Form from "react-bootstrap/Form";
 //React-router-dom imports
 import { useSearchParams } from "react-router-dom";
 //Env imports
-import { label, ActivityUrl, ProvinceUrl, provItems, filterValue, years } from '../../__functions/eviroment'
-
+import {
+  label,
+  ActivityUrl,
+  ProvinceUrl,
+  provItems,
+  filterValue,
+  years,
+} from "../../__functions/eviroment";
 
 //Props type
 type DropDownProps = {
@@ -36,10 +42,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
 
   const handleChange = (e: any) => {
     if (type === "activityType") {
-      if (
-        e.target.value === "hotel" ||
-        e.target.value === "non-hotel"
-      ) {
+      if (e.target.value === "hotel" || e.target.value === "non-hotel") {
         if (typeof setShowType !== "undefined") setShowType(true);
       } else if (typeof setShowType !== "undefined") setShowType(false);
     }
@@ -48,6 +51,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
   return (
     <>
       <label>
+        {type === "region" && label.region}
         {type === "activityType" && label.activityType}
         {type === "province" && label.province}
         {type === "provinceSecond" && label.provinceSecond}
@@ -57,7 +61,13 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
       </label>
       <Form.Select className="mb-2" onChange={handleChange}>
         {loading ? <option>Loading...</option> : null}
-        {Array.isArray(apiData) && !loading && !error && type !== "provinceSecond"
+        {type === "region" ? (
+          <option value={"Piemonte"}>{"Piemonte"}</option>
+        ) : null}
+        {Array.isArray(apiData) &&
+        !loading &&
+        !error &&
+        type !== "provinceSecond"
           ? apiData.map((el) => {
               if (typeof el === "string")
                 return (

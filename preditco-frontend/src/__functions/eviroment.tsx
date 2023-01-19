@@ -25,8 +25,8 @@ interface WorkerType {
 }
 
 //Env var
-const localHost = 'localhost:8000';
-const server = '18.102.24.178:8000';
+const localHost = "localhost:8000";
+const server = "18.102.24.178:8000";
 
 export const activeHost = server;
 
@@ -95,39 +95,43 @@ export const years = [
 
 //object of label
 export const label = {
-    province: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">📍</div> <div>Province</div>
-      </div>
-    ),
-    provinceSecond: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">📍</div> <div>Second Province</div>
-      </div>
-    ),
-    activityType: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">🛏️</div>
-        <div>Activity Type</div>
-      </div>
-    ),
-    country: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">🌍</div>
-        <div>Country</div>
-      </div>
-    ),
-    type: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">📆</div>
-        <div>Month or Year</div>
-      </div>
-    ),
-    year: (
-      <div className="d-flex align-items-center ms-2">
-        <div className="me-1">📆</div>
-        <div>Year</div>
-      </div>
-    ),
-  };
-
+  region: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📍</div> <div>Region</div>
+    </div>
+  ),
+  province: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📍</div> <div>Province</div>
+    </div>
+  ),
+  provinceSecond: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📍</div> <div>Second Province</div>
+    </div>
+  ),
+  activityType: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">🛏️</div>
+      <div>Activity Type</div>
+    </div>
+  ),
+  country: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">🌍</div>
+      <div>Origin</div>
+    </div>
+  ),
+  type: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📆</div>
+      <div>Month or Year</div>
+    </div>
+  ),
+  year: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📆</div>
+      <div>Year</div>
+    </div>
+  ),
+};

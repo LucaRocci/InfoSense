@@ -13,14 +13,12 @@ type ModalSettingProps = {
 };
 //Modal component for setting the req.
 const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
-
-
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header>
         <div className="d-flex flex-column">
           <h4>Setting</h4>
-          <p className="text-muted m-0">Select option to search data</p>
+          <p className="text-muted m-0">Filter data in different way!</p>
         </div>
       </Modal.Header>
       <Tabs
@@ -32,10 +30,10 @@ const ModalSetting: FC<ModalSettingProps> = ({ show, handleClose }) => {
           <CustomForm type="standard" handleClose={handleClose} />
         </Tab>
         <Tab eventKey="compare" title="Compare">
-        <CustomForm type="compare" handleClose={handleClose} />
+          <CustomForm type="compare" handleClose={handleClose} />
         </Tab>
         <Tab eventKey="year" title="Year">
-        <CustomForm type="year" handleClose={handleClose} />
+          <CustomForm type="year" handleClose={handleClose} />
         </Tab>
       </Tabs>
     </Modal>

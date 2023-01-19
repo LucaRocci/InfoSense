@@ -13,7 +13,6 @@ import DropDown from "../DropDown/DropDown.component";
 //Type imports
 import { TutorialModalType } from "./tutorial-modal-compare.component";
 
-
 const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
   const [, setSearchParam] = useSearchParams();
 
@@ -35,13 +34,16 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-      <p>You can compare different activity type  filtered by year. Save your settings!</p>
+      <p>
+        Here you can compare different activity type filtered by year. Save your
+        settings!
+      </p>
       <form className="tutorial-form" onSubmit={handleOnYearSubmit}>
         <DropDown type="province" />
         <DropDown type="country" />
         <DropDown type="year" />
         <div className="d-flex justify-content-center align-items-center">
-{/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
+          {/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
                 Previous Step
               </Button> */}
           <Button
