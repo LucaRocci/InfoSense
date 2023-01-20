@@ -6,7 +6,7 @@ In this project we made a few simple REST end point, all of these use GET http m
 Our goal is to cover all controller with junit test.
 The backend have also a part that comunicate with pyhon REST end point, in fact the controller is used to allow the communication between the frontEnd project and the python Flask end point 
 
-As you can see in the picture we have implemented the open-api spring boot library to make eaesier to consume our rest end point
+As you can see in the picture we have implemented the open-api spring boot library to make eaesier to consume our rest end point the complete documentation is consultable at this path /swagger-ui/index.html#/
 
 ![image](https://user-images.githubusercontent.com/100279349/213713015-ac26f6a7-54ab-4224-a5bf-482c5cb0a959.png)
 
