@@ -14,3 +14,13 @@ As you can see in the picture we have implemented the open-api spring boot libra
 Here is the schema of the DataBase, we use a relational database and this strucutre is meant for a future implemetation for the application
 ![image](https://user-images.githubusercontent.com/100279349/212885035-1d507576-338f-4d14-8bdd-938701e21aa6.png)
 
+-------------------------------------------------------------------------------------------------------------------
+Here a simple description about the project structure; my spring project have some folder but the directory for the code file is: src/main/java/app/infoSense/predicto 
+
+- Here in the controller folder there are files with the controller end point divide by statistics and predictions
+- The entity folder contains all the java class necessary for the automatic database mapping
+- The exception folder contain a class that manage the exception of the rest controller
+- Inside payload/response folder there are the different class that provides a customized response 
+- Inside repository there are all the interfaces that take data from the database
+- Inside service folder there are some implementation of the logic; simple some method map database record into response class
+
