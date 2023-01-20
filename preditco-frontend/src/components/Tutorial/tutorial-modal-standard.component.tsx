@@ -48,8 +48,10 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
     <>
       <p>Here you can change your setting and chose your filter. Save your change!</p>
       <form className="tutorial-form" onSubmit={handleOnStandardSubmit} onChange={(e) => e.stopPropagation()}>
-        <DropDown type="activityType" setShowType={setShowType} />
+      <DropDown type="region" />
+       
         <DropDown type="province" />
+        <DropDown type="activityType" setShowType={setShowType} />
         <DropDown type="country" />
         {showType ? <DropDown type="type" /> : null}
         <div className="d-flex justify-content-center align-items-center">

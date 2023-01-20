@@ -39,6 +39,7 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
         settings!
       </p>
       <form className="tutorial-form" onSubmit={handleOnYearSubmit}>
+      <DropDown type="region" />
         <DropDown type="province" />
         <DropDown type="country" />
         <DropDown type="year" />
