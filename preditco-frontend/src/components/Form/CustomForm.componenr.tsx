@@ -31,22 +31,20 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     e.preventDefault();
     e.stopPropagation();
     //Check if dropdwon for type has value or not to change the searchParams
-    if (e.target[3].value.length === 0)
+    if (e.target[4].value.length === 0)
       setSearchParam({
         kind: "standard",
-        region: "Piemonte",
         province: e.target[1].value,
-        activityType: e.target[0].value,
-        country: e.target[2].value,
+        activityType: e.target[2].value,
+        country: e.target[3].value,
       });
     else
       setSearchParam({
         kind: "standard",
-        region: "Piemonte",
         province: e.target[1].value,
-        activityType: e.target[0].value,
-        country: e.target[2].value,
-        type: e.target[3].value,
+        activityType: e.target[2].value,
+        country: e.target[3].value,
+        type: e.target[4].value,
       });
 
     handleClose();
@@ -59,11 +57,10 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     //Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "compare",
-      region: "Piemonte",
       province: e.target[1].value,
       provinceSecond: e.target[2].value,
-      activityType: e.target[0].value,
-      country: e.target[3].value,
+      activityType: e.target[3].value,
+      country: e.target[4].value,
     });
 
     handleClose();
@@ -77,10 +74,9 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     //Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "year",
-      region: "Piemonte",
-      province: e.target[0].value,
-      country: e.target[1].value,
-      year: e.target[2].value,
+      province: e.target[1].value,
+      country: e.target[2].value,
+      year: e.target[3].value,
     });
 
     handleClose();
@@ -91,8 +87,8 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
       {type === "standard" && (
         <form onSubmit={handleOnStandardSubmit}>
           <Modal.Body>
-            <p>Select area, activity type and turism origin.</p>
-            <DropDown type="region" />
+           <p>Select area, activity type and turism origin.</p>
+           <DropDown type="region" />
             <DropDown type="province" />
             <DropDown type="activityType" setShowType={setShowType} />
             <DropDown type="country" />
@@ -120,8 +116,8 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
       {type === "compare" && (
         <form onSubmit={handleOnCompareSubmit}>
           <Modal.Body>
-            <p>Select two cities, activity type and turism origin.</p>
-            <DropDown type="region" />
+             <p>Select two cities, activity type and turism origin.</p>
+            <DropDown type="region" /> 
             <DropDown type="province" />
             <DropDown type="provinceSecond" />
             <DropDown type="activityType" />
@@ -145,7 +141,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
         <form onSubmit={handleOnYearSubmit}>
           <Modal.Body>
             <p>Select area, activity type and year of interest.</p>
-            <DropDown type="region" />
+            <DropDown type="region" /> 
             <DropDown type="province" />
             <DropDown type="country" />
             <DropDown type="year" />

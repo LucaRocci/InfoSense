@@ -90,8 +90,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 6: Line Chart comparision",
-      content:
-        "Check our line chart with our comparision mode. Click on 🟦 Arrivals or 🟪 Stays to change data view",
+      content: <p> Check our line chart with our comparision mode. Click on 🟦 Arrivals or 🟪 Stays to change data view</p>,
       element: "#line",
     },
     {
