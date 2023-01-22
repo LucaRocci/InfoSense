@@ -22,9 +22,7 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
     // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
-
-    //http://localhost:3000/statistics?kind=compare&province=Alessandria&provinceSecond=Alessandria&activityType=Piemonte&country=hotel
-
+    
     // Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "compare",
