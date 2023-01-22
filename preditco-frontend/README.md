@@ -25,6 +25,9 @@ We have 3 different methods for comparing and analyzing this data through variou
 
 We hope that you find the Predicto Project to be a valuable tool for understanding and predicting tourism trends in Italy.
 
+---
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -71,6 +74,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+---
+<br>
 
 ## FILES AND PROJECT STRUCTURE     
 
@@ -151,3 +157,19 @@ To learn React, check out the [React documentation](https://reactjs.org/).
     - **server.js**
     - **tsconfig.json**
 - **README.md**
+
+---
+<br>
+
+# Libraries used
+- React; used to build our application
+- react-router-dom; used to build routes and navigation between routes
+- Bootstrap; used to create a base for our ui/ux
+- Chart.js; used to create charts with our data
+- gsap; used to create animation with some components 
+
+---
+<br>
+
+# Language
+Our project is written in Typescript and sass

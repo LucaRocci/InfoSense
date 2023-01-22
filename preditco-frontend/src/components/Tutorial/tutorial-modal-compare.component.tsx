@@ -23,13 +23,15 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
     e.preventDefault();
     e.stopPropagation();
 
+    //http://localhost:3000/statistics?kind=compare&province=Alessandria&provinceSecond=Alessandria&activityType=Piemonte&country=hotel
+
     // Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "compare",
       province: e.target[1].value,
       provinceSecond: e.target[2].value,
-      activityType: e.target[0].value,
-      country: e.target[3].value,
+      activityType: e.target[3].value,
+      country: e.target[4].value,
     });
 
     setCurrentStep(6);

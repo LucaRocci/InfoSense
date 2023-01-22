@@ -24,9 +24,9 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
     //Check if dropdwon for type has value or not to change the searchParams
     setSearchParam({
       kind: "year",
-      province: e.target[0].value,
-      country: e.target[1].value,
-      year: e.target[2].value,
+      province: e.target[1].value,
+      country: e.target[2].value,
+      year: e.target[3].value,
     });
 
     setCurrentStep(9);
