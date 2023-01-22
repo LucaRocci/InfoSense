@@ -1,25 +1,24 @@
 package app.infoSense.predicto.service;
 
 import app.infoSense.predicto.payload.response.*;
-import app.infoSense.predicto.repository.StatisticheProvincerepository;
+import app.infoSense.predicto.repository.StatisticsProvinceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Tuple;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class StatisticheProvinceService {
+public class StatisticsProvinceService {
 
     @Autowired
-    StatisticheProvincerepository statisticheProvincerepository;
+    StatisticsProvinceRepository statisticsProvinceRepository;
 
     // dati per una provincia, un esercizio e una provenienza
-    public List<DatiResponse> getDati(long conts1, long conts2, Optional<Long> eser, Optional<Long> prov){
-        List<Tuple> tuple=  statisticheProvincerepository.getDati(conts1,conts2,eser,prov);
+    public List<DatiResponse> getData(long conts1, long conts2, Long eser, Long prov){
+        List<Tuple> tuple=  statisticsProvinceRepository.getData(conts1,conts2,eser,prov);
 
         List<DatiResponse> response = tuple.stream().map(r-> new DatiResponse(
                 r.get(0, Integer.class),
@@ -30,10 +29,9 @@ public class StatisticheProvinceService {
         return response;
     }
 
-
     // dati per una provincia, un esercizio una provenienza e oltre un anno dato
-    public List<DatiResponse> getDatiByYear(int anno, int anno2, Optional<Long>eser, long const1,long const2,Optional<Long> prov){
-        List<Tuple> res = statisticheProvincerepository.getDatiByYear(anno,anno2,eser,const1,const2,prov);
+  /*  public List<DatiResponse> getDataByYear(int anno, int anno2, Long eser, long const1,long const2,Long prov){
+        List<Tuple> res = statisticsProvinceRepository.getDataByYear(anno,anno2,eser,const1,const2,prov);
 
         List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
                 r.get(0, Integer.class),
@@ -43,10 +41,11 @@ public class StatisticheProvinceService {
         )).collect(Collectors.toList());
         return response;
     }
+*/
 
     // same data but about two province
-    public List<DatiResponseWithProvincia> getDatiByTwoProvince(long conts1, long conts2, Optional<Long> eser, Optional<Long> prov1, Optional<Long> prov2){
-        List<Tuple> tpl = statisticheProvincerepository.getDatiTwoProvince(conts1,conts2,eser,prov1,prov2);
+    public List<DatiResponseWithProvincia> getDataByTwoProvince(long conts1, long conts2, Long eser, Long prov1, Long prov2){
+        List<Tuple> tpl = statisticsProvinceRepository.getDataTwoProvince(conts1,conts2,eser,prov1,prov2);
 
         List<DatiResponseWithProvincia> list = tpl.stream().map(r -> new DatiResponseWithProvincia(
                 r.get(0,Integer.class),
@@ -59,8 +58,8 @@ public class StatisticheProvinceService {
 
 
 // THIS
-    public List<DatiResponseWithEsercizio> getDatiForAYear(int anno,long const1, long const2, Optional<Long> prov){
-        List<Tuple> res = statisticheProvincerepository.getDatiForAYear(anno,const1,const2,prov);
+    public List<DatiResponseWithEsercizio> getDataForAYear(int anno,long const1, long const2, Long prov){
+        List<Tuple> res = statisticsProvinceRepository.getDataForAYear(anno,const1,const2,prov);
 
         List<DatiResponseWithEsercizio> response = res.stream().map(r-> new DatiResponseWithEsercizio(
                 r.get(0, Integer.class),
@@ -71,10 +70,8 @@ public class StatisticheProvinceService {
         return response;
     }
 
-    public List<String> getYearsByEsercizio(Optional<Long> idEser){
-        return statisticheProvincerepository.getYearsByEsercizio(idEser);
-    }
-
-    /// TODO metodi di utility per mappare le tuple a DAO
+  /*  public List<String> getYearsByEsercizio(Long idEser){
+        return statisticsProvinceRepository.getYearsByEsercizio(idEser);
+    }*/
 
 }

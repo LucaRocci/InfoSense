@@ -8,26 +8,24 @@ import java.util.Objects;
 @Entity
 @Builder @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-public class Regioni {
+public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRegione;
+    private Long idRegion;
 
     @Column(length = 15)
-    private String nomeRegione;
+    private String regionName;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Regioni regioni = (Regioni) o;
-        return idRegione.equals(regioni.idRegione);
+        Region region = (Region) o;
+        return Objects.equals(idRegion, region.idRegion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idRegione);
+        return Objects.hash(idRegion);
     }
-
-
 }

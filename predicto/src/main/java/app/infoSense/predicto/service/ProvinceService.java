@@ -13,17 +13,13 @@ public class ProvinceService {
     @Autowired
     ProvinceRepository provinceRepository;
 
-    public List<String> findNomiProvince(){ return provinceRepository.findNomiProvince();}
+    public List<String> findNameProvince(){ return provinceRepository.findNameProvince();}
 
-    public Optional<Long> findIdByNome(String nome){
-        return provinceRepository.findIdProcinciaByNome(nome);
+    public Long findIdByName(String nome){
+        return provinceRepository.findIdProvinceByName(nome);
     }
 
-    public List<Province> findAll(){
-       return provinceRepository.findAll();
-    }
-
-    public boolean existsByNome(String nome){
-        return provinceRepository.existsByNome(nome);
+    public boolean existsByName(String nome){
+        return provinceRepository.existsByName(nome);
     }
 }

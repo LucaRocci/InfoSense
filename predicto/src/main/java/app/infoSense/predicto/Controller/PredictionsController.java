@@ -1,20 +1,22 @@
 package app.infoSense.predicto.controller;
 
-import app.infoSense.predicto.service.EserciziService;
+import app.infoSense.predicto.payload.request.PredictionsRequest;
 import app.infoSense.predicto.service.ProvinceService;
+import app.infoSense.predicto.service.StructureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/predictions")
+@Validated
 public class PredictionsController {
  // TODO validzione
 
@@ -23,28 +25,28 @@ public class PredictionsController {
     ProvinceService provinceService;
 
     @Autowired
-    EserciziService eserciziService;
+    StructureService structureService;
 
 
-    @GetMapping("/{province}/{structure}/{provenance}/{start}/{end}")
-    public ResponseEntity<?> getCountries(@PathVariable String province, @PathVariable String structure, @PathVariable String provenance, @PathVariable int start, @PathVariable int end ){
-        // TODO validazione e cambio end point
-        String url = "http://127.0.0.1:5050/";
-        url+=province;
-        url+="/"+structure;
-        url+="/"+provenance;
-        url+="/"+start+"/"+end;
+    @PostMapping("/")
+    public ResponseEntity<?> getPredictions(@RequestBody @Valid PredictionsRequest request){
+
+        String url = "http://127.0.0.1:5000/predict";
         RestTemplate restTemplate= new RestTemplate();
-        Object[] countries = restTemplate.getForObject(url, Object[].class);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+
+        HttpEntity<PredictionsRequest> entity = new HttpEntity<>(request,headers);
 
 
+        System.out.println(request.toString());
 
-        return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+       // Object[] countries = restTemplate.postForObject(url,entity,Object[].class);
 
+       // return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+        return new ResponseEntity<>("CIao", HttpStatus.OK);
 
-          /*RestTemplate restTemplate = new RestTemplate();
-        String respone = restTemplate.getForObject(url,String.class);*/
-        //return new ResponseEntity<String>(respone,HttpStatus.OK);
     }
 
 

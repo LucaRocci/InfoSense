@@ -9,23 +9,24 @@ import java.util.Objects;
 @Entity
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 @Builder
-public class Esercizi {
+public class Structure {
 
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEsercizio;
+    private Long idStructure;
+
     @Column(length = 25)
-    private String nomeEsercizio;
+    private String structureName;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Esercizi esercizi = (Esercizi) o;
-        return idEsercizio == esercizi.idEsercizio;
+        Structure structure = (Structure) o;
+        return idStructure.equals(structure.idStructure);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEsercizio);
+        return Objects.hash(idStructure);
     }
 }

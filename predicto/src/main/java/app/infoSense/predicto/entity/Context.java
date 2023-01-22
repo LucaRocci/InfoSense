@@ -8,27 +8,28 @@ import java.util.Objects;
 @Entity
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 @Builder
-public class Contesto {
+public class Context {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idContesto;
+    private Long idContext;
 
     @Column(length = 10)
-    private String arrivoPresenza;
+    private String arriveStay;
 
     @Column(length = 15)
-    private String nazione;
+    private String nation;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Contesto contesto = (Contesto) o;
-        return Objects.equals(idContesto, contesto.idContesto);
+        Context context = (Context) o;
+        return Objects.equals(idContext, context.idContext);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idContesto);
+        return Objects.hash(idContext);
     }
+
 }

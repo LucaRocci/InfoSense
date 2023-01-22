@@ -11,13 +11,13 @@ import java.util.Optional;
 @Repository
 public interface ProvinceRepository  extends JpaRepository<Province, Long> {
 
-  @Query(value = "SELECT p.nome FROM province p", nativeQuery = true)
-  List<String> findNomiProvince();
+  @Query(value = "SELECT p.name FROM province p", nativeQuery = true)
+  List<String> findNameProvince();
 
 
-  @Query(value = "SELECT p.id_provincia  FROM province p WHERE p.nome = :nome",nativeQuery = true)
-  Optional<Long> findIdProcinciaByNome(String nome);
+  @Query(value = "SELECT p.id_province  FROM province p WHERE p.name = :nome",nativeQuery = true)
+    Long findIdProvinceByName(String nome);
 
-  boolean existsByNome(String nome);
+  boolean existsByName(String nome);
 
 }

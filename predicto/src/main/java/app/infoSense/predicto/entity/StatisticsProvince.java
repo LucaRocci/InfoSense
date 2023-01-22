@@ -3,40 +3,38 @@ package app.infoSense.predicto.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.Month;
-import java.time.Year;
 import java.util.Objects;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class StatisticheProvince {
+public class StatisticsProvince {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_provincia")
-    private Province idProvinicia;
+    @JoinColumn(name = "id_province")
+    private Province idProvince;
 
     @ManyToOne
-    @JoinColumn(name= "id_contesto")
-    private Contesto idContesto;
+    @JoinColumn(name= "id_context")
+    private Context idContext;
 
     @ManyToOne
-    @JoinColumn(name = "id_esercizio")
-    private Esercizi idEsercizio;
+    @JoinColumn(name = "id_structure")
+    private Structure idStructure;
 
-    private int anno;
+    private int year;
 
-    private int mese;
+    private int month;
 
-    private int valore;
+    private int value;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StatisticheProvince that = (StatisticheProvince) o;
+        StatisticsProvince that = (StatisticsProvince) o;
         return Objects.equals(id, that.id);
     }
 

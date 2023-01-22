@@ -11,25 +11,25 @@ import java.util.Objects;
 public class Province {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProvincia;
+    private Long idProvince;
 
     @Column(length = 25)
-    private String nome;
+    private String name;
 
     @ManyToOne
-    @JoinColumn(name = "id_regione")
-    private Regioni idRegione;
+    @JoinColumn(name = "id_region")
+    private Region idRegion;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Province province = (Province) o;
-        return idProvincia == province.idProvincia;
+        return idProvince.equals(province.idProvince);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProvincia);
+        return Objects.hash(idProvince);
     }
 }

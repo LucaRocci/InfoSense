@@ -2,10 +2,11 @@ package app.infoSense.predicto;
 
 import app.infoSense.predicto.controller.StatisticsController;
 import app.infoSense.predicto.entity.*;
-import app.infoSense.predicto.service.ContestoService;
-import app.infoSense.predicto.service.EserciziService;
+import app.infoSense.predicto.payload.response.DatiResponse;
+import app.infoSense.predicto.service.ContextService;
+import app.infoSense.predicto.service.StructureService;
 import app.infoSense.predicto.service.ProvinceService;
-import app.infoSense.predicto.service.StatisticheProvinceService;
+import app.infoSense.predicto.service.StatisticsProvinceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,31 +32,31 @@ public class PredictoApplicationTests {
     private MockMvc mockMvc;
 
     @MockBean
-    private StatisticheProvinceService statisticheProvinceService;
+    private StatisticsProvinceService statisticsProvinceService;
 
     @MockBean
     private ProvinceService provinceService;
 
     @MockBean
-    private EserciziService eserciziService;
+    private StructureService structureService;
 
     @MockBean
-    private ContestoService contestoService;
+    private ContextService contextService;
 
     @Test
     public void testApiListProvince() throws Exception {
 
-        Regioni r = new Regioni(1L,"Piemonte");
+        Region r = new Region(1L,"Piemonte");
        ArrayList<Province> provinceTest = new ArrayList<>();
-       provinceTest.add(Province.builder().idRegione(r).idProvincia(1L).nome("Torino").build());
-       provinceTest.add(Province.builder().idRegione(r).idProvincia(2L).nome("Alessandria").build());
-       provinceTest.add(Province.builder().idRegione(r).idProvincia(3L).nome("Genova").build());
+       provinceTest.add(Province.builder().idRegion(r).idProvince(1L).name("Torino").build());
+       provinceTest.add(Province.builder().idRegion(r).idProvince(2L).name("Alessandria").build());
+       provinceTest.add(Province.builder().idRegion(r).idProvince(3L).name("Genova").build());
 
        List<String>  expected = new ArrayList<>();
        expected.add("Torino");
        expected.add("Alessandria");
        expected.add("Genova");
-       given(provinceService.findNomiProvince()).willReturn(expected);
+       given(provinceService.findNameProvince()).willReturn(expected);
 
         ResultActions response = mockMvc.perform(get("/statistics/province")
                 .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
@@ -64,14 +65,15 @@ public class PredictoApplicationTests {
     @Test
     public void testApiListStructures() throws Exception{
 
-        List<Esercizi> eserciciTest = new ArrayList<>();
-        eserciciTest.add(Esercizi.builder().idEsercizio(1L).nomeEsercizio("albergo").build());
-        eserciciTest.add(Esercizi.builder().idEsercizio(2L).nomeEsercizio("campeggio").build());
+        List<Structure> eserciciTest = new ArrayList<>();
+        eserciciTest.add(Structure.builder().idStructure(1L).structureName("albergo").build());
+        eserciciTest.add(Structure.builder().idStructure(2L).structureName("campeggio").build());
 
         List<String> expected = new ArrayList<>();
         expected.add("albergo");
         expected.add("campeggio");
-        given(eserciziService.findNomiEsercizi()).willReturn(expected);
+
+        given(structureService.findStructureName()).willReturn(expected);
 
         ResultActions resultActions = mockMvc.perform(get("/statistics/structures")
                 .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
@@ -80,12 +82,39 @@ public class PredictoApplicationTests {
     @Test
     public void testApiGetDataProvince() throws Exception{
 
-        List<StatisticheProvince> list = new ArrayList<>();
+        List<StatisticsProvince> list = new ArrayList<>();
 
-       // list.add(StatisticheProvince.builder().id(1L).valore(1234).anno(2021).mese(1).idContesto(2).ibuild());
+        Region r = new Region(1L,"Piemonte");
+        Province p = new Province(1L,"torino",r);
+        Context c  = new Context(1L,"arrivo","Italia");
+        Context c1 = new Context(3L,"presenza","Italia");
+        Structure e = new Structure(1L,"campsite");
 
+        list.add(StatisticsProvince.builder().id(1L).value(1234).year(2021).month(1).idContext(c).idStructure(e).idProvince(p).build());
+        list.add(StatisticsProvince.builder().id(2L).value(1234).year(2021).month(1).idContext(c).idStructure(e).idProvince(p).build());
 
+        List<DatiResponse> response = new ArrayList<>() ;
+        DatiResponse d = new DatiResponse(2021,1,1234,"arrivo");
+        DatiResponse d1 = new DatiResponse(2021,1,1234,"presenza");
+        response.add(d);
+        response.add(d1);
+        given(statisticsProvinceService.getData(1L,3L,1L,1L)).willReturn(response);
+
+        String prov = "torino";
+        String structure = "campsite";
+        String provenance = "italia";
+        ResultActions resultActions = mockMvc.perform(get("/statistics/{prov}/{structure}/{provenance}",prov,structure,provenance)
+                .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+    }
+
+    @Test
+    public void testGetDataByAYear() throws Exception{
 
     }
+
+    public void testGetDataWithTwoProvince() throws Exception{
+
+    }
+
 
 }
