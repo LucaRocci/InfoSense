@@ -52,6 +52,10 @@
     color: $blue-600!important;
 }
 
+.swiper {
+    z-index: 0!important;
+}
+
 // // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { .chart-view{
 //     width: 100%;

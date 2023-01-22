@@ -169,7 +169,7 @@ const Home = () => {
               Get Started
             </Button>
             <Link
-              to="/statistics?kind=standard&province=Torino&activityType=3+star+hote&country=Italy&tutorial=open"
+              to="/statistics?kind=standard&province=Torino&activityType=3+star+hotel&country=Italy&tutorial=open"
               className="d-flex justify-content-center"
             >
               <Button
@@ -211,7 +211,7 @@ const Home = () => {
                   This tool provides actual and past statistics. Select your
                   period, view and download data you need.
                 </Card.Text>
-                <Link to="/statistics?kind=standard&province=Torino&activityType=alberghi+3+stelle&country=Italia">
+                <Link to="/statistics?kind=standard&province=Torino&activityType=3+star+hotel&country=Italy">
                   <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>

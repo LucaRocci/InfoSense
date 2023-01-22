@@ -125,7 +125,7 @@ const useStcSingleYear = (
       const mappedPres : any[] = apiData
       .map((e) => {
         if (typeof e === "string") return e;
-        else if (e.arrivoPresenza === "stay") {
+        else if (e.arrivoPresenza === "Stay") {
           return e.valore;
         } else return 0;
       })

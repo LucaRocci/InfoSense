@@ -86,7 +86,7 @@ const useStcChart = (
         .map((e) => {
           if (typeof e === "string") return e;
           else if (
-            e.arrivoPresenza === "stay" &&
+            e.arrivoPresenza === "Stay" &&
             e.provincia === searchParam.get("province")
           ) {
             return e.valore;
@@ -108,7 +108,7 @@ const useStcChart = (
         .map((e) => {
           if (typeof e === "string") return e;
           else if (
-            e.arrivoPresenza === "stay" &&
+            e.arrivoPresenza === "Stay" &&
             e.provincia === searchParam.get("provinceSecond")
           ) {
             return e.valore;
