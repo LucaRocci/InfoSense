@@ -8,6 +8,7 @@ import Statistics from './pages/statistics/Statistics.page';
 import Predictions from './pages/predictions/Predictions.page';
 import TermsAndCondition from './pages/privacy/Terms.page';
 import Privacy from './pages/privacy/Privacy.page';
+import PageNotFound from './pages/PageNonFound/PageNotFound.page';
 
 const router = createBrowserRouter([
   {path:'/', element:  <Root />,
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
   },
   {
     path:'*',
-    element:<>404 NOT FOUND</>
+    element:<PageNotFound />
   }
 ])
 

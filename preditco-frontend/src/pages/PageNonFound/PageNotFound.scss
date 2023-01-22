@@ -1,0 +1,21 @@
+@import "../../colors.scss";
+
+.pageNotFound {
+    margin: 0 auto 0 auto;
+    padding-top: 90px!important;
+    background-image: linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), url('../../assets/images/background02.svg');  
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.error { 
+    margin: auto;
+    padding-top: 50px;
+    width: 50%;
+    color: $white;
+
+    h1 {
+        font-size: 130px;
+    }
+}
