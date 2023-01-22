@@ -12,7 +12,7 @@ As you can see in the picture we have implemented the open-api spring boot libra
 
 -------------------------------------------------------------------------------------------------------------------
 Here is the schema of the DataBase, we use a relational database and this strucutre is meant for a future implemetation for the application
-![image](https://user-images.githubusercontent.com/100279349/212885035-1d507576-338f-4d14-8bdd-938701e21aa6.png)
+![dbPredicto](https://user-images.githubusercontent.com/100279349/213932433-54253425-ac32-40bd-a73b-172e27225d1b.jpg)
 
 -------------------------------------------------------------------------------------------------------------------
 Here a simple description about the project structure; my spring project have some folder but the directory for the code file is: src/main/java/app/infoSense/predicto 
