@@ -19,7 +19,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: [] + '# of Arrivals',
+        label: '# of Arrivals',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -45,7 +45,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: [] + ' of Stays',
+        label: '# of Stays',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -73,7 +73,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: [] + "",
+        label: "",
         data: [],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       }
@@ -108,7 +108,7 @@ const useStcSingleYear = (
   // Effect for change the chart settings on api change request
   useEffect(() => {
 
-    const percentageArr: number [] = [];
+    /* const percentageArr: number [] = [];
     const percentagePres: number [] = [];
 
     const percentageArrival = (array:number[]) => {
@@ -132,7 +132,7 @@ const useStcSingleYear = (
   
       console.log(percentagePres)
       return percentagePres;
-    }
+    } */
 
     if (Array.isArray(apiData)) {
 
@@ -164,8 +164,8 @@ const useStcSingleYear = (
       })
       .filter((e) => e !== 0);
 
-      percentageArrival(totalArrival);
-      percentageStays(totalPres)
+      /* percentageArrival(totalArrival);
+      percentageStays(totalPres) */
       
       // Structure chart Doudhnut
       const mappedDoudhnutData = [
