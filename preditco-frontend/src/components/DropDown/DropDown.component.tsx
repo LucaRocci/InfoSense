@@ -14,17 +14,18 @@ import {
   provItems,
   filterValue,
   years,
+  indicators,
+  prdActivity
 } from "../../__functions/eviroment";
 
 //Props type
 type DropDownProps = {
   type: string;
   setShowType?: Dispatch<SetStateAction<boolean>>;
-  ref?: React.MutableRefObject<undefined>;
 };
 
 //DropDown Comopnent
-const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
+const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
   //SearchParam hook for dynamic defaultValue
   const [searchParam] = useSearchParams();
   //useFetch hook for call api
@@ -52,12 +53,13 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
     <>
       <label>
         {type === "region" && label.region}
-        {type === "activityType" && label.activityType}
+        {(type === "activityType" || type === "prdActivityType") && label.activityType}
         {type === "province" && label.province}
         {type === "provinceSecond" && label.provinceSecond}
         {type === "country" && label.country}
         {type === "type" && label.type}
         {type === "year" && label.year}
+        {type === "indicator" && label.indicators}
       </label>
       <Form.Select className="mb-2" onChange={handleChange}>
         {loading ? <option>Loading...</option> : null}
@@ -119,6 +121,22 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType, ref }) => {
           : null}
         {type === "year" && !loading
           ? years.map((e) => (
+              <option key={e} value={e}>
+                {e}
+              </option>
+            ))
+          : null}
+
+{type === "indicator" && !loading
+          ? indicators.map((e) => (
+              <option key={e} value={e}>
+                {e}
+              </option>
+            ))
+          : null}
+
+{type === "prdActivityType" && !loading
+          ? prdActivity.map((e) => (
               <option key={e} value={e}>
                 {e}
               </option>

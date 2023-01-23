@@ -102,7 +102,6 @@ const StcChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
         ) : searchParam.get("type") === "Month" && !loading && !error ? (
           <CarouselChart
             toggleChart={toggleChart}
-            rangeYear={rangeYear}
             renderBar={renderBar}
             renderLine={renderLine}
           />

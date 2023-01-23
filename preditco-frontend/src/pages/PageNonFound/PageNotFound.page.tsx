@@ -1,19 +1,20 @@
 import "./PageNotFound.scss";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const PageNotFound = () => {
   return (
-    <>
-      <div className="pageNotFound text-center">
-        <div className="error">
-          <h1>404</h1>
-          <h2 className="">Oops! This Page Could Not Be Found</h2>
+    <section className="bg-custom blue">
+      <Container className="min-h-100 d-flex flex-column justify-content-center align-items-center">
+          <div className="text-center text-white">
+          <h1 className="title-404">404</h1>
+          <h2>Oops! This Page Could Not Be Found</h2>
           <p>
             Sorry but the page you are looking for does not exist, have been
             removed. Name changed or is temporarily unavailable. Please go back
             to our PREDICTO home page.
           </p>
+          </div>
           <Link to={"/home"}>
             <Button
               variant="primary rounded-pill"
@@ -23,9 +24,8 @@ const PageNotFound = () => {
               Home
             </Button>
           </Link>
-        </div>
-      </div>
-    </>
+      </Container>
+      </section>
   );
 };
 

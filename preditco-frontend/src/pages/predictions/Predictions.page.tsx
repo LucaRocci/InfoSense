@@ -8,15 +8,12 @@ import "./Predictions.scss";
 import { ReactComponent as SettingIcon } from "../../assets/icons/setting.svg";
 import { ReactComponent as LineChartIcon } from "../../assets/icons/line-chart.svg";
 import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg";
-import { ReactComponent as DoughnutChartIcon } from "../../assets/icons/doughnut-chart.svg";
 
 // Components imports
-import ModalSetting from "../../components/Modal/ModalSetting.component";
-import StcChartView from "../../components/StcChartView/StcChartView.component";
+import ModalSettingPrd from "../../components/Modal/ModalSettingPrd.component";
 import { Container, Card } from "react-bootstrap";
 import TutorialOverlay from "../../components/Tutorial/tutorial.component";
-import StcCompareView from "../../components/StcChartView/stcCompareView.component";
-import StcSingleYearView from "../../components/StcChartView/StcSingleYearView.component";
+import PrdChartView from "../../components/PrdChartView/PrdChartView.component";
 
 const Predictions = () => {
   // SearchParams for api req
@@ -25,11 +22,6 @@ const Predictions = () => {
   const [toggleChart, setToggleChart] = useState<string>("Bar");
   // Modal state
   const [show, setShow] = useState<boolean>(false);
-
-  useEffect(() => {
-    if((searchParam.get('kind') === 'standard' || searchParam.get('kind') === 'compare' || searchParam.get('kind') === null || searchParam.get('kind') !== null ) && toggleChart === 'Doughnut')
-      setToggleChart('Bar');
-  }, [searchParam.get('kind')])
 
   return (
     <div className="min-h-100 bg-custom blue">
@@ -88,40 +80,24 @@ const Predictions = () => {
               <LineChartIcon title="Line Chart" />
               <span className="button-text-chart">Line Chart</span>
             </button>
-
-            {/* Doudhnut Chart */}
-            {searchParam.get("kind") === "year" && (
-              <button
-                id="doughnut"
-                className={`chart btn mx-2 ${
-                  toggleChart === "Doughnut" ? "btn-primary" : "btn-secondary"
-                }`}
-                onClick={() => setToggleChart("Doughnut")}
-              >
-                <DoughnutChartIcon title="Doughnut Chart" />
-                <span className="button-text-chart">Dghnut Chart</span>
-              </button>
-            )}
           </div>
         </Card>
 
-        <ModalSetting show={show} handleClose={() => setShow(false)} />
-        {searchParam.get("kind") === null ||
-
-        /* Standard chart */
-        searchParam.get("kind") === "standard" ? (
-          <StcChartView toggleChart={toggleChart} />
-        ) : null}
+        <ModalSettingPrd show={show} handleClose={() => setShow(false)} />
+        { searchParam.get("kind") === null ||
+        searchParam.get("kind") === "prd-range" ? (
+          <PrdChartView toggleChart={toggleChart} />
+        ) : null }
 
         {/* Compare chart */}
-        {searchParam.get("kind") === "compare" ? (
+        {/* searchParam.get("kind") === "compare" ? (
           <StcCompareView toggleChart={toggleChart} />
-        ) : null}
+        ) : null */}
 
         {/* Year chart */}
-        {searchParam.get("kind") === "year" ? (
+        {/* searchParam.get("kind") === "year" ? (
           <StcSingleYearView toggleChart={toggleChart} />
-        ) : null}
+        ) : null */} 
       </Container>
     </div>
   );

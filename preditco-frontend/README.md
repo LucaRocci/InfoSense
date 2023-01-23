@@ -167,9 +167,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - Bootstrap; used to create a base for our ui/ux
 - Chart.js; used to create charts with our data
 - gsap; used to create animation with some components 
+- swiper; uset to create personal carousel
 
 ---
 <br>
 
 # Language
-Our project is written in Typescript and sass
+Our project is written in HTML, Typescript and sass

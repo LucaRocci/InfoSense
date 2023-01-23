@@ -25,10 +25,10 @@ interface WorkerType {
 }
 
 //Env var
-const localHost = "localhost:8000";
-const server = "18.102.24.178:8000";
+const localHost = "localhost:8080";
+const server = "18.102.24.178:8080";
 
-export const activeHost = server;
+export const activeHost = localHost;
 
 // Our team members
 export const workers: WorkerType[] = [
@@ -92,6 +92,8 @@ export const filterValue = ["Year", "Month"];
 export const years = [
   2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
 ];
+export const indicators = ['Arrivals', 'Stays'];
+export const prdActivity = ['hotel', 'non-hotel'];
 
 //object of label
 export const label = {
@@ -132,6 +134,12 @@ export const label = {
     <div className="d-flex align-items-center ms-2">
       <div className="me-1">📆</div>
       <div>Year</div>
+    </div>
+  ),
+  indicators: (
+    <div className="d-flex align-items-center ms-2">
+      <div className="me-1">📆</div>
+      <div>Indicator</div>
     </div>
   ),
 };

@@ -87,7 +87,7 @@ const NavbarCustom = () => {
             <div className={`${pathname === '/predictions' ? 'active' : ''}`}>
             <Link
               className={`nav-link text-black nav-link-font ${navbarOpen ? "m-2 text-white" : ""}${pathname === '/predictions' && !navbarOpen ? ' text-blue' : ''}`}
-              to="/predictions?province=Torino&activityType=3+star+hotel&country=Italy"
+              to="/predictions?province=Torino&activityType=esercizi+alberghieri&country=Italia&indicator=arrivi&steps=12"
               onClick={() => setNavbarOpen(false)}
             >
               Predictions

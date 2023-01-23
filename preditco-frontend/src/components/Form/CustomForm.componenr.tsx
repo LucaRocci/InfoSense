@@ -82,6 +82,33 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     handleClose();
   };
 
+    //Function to handle the form submit
+    const handleOnRangeSubmit = (e: any) => {
+      //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
+      e.preventDefault();
+      e.stopPropagation();
+
+      const now = new Date();
+      const prdDate = new Date(e.target[5].value);
+
+      let months;
+      months = (prdDate.getFullYear() - now.getFullYear()) * 12;
+      months -= now.getMonth();
+      months += prdDate.getMonth();
+      const steps =  months <= 0 ? 0 : months;
+
+        setSearchParam({
+          kind: "prd-range",
+          province: e.target[1].value,
+          activityType: e.target[2].value,
+          country: e.target[3].value,
+          indicator: e.target[4].value,
+          steps: steps.toString(),
+        });
+  
+      handleClose();
+    };
+
   return (
     <>
       {type === "standard" && (
@@ -145,6 +172,32 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
             <DropDown type="province" />
             <DropDown type="country" />
             <DropDown type="year" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              className="rounded-pill"
+              onClick={handleClose}
+            >
+              Close
+            </Button>
+            <Button variant="primary" className="rounded-pill" type="submit">
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </form>
+      )}
+
+{type === "range-month" && (
+        <form onSubmit={handleOnRangeSubmit}>
+          <Modal.Body>
+            <p>Select area, activity type and year of interest.</p>
+            <DropDown type="region" /> 
+            <DropDown type="province" />
+            <DropDown type="prdActivityType" />
+            <DropDown type="country" />
+            <DropDown type="indicator" />
+            <input type="month" />
           </Modal.Body>
           <Modal.Footer>
             <Button
