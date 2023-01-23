@@ -19,7 +19,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: '# of Arrivals',
+        label: [] + '# of Arrivals',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -45,7 +45,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: '# of Pres',
+        label: [] + ' of Stays',
         data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -73,7 +73,7 @@ const useStcSingleYear = (
     labels: [],
     datasets: [
       {
-        label: "",
+        label: [] + "",
         data: [],
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       }
@@ -107,9 +107,40 @@ const useStcSingleYear = (
 
   // Effect for change the chart settings on api change request
   useEffect(() => {
+
+    const percentageArr: number [] = [];
+    const percentagePres: number [] = [];
+
+    const percentageArrival = (array:number[]) => {
+      // Sum of all number of the array
+      const total = array.reduce( (a:number,b:number) => a + b,0);
+  
+      // percentage of each element of the array and push it into percentage array
+      array.map((e:number) => { percentageArr.push((e / total) * 100)})
+  
+      console.log(percentageArr);
+      
+      return percentageArr;
+    }
+  
+    const percentageStays = (array:number[]) => {
+      // Sum of all number of the array
+      const total = array.reduce( (a:number,b:number) => a + b,0);
+  
+      // percentage of each element of the array and push it into percentage array
+      array.map((e:number) => { percentagePres.push((e / total) * 100)})
+  
+      console.log(percentagePres)
+      return percentagePres;
+    }
+
     if (Array.isArray(apiData)) {
 
       const labels:any[] = [];
+
+      var totalArrival:number[] = [] ;
+      var totalPres:number[] = [];
+
 
       // Mapping data api, divided by arrival and presense per each year
       const mappedArrival: any[] = apiData
@@ -117,6 +148,7 @@ const useStcSingleYear = (
         if (typeof e === "string") return e;
         else if (e.arrivoPresenza === "Arrival") {
           labels.push(e.esercizio);
+          totalArrival.push(e.valore);
           return e.valore;
         } else return 0;
       })
@@ -126,10 +158,14 @@ const useStcSingleYear = (
       .map((e) => {
         if (typeof e === "string") return e;
         else if (e.arrivoPresenza === "Stay") {
+          totalPres.push(e.valore)
           return e.valore;
         } else return 0;
       })
       .filter((e) => e !== 0);
+
+      percentageArrival(totalArrival);
+      percentageStays(totalPres)
       
       // Structure chart Doudhnut
       const mappedDoudhnutData = [
@@ -151,19 +187,6 @@ const useStcSingleYear = (
                 '#d735ff',
                 '#08d889'
               ],
-/*               borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
-              ],
-              borderWidth: 1, */
             },
           ],
         },
@@ -171,7 +194,7 @@ const useStcSingleYear = (
           labels: labels,
           datasets: [
             {
-              label: '# of Pres',
+              label: '# of Stays',
               data: mappedPres,
               backgroundColor:  [
                 '#dfff00',
@@ -184,26 +207,14 @@ const useStcSingleYear = (
                 '#ccccff',
                 '#d735ff',
                 '#08d889'
-              ]/* ,
-              borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
-              ],
-              borderWidth: 1, */
+              ]
             },
           ],
         }
        ]
 
       setDoughnutData(mappedDoudhnutData);
+      
 
       // Structure chart Doudhnut
       setData({
