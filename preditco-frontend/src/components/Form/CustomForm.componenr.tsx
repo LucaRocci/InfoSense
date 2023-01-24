@@ -197,6 +197,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
             <DropDown type="prdActivityType" />
             <DropDown type="country" />
             <DropDown type="indicator" />
+            <div>📆 Range Month</div>
             <input type="month" />
           </Modal.Body>
           <Modal.Footer>

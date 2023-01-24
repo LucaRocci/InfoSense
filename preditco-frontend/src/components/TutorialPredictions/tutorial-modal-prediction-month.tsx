@@ -50,6 +50,8 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
         <DropDown type="activityType" />
         <DropDown type="country" />
         <DropDown type="indicator" />
+        <div>📆 Range Month</div>
+        <input type="month" />
         <div className="d-flex justify-content-center align-items-center">
           <Button
             className="rounded-50 btn btn-primary rounded-pill mt-2"
