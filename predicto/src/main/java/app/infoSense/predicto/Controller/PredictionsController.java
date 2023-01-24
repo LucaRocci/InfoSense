@@ -31,7 +31,7 @@ public class PredictionsController {
     @PostMapping("/")
     public ResponseEntity<?> getPredictions(@RequestBody @Valid PredictionsRequest request){
 
-        String url = "http://127.0.0.1:5000/predict";
+        String url = "http://127.0.0.1:5050/predict";
         RestTemplate restTemplate= new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -42,10 +42,10 @@ public class PredictionsController {
 
         System.out.println(request.toString());
 
-       // Object[] countries = restTemplate.postForObject(url,entity,Object[].class);
+        Object[] countries = restTemplate.postForObject(url,entity,Object[].class);
 
-       // return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
-        return new ResponseEntity<>("CIao", HttpStatus.OK);
+        return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+        //return new ResponseEntity<>("CIao", HttpStatus.OK);
 
     }
 
