@@ -3,7 +3,7 @@ import './login.scss'
 
 import { ReactComponent as Logo } from '../../assets/logos/logo-short-predicto.svg'
 //Env imports
-import { activeHost } from '../../__functions/eviroment';
+import { activeHost } from '../../__functions/evironment';
 
 const LoginPage = () => {
 
