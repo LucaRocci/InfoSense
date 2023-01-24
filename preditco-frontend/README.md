@@ -134,8 +134,6 @@ Your app is ready to be deployed!
 
 ---
 
-<br>
-
 # Libraries used
 
 - React; used to build our application
@@ -144,8 +142,6 @@ Your app is ready to be deployed!
 - Chart.js; used to create charts with our data
 - gsap; used to create animation with some components
 - swiper; uset to create personal carousel
-
----
 
 # In depth
 
@@ -250,3 +246,145 @@ const Chart = () => {
 
 In this example, a Select element is used to handle the filter selection, the value of the select is the year and the onChange is the handleFilter function. The handleFilter function takes the selected year and set the data of the chart to the data of the selected year.
 Please note that this is just an example and additional code would be needed to handle the API call and provide the **'apiData'** prop to the hook, as well as the implementation
+
+## Component
+
+### CarouselChart Component
+
+This code defines a React functional component called **'CarouselChart'** that utilizes the **Swiper** library for creating a carousel of charts. The component takes in three props: **'toggleChart'**, **'renderBar'**, and **'renderLine'**.
+
+The **'toggleChart'** prop is a string that determines which type of chart to display, either **'Bar'** or **'Line'**. The **'renderBar'** prop is an array of JSX elements that represent the bar charts to be displayed in the carousel, and the **'renderLine'** prop is an array of JSX elements that represent the line charts to be displayed in the carousel.
+
+The component makes use of the Swiper library to create the carousel, and imports the necessary components, styles, and modules from the library. It sets the slidesPerView to 1, the spaceBetween to 30, and enables the keyboard navigation, pagination, and navigation feature. It also applies a className **'mySwiper'** to the Swiper component.
+
+Inside the component, a ternary operator is used to check the value of the **'toggleChart'** prop and render either the **'renderBar'** or **'renderLine'** props as slides in the carousel. It maps over the array of JSX elements, wrapping each one in a **'SwiperSlide'** component from the Swiper library.
+
+At the end of the file, the **'CarouselChart'** component is exported so it can be used in other parts of the application.
+
+```typescript
+import CarouselChart from "./CarouselChart";
+
+const App = () => {
+  const [toggleChart, setToggleChart] = useState("Bar");
+  const renderBar = [<MyBarChart1 />, <MyBarChart2 />, <MyBarChart3 />];
+  const renderLine = [<MyLineChart1 />, <MyLineChart2 />, <MyLineChart3 />];
+
+  return (
+    <div>
+      <button onClick={() => setToggleChart("Bar")}>Show Bar Charts</button>
+      <button onClick={() => setToggleChart("Line")}>Show Line Charts</button>
+      <CarouselChart
+        toggleChart={toggleChart}
+        renderBar={renderBar}
+        renderLine={renderLine}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+In this example, the **'App'** component uses the **'useState'** hook to manage the state of the **'toggleChart'** variable, which determines which type of charts to display in the carousel. The component also defines **'renderBar'** and **'renderLine'** as arrays of JSX elements that represent the bar and line charts to be displayed in the carousel.
+
+The **'App'** component renders two buttons that allow the user to toggle between showing the **'Bar'** and **'Line'** charts. It also renders the **'CarouselChart'** component, passing it the **'toggleChart'**, **'renderBar'**, and **'renderLine'** props.
+
+When the **'Show Bar Charts'** button is clicked, the **'setToggleChart'** function is called with the argument **'Bar'**, causing the component to display the bar charts in the carousel. When the **'Show Line Charts'** button is clicked, the **'setToggleChart'** function is called with the argument **'Line'**, causing the component to display the line charts in the carousel instead.
+
+### StcChartView Component
+
+This is a React functional component called **'StcChartView'** that displays a chart based on data fetched from an API. The component takes in one prop **'toggleChart'** which is a string that determines which type of chart to display, either **'Bar'** or **'Line'**.
+
+The component makes use of the **'useSearchParams'** hook from **'react-router-dom'** to access the search parameters from the URL, and the **'useFetch'** and **'useStcChart'** hooks, which are custom hooks to handle fetching the data from the API and preparing it for the chart.
+
+The component also imports several modules from **'chart.js'** and **'react-chartjs-2'** for creating the chart, as well as other components and assets from the application.
+
+At the beginning of the component, it uses the **'useSearchParams'** hook to access the search parameters from the URL and construct the API endpoint. It then uses the **'useFetch'** hook to fetch data from the API, passing it the constructed endpoint as an argument.
+
+The component also uses the **'useStcChart'** hook, which takes the fetched data as an argument, to process and filter the data to be used for the chart, and to create the options object for the chart.
+
+It then defines two arrays **'renderBar'** and **'renderLine'**, which maps over the filterData, creating a JSX element for each data point with the options and data, and wraps them in a div.
+
+Inside the component, it renders a loading spinner while the data is being fetched and an error message if there is an error fetching the data. It also checks the value of the **'searchParam.get("type")'** and displays either a **'SingleChart'** component or a **'CarouselChart'** component based on the value.
+
+The **'SingleChart'** component takes in the **'toggleChart'** prop and the processed data and options and renders the appropriate chart type. The **'CarouselChart'** component takes in the **'toggleChart'** prop, the **'renderBar'** and **'renderLine'** props, and renders the appropriate array of charts as slides in the carousel.
+
+At the end of the file, the StcChartView component is exported so it can be used in other parts of the application.
+
+```typescript
+import StcChartView from "./StcChartView.component";
+
+const StatisticPage = () => {
+  const [toggleChart, setToggleChart] = useState("Bar");
+
+  return (
+    <div>
+      <button onClick={() => setToggleChart("Bar")}>Show Bar Chart</button>
+      <button onClick={() => setToggleChart("Line")}>Show Line Chart</button>
+      <StcChartView toggleChart={toggleChart} />
+    </div>
+  );
+};
+
+export default StatisticPage;
+```
+
+In this example, the **'StatisticPage'** component uses the **'useState'** hook to manage the state of the **'toggleChart'** variable, which determines which type of chart to display.
+
+The component renders two buttons that allow the user to toggle between showing the **'Bar'** and **'Line'** charts. It also renders the **'StcChartView'** component, passing it the **'toggleChart'** prop.
+
+When the **'Show Bar Chart'** button is clicked, the **'setToggleChart'** function is called with the argument **'Bar'**, causing the component to display the bar chart. When the **'Show Line Chart'** button is clicked, the **'setToggleChart'** function is called with the argument **'Line'**, causing the component to display the line chart instead.
+
+It's important to notice that this component require a specific structure of the URL, and also some custom hooks to work properly, you should check the code and the dependencies of the component before use it.
+
+### CustomForm Component
+
+This is a React functional component called **'CustomForm'** that takes in two props: **'type'** and **'handleClose'**. The component makes use of the **'useSearchParams'** hook from react-router-dom to handle the query parameters and the **'useState'** hook to track the state of the dropdown menu for the type field.
+
+The component has four different submit handlers, each corresponding to a different form type: **'handleOnStandardSubmit'**, **'handleOnCompareSubmit'**, **'handleOnYearSubmit'**, and **'handleOnRangeSubmit'**. Each of these handlers prevent the default action and stop the event from propagating, and then sets the search parameters based on the values of the form fields.
+
+The useEffect hook is used to check if the activityType in the search parameters is either **'hotel'** or **'non-hotel'**, and if so, it sets the state of the showType state variable to true, which causes the type dropdown menu to be displayed.
+
+The component also makes use of React Bootstrap components for the buttons and modal, and also imports a component called **'DropDown'**.
+
+```typescript
+import CustomForm from "./CustomForm.component";
+
+function ParentComponent() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+
+  return (
+    <div>
+      <Button variant="primary" onClick={() => setShowModal(true)}>
+        Open Form
+      </Button>
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Custom Form</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <CustomForm type="standard" handleClose={handleClose} />
+        </Modal.Body>
+      </Modal>
+    </div>
+  );
+}
+```
+
+In this example, the parent component contains a button that, when clicked, sets the **'showModal'** state variable to true, which causes the modal to be displayed. The modal contains the **'CustomForm'** component, and the **'handleClose'** function is passed as a prop to the component so that it can be used to close the modal when the form is submitted. The type prop is also passed to the component to indicate which type of form to display.
+
+## Page
+
+### Statistics page
+
+This is a React functional component called Statistics that uses the useSearchParams hook from react-router-dom to access the query parameters and the useState hook to track the state of the modal and chart toggle.
+
+The component contains a card that displays the statistics for the selected province, activity type, country, and year. It also contains several buttons for controlling the view of the statistics, such as a **'setting'** button to open the settings modal, and buttons for toggling between different chart types (bar chart, line chart, and doughnut chart).
+
+The useEffect hook is used to check the kind of the searchParams and if it's **'standard'** or **'compare'** or **'null'** and toggleChart is **'Doughnut'** it will switch the toggleChart to **'Bar'**.
+
+The component also makes use of several React Bootstrap components for the layout, and also imports several assets (icons) and other components (ModalSetting, StcChartView, TutorialOverlay, StcCompareView and StcSingleYearView).
+
+It also uses scss stylesheet for styling.
