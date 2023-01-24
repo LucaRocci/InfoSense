@@ -92,7 +92,7 @@ export const filterValue = ["Year", "Month"];
 export const years = [
   2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
 ];
-export const indicators = ['Arrivals', 'Stays'];
+export const indicators = ['Arrival', 'Stay'];
 export const prdActivity = ['hotel', 'non-hotel'];
 
 //object of label

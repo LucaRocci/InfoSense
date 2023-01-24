@@ -117,6 +117,7 @@ const usePrdRangeYear = (
   //Effect for change the chart settings on api change request
   useEffect(() => {
    
+    if(apiData !== null) {
     const filterValueData = apiData?.map(e => e.pred);
     const filterDateData = apiData?.map(e => {
       const date = new Date(e.date);
@@ -175,7 +176,7 @@ const usePrdRangeYear = (
 
     //Set Data state with mapped value
     setData(arrayData); 
-
+  }
   }, [apiData]);
 
   //Return the states

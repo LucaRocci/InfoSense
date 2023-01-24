@@ -19,7 +19,7 @@ const Predictions = () => {
   // SearchParams for api req
   const [searchParam] = useSearchParams();
   // State for switching chart
-  const [toggleChart, setToggleChart] = useState<string>("Bar");
+  const [toggleChart, setToggleChart] = useState<string>("Line");
   // Modal state
   const [show, setShow] = useState<boolean>(false);
 
@@ -57,22 +57,10 @@ const Predictions = () => {
               <SettingIcon title="Setting" />
             </button>
 
-            {/* Bar chart */}
-            <button
-              id="bar"
-              className={`chart btn mx-2 ${
-                toggleChart === "Bar" ? "btn-primary" : "btn-secondary"
-              }`}
-              onClick={() => setToggleChart("Bar")}
-            >
-              <BarChartIcon title="Bar Chart" />
-              <span className="button-text-chart">Bar Chart</span>
-            </button>
-
             {/* Line Chart */}
             <button
               id="line"
-              className={`chart btn  ${
+              className={`chart btn ms-2  ${
                 toggleChart === "Line" ? "btn-primary" : "btn-secondary"
               }`}
               onClick={() => setToggleChart("Line")}
