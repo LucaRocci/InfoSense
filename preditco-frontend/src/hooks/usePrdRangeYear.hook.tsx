@@ -33,7 +33,7 @@ const usePrdRangeYear = (
         data: [],
         backgroundColor: "#4571eb",
         /* borderColor: "#45c6eb", */
-        tension: 0.2,
+        tension: 0.5,
       }
     ],
   });
@@ -84,7 +84,7 @@ const usePrdRangeYear = (
             data: typeof filterValueData !== 'undefined' ? filterValueData: [],
             backgroundColor: "rgba(69, 113, 235, 0.5)",
             borderColor: "rgb(69, 113, 235)", 
-            tension: 0.2,
+            tension: 0.4,
           }
         ],
       }
@@ -119,7 +119,7 @@ const usePrdRangeYear = (
                 data: e,
                 backgroundColor: "rgba(69, 113, 235, 0.5)",
                 borderColor: "rgb(69, 113, 235)",
-                tension: 0.2,
+                tension: 0.4,
               }
             ],
           })

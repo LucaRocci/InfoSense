@@ -101,6 +101,9 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && Number(prdDate.getMonth()) < Number(now.getMonth()))
       return
 
+    if(Number(prdDate.getFullYear()) > (Number(now.getFullYear()) + 5))
+      return
+  
     let months;
     months = (prdDate.getFullYear() - now.getFullYear()) * 12;
     months -= now.getMonth();
