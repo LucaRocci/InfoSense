@@ -7,12 +7,12 @@ Our goal is to cover all controller with junit test.
 The backend have also a part that comunicate with pyhon REST end point, in fact the controller is used to allow the communication between the frontEnd project and the python Flask end point 
 
 As you can see in the picture we have implemented the open-api spring boot library to make eaesier to consume our rest end point the complete documentation is consultable at this path /swagger-ui/index.html#/
+![image](https://user-images.githubusercontent.com/100279349/214060308-c62db652-530e-4e1a-8ad5-717ad886926e.png)
 
-![image](https://user-images.githubusercontent.com/100279349/213713015-ac26f6a7-54ab-4224-a5bf-482c5cb0a959.png)
 
 -------------------------------------------------------------------------------------------------------------------
 Here is the schema of the DataBase, we use a relational database and this strucutre is meant for a future implemetation for the application
-![image](https://user-images.githubusercontent.com/100279349/212885035-1d507576-338f-4d14-8bdd-938701e21aa6.png)
+![dbPredicto](https://user-images.githubusercontent.com/100279349/213932433-54253425-ac32-40bd-a73b-172e27225d1b.jpg)
 
 -------------------------------------------------------------------------------------------------------------------
 Here a simple description about the project structure; my spring project have some folder but the directory for the code file is: src/main/java/app/infoSense/predicto 
