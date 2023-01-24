@@ -91,12 +91,12 @@ const PrdChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
         view === 'Single' &&
         !loading &&
         !error ? (<>
-          <button onClick={() => setView('Multi')}>CLICK</button>
+          <button className="btn btn-primary mt-2 shadow-lg rounded-pill" onClick={() => setView('Multi')}>Multi View</button>
           <SingleChart toggleChart={toggleChart} data={singleData} option={option} />
           </>
         ) : view === "Multi" && !loading && !error ? (
           <>
-          <button onClick={() => setView('Single')}>CLICK</button>
+          <button className="btn btn-primary mt-2 shadow-lg rounded-pill" onClick={() => setView('Single')}>Single View</button>
           <CarouselChart
             toggleChart={toggleChart}
             renderBar={renderBar}
