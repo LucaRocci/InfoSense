@@ -75,6 +75,8 @@ const PrdChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
       { loading ? (
         <div className="min-h-60 d-flex flex-column justify-content-center  align-items-center">
           <LogoLoading className="loading-svg" />
+          <h3>Please Wait!</h3>
+          <h4>We are generate your prediction chart, the process may take long!</h4>
         </div>
       ) : null }
       { error ? (
@@ -89,12 +91,12 @@ const PrdChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
         view === 'Single' &&
         !loading &&
         !error ? (<>
-          <button onClick={() => setView('Multi')}>CLICK</button>
+          <button className="btn btn-primary mt-2 shadow-lg rounded-pill" onClick={() => setView('Multi')}>Multi View</button>
           <SingleChart toggleChart={toggleChart} data={singleData} option={option} />
           </>
         ) : view === "Multi" && !loading && !error ? (
           <>
-          <button onClick={() => setView('Single')}>CLICK</button>
+          <button className="btn btn-primary mt-2 shadow-lg rounded-pill" onClick={() => setView('Single')}>Single View</button>
           <CarouselChart
             toggleChart={toggleChart}
             renderBar={renderBar}
