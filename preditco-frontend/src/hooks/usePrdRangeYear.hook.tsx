@@ -9,61 +9,8 @@ import { dataResponse } from "./useFetch.hook";
 import { stcChartMap } from "../__functions/map.functions";
 import { predictionDataResponse } from "./useFetchPr.hook";
 import { useSearchParams } from "react-router-dom";
-//Dataset type
-type DataSetChart = {
-  fill?: boolean;
-  backgroundColor: string | string[];
-  data: number[] | never[];
-  label?: string;
-  tension?: number;
-  borderColor?: string | string[];
-  borderWidth?: number;
-};
-//Data chart type
-export type DataChart = {
-  labels: string[] | never[];
-  datasets: DataSetChart[];
-};
-//Option chart type
-export type OptionChart = {
-  maintainAspectRatio: boolean;
-  plugins: {
-    title: {
-      display: boolean;
-      text: string;
-    };
-    legend: {
-      position: "top";
-      display?: boolean;
-    };
-    tooltip: {
-      titleFont: {
-        size: number;
-      };
-      bodyFont: {
-        size: number;
-      };
-      footerFont: {
-        size: number; // there is no footer by default
-      };
-    };
-  };
-};
-//Default label for monthly chart
-const Month = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+//Type imorts
+import { DataChart, OptionChart } from "./useStcChart.hook";
 
 //hook for mapping the api response to chartjs valid object
 const usePrdRangeYear = (
@@ -81,6 +28,7 @@ const usePrdRangeYear = (
     labels: [],
     datasets: [
       {
+        fill: true,
         label: searchParam.get('indicator')!,
         data: [],
         backgroundColor: "#4571eb",
@@ -99,6 +47,7 @@ const usePrdRangeYear = (
       },
       legend: {
         position: "top" as const,
+        display: false
       },
       tooltip: {
         titleFont: {
@@ -130,10 +79,11 @@ const usePrdRangeYear = (
         labels: typeof filterDateData !== 'undefined' ? filterDateData: [],
         datasets: [
           {
+            fill: true,
             label: searchParam.get('indicator')!,
             data: typeof filterValueData !== 'undefined' ? filterValueData: [],
-            backgroundColor: "#4571eb",
-            /* borderColor: "#45c6eb", */
+            backgroundColor: "rgba(69, 113, 235, 0.5)",
+            borderColor: "rgb(69, 113, 235)", 
             tension: 0.2,
           }
         ],
@@ -164,10 +114,11 @@ const usePrdRangeYear = (
             labels: chunksDate[i],
             datasets: [
               {
+                fill: true,
                 label: searchParam.get('indicator')!,
                 data: e,
-                backgroundColor: "#4571eb",
-                /* borderColor: "#45c6eb", */
+                backgroundColor: "rgba(69, 113, 235, 0.5)",
+                borderColor: "rgb(69, 113, 235)",
                 tension: 0.2,
               }
             ],
