@@ -177,15 +177,15 @@ const useStcSingleYear = (
               data: mappedArrival,
               backgroundColor: [
                 '#dfff00',
-                '#ffbf00',
-                '#ff7f50',
-                '#de3163',
-                '#9fe2bf',
-                '#40e0d0',
+                '#00ffbb',
+                '#9050ff',
+                '#802e58',
+                '#42b378',
+                '#305e5a',
                 '#6495ed',
-                '#ccccff',
-                '#d735ff',
-                '#08d889'
+                '#a0a0bd',
+                '#b05ec4',
+                '#0b6b41'
               ],
             },
           ],
@@ -198,15 +198,15 @@ const useStcSingleYear = (
               data: mappedPres,
               backgroundColor:  [
                 '#dfff00',
-                '#ffbf00',
-                '#ff7f50',
-                '#de3163',
-                '#9fe2bf',
-                '#40e0d0',
+                '#00ffbb',
+                '#9050ff',
+                '#802e58',
+                '#42b378',
+                '#305e5a',
                 '#6495ed',
-                '#ccccff',
-                '#d735ff',
-                '#08d889'
+                '#a0a0bd',
+                '#b05ec4',
+                '#0b6b41'
               ]
             },
           ],
