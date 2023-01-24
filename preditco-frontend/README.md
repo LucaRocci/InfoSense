@@ -1,4 +1,4 @@
-# Predicto project
+# Predicto Front-End
 
 Welcome to the Predicto Project! This project is designed to analyze historical tourism data from ISTAT (an Italian data source) in order to predict future trends and patterns in tourism flow throughout Italy.
 
@@ -21,11 +21,12 @@ We have 3 different methods for comparing and analyzing this data through variou
 
 ### Prediction page
 
-// DA FARE 
+// DA FARE
 
 We hope that you find the Predicto Project to be a valuable tool for understanding and predicting tourism trends in Italy.
 
 ---
+
 <br>
 
 # Getting Started with Create React App
@@ -76,101 +77,112 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ---
+
 <br>
 
-## FILES AND PROJECT STRUCTURE     
+## FILES AND PROJECT STRUCTURE
 
-- Folder /**predicto-frontend**     
-    - Folder / **node_module**
-    - Folder / **public**
-    - Folder / **src** 
-        - Folder / **__functions**
-            - **enviroment.tsx**
-            - **map.functions.tsx**
-        - Folder / **asset**
-            - Folder / **animation**
-            - Folder / **icon**
-            - Folder / **image**
-            - FOlder / **logos**
-        - Folder / **components**
-            - Folder / **DropDown**
-                - **DropDown.component.tsx**
-            - Folder / **Footer**
-                - **Footer.component.tsx**
-                - **Footer.scss**
-            - Folder / **Fomr**
-                - **Form.component.tsx**
-            - Folder / **Modal**
-                - **Modal.component.tsx**
-            - Folder / **Navbar**
-                - **Navbar.component.tsx**
-                - **Navbar.scss**
-            - Folder / **Root**
-                - **Root.component.tsx**
-            - Folder / **SrcChartView**
-                - **CarouselChart.component.tsx**
-                - **SingleChart.component.tsx**
-                - **StcChartView.component.tsx**
-                - **StcCompareView.component.tsx**
-                - **StcSingleYearView.component.tsx**
-            - Folder / **Tutorial**
-                - **tutorial-modal-compare.component.tsx**
-                - **tutorial-modal-standard.component.tsx**
-                - **tutorial-modal-year.component.tsx**
-                - **tutorial.component.tsx**
-                - **tutorial.component.scss**
-        - Folder / **hooks**
-            - **useFetch.hook.tsx**
-            - **usePrdChart.hook.tsx**
-            - **useStcChart.hook.tsx**
-            - **useStcCompare.hook.tsx**
-            - **useStcSingleYear.hook.tsx**
-        - Folder / **pages**
-            - Folder / **home**
-                - **Home.page.tsx**
-                - **home.scss**
-            - Folder / **login**
-                - **Login.page.tsx**
-                - **login.scss**
-            - Folder / **predictions**
-                - **Predictions.page.tsx**
-                - **predictions.scss**
-            - Folder / **privacy**
-                - **Privacy.page.tsx**
-                - **Term.page.tsx**
-            - Folder / **statistics**
-                - **Statistics.page.tsx**
-                - **statistics.scss**
-        - **App.scss**
-        - **App.test.tsx**
-        - **App.tsx**
-        - **colors.scss**
-        - **index.scss**
-        - **index.tsx**
-        - **logo.svg**
-        - **react-app-end.d.ts**
-        - **reportWebVitals.ts**
-        - **setupTest.ts**
-    - **.gitignore**
-    - **package-lock.json** 
-    - **package.json**
-    - **server.js**
-    - **tsconfig.json**
+- Folder /**predicto-frontend**
+  - Folder / **node_module**
+  - Folder / **public**
+  - Folder / **src**
+    - Folder / **\_\_functions**
+      - **enviroment.tsx**
+      - **map.functions.tsx**
+    - Folder / **asset**
+      - Folder / **animation**
+      - Folder / **icon**
+      - Folder / **image**
+      - FOlder / **logos**
+    - Folder / **components**
+      - Folder / **DropDown**
+        - **DropDown.component.tsx**
+      - Folder / **Footer**
+        - **Footer.component.tsx**
+        - **Footer.scss**
+      - Folder / **Fomr**
+        - **Form.component.tsx**
+      - Folder / **Modal**
+        - **Modal.component.tsx**
+      - Folder / **Navbar**
+        - **Navbar.component.tsx**
+        - **Navbar.scss**
+      - Folder / **Root**
+        - **Root.component.tsx**
+      - Folder / **SrcChartView**
+        - **CarouselChart.component.tsx**
+        - **SingleChart.component.tsx**
+        - **StcChartView.component.tsx**
+        - **StcCompareView.component.tsx**
+        - **StcSingleYearView.component.tsx**
+      - Folder / **Tutorial**
+        - **tutorial-modal-compare.component.tsx**
+        - **tutorial-modal-standard.component.tsx**
+        - **tutorial-modal-year.component.tsx**
+        - **tutorial.component.tsx**
+        - **tutorial.component.scss**
+    - Folder / **hooks**
+      - **useFetch.hook.tsx**
+      - **usePrdChart.hook.tsx**
+      - **useStcChart.hook.tsx**
+      - **useStcCompare.hook.tsx**
+      - **useStcSingleYear.hook.tsx**
+    - Folder / **pages**
+      - Folder / **home**
+        - **Home.page.tsx**
+        - **home.scss**
+      - Folder / **login**
+        - **Login.page.tsx**
+        - **login.scss**
+      - Folder / **predictions**
+        - **Predictions.page.tsx**
+        - **predictions.scss**
+      - Folder / **privacy**
+        - **Privacy.page.tsx**
+        - **Term.page.tsx**
+      - Folder / **statistics**
+        - **Statistics.page.tsx**
+        - **statistics.scss**
+    - **App.scss**
+    - **App.test.tsx**
+    - **App.tsx**
+    - **colors.scss**
+    - **index.scss**
+    - **index.tsx**
+    - **logo.svg**
+    - **react-app-end.d.ts**
+    - **reportWebVitals.ts**
+    - **setupTest.ts**
+  - **.gitignore**
+  - **package-lock.json**
+  - **package.json**
+  - **server.js**
+  - **tsconfig.json**
 - **README.md**
 
 ---
+
 <br>
 
 # Libraries used
+
 - React; used to build our application
 - react-router-dom; used to build routes and navigation between routes
 - Bootstrap; used to create a base for our ui/ux
 - Chart.js; used to create charts with our data
-- gsap; used to create animation with some components 
+- gsap; used to create animation with some components
 - swiper; uset to create personal carousel
 
 ---
+
 <br>
 
 # Language
+
 Our project is written in HTML, Typescript and sass
+
+# In depth
+
+Here we are going to explain the main part of code and logics.
+
+## Hooks
