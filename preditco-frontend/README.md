@@ -27,13 +27,7 @@ We hope that you find the Predicto Project to be a valuable tool for understandi
 
 ---
 
-<br>
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# Run the project
 
 In the project directory, you can run:
 
@@ -45,11 +39,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -58,107 +47,90 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
 ---
-
-<br>
 
 ## FILES AND PROJECT STRUCTURE
 
-- Folder /**predicto-frontend**
-  - Folder / **node_module**
-  - Folder / **public**
-  - Folder / **src**
-    - Folder / **\_\_functions**
-      - **enviroment.tsx**
-      - **map.functions.tsx**
-    - Folder / **asset**
-      - Folder / **animation**
-      - Folder / **icon**
-      - Folder / **image**
-      - FOlder / **logos**
-    - Folder / **components**
-      - Folder / **DropDown**
-        - **DropDown.component.tsx**
-      - Folder / **Footer**
-        - **Footer.component.tsx**
-        - **Footer.scss**
-      - Folder / **Fomr**
-        - **Form.component.tsx**
-      - Folder / **Modal**
-        - **Modal.component.tsx**
-      - Folder / **Navbar**
-        - **Navbar.component.tsx**
-        - **Navbar.scss**
-      - Folder / **Root**
-        - **Root.component.tsx**
-      - Folder / **SrcChartView**
-        - **CarouselChart.component.tsx**
-        - **SingleChart.component.tsx**
-        - **StcChartView.component.tsx**
-        - **StcCompareView.component.tsx**
-        - **StcSingleYearView.component.tsx**
-      - Folder / **Tutorial**
-        - **tutorial-modal-compare.component.tsx**
-        - **tutorial-modal-standard.component.tsx**
-        - **tutorial-modal-year.component.tsx**
-        - **tutorial.component.tsx**
-        - **tutorial.component.scss**
-    - Folder / **hooks**
-      - **useFetch.hook.tsx**
-      - **usePrdChart.hook.tsx**
-      - **useStcChart.hook.tsx**
-      - **useStcCompare.hook.tsx**
-      - **useStcSingleYear.hook.tsx**
-    - Folder / **pages**
-      - Folder / **home**
-        - **Home.page.tsx**
-        - **home.scss**
-      - Folder / **login**
-        - **Login.page.tsx**
-        - **login.scss**
-      - Folder / **predictions**
-        - **Predictions.page.tsx**
-        - **predictions.scss**
-      - Folder / **privacy**
-        - **Privacy.page.tsx**
-        - **Term.page.tsx**
-      - Folder / **statistics**
-        - **Statistics.page.tsx**
-        - **statistics.scss**
-    - **App.scss**
-    - **App.test.tsx**
-    - **App.tsx**
-    - **colors.scss**
-    - **index.scss**
-    - **index.tsx**
-    - **logo.svg**
-    - **react-app-end.d.ts**
-    - **reportWebVitals.ts**
-    - **setupTest.ts**
-  - **.gitignore**
-  - **package-lock.json**
-  - **package.json**
-  - **server.js**
-  - **tsconfig.json**
-- **README.md**
+```
+.
+├── Folder /**predicto-frontend**/
+│   ├── Folder / **node_module**
+│   ├── Folder / **public**
+│   ├── Folder / **src**/
+│   │   ├── Folder / **\_\_functions**/
+│   │   │   ├── **enviroment.tsx**
+│   │   │   └── **map.functions.tsx**
+│   │   ├── Folder / **asset**/
+│   │   │   ├── Folder / **animation**
+│   │   │   ├── Folder / **icon**
+│   │   │   ├── Folder / **image**
+│   │   │   └── FOlder / **logos**
+│   │   ├── Folder / **components**/
+│   │   │   ├── Folder / **DropDown**/
+│   │   │   │   └── **DropDown.component.tsx**
+│   │   │   ├── Folder / **Footer**/
+│   │   │   │   ├── **Footer.component.tsx**
+│   │   │   │   └── **Footer.scss**
+│   │   │   ├── Folder / **Fomr**/
+│   │   │   │   └── **Form.component.tsx**
+│   │   │   ├── Folder / **Modal**/
+│   │   │   │   └── **Modal.component.tsx**
+│   │   │   ├── Folder / **Navbar**/
+│   │   │   │   ├── **Navbar.component.tsx**
+│   │   │   │   └── **Navbar.scss**
+│   │   │   ├── Folder / **Root**/
+│   │   │   │   └── **Root.component.tsx**
+│   │   │   ├── Folder / **SrcChartView**/
+│   │   │   │   ├── **CarouselChart.component.tsx**
+│   │   │   │   ├── **SingleChart.component.tsx**
+│   │   │   │   ├── **StcChartView.component.tsx**
+│   │   │   │   ├── **StcCompareView.component.tsx**
+│   │   │   │   └── **StcSingleYearView.component.tsx**
+│   │   │   └── Folder / **Tutorial**/
+│   │   │       ├── **tutorial-modal-compare.component.tsx**
+│   │   │       ├── **tutorial-modal-standard.component.tsx**
+│   │   │       ├── **tutorial-modal-year.component.tsx**
+│   │   │       ├── **tutorial.component.tsx**
+│   │   │       └── **tutorial.component.scss**
+│   │   ├── Folder / **hooks**/
+│   │   │   ├── **useFetch.hook.tsx**
+│   │   │   ├── **usePrdChart.hook.tsx**
+│   │   │   ├── **useStcChart.hook.tsx**
+│   │   │   ├── **useStcCompare.hook.tsx**
+│   │   │   └── **useStcSingleYear.hook.tsx**
+│   │   ├── Folder / **pages**/
+│   │   │   ├── Folder / **home**/
+│   │   │   │   ├── **Home.page.tsx**
+│   │   │   │   └── **home.scss**
+│   │   │   ├── Folder / **login**/
+│   │   │   │   ├── **Login.page.tsx**
+│   │   │   │   └── **login.scss**
+│   │   │   ├── Folder / **predictions**/
+│   │   │   │   ├── **Predictions.page.tsx**
+│   │   │   │   └── **predictions.scss**
+│   │   │   ├── Folder / **privacy**/
+│   │   │   │   ├── **Privacy.page.tsx**
+│   │   │   │   └── **Term.page.tsx**
+│   │   │   └── Folder / **statistics**/
+│   │   │       ├── **Statistics.page.tsx**
+│   │   │       └── **statistics.scss**
+│   │   ├── **App.scss**
+│   │   ├── **App.test.tsx**
+│   │   ├── **App.tsx**
+│   │   ├── **colors.scss**
+│   │   ├── **index.scss**
+│   │   ├── **index.tsx**
+│   │   ├── **logo.svg**
+│   │   ├── **react-app-end.d.ts**
+│   │   ├── **reportWebVitals.ts**
+│   │   └── **setupTest.ts**
+│   ├── **.gitignore**
+│   ├── **package-lock.json**
+│   ├── **package.json**
+│   ├── **server.js**
+│   └── **tsconfig.json**
+└── **README.md**
+```
 
 ---
 
@@ -175,14 +147,106 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ---
 
-<br>
-
-# Language
-
-Our project is written in HTML, Typescript and sass
-
 # In depth
 
 Here we are going to explain the main part of code and logics.
 
 ## Hooks
+
+### UseFetch Hook
+
+This is a custom React hook for fetching data from an API. It utilizes the **'useState'** and **'useEffect'** hooks from the React core library.
+
+The hook takes in a single parameter, the **'url'** of the API endpoint to fetch data from.
+
+It returns an array containing three values:
+
+- **apiData**: an array of objects of type **dataResponse** or **null** if no data is returned.
+- **loading**: a boolean indicating whether the API request is still in progress.
+- **error**: a boolean indicating whether there was an error with the API request.
+
+### Example usage
+
+```typescript
+import useFetch from "./useFetch";
+
+function MyComponent() {
+  const [data, loading, error] = useFetch("https://api.example.com/data");
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>An error occurred</p>;
+  }
+
+  return (
+    <div>
+      {data.map((item) => (
+        <div key={item.anno}>
+          <p>Anno: {item.anno}</p>
+          <p>Valore: {item.valore}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+In this example, the **'MyComponent'** uses the **'useFetch'** hook to fetch data from the specified API endpoint. The component will display "Loading..." while the request is in progress, "An error occurred" if there was an error with the request, or the data returned from the API if the request was successful.
+
+### Use Chart hooks
+
+This is a React hook for creating charts using the Chart.js library. The hook imports the **'useState'** and **'useEffect'** hooks from the React library, as well as the **'useFetch'** custom hook, the **'useSearchParams'** hook from the React Router library, and several mapping functions and types from other files.
+
+The hook defines several types, including **'DataSetChart'**, **'DataChart'**, and **'OptionChart'**, which are used to set the structure of the data and options for the chart. The hook also defines an array of months, **'Month'**, and a **'useEffect'** hook that updates the chart data and options when the data from the API changes.
+
+The hook then exports an array destructuring of the '**data**', **'option'**, **'filterData'**, and **'rangeYear'** states. It maps the data provided by the **'apiData'** prop, using the **'stcChartMap'** function, to match the structure of the **'DataChart'** and **'OptionChart'** types. It also sets the **'filterData'** and rangeYear states.
+
+Here is an example of how the **'useStcChart'** hook could be used in a functional component:
+
+```typescript
+import { useStcChart } from "./useStcChart.hook";
+import { Line } from "react-chartjs-2";
+
+const Chart = () => {
+  const [data, option, filterData, rangeYear] = useStcChart(apiData);
+  return (
+    <div>
+      <Line data={data} options={option} />
+      {/* additional code to handle the filterData and rangeYear state */}
+    </div>
+  );
+};
+```
+
+In this example, the **'useStcChart'** hook is imported and called within the **'Chart'** component. The hook is passed the **'apiData'** as a prop, and then destructured to extract the data, option, **'filterData'**, and **'rangeYear'** states. The **'Line'** component from the **'react-chartjs-2'** library is then used to display the chart, passing in the data and option states as props.
+You can also use the **'filterData'** and **'rangeYear'** states to handle the filter and range selection for the chart.
+
+```typescript
+import { useStcChart } from "./useStcChart.hook";
+import { Line } from "react-chartjs-2";
+
+const Chart = () => {
+  const [data, option, filterData, rangeYear] = useStcChart(apiData);
+
+  const handleFilter = (year) => {
+    setData(filterData[year]);
+  };
+
+  return (
+    <div>
+      <Line data={data} options={option} />
+      <Select value={year} onChange={handleFilter}>
+        {rangeYear.map((year) => (
+          <option value={year}>{year}</option>
+        ))}
+      </Select>
+    </div>
+  );
+};
+```
+
+In this example, a Select element is used to handle the filter selection, the value of the select is the year and the onChange is the handleFilter function. The handleFilter function takes the selected year and set the data of the chart to the data of the selected year.
+Please note that this is just an example and additional code would be needed to handle the API call and provide the **'apiData'** prop to the hook, as well as the implementation
