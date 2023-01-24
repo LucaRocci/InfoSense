@@ -16,7 +16,7 @@ import {
   years,
   indicators,
   prdActivity
-} from "../../__functions/eviroment";
+} from "../../__functions/evironment";
 
 //Props type
 type DropDownProps = {

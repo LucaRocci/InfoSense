@@ -22,7 +22,7 @@ import useFetch from "../../hooks/useFetch.hook";
 import useStcCompare from '../../hooks/useStcCompare.hook'
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
-import { activeHost } from "../../__functions/eviroment";
+import { activeHost } from "../../__functions/evironment";
 
 //Register all tools for chart
 ChartJS.register(

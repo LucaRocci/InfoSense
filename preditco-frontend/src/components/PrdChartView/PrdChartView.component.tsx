@@ -23,7 +23,7 @@ import CarouselChart from "../StcChartView/CarouselChart.component";
 //Assets imput
 import { ReactComponent as LogoLoading } from "../../assets/logos/logo-short-predicto-loading.svg";
 //Env impports
-import { activeHost } from "../../__functions/eviroment";
+import { activeHost } from "../../__functions/evironment";
 import usePrdRangeYear from "../../hooks/usePrdRangeYear.hook";
 import useFetchPr from "../../hooks/useFetchPr.hook";
 

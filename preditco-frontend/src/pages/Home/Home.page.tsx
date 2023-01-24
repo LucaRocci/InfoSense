@@ -26,7 +26,7 @@ import { ReactComponent as Istat } from "../../assets/logos/logo-istat.svg";
 import FooterCustom from "../../components/Footer/Footer.components";
 
 // Enviroment variables
-import { workers } from "../../__functions/eviroment";
+import { workers } from "../../__functions/evironment";
 
 // Register plugin ScrollTrigger of gsap
 gsap.registerPlugin(ScrollTrigger);

@@ -12,7 +12,7 @@ import { ReactComponent as BarChartIcon } from "../../assets/icons/bar-chart.svg
 // Components imports
 import ModalSettingPrd from "../../components/Modal/ModalSettingPrd.component";
 import { Container, Card } from "react-bootstrap";
-import TutorialOverlay from "../../components/Tutorial/tutorial.component";
+import TutorialOverlay from "../../components/TutorialPredictions/tutorialPredictions.component";
 import PrdChartView from "../../components/PrdChartView/PrdChartView.component";
 
 const Predictions = () => {
