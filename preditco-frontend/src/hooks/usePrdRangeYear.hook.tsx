@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { dataResponse } from "./useFetch.hook";
 //Mapping function imports
 import { stcChartMap } from "../__functions/map.functions";
-import { predictionDataResponse } from "../components/PrdChartView/PrdChartView.component";
+import { predictionDataResponse } from "./useFetchPr.hook";
 import { useSearchParams } from "react-router-dom";
 //Dataset type
 type DataSetChart = {
@@ -118,7 +118,12 @@ const usePrdRangeYear = (
   useEffect(() => {
    
     const filterValueData = apiData?.map(e => e.pred);
-    const filterDateData = apiData?.map(e => e.date);
+    const filterDateData = apiData?.map(e => {
+      const date = new Date(e.date);
+      const month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+
+      return `${month}-${date.getFullYear()}`
+    });
 
     setSingleDta({
         labels: typeof filterDateData !== 'undefined' ? filterDateData: [],
