@@ -136,12 +136,12 @@ Your app is ready to be deployed!
 
 # Libraries used
 
-- React; used to build our application
-- react-router-dom; used to build routes and navigation between routes
-- Bootstrap; used to create a base for our ui/ux
-- Chart.js; used to create charts with our data
-- gsap; used to create animation with some components
-- swiper; uset to create personal carousel
+- **React**; React is a JavaScript library for building user interfaces. It allows developers to create reusable UI components and manage the state of an application in a efficient way.
+- **react-router-dom**; React Router DOM is a library that allows developers to create routes and navigate between them in a React application. It enables developers to build Single Page Applications (SPAs) with dynamic, client-side routing.
+- **Bootstrap**; Bootstrap is a CSS framework that provides a set of pre-designed UI components and layout options. It allows developers to quickly create responsive and visually consistent interfaces, without having to write CSS from scratch.
+- **Chart.js**; Chart.js is a library for creating charts and visualizing data. It provides a simple and intuitive API for creating a wide variety of chart types, including bar charts, line charts, and pie charts.
+- **GSAP**; GSAP (GreenSock Animation Platform) is a JavaScript library for creating animations. It allows developers to create complex animations with a high level of control, using a simple and easy-to-use API.
+- **swiper**; Swiper is a JavaScript library for creating carousels or sliders. It provides a flexible and customizable way to create carousels with touch and gesture support, and a wide range of options for customization.
 
 # In depth
 
