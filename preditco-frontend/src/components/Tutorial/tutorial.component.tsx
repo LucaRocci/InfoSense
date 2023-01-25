@@ -40,7 +40,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Welcome to the tutorial!",
       content:
-        "We'll show you how this incredible app works and how you can easily change your setting and see different kind of chart. Let's go!",
+        "Discover the power of our app as we guide you through its features and demonstrate how easy it is to personalize your settings and view various types of charts. Let's get started!",
       element: null,
     },
     {
@@ -51,13 +51,13 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Step 2: Bar Chart",
       content:
-        "After savign your changes, the chart will show you all the data trhought diffent years. this is our bar chart. Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "Once you have saved your changes, the bar chart will display data across various years. Explore different data views by clicking on 🟦 Arrivals or 🟪 Stays.",
       element: "#bar",
     },
     {
       heading: "Step 3: Line Chart",
       content:
-        "You can easily view other different chart clicking the other icon. This is our line chart. Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "Explore different chart types by clicking on the icons. Our line chart allows you to switch between 🟦 Arrivals or 🟪 Stays data views with ease.",
       element: "#line",
     },
     {
@@ -68,12 +68,12 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Step 5: Bar chart comparision",
       content:
-        "Different data of different cities in the same chart, amazing! Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "Experience the convenience of viewing different data from multiple cities on the same chart. Simply click on 🟦 Arrivals or 🟪 Stays to switch between data views.",
       element: "#bar",
     },
     {
       heading: "Step 6: Line Chart comparision",
-      content: <p> Check our line chart with our comparision mode. Click on 🟦 Arrivals or 🟪 Stays to change data view</p>,
+      content: "Explore our line chart in comparison mode. Easily switch between data views by clicking on 🟦 Arrivals or 🟪 Stays.",
       element: "#line",
     },
     {
@@ -84,25 +84,25 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Step 8: Bar chart year mode",
       content:
-        "Different data of different years in the same chart, amazing! Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "See how different data from different years can be easily compared with the same chart. Switch between data views by clicking on 🟦 Arrivals or 🟪 Stays for a complete understanding.",
       element: "#bar",
     },
     {
       heading: "Step 9: Line chart year mode",
       content:
-        "Check our line chart with our year mode. Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "Experience the power of our line chart in year mode. Easily switch between data views by clicking on 🟦 Arrivals or 🟪 Stays for a more comprehensive analysis.",
       element: "#line",
     },
     {
       heading: "Step 10: Doughnut chart year",
       content:
-        "With our Single-year mode you can analyze different Activity in a specific year. Click on the 🟧 Activity type box to change data view ",
+        "Our Single-year mode allows you to focus on a specific year and analyze various activities. Switch between data views by clicking on the 🟧 Activity type box for a more in-depth understanding.",
       element: "#doughnut",
     },
     {
-      heading: "Thank's, have fun!",
-      content: "We have done, now it's your turn.",
-      element: "",
+      heading: "Congratulations",
+      content: "Congratulations on completing the tutorial! We hope you enjoy using our statistics page.",
+      element: null,
     },
   ];
 

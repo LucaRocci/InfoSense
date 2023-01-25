@@ -14,7 +14,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
 }) => {
   const [, setSearchParam] = useSearchParams();
 
-  const handleOnCompareSubmit = (e: any) => {
+  const handlePredictionRange = (e: any) => {
     // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
@@ -43,8 +43,8 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
 
   return (
     <>
-      <p>Chose your setting, then wait for your prediction data.</p>
-      <form className="tutorial-form" onSubmit={handleOnCompareSubmit}>
+      <p>Select your settings and wait while we generate your prediction data.</p>
+      <form className="tutorial-form" onSubmit={handlePredictionRange}>
         <DropDown type="region" />
         <DropDown type="province" />
         <DropDown type="activityType" />
