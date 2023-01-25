@@ -73,10 +73,10 @@ const PrdChartView: FC<{ toggleChart: string }> = ({ toggleChart }) => {
   return (
      <Container >
       { loading ? (
-        <div className="min-h-60 d-flex flex-column justify-content-center  align-items-center">
+        <div className="min-h-60 d-flex flex-column justify-content-center  align-items-center text-center">
           <LogoLoading className="loading-svg" />
-          <h3>Please Wait!</h3>
-          <h4>We are generate your prediction chart, the process may take long!</h4>
+          <h3 className="ms-4">Please Wait!</h3>
+          <h4 className="ms-4">We are generate your prediction chart, the process may take long!</h4>
         </div>
       ) : null }
       { error ? (

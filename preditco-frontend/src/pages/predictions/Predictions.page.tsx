@@ -28,7 +28,7 @@ const Predictions = () => {
       <Container fluid>
         <Card className="board-p px-3 py-3 rounded-3 shadow-lg text-white">
           <div className="d-flex align-items-center justify-content-between mb-3">
-            <h2 className="m-0">
+            <h2 className="m-0 ">
               {searchParam.get("province")}
               {searchParam.get("provinceSecond") === null
                 ? ""
@@ -36,7 +36,7 @@ const Predictions = () => {
             </h2>
             <TutorialOverlay setToggleChart={setToggleChart} />
           </div>
-          <p className="ms-1">
+          <p className="ms-1 mb-1">
           {searchParam
               .get("year")
               ?.toLowerCase()
@@ -48,6 +48,13 @@ const Predictions = () => {
             ({searchParam.get("country")})
           </p>
 
+          <p className="ms-1 mb-2">
+          {searchParam
+              .get("indicator")
+              }
+            {' (' + searchParam
+              .get("steps") + ' Month)'}
+          </p>
           <div className="d-flex flex-row">
             <button
               id="setting"

@@ -53,13 +53,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "#setting",
     },
     {
-      heading: "Step 2: Bar Chart",
-      content:
-        "After savign your changes, the chart will show you all the data trhought diffent month. Click on 🟦 Arrivals or 🟪 Stays to change data view",
-      element: "#bar",
-    },
-    {
-      heading: "Step 3: Line Chart",
+      heading: "Step 2: Line Chart",
       content:
         "You can easily view other different chart clicking the other icon. This is our line chart. Click on 🟦 Arrivals or 🟪 Stays to change data view",
       element: "#line",

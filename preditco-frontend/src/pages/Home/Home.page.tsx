@@ -149,7 +149,7 @@ const Home = () => {
           ref={refLandingBlock}
         >
           {/* <Logo /> */}
-          <h1 className="text-center">
+          <h1 className="text-center title-home">
             Make your analyisis better with Predicto.
           </h1>
           <h5 className="text-center">
