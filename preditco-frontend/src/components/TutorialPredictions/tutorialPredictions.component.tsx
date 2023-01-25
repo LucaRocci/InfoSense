@@ -119,9 +119,6 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             {currentStep !== tutorialSteps.length &&
             currentStep !== 3  ? (
               <>
-                {/*  currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
-                Previous Step
-              </button>  */}
                 <button
                   className="rounded-50 btn btn-primary rounded-pill"
                   type="button"

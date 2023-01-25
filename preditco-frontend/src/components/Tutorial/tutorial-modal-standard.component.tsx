@@ -1,5 +1,5 @@
 // React core imports
-import React, { useState, FC, Dispatch, SetStateAction } from "react";
+import React, { useState, FC } from "react";
 
 // React-router-dom imports
 import { useSearchParams } from "react-router-dom";

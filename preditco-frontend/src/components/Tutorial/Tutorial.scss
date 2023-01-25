@@ -8,8 +8,6 @@
   margin: 20px;
 }
 
-
-
 .tutorial-overlay {
   position: fixed;
   /* position the tutorial overlay on top of other content */
@@ -45,13 +43,10 @@
   font-size: 16px;
 }
 
-
-
 .tutorial-form {
   margin: 20px;
   text-align: start;
 }
-
 
 .highlight {
   outline: 5px solid rgb(217, 255, 0);
@@ -79,8 +74,6 @@
 
 @media only screen and (min-width: 768px) {
   .highlight {
-
     z-index: 2;
-
   }
 }

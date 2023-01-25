@@ -1,8 +1,5 @@
 //React core imports
-import { FC, useState } from "react";
-//Bootstrap icons imports
-import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
-//Swiper imports
+import { FC } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles

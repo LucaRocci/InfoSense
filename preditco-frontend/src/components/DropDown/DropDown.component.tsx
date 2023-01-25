@@ -1,5 +1,5 @@
 //React core imports
-import { FC, useEffect, Dispatch, SetStateAction } from "react";
+import { FC, Dispatch, SetStateAction } from "react";
 //Hokks imports
 import useFetch from "../../hooks/useFetch.hook";
 //Components import
@@ -36,10 +36,6 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
       ? ProvinceUrl
       : ""
   );
-
-  /*   useEffect(() => {
-    console.log(loading, error)
-  }, [loading, error]) */
 
   const handleChange = (e: any) => {
     if (type === "activityType") {

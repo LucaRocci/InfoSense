@@ -1,5 +1,5 @@
 //React core imports
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 //Type imports
 import { DataChart, OptionChart } from "../../hooks/useStcChart.hook";
 //Chart imports

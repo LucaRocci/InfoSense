@@ -31,23 +31,6 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
 
   const [searchParam] = useSearchParams();
 
-  /*   const handleKeyPress = (e:any) => {
-    console.log(currentStep)
-    if(e.keyCode === 54 || e.key === 'ArrowRigth')
-      setCurrentStep(currentStep + 1)
-    
-    if(e.keyCode === 52 || e.key === 'ArrowLeft')
-      setCurrentStep(currentStep - 1)
-  }
-  useEffect(() => {
-    if(currentStep > 2) {
-      document.body.addEventListener('keydown',handleKeyPress)
-    }
-
-    if(currentStep === 13)
-     document.body.removeEventListener('keydown',handleKeyPress)
-  },[currentStep]) */
-
   useEffect(() => {
     if (searchParam.get("tutorial") === "open") setShowTutorial(true);
   }, [searchParam.get("tutorial")]);
@@ -179,9 +162,6 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             currentStep !== 5 &&
             currentStep !== 8 ? (
               <>
-                {/*  currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
-                Previous Step
-              </button>  */}
                 <button
                   className="rounded-50 btn btn-primary rounded-pill"
                   type="button"

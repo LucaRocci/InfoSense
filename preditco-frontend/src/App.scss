@@ -26,6 +26,11 @@ a {
   }
 }
 
+h1 {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
 .modal-header {
   border-bottom: none;
 }
@@ -81,6 +86,12 @@ a {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
       url('./assets/images/background02b.png');
+  }
+
+  &.purple {
+    background-image:
+      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
+      url('./assets/images/background-purple.png');
   }
 }
 

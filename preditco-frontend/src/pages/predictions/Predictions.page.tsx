@@ -24,7 +24,7 @@ const Predictions = () => {
   const [show, setShow] = useState<boolean>(false);
 
   return (
-    <div className="min-h-100 bg-custom blue">
+    <div className="min-h-100 bg-custom purple">
       <Container fluid>
         <Card className="board-p px-3 py-3 rounded-3 shadow-lg text-white">
           <div className="d-flex align-items-center justify-content-between mb-3">
