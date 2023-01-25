@@ -69,25 +69,6 @@ public class StatisticsController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
- /*   @Operation(description = "send data that correspond at a given region, a structure and a provenance in a declared range of years")
-  @GetMapping("/{province}/{structure}/{provenance}/{startYear}/{endYear}")
-  public ResponseEntity<?> getDatiFromAyear(@PathVariable @NotBlank @Size(min = 3,max = 20) String province , @PathVariable @NotBlank @Size(min = 3,max = 25) String structure, @PathVariable("provenance") @NotBlank @Size(min = 4,max = 15) String from, @PathVariable  @NotNull @Min(2000) @Max(2025) int startYear, @PathVariable @NotNull int endYear){
-
-      boolean c = provinceService.existsByNome(province);
-      boolean b = eserciziService.existsbyNomeEsercizio(structure);
-      boolean p = contestoService.existsByNazione(from);
-
-      if(!c || !b || !p){
-          return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
-      }
-      Long idProv = provinceService.findIdByNome(province);
-      Long idEser = eserciziService.findIdByNomeEsercizio(structure);
-      Long[] arr = contestoService.findByNazione(from);
-
-      List<DatiResponse>list= statisticheProvinceService.getDatiByYear(startYear,endYear,idEser,arr[0],arr[1],idProv);
-      return new ResponseEntity<>(list,HttpStatus.OK);
-
-  }*/
 
     @Operation(description = "API that send data by a given structure and a provenance about two province in order to compare it")
     @GetMapping("compare/{prov1}/{prov2}/{structure}/{provenance}")
@@ -127,15 +108,5 @@ public class StatisticsController {
 
     }
 
-  /*  @Operation(description = "An API that return all the year by a given structure ")
-    @GetMapping("/year/{structure}")
-    public ResponseEntity<?> getYearsByEsercizio(@PathVariable @NotBlank @Size(min=3, max=25) String structure){
-      boolean ex = eserciziService.existsbyNomeEsercizio(structure);
-      if(!ex){
-          return new ResponseEntity<String>("Dati non corretti",HttpStatus.BAD_REQUEST);
-      }
-       Long idEser  = eserciziService.findIdByNomeEsercizio(structure);
-       List<String> listAnni = statisticheProvinceService.getYearsByEsercizio(idEser);
-       return new ResponseEntity<>(listAnni,HttpStatus.OK);
-}*/
+
 }

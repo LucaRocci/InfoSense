@@ -4,6 +4,7 @@ import app.infoSense.predicto.payload.request.PredictionsRequest;
 import app.infoSense.predicto.service.ContextService;
 import app.infoSense.predicto.service.ProvinceService;
 import app.infoSense.predicto.service.StructureService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.validation.annotation.Validated;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -19,8 +19,6 @@ import java.util.Collections;
 @RequestMapping("/predictions")
 @Validated
 public class PredictionsController {
- // TODO validzione
-
 
     @Autowired
     ProvinceService provinceService;
@@ -32,6 +30,7 @@ public class PredictionsController {
     ContextService contextService;
 
     @PostMapping("/")
+    @Operation(description = " The API that call a python flask app and return take the response to the frontend")
     public ResponseEntity<?> getPredictions(@RequestBody @Valid PredictionsRequest request){
 
         boolean p = provinceService.existsByName(request.getTerritorio());
@@ -41,7 +40,7 @@ public class PredictionsController {
         if(!p || !st || !contx){
             return new ResponseEntity<>("Incorrect data",HttpStatus.BAD_REQUEST);
         }
-
+        // local url for the prevision
         String url = "http://127.0.0.1:5050/predict";
         RestTemplate restTemplate= new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -52,7 +51,7 @@ public class PredictionsController {
 
 
         System.out.println(request.toString());
-
+        // return the response
         Object[] countries = restTemplate.postForObject(url,entity,Object[].class);
 
         return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);

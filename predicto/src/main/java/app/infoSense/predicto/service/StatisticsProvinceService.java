@@ -16,7 +16,7 @@ public class StatisticsProvinceService {
     @Autowired
     StatisticsProvinceRepository statisticsProvinceRepository;
 
-    // dati per una provincia, un esercizio e una provenienza
+    // data for a province, a structure and a provenance
     public List<DatiResponse> getData(long conts1, long conts2, Long eser, Long prov){
         List<Tuple> tuple=  statisticsProvinceRepository.getData(conts1,conts2,eser,prov);
 
@@ -29,19 +29,6 @@ public class StatisticsProvinceService {
         return response;
     }
 
-    // dati per una provincia, un esercizio una provenienza e oltre un anno dato
-  /*  public List<DatiResponse> getDataByYear(int anno, int anno2, Long eser, long const1,long const2,Long prov){
-        List<Tuple> res = statisticsProvinceRepository.getDataByYear(anno,anno2,eser,const1,const2,prov);
-
-        List<DatiResponse> response = res.stream().map(r-> new DatiResponse(
-                r.get(0, Integer.class),
-                r.get(1,Integer.class),
-                r.get(2, Integer.class),
-                r.get(3,String.class)
-        )).collect(Collectors.toList());
-        return response;
-    }
-*/
 
     // same data but about two province
     public List<DatiResponseWithProvincia> getDataByTwoProvince(long conts1, long conts2, Long eser, Long prov1, Long prov2){
@@ -57,7 +44,7 @@ public class StatisticsProvinceService {
     }
 
 
-// THIS
+// send all data structure in a precise year for a province
     public List<DatiResponseWithEsercizio> getDataForAYear(int anno,long const1, long const2, Long prov){
         List<Tuple> res = statisticsProvinceRepository.getDataForAYear(anno,const1,const2,prov);
 
@@ -70,8 +57,5 @@ public class StatisticsProvinceService {
         return response;
     }
 
-  /*  public List<String> getYearsByEsercizio(Long idEser){
-        return statisticsProvinceRepository.getYearsByEsercizio(idEser);
-    }*/
 
 }
