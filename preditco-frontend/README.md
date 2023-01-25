@@ -21,7 +21,13 @@ We have 3 different methods for comparing and analyzing this data through variou
 
 ### Prediction page
 
-// DA FARE
+ In tourism Predictions page you can easily forecast the flow of tourism within a chosen time range. We have organized the data into 5 main categories in the standard mode:
+
+- **Region**: Region: Currently, only Piemonte is available
+- **Provice**: Asti, Alessandria, Torino, Verbania, Novara, Vercelli, Cuneo, Biella
+- **Activity type**: hotel, non-hotel, 2 stars hotel, 3 stars hotel, rented accomodation, campsite, other exercise, farmhouse, bed and breakfast, 5 stars hotel
+- **Origin**: from Italy, from Abroad
+- **Prediction end date**: the date your prediction will stop
 
 We hope that you find the Predicto Project to be a valuable tool for understanding and predicting tourism trends in Italy.
 
