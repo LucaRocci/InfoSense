@@ -169,7 +169,7 @@ It returns an array containing three values:
 
 ### Example usage
 
-```typescript
+```javascript
 import useFetch from "./useFetch";
 
 function MyComponent() {
@@ -208,7 +208,7 @@ The hook then exports an array destructuring of the '**data**', **'option'**, **
 
 Here is an example of how the **'useStcChart'** hook could be used in a functional component:
 
-```typescript
+```javascript
 import { useStcChart } from "./useStcChart.hook";
 import { Line } from "react-chartjs-2";
 
@@ -226,7 +226,7 @@ const Chart = () => {
 In this example, the **'useStcChart'** hook is imported and called within the **'Chart'** component. The hook is passed the **'apiData'** as a prop, and then destructured to extract the data, option, **'filterData'**, and **'rangeYear'** states. The **'Line'** component from the **'react-chartjs-2'** library is then used to display the chart, passing in the data and option states as props.
 You can also use the **'filterData'** and **'rangeYear'** states to handle the filter and range selection for the chart.
 
-```typescript
+```javascript
 import { useStcChart } from "./useStcChart.hook";
 import { Line } from "react-chartjs-2";
 
@@ -267,7 +267,7 @@ Inside the component, a ternary operator is used to check the value of the **'to
 
 At the end of the file, the **'CarouselChart'** component is exported so it can be used in other parts of the application.
 
-```typescript
+```javascript
 import CarouselChart from "./CarouselChart";
 
 const App = () => {
@@ -317,7 +317,7 @@ The **'SingleChart'** component takes in the **'toggleChart'** prop and the proc
 
 At the end of the file, the StcChartView component is exported so it can be used in other parts of the application.
 
-```typescript
+```javascript
 import StcChartView from "./StcChartView.component";
 
 const StatisticPage = () => {
@@ -353,7 +353,7 @@ The useEffect hook is used to check if the activityType in the search parameters
 
 The component also makes use of React Bootstrap components for the buttons and modal, and also imports a component called **'DropDown'**.
 
-```typescript
+```javascript
 import CustomForm from "./CustomForm.component";
 
 function ParentComponent() {
