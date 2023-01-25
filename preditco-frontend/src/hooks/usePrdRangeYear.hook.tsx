@@ -1,6 +1,3 @@
-
-
-
 //React core and hooks
 import { useState, useEffect } from "react";
 import { predictionDataResponse } from "./useFetchPr.hook";
@@ -84,7 +81,6 @@ const usePrdRangeYear = (
           }
         ],
       }
-
     )
 
     let chunksValue:number[][] = [];
@@ -101,7 +97,6 @@ const usePrdRangeYear = (
             chunksValue.push(filterValueData.slice(i, i + chunkSize));
           }
     }
-  
 
     const arrayData:DataChart[] = []
 

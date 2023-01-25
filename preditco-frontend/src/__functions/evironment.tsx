@@ -1,20 +1,20 @@
 // Imports avatar svg
-import avatarSara from "../assets/images/avatar-sara.svg";
-import avatarSaraHover from "../assets/images/avatar-sara-hover.svg";
-import avatarLuca from "../assets/images/avatar-luca.svg";
-import avatarLucaHover from "../assets/images/avatar-luca-hover.svg";
-import avatarPietro from "../assets/images/avatar-pietro.svg";
-import avatarPietroHover from "../assets/images/avatar-pietro-hover.svg";
-import avatarSimone from "../assets/images/avatar-simone.svg";
-import avatarSimoneHover from "../assets/images/avatar-simone-hover.svg";
-import avatarGabriele from "../assets/images/avatar-gabriele.svg";
-import avatarGabrieleHover from "../assets/images/avatar-gabriele-hover.svg";
-import avatarMarco from "../assets/images/avatar-marco.svg";
-import avatarMarcoHover from "../assets/images/avatar-marco-hover.svg";
-import avatarFederico from "../assets/images/avatar-federico.svg";
-import avatarFedericoHover from "../assets/images/avatar-federico-hover.svg";
-import avatarMatteo from "../assets/images/avatar-matteo.svg";
-import avatarMatteoHover from "../assets/images/avatar-matteo-hover.svg";
+import avatarSara from "../assets/avatar/avatar-sara.svg";
+import avatarSaraHover from "../assets/avatar/avatar-sara-hover.svg";
+import avatarLuca from "../assets/avatar/avatar-luca.svg";
+import avatarLucaHover from "../assets/avatar/avatar-luca-hover.svg";
+import avatarPietro from "../assets/avatar/avatar-pietro.svg";
+import avatarPietroHover from "../assets/avatar/avatar-pietro-hover.svg";
+import avatarSimone from "../assets/avatar/avatar-simone.svg";
+import avatarSimoneHover from "../assets/avatar/avatar-simone-hover.svg";
+import avatarGabriele from "../assets/avatar/avatar-gabriele.svg";
+import avatarGabrieleHover from "../assets/avatar/avatar-gabriele-hover.svg";
+import avatarMarco from "../assets/avatar/avatar-marco.svg";
+import avatarMarcoHover from "../assets/avatar/avatar-marco-hover.svg";
+import avatarFederico from "../assets/avatar/avatar-federico.svg";
+import avatarFedericoHover from "../assets/avatar/avatar-federico-hover.svg";
+import avatarMatteo from "../assets/avatar/avatar-matteo.svg";
+import avatarMatteoHover from "../assets/avatar/avatar-matteo-hover.svg";
 
 // Interface for avatar
 interface WorkerType {
@@ -28,7 +28,7 @@ interface WorkerType {
 const localHost = "localhost:8080";
 const server = "18.102.24.178:8080";
 
-export const activeHost = server;
+export const activeHost = localHost;
 
 // Our team members
 export const workers: WorkerType[] = [

@@ -54,7 +54,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
   }, [date])
 
   const handleOnRangeSubmit = (e: any) => {
-    //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
+    // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
     e.stopPropagation();
 
@@ -96,7 +96,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
   return (
     <>
       <p>Chose your setting, then wait for your prediction data.</p>
-      <form onSubmit={handleOnRangeSubmit}>
+      <form onSubmit={handleOnRangeSubmit} className="d-flex flex-column justify-content-start">
               <p>Select area, activity type and year of interest.</p>
               <DropDown type="region" />
               <DropDown type="province" />

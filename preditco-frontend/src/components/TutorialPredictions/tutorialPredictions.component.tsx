@@ -38,7 +38,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Welcome to the Prediction tutorial!",
       content:
-        "We'll show you how this incredible app works and how you can easily change your setting and see different kind of chart. Let's go!",
+        "Discover the power of our app as we guide you through its features and demonstrate how easy it is to personalize your settings and view various types of charts. Let's get started",
       element: null,
     },
     {
@@ -55,8 +55,14 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Step 2: Line Chart",
       content:
-        "You can easily view other different chart clicking the other icon. This is our line chart. Click on 🟦 Arrivals or 🟪 Stays to change data view",
+        "Familiarize yourself with our line chart visualization",
       element: "#line",
+    },
+    {
+      heading: "Congratulations",
+      content:
+        "Congratulations on completing the tutorial! We hope you enjoy using our prediction page.",
+      element: null,
     },
   ];
 
@@ -72,8 +78,6 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add("highlight");
     }
-    if (currentStep === 2)
-      setToggleChart("Bar");
     if (currentStep === 4)
       setToggleChart("Line");
   }, [currentTutorialStep]);

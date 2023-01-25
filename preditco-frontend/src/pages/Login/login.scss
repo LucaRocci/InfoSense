@@ -7,7 +7,8 @@ $primary: rgb(182, 157, 230);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../../assets/images/background.svg");
+  background-image: url("../../assets/images/background-purple.png");
+  background-size: cover;
   h4 {
     font-size: 24px;
     font-weight: 600;
@@ -61,7 +62,6 @@ $primary: rgb(182, 157, 230);
     }
   }
   button {
-    -webkit-appearance: none;
     width: auto;
     min-width: 100px;
     border-radius: 24px;
@@ -98,7 +98,6 @@ $primary: rgb(182, 157, 230);
     transition: all 0.3s linear;
     color: #000;
     font-weight: 400;
-    -webkit-appearance: none;
     &:focus {
       border-bottom: solid 1px $primary;
       outline: 0;
