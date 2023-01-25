@@ -15,7 +15,7 @@ import {
   filterValue,
   years,
   indicators,
-  prdActivity
+  prdActivity,
 } from "../../__functions/evironment";
 
 //Props type
@@ -49,7 +49,8 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
     <>
       <label>
         {type === "region" && label.region}
-        {(type === "activityType" || type === "prdActivityType") && label.activityType}
+        {(type === "activityType" || type === "prdActivityType") &&
+          label.activityType}
         {type === "province" && label.province}
         {type === "provinceSecond" && label.provinceSecond}
         {type === "country" && label.country}
@@ -123,7 +124,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
             ))
           : null}
 
-{type === "indicator" && !loading
+        {type === "indicator" && !loading
           ? indicators.map((e) => (
               <option key={e} value={e}>
                 {e}
@@ -131,7 +132,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
             ))
           : null}
 
-{type === "prdActivityType" && !loading
+        {type === "prdActivityType" && !loading
           ? prdActivity.map((e) => (
               <option key={e} value={e}>
                 {e}
