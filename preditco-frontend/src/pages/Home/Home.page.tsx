@@ -237,7 +237,7 @@ const Home = () => {
                   This tool provide prediction feature income. Start planning
                   your business looking for prediction.
                 </Card.Text>
-                <Link to="/predictions">
+                <Link to="/predictions?province=Torino&activityType=hotel&country=Italy&indicator=Arrival&steps=24">
                   <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
