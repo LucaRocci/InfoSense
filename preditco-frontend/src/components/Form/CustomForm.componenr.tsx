@@ -16,11 +16,31 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
   const [searchParam, setSearchParam] = useSearchParams();
   //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
   const [showType, setShowType] = useState<boolean>(false);
-
   const [date, setDate] = useState<string>('');
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
+    const now = new Date();
+    const prdDate = new Date(date);
 
+    if (Number(prdDate.getFullYear()) < Number(now.getFullYear())) {
+      setError('*Select a future month!')
+      return
+    }
+    if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && Number(prdDate.getMonth()) < Number(now.getMonth())) {
+      setError('*Select a future month!')
+      return
+    }
+    if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && (Number(prdDate.getMonth()) === Number(now.getMonth()) || Number(prdDate.getMonth()) === (Number(now.getMonth()) + 1))) {
+      setError('*Select at least 2 month from today!')
+      return
+    }
+    if (Number(prdDate.getFullYear()) > (Number(now.getFullYear()) + 5)) {
+      setError('*Select at most 5 years from today!')
+      return
+    }
+
+    setError('')
   }, [date])
 
   useEffect(() => {
@@ -100,10 +120,11 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
       return
     if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && Number(prdDate.getMonth()) < Number(now.getMonth()))
       return
-
-    if(Number(prdDate.getFullYear()) > (Number(now.getFullYear()) + 5))
+    if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && (Number(prdDate.getMonth()) === Number(now.getMonth()) || Number(prdDate.getMonth()) === (Number(now.getMonth()) + 1)))
       return
-  
+    if (Number(prdDate.getFullYear()) > (Number(now.getFullYear()) + 5))
+      return
+
     let months;
     months = (prdDate.getFullYear() - now.getFullYear()) * 12;
     months -= now.getMonth();
@@ -214,7 +235,8 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
               <div className="me-1">📆</div>
               <div>Prediction end date</div>
             </div>
-            <input className="px-2 py-1 w-100" type="month" onChange={(e) => setDate(e.target.value)} />
+            <input className={`rounded px-2 py-1 w-100 ${!!error ? 'border-danger' : ''}`} style={{borderStyle:'solid'}} type="month" onChange={(e) => setDate(e.target.value)} />
+            <p className="text-danger ms-2 mt-1">{error}</p>
           </Modal.Body>
           <Modal.Footer>
             <Button
@@ -224,7 +246,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
             >
               Close
             </Button>
-            <Button variant="primary" className="rounded-pill" type="submit" disabled={date === ''}>
+            <Button variant="primary" className="rounded-pill" type="submit" disabled={!!error}>
               Save Changes
             </Button>
           </Modal.Footer>

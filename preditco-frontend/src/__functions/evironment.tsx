@@ -28,7 +28,7 @@ interface WorkerType {
 const localHost = "localhost:8080";
 const server = "18.102.24.178:8080";
 
-export const activeHost = localHost;
+export const activeHost = server;
 
 // Our team members
 export const workers: WorkerType[] = [
@@ -87,7 +87,7 @@ export const ActivityUrl = `http://${activeHost}/statistics/structures`;
 export const ProvinceUrl = `http://${activeHost}/statistics/province`;
 
 //Default value
-export const provItems = ["Italy", "Abroad"];
+export const provItems = ["Italy", "abroad"];
 export const filterValue = ["Year", "Month"];
 export const years = [
   2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
