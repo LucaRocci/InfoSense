@@ -20,7 +20,7 @@ Here a simple description about the project structure; my spring project have so
 - Here in the controller folder there are files with the controller end point divide by statistics and predictions
 - The entity folder contains all the java class necessary for the automatic database mapping
 - The exception folder contain a class that manage the exception of the rest controller
-- Inside payload/response folder there are the different class that provides a customized response 
+- Inside payload/response folder there are the different class that provides a customized response and customized request for the predictions
 - Inside repository there are all the interfaces that take data from the database
 - Inside service folder there are some implementation of the logic; simple some method map database record into response class
 
