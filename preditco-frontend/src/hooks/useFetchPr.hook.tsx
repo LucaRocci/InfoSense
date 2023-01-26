@@ -33,6 +33,8 @@ const useFetchPr = (
   const [error, setError] = useState<boolean | null>(null);
   //Effect on json change
   useEffect(() => {
+    setError(false);
+    if(typeof data.steps === 'number' && (data.indicatori === 'Arrival' || data.indicatori === 'Stay') && (data.esercizio === 'hotel' || data.esercizio === 'non-hotel') && (data.paese === 'Italy' || data.paese === 'abroad') && (data.territorio === 'Cuneo' || data.territorio === 'Torino' || data.territorio === 'Asti' || data.territorio === 'Vercelli' || data.territorio === 'Verbania' || data.territorio === 'Novara' || data.territorio === 'Biella' || data.territorio === 'Alessandria')) {
     setLoading(true);
     fetch(`http://${activeHost}/predictions/`, {
       method: "POST",
@@ -51,6 +53,10 @@ const useFetchPr = (
         setLoading(false);
         setError(true);
       });
+    }
+    else {
+      setError(true)
+    }
   }, [jsonIn]);
 
   //Return the states

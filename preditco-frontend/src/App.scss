@@ -17,12 +17,14 @@ a {
 }
 
 .btn-primary {
-  --bs-btn-bg: #4a8db7c5;
-  --bs-btn-border-color: #4A8DB7;
+  color: black;
+  background-color: $blue-100;
+  border-color: $blue-100;
 
   &:hover {
-    background-color: #4A8DB7;
-    border-color: #4A8DB7;
+    color: black;
+    background-color: $blue-200;
+    border-color: $blue-200;
   }
 }
 
@@ -80,27 +82,23 @@ a {
   background-attachment: fixed;
   background-size: cover;
 
-/*BACKGROUNDS SET*/
+
   &.sky-blue {
     background-image:
-      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */
-      url('./assets/images/background.webp');
+      linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('./assets/images/background.png');
   }
 
   &.blue {
     background-image:
-      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
-      url('./assets/images/background02.webp');
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/images/background02.png');
   }
 
   &.purple {
     background-image:
-      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
-      url('./assets/images/background-purple.webp');
+      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */ url('./assets/images/background-purple.png');
   }
 }
 
-/*HOME ANIMATION SET*/
 @keyframes waveMovement {
   from {
     transform: scaleY(100%);
@@ -149,8 +147,6 @@ a {
   transform-box: fill-box;
   animation: 3.5s ease-in-out infinite alternate circleMovement;
 }
-
-/*MEDIA SCREEN TUTORIALS*/
 
 @media only screen and (min-width: 768px) {
   .tutorial-svg {

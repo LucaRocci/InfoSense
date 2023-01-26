@@ -174,7 +174,7 @@ const Home = () => {
               <Button
                 variant="secondary rounded-pill"
                 size="lg"
-                className="my-2 my-md-0 mx-md-2 rounded-50"
+                className="my-2 my-md-0 mx-md-2 rounded-50 text-white"
               >
                 Tutorial
               </Button>
@@ -204,13 +204,14 @@ const Home = () => {
               <CardAnimationFirst
                 style={{ margin: "auto", marginTop: "30px" }}
               />
-              <Card.Body>
-                <h2>Actual Statistic</h2>
-                <Card.Text>
-                  This tool provides actual and past statistics. Select your
-                  period, and view all the data you need.
+              <Card.Body className="m-4 mt-0">
+                <h2 className="p-2">Actual Statistic</h2>
+                <Card.Text className="p-2">
+                  This tool offers current and historical tourism statistics.
+                  Select your desired time frame, utilize the filter options,
+                  and easily access all the data you need.
                 </Card.Text>
-                <Link to="/statistics?kind=standard&province=Torino&activityType=3+star+hotel&country=Italy">
+                <Link to="/statistics?kind=standard&province=Torino&activityType=3+star+hotel&country=Italy" className="p-2">
                   <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
@@ -230,13 +231,14 @@ const Home = () => {
               <CardAnimationSecond
                 style={{ margin: "auto", marginTop: "30px" }}
               />
-              <Card.Body>
-                <h2>Prediction</h2>
-                <Card.Text>
-                  This tool provide prediction feature income. Start planning
-                  your business looking for prediction.
+              <Card.Body className="m-4 mt-0" >
+                <h2 className="p-2">Prediction</h2>
+                <Card.Text className="p-2">
+                  This tool offers a prediction feature for tourism data, based
+                  on real statistical data. Use it to plan your business and
+                  gain insight into potential future trends.
                 </Card.Text>
-                <Link to="/predictions?province=Torino&activityType=hotel&country=Italy&indicator=Arrival&steps=24">
+                <Link to="/predictions?province=Torino&activityType=hotel&country=Italy&indicator=Arrival&steps=24" className="p-2">
                   <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
