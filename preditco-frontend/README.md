@@ -59,7 +59,7 @@ Your app is ready to be deployed!
 
 ```
 .
-├── predicto-frontend/
+├── frontend/
 │   ├── node_modules/
 │   ├── public/
 │   ├── src/
@@ -132,7 +132,6 @@ Your app is ready to be deployed!
 │   ├── package.json
 │   ├── server.js
 │   └── tsconfig.json
-└── README.md
 ```
 
 ---
