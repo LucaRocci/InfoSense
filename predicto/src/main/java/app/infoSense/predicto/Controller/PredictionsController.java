@@ -30,7 +30,7 @@ public class PredictionsController {
     ContextService contextService;
 
     @PostMapping("/")
-    @Operation(description = " The API that call a python flask app and return take the response to the frontend")
+    @Operation(description = " The API that call a python flask app and send the response to the frontend")
     public ResponseEntity<?> getPredictions(@RequestBody @Valid PredictionsRequest request){
 
         boolean p = provinceService.existsByName(request.getTerritorio());
@@ -49,12 +49,11 @@ public class PredictionsController {
 
         HttpEntity<PredictionsRequest> entity = new HttpEntity<>(request,headers);
 
-
         System.out.println(request.toString());
         // return the response
-        Object[] countries = restTemplate.postForObject(url,entity,Object[].class);
+        Object[] prevision = restTemplate.postForObject(url,entity,Object[].class);
 
-        return new ResponseEntity<>((Arrays.asList(countries)), HttpStatus.OK);
+        return new ResponseEntity<>((Arrays.asList(prevision)), HttpStatus.OK);
 
     }
 

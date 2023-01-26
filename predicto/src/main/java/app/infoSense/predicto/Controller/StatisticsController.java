@@ -33,11 +33,11 @@ public class StatisticsController {
     @Operation(description = "API that return a list of province")
     @GetMapping("/province")
     public ResponseEntity<?> getProvince() {
-        List<String> lista = provinceService.findNameProvince();
-        if (lista.isEmpty()) {
+        List<String> list = provinceService.findNameProvince();
+        if (list.isEmpty()) {
             return new ResponseEntity<>("Empty List", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<List<String>>(lista, HttpStatus.OK);
+        return new ResponseEntity<List<String>>(list, HttpStatus.OK);
     }
 
     @Operation(description = "API that return a list of structure")

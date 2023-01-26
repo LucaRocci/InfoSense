@@ -21,7 +21,7 @@ public class PredictionsRequest {
     private String Esercizio;
     @NotBlank
     private String Paese;
-    @NotNull @Min(2) @Max(100)
+    @NotNull @Min(2) @Max(62)
     private int steps;
 
     @Override

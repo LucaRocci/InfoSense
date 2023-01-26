@@ -12,14 +12,14 @@ import java.util.List;
 @Repository
 public interface StatisticsProvinceRepository extends JpaRepository<StatisticsProvince,Long> {
 
-    // data 1 province, 2 context , and a provenance
+    // data by 1 province, 2 context , and a provenance
     @Query(value = "SELECT sp.year, sp.month , sp.value , c.arrive_stay FROM statistics_province sp " +
             ",context c WHERE (sp.id_context = :cont1 OR sp.id_context= :cont2)" +
             " AND sp.id_structure= :eser AND sp.id_province= :prov AND c.id_context= sp.id_context;",nativeQuery = true)
     List<Tuple> getData(@Param("cont1")long contst1 , @Param("cont2") long contst2, @Param("eser") Long esrc, @Param("prov") Long prov );
 
 
-    // date 2 province 1 structure e i context
+    // data by 2 province 1 structure e i context
     @Query(value = "SELECT sp.year, SUM(sp.value) as 'value', c.arrive_stay, p.name\n" +
             "FROM statistics_province sp, province p, context c \n" +
             "WHERE sp.id_context = c.id_context\n" +
