@@ -1,5 +1,6 @@
 @import "../../colors.scss";
 
+/*SECTION*/
 .animated-svg {
   width: 100%;
   height: 100%;
@@ -20,7 +21,6 @@
 }
 
 
-
 .istat {
   transition: 0.5;
   background-color: $blue-300;
@@ -35,12 +35,16 @@ margin-bottom: -10px;
   margin: auto;
 }
 
+/*GOOGLE MAP*/
+
 iframe {
   width: 100%;
 
   box-shadow: 1px 6px 15px 1px rgb(0 0 0 / 25%);
   border-radius: 20px;
 }
+
+/*MEDIA SCREEN*/
 
 @media only screen and (min-width: 768px) {
   .col-h-100 {

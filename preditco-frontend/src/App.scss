@@ -80,26 +80,27 @@ a {
   background-attachment: fixed;
   background-size: cover;
 
-
+/*BACKGROUNDS SET*/
   &.sky-blue {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */
-      url('./assets/images/background.png');
+      url('./assets/images/background.webp');
   }
 
   &.blue {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
-      url('./assets/images/background02.png');
+      url('./assets/images/background02.webp');
   }
 
   &.purple {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
-      url('./assets/images/background-purple.png');
+      url('./assets/images/background-purple.webp');
   }
 }
 
+/*HOME ANIMATION SET*/
 @keyframes waveMovement {
   from {
     transform: scaleY(100%);
@@ -148,6 +149,8 @@ a {
   transform-box: fill-box;
   animation: 3.5s ease-in-out infinite alternate circleMovement;
 }
+
+/*MEDIA SCREEN TUTORIALS*/
 
 @media only screen and (min-width: 768px) {
   .tutorial-svg {
