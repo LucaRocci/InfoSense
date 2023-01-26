@@ -85,17 +85,17 @@ a {
 
   &.sky-blue {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('./assets/images/background.png');
+      linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('./assets/images/background.webp');
   }
 
   &.blue {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/images/background02.png');
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/images/background02.webp');
   }
 
   &.purple {
     background-image:
-      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */ url('./assets/images/background-purple.png');
+      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */ url('./assets/images/background-purple.webp');
   }
 }
 
