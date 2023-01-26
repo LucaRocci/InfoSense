@@ -178,7 +178,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             ) : null}
             {currentStep === tutorialSteps.length && (
               <button
-                className="rounded-50 btn btn-primary rounded-pill"
+                className="rounded-50 btn btn-primary rounded-pill text-white"
                 type="button"
                 style={{ backgroundColor: "purple" }}
                 onClick={() => {
