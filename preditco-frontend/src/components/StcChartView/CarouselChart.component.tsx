@@ -1,8 +1,5 @@
 //React core imports
-import { FC, useState } from "react";
-//Bootstrap icons imports
-import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
-//Swiper imports
+import { FC } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -13,14 +10,18 @@ import "swiper/css/navigation";
 import { Keyboard, Pagination, Navigation } from "swiper";
 //Props for type component
 type CarouselChartProps = {
-    toggleChart:string,
-    renderBar: JSX.Element[] | null,
-    renderLine: JSX.Element[] | null
-}
+  toggleChart: string;
+  renderBar: JSX.Element[] | null;
+  renderLine: JSX.Element[] | null;
+};
 //Single chart for type=Month in searchParam
-const CarouselChart:FC<CarouselChartProps> = ({toggleChart, renderBar, renderLine}) => {
-
-    return (      <Swiper
+const CarouselChart: FC<CarouselChartProps> = ({
+  toggleChart,
+  renderBar,
+  renderLine,
+}) => {
+  return (
+    <Swiper
       slidesPerView={1}
       spaceBetween={30}
       keyboard={{
@@ -33,9 +34,14 @@ const CarouselChart:FC<CarouselChartProps> = ({toggleChart, renderBar, renderLin
       modules={[Keyboard, Pagination, Navigation]}
       className="mySwiper"
     >
-    {/* Monthly chart for alberghi or extra-alberghi */}
-    {renderBar !== null && toggleChart === "Bar" ? renderBar.map(e => <SwiperSlide>{e}</SwiperSlide>) : toggleChart === "Line" && renderLine !== null ? renderLine.map(e => <SwiperSlide>{e}</SwiperSlide>) : null}
-          </Swiper>)
-}
+      {/* Monthly chart for alberghi or extra-alberghi */}
+      {renderBar !== null && toggleChart === "Bar"
+        ? renderBar.map((e) => <SwiperSlide>{e}</SwiperSlide>)
+        : toggleChart === "Line" && renderLine !== null
+        ? renderLine.map((e) => <SwiperSlide>{e}</SwiperSlide>)
+        : null}
+    </Swiper>
+  );
+};
 
-export default CarouselChart; 
+export default CarouselChart;

@@ -1,12 +1,5 @@
-
-
-
 //React core and hooks
 import { useState, useEffect } from "react";
-//Import Type
-import { dataResponse } from "./useFetch.hook";
-//Mapping function imports
-import { stcChartMap } from "../__functions/map.functions";
 import { predictionDataResponse } from "./useFetchPr.hook";
 import { useSearchParams } from "react-router-dom";
 //Type imorts
@@ -38,7 +31,7 @@ const usePrdRangeYear = (
     ],
   });
   //Char option state
-  const [option, setOption] = useState<OptionChart>({
+  const option : OptionChart = ({
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -88,7 +81,6 @@ const usePrdRangeYear = (
           }
         ],
       }
-
     )
 
     let chunksValue:number[][] = [];
@@ -105,7 +97,6 @@ const usePrdRangeYear = (
             chunksValue.push(filterValueData.slice(i, i + chunkSize));
           }
     }
-  
 
     const arrayData:DataChart[] = []
 

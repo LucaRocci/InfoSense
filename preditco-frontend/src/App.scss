@@ -26,6 +26,16 @@ a {
   }
 }
 
+.title-home {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.btn:disabled {
+  background-color: #4a8db7c5;
+  border-color: #4a8db7c5;
+}
+
 .modal-header {
   border-bottom: none;
 }
@@ -74,13 +84,19 @@ a {
   &.sky-blue {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)), */
-      url('./assets/images/backgroundb.png');
+      url('./assets/images/background.png');
   }
 
   &.blue {
     background-image:
       /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
-      url('./assets/images/background02b.png');
+      url('./assets/images/background02.png');
+  }
+
+  &.purple {
+    background-image:
+      /* linear-gradient(rgba(76, 60, 221, 0.436), rgba(0, 0, 0, 0.1)),  */
+      url('./assets/images/background-purple.png');
   }
 }
 
@@ -137,5 +153,9 @@ a {
   .tutorial-svg {
     height: 40px;
     width: 40px;
+  }
+
+  .title-home {
+    font-size: 50px;
   }
 }

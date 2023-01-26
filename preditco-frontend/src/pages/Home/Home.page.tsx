@@ -149,7 +149,7 @@ const Home = () => {
           ref={refLandingBlock}
         >
           {/* <Logo /> */}
-          <h1 className="text-center">
+          <h1 className="text-center title-home">
             Make your analyisis better with Predicto.
           </h1>
           <h5 className="text-center">
@@ -188,9 +188,9 @@ const Home = () => {
       {/* Cards of our charts */}
       <section
         id="card"
-        className="min-h-100 bg-custom sky-blue px-3 pt-3 pt-md-0"
+        className="min-h-100 bg-custom sky-blue px-3 pt-3 pt-md-0 pb-4"
       >
-        <Row className="w-100 m-0 min-h-100">
+        <Row className="w-100 m-0 min-h-100 pb-4">
           <Col
             xs={12}
             md={6}
@@ -237,20 +237,20 @@ const Home = () => {
                   This tool provide prediction feature income. Start planning
                   your business looking for prediction.
                 </Card.Text>
-                <Link to="/predictions">
+                <Link to="/predictions?province=Torino&activityType=hotel&country=Italy&indicator=Arrival&steps=24">
                   <Button variant="primary rounded-pill">Open</Button>
                 </Link>
               </Card.Body>
             </Card>
           </Col>
         </Row>
-        <StaticWave className="staticwave" />
+        {/* <StaticWave className="staticwave" /> */}
       </section>
 
       {/* Istat data and explanations of the data we use */}
-      <section className="istat px-3">
-        <div className="p-1" ref={refIstatSection}>
-          <p className="text-white display-6 text-center">
+      <section className="istat px-3 bg-custom blue p-2">
+        <div className="p-1 pb-4" ref={refIstatSection}>
+          <p className="text-white display-6 text-center m-4">
             Source data from{" "}
             <span className="display-1">
               <Istat />
@@ -271,7 +271,7 @@ const Home = () => {
               using machine learning algorithms that have been trained on the
               data we have collected.
             </p>
-            <p className="w-75 m-auto text-white mb-4">
+            <p className="w-75 m-auto text-white pb-4 mb-4">
               We hope you find our app helpful in understanding and analyzing
               tourism data for the Piemonte region. Thank you for using our app!
             </p>
@@ -280,7 +280,7 @@ const Home = () => {
       </section>
 
       {/* Our team section with avatar */}
-      <section className="our-team bg-skyblue px-3 shadow-lg">
+      <section className="our-team bg-custom sky-blue px-3 shadow-lg p-4">
         <div ref={refTeamSection}>
           <h2 className="mb-4 pt-4 text-center text-uppercase">Our Team</h2>
           <div className="d-flex justify-content-center flex-wrap">
@@ -303,8 +303,8 @@ const Home = () => {
       </section>
 
       {/* Contact us section */}
-      <section className="contactUs p-3 bg-custom blue">
-        <h2 className="ms-3 text-center text-white text-uppercase">
+      <section className="contactUs bg-custom blue p-4">
+        <h2 className="ms-3 text-center text-white text-uppercase m-3">
           Contact Us
         </h2>
         <div className="w-xxl-80 mx-auto p-3 m-3">

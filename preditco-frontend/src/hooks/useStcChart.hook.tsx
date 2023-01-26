@@ -1,9 +1,5 @@
 //React core and hooks
 import { useState, useEffect } from "react";
-//Custom hooks
-import useFetch from "./useFetch.hook";
-//React router dom imports
-import { useSearchParams } from "react-router-dom";
 //Import Type
 import { dataResponse } from "./useFetch.hook";
 //Mapping function imports
@@ -48,21 +44,6 @@ export type OptionChart = {
     };
   };
 };
-//Default label for monthly chart
-const Month = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 //hook for mapping the api response to chartjs valid object
 const useStcChart = (
@@ -94,7 +75,7 @@ const useStcChart = (
     ],
   });
   //Char option state
-  const [option, setOption] = useState<OptionChart>({
+  const option : OptionChart = ({
     maintainAspectRatio: false,
     plugins: {
       title: {

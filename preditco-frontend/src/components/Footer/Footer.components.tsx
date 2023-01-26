@@ -22,10 +22,10 @@ const FooterCustom = () => {
               <div>
                 <InfosenseLogo className="w-75 p-2" />
 
-                <a href="#" target="_blank">
+                <a href="http://dati.istat.it/index.aspx" target="_blank">
                   <ISTATLogo className="w-75 p-2" />
                 </a>
-                <a href="#" target="_blank">
+                <a href="https://www.its-ictpiemonte.it/" target="_blank">
                   <ITSLogo className="w-75 p-2" />
                 </a>
               </div>
@@ -50,7 +50,7 @@ const FooterCustom = () => {
                   </Link>
                 </ListGroup.Item>
                 <ListGroup.Item className="bg-transparent">
-                  <a href="#" target="_blank">
+                  <a href='https://github.com/LucaRocci/InfoSense' target='_blank'>
                     <GitHubLogo className="pt-2" />
                   </a>
                 </ListGroup.Item>

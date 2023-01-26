@@ -38,7 +38,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     {
       heading: "Welcome to the Prediction tutorial!",
       content:
-        "We'll show you how this incredible app works and how you can easily change your setting and see different kind of chart. Let's go!",
+        "Discover the power of our app as we guide you through its features and demonstrate how easy it is to personalize your settings and view various types of charts. Let's get started",
       element: null,
     },
     {
@@ -53,16 +53,16 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "#setting",
     },
     {
-      heading: "Step 2: Bar Chart",
+      heading: "Step 2: Line Chart",
       content:
-        "After savign your changes, the chart will show you all the data trhought diffent month. Click on 🟦 Arrivals or 🟪 Stays to change data view",
-      element: "#bar",
+        "Familiarize yourself with our line chart visualization",
+      element: "#line",
     },
     {
-      heading: "Step 3: Line Chart",
+      heading: "Congratulations",
       content:
-        "You can easily view other different chart clicking the other icon. This is our line chart. Click on 🟦 Arrivals or 🟪 Stays to change data view",
-      element: "#line",
+        "Congratulations on completing the tutorial! We hope you enjoy using our prediction page.",
+      element: null,
     },
   ];
 
@@ -78,8 +78,6 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add("highlight");
     }
-    if (currentStep === 2)
-      setToggleChart("Bar");
     if (currentStep === 4)
       setToggleChart("Line");
   }, [currentTutorialStep]);
@@ -119,9 +117,6 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
             {currentStep !== tutorialSteps.length &&
             currentStep !== 3  ? (
               <>
-                {/*  currentStep !== 1  && <button className="rounded-50 btn btn-primary rounded-pill me-2" type="button" onClick={() => setCurrentStep(currentStep - 1)}>
-                Previous Step
-              </button>  */}
                 <button
                   className="rounded-50 btn btn-primary rounded-pill"
                   type="button"

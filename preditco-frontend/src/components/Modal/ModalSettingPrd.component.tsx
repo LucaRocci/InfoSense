@@ -29,12 +29,6 @@ const ModalSettingPrd: FC<ModalSettingProps> = ({ show, handleClose }) => {
         <Tab eventKey="range-month" title="range-month">
           <CustomForm type="range-month" handleClose={handleClose} />
         </Tab>
-{/*         <Tab eventKey="compare" title="Compare">
-          <CustomForm type="compare" handleClose={handleClose} />
-        </Tab>
-        <Tab eventKey="year" title="Year">
-          <CustomForm type="year" handleClose={handleClose} />
-        </Tab> */}
       </Tabs>
     </Modal>
   );

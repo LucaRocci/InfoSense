@@ -95,12 +95,12 @@ const NavbarCustom = () => {
             </div>
             {navbarOpen ? (
               <div>
-                <Link className="nav-link text-black nav-link-font" to="#">
+                <a className="nav-link text-black nav-link-font" href="https://github.com/LucaRocci/InfoSense" target="_blank">
                   <Github className="nav-svg-github ms-2 text-white" />
-                </Link>
-                <Link className="nav-link text-black nav-link-font" to="#">
+                </a>
+                <a className="nav-link text-black nav-link-font" href="http://dati.istat.it/index.aspx" target="_blank">
                   <IstatLogo className="nav-svg-istat" />
-                </Link>
+                </a>
               </div>
             ) : null}
 
@@ -108,9 +108,9 @@ const NavbarCustom = () => {
             {navbarOpen ? (
               <footer className="mt-auto py-3 nav-footer">
                 <Row className="mb-4">
-                  <Col className="text-center">Privacy</Col>
+                  <Col className="text-center"><Link className="text-white" to="/privacy" target="_parent">  Privacy </Link></Col>
                   <Col className="text-center">Contact</Col>
-                  <Col className="text-center">Terms</Col>
+                  <Col className="text-center"><Link className="text-white" to="/terms" target="_parent"> Terms </Link></Col>
                 </Row>
                 <Row className="mb-3">
                   <Col className="text-muted d-flex justify-content-start nav-copyrigth-text">

@@ -1,5 +1,5 @@
 // React core imports
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
 
 // Bootstrap
 import { Button } from "react-bootstrap";
@@ -34,19 +34,13 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-      <p>
-        Here you can compare different activity type filtered by year. Save your
-        settings!
-      </p>
+      <p>Compare various activity types filtered by year with this feature. Don't forget to save your settings before viewing the comparison.</p>
       <form className="tutorial-form" onSubmit={handleOnYearSubmit}>
       <DropDown type="region" />
         <DropDown type="province" />
         <DropDown type="country" />
         <DropDown type="year" />
         <div className="d-flex justify-content-center align-items-center">
-          {/*         <Button className="rounded-50 btn btn-primary rounded-pill mt-2 me-2" type="button" onClick={() => setCurrentStep(7)}>
-                Previous Step
-              </Button> */}
           <Button
             variant="primary"
             type="submit"

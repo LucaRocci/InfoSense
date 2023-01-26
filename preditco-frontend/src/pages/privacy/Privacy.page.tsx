@@ -184,6 +184,7 @@ const Privacy = () => {
           <a
             href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
             target="_blank"
+            rel="noreferrer"
           >
             TermsFeed website
           </a>{" "}

@@ -1,5 +1,5 @@
 //React core imports
-import { FC, useEffect, Dispatch, SetStateAction } from "react";
+import { FC, Dispatch, SetStateAction } from "react";
 //Hokks imports
 import useFetch from "../../hooks/useFetch.hook";
 //Components import
@@ -15,7 +15,7 @@ import {
   filterValue,
   years,
   indicators,
-  prdActivity
+  prdActivity,
 } from "../../__functions/evironment";
 
 //Props type
@@ -37,10 +37,6 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
       : ""
   );
 
-  /*   useEffect(() => {
-    console.log(loading, error)
-  }, [loading, error]) */
-
   const handleChange = (e: any) => {
     if (type === "activityType") {
       if (e.target.value === "hotel" || e.target.value === "non-hotel") {
@@ -53,7 +49,8 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
     <>
       <label>
         {type === "region" && label.region}
-        {(type === "activityType" || type === "prdActivityType") && label.activityType}
+        {(type === "activityType" || type === "prdActivityType") &&
+          label.activityType}
         {type === "province" && label.province}
         {type === "provinceSecond" && label.provinceSecond}
         {type === "country" && label.country}
@@ -127,7 +124,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
             ))
           : null}
 
-{type === "indicator" && !loading
+        {type === "indicator" && !loading
           ? indicators.map((e) => (
               <option key={e} value={e}>
                 {e}
@@ -135,7 +132,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
             ))
           : null}
 
-{type === "prdActivityType" && !loading
+        {type === "prdActivityType" && !loading
           ? prdActivity.map((e) => (
               <option key={e} value={e}>
                 {e}

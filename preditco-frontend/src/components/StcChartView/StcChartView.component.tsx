@@ -1,5 +1,5 @@
 //React core imports
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 //React router imports
 import { useSearchParams } from "react-router-dom";
 //Charjs impoprts

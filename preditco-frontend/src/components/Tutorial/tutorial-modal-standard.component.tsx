@@ -1,5 +1,5 @@
 // React core imports
-import React, { useState, FC, Dispatch, SetStateAction } from "react";
+import React, { useState, FC } from "react";
 
 // React-router-dom imports
 import { useSearchParams } from "react-router-dom";
@@ -45,10 +45,7 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
 
   return (
     <>
-      <p>
-        Here you can change your setting and chose your filter. Save your
-        change!
-      </p>
+      <p>Easily customize your preferences and apply filters on this page. Don't forget to save your changes!</p>
       <form
         className="tutorial-form"
         onSubmit={handleOnStandardSubmit}

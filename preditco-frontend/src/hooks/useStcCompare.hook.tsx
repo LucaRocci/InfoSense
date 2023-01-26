@@ -41,7 +41,7 @@ const useStcChart = (
     ],
   });
   //Char option state
-  const [option, setOption] = useState<OptionChart>({
+  const option : OptionChart = ({
     maintainAspectRatio: false,
     plugins: {
       title: {

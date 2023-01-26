@@ -1,9 +1,6 @@
 // React core and hooks
 import { useState, useEffect } from "react";
 
-// React router dom imports
-import { useSearchParams } from "react-router-dom";
-
 // Import Type
 import { dataResponse } from "./useFetch.hook";
 import { DataChart, OptionChart } from "./useStcChart.hook";
@@ -81,7 +78,7 @@ const useStcSingleYear = (
   });
 
   // Char option state
-  const [option, setOption] = useState<OptionChart>({
+  const option : OptionChart = ({
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -107,33 +104,6 @@ const useStcSingleYear = (
 
   // Effect for change the chart settings on api change request
   useEffect(() => {
-
-    /* const percentageArr: number [] = [];
-    const percentagePres: number [] = [];
-
-    const percentageArrival = (array:number[]) => {
-      // Sum of all number of the array
-      const total = array.reduce( (a:number,b:number) => a + b,0);
-  
-      // percentage of each element of the array and push it into percentage array
-      array.map((e:number) => { percentageArr.push((e / total) * 100)})
-  
-      console.log(percentageArr);
-      
-      return percentageArr;
-    }
-  
-    const percentageStays = (array:number[]) => {
-      // Sum of all number of the array
-      const total = array.reduce( (a:number,b:number) => a + b,0);
-  
-      // percentage of each element of the array and push it into percentage array
-      array.map((e:number) => { percentagePres.push((e / total) * 100)})
-  
-      console.log(percentagePres)
-      return percentagePres;
-    } */
-
     if (Array.isArray(apiData)) {
 
       const labels:any[] = [];
@@ -164,9 +134,6 @@ const useStcSingleYear = (
       })
       .filter((e) => e !== 0);
 
-      /* percentageArrival(totalArrival);
-      percentageStays(totalPres) */
-      
       // Structure chart Doudhnut
       const mappedDoudhnutData = [
         {
