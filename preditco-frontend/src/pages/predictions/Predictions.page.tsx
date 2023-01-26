@@ -77,22 +77,13 @@ const Predictions = () => {
             </button>
           </div>
         </Card>
-
         <ModalSettingPrd show={show} handleClose={() => setShow(false)} />
-        { searchParam.get("kind") === null ||
+
+        {//Standard view  
+        searchParam.get("kind") === null ||
         searchParam.get("kind") === "prd-range" ? (
           <PrdChartView toggleChart={toggleChart} />
         ) : null }
-
-        {/* Compare chart */}
-        {/* searchParam.get("kind") === "compare" ? (
-          <StcCompareView toggleChart={toggleChart} />
-        ) : null */}
-
-        {/* Year chart */}
-        {/* searchParam.get("kind") === "year" ? (
-          <StcSingleYearView toggleChart={toggleChart} />
-        ) : null */} 
       </Container>
     </div>
   );

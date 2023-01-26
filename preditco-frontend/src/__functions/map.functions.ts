@@ -48,13 +48,13 @@ export const stcChartMap = (apiData:dataResponse[] | string[] | null | boolean) 
                     labels: Month,
                     datasets: [
                       {
-                        label: "Arrivi",
+                        label: "Arrivals",
                         data: arriveFilterMonth,
                         backgroundColor: "#4571eb",
                         tension: 0.2
                       },
                       {
-                        label: "Presenze",
+                        label: "Stays",
                         data: [],
                         backgroundColor: "#aa23c5",
                         tension: 0.2

@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from '../../assets/logos/logo-short-predicto.s
 import { activeHost } from '../../__functions/evironment';
 
 const LoginPage = () => {
-
+  //Function handle submit on form
   const handleSubmitForm = (e: any) => {
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();

@@ -39,14 +39,13 @@ interface WorkerType {
 }
 
 const Home = () => {
+  //Ref element of gsap scroll effect
   const refStatisticCard = useRef<HTMLInputElement>(null);
   const refPredictoCard = useRef<HTMLInputElement>(null);
-
   const refIstatSection = useRef<HTMLInputElement>(null);
   const refTeamSection = useRef<HTMLInputElement>(null);
-
   const refLandingBlock = useRef<HTMLInputElement>(null);
-
+  //Declare gsap effect on scroll view
   useEffect(() => {
     const stcCard = refStatisticCard.current;
     const predictoCard = refPredictoCard.current;
@@ -209,7 +208,7 @@ const Home = () => {
                 <h2>Actual Statistic</h2>
                 <Card.Text>
                   This tool provides actual and past statistics. Select your
-                  period, view and download data you need.
+                  period, and view all the data you need.
                 </Card.Text>
                 <Link to="/statistics?kind=standard&province=Torino&activityType=3+star+hotel&country=Italy">
                   <Button variant="primary rounded-pill">Open</Button>

@@ -140,14 +140,14 @@ export const label = {
   ),
   indicators: (
     <div className="d-flex align-items-center ms-2">
-      <div className="me-1">📆</div>
+      <div className="me-1">🧳</div>
       <div>Indicator</div>
     </div>
   ),
 };
 
 //Prediction chart option
- export  const prdOption : OptionChart = ({
+ export  const prdOption : OptionChart = {
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -170,11 +170,11 @@ export const label = {
         },
       },
     },
-  });
+  };
 
 
 //Stc Option chart
-export  const stcOption : OptionChart = ({
+export  const stcOption : OptionChart = {
     maintainAspectRatio: false,
     plugins: {
       title: {
@@ -196,4 +196,4 @@ export  const stcOption : OptionChart = ({
         },
       },
     },
-  });
+  };
