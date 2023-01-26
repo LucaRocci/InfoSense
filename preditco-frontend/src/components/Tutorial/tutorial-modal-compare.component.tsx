@@ -16,8 +16,9 @@ export type TutorialModalType = {
 };
 
 const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
+  //Hook searchParam
   const [, setSearchParam] = useSearchParams();
-
+  //Handle submit form
   const handleOnCompareSubmit = (e: any) => {
     // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
@@ -31,7 +32,7 @@ const TutorialModalCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
       activityType: e.target[3].value,
       country: e.target[4].value,
     });
-
+    //Go next step
     setCurrentStep(6);
   };
 

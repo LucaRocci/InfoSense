@@ -13,7 +13,7 @@ import "./Tutorial.scss";
 // Bootstrap icons imports
 import { QuestionDiamondFill, XLg, ArrowLeft } from "react-bootstrap-icons";
 
-// Import ModalSetting from './Modal/ModalSetting.component'; */
+// Import Components */
 import TutorialModalStandard from "./tutorial-modal-standard.component";
 import TutorialModalCompare from "./tutorial-modal-compare.component";
 import TutorialYearCompare from "./tutorial-modal-year.components";
@@ -26,16 +26,19 @@ type TutorialOverlayType = {
 };
 
 const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
+  //State for tutorial visibility
   const [showTutorial, setShowTutorial] = useState(false);
+  //State for tutorial steps
   const [currentStep, setCurrentStep] = useState(1);
-
+  //Hook for searchParam
   const [searchParam] = useSearchParams();
 
+  //Open tutorial if searchParam tutorial=open
   useEffect(() => {
     if (searchParam.get("tutorial") === "open") setShowTutorial(true);
   }, [searchParam.get("tutorial")]);
 
-  // Steps tutorial
+  //Tutorial steps with content
   const tutorialSteps = [
     {
       heading: "Welcome to the tutorial!",
@@ -73,7 +76,8 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 6: Line Chart comparision",
-      content: "Explore our line chart in comparison mode. Easily switch between data views by clicking on 🟦 Arrivals or 🟪 Stays.",
+      content:
+        "Explore our line chart in comparison mode. Easily switch between data views by clicking on 🟦 Arrivals or 🟪 Stays.",
       element: "#line",
     },
     {
@@ -101,11 +105,12 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Congratulations",
-      content: "Congratulations on completing the tutorial! We hope you enjoy using our statistics page.",
+      content:
+        "Congratulations on completing the tutorial! We hope you enjoy using our statistics page.",
       element: null,
     },
   ];
-
+  //current step
   const currentTutorialStep = tutorialSteps[currentStep - 1];
 
   useEffect(() => {
@@ -124,7 +129,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       setToggleChart("Line");
     if (currentStep === 11) setToggleChart("Doughnut");
   }, [currentTutorialStep]);
-
+//Function to handle tutorial close
   const handleClose = () => {
     setShowTutorial(false);
     setCurrentStep(1);

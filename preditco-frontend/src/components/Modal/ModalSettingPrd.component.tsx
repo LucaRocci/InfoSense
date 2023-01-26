@@ -4,7 +4,6 @@ import { FC } from "react";
 import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-//React-router-dom imports
 import CustomForm from "../Form/CustomForm.componenr";
 //Props type
 type ModalSettingProps = {

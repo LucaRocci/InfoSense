@@ -39,7 +39,7 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
         country: e.target[3].value,
         type: e.target[4].value,
       });
-
+    //Go next step
     setCurrentStep(3);
   };
 

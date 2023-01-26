@@ -1,9 +1,10 @@
 // React core imports
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+//Components imports
 import { Button } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
 import DropDown from "../DropDown/DropDown.component";
-
+//React-router-dom imports
+import { useSearchParams } from "react-router-dom";
 // Props type
 export type TutorialModalMonth = {
   setCurrentStep: Dispatch<SetStateAction<number>>;
@@ -12,11 +13,13 @@ export type TutorialModalMonth = {
 const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
   setCurrentStep,
 }) => {
+  //Hooks for searchParam
   const [, setSearchParam] = useSearchParams();
-
+  //State tracking datepicker value
   const [date, setDate] = useState<string>(`${new Date().getFullYear()}-${new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 3) : new Date().getMonth() + 3}`);
+  //State for text error datepicker
   const [error, setError] = useState<string>('')
-
+  //Effect on datepicker value change (control error in input)
   useEffect(() => {
     const now = new Date();
     const prdDate = new Date(date);
@@ -53,6 +56,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
     setError('')
   }, [date])
 
+  //Handle form submit
   const handleOnRangeSubmit = (e: any) => {
     // PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
@@ -60,6 +64,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
 
     const now = new Date();
     const prdDate = new Date(e.target[5].value);
+    //Controls
     if (Number(prdDate.getFullYear()) < Number(now.getFullYear()))
       return
     if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && Number(prdDate.getMonth()) < Number(now.getMonth()))
@@ -83,13 +88,13 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
 
       setSearchParam({
         kind: "prd-range",
-        province: e.target[1].value,
-        activityType: e.target[2].value,
-        country: e.target[3].value,
-        indicator: e.target[4].value,
+        province: e.target[0].value,
+        activityType: e.target[1].value,
+        country: e.target[2].value,
+        indicator: e.target[3].value,
         steps: steps.toString(),
       });
-
+      //Go next steps
       setCurrentStep(4)
     };
 
@@ -98,7 +103,6 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
       <p>Chose your setting, then wait for your prediction data.</p>
       <form onSubmit={handleOnRangeSubmit} className="d-flex flex-column justify-content-start">
               <p>Select area, activity type and year of interest.</p>
-              <DropDown type="region" />
               <DropDown type="province" />
               <DropDown type="prdActivityType" />
               <DropDown type="country" />

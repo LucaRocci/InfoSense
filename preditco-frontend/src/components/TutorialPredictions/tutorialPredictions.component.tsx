@@ -6,17 +6,15 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
-
 // Style
 import "../Tutorial/Tutorial.scss";
-
 // Bootstrap icons imports
 import { QuestionDiamondFill, XLg, ArrowLeft } from "react-bootstrap-icons";
-
-// Import ModalSetting from './Modal/ModalSetting.component'; */
+// Components imports */
 import TutorialPredictionMonth from "./tutorial-modal-prediction-month";
-import { useSearchParams } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
+//React-router-dom imports
+import { useSearchParams } from "react-router-dom";
 
 // Props type
 type TutorialOverlayType = {
@@ -24,16 +22,18 @@ type TutorialOverlayType = {
 };
 
 const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
+  //State for tutorial visibility
   const [showTutorial, setShowTutorial] = useState(false);
+  //State for tutorial steps
   const [currentStep, setCurrentStep] = useState(1);
-
+  //Hook for searchParam
   const [searchParam] = useSearchParams();
-
+  //Open tutorial if searchParam tutorial=open
   useEffect(() => {
     if (searchParam.get("tutorial") === "open") setShowTutorial(true);
   }, [searchParam.get("tutorial")]);
 
-  // Steps tutorial
+  // Steps tutorial with content
   const tutorialSteps = [
     {
       heading: "Welcome to the Prediction tutorial!",
@@ -54,8 +54,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
     },
     {
       heading: "Step 2: Line Chart",
-      content:
-        "Familiarize yourself with our line chart visualization",
+      content: "Familiarize yourself with our line chart visualization",
       element: "#line",
     },
     {
@@ -65,7 +64,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: null,
     },
   ];
-
+  //Current steps
   const currentTutorialStep = tutorialSteps[currentStep - 1];
 
   useEffect(() => {
@@ -78,10 +77,9 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       const element = document.querySelector(currentTutorialStep.element);
       element?.classList.add("highlight");
     }
-    if (currentStep === 4)
-      setToggleChart("Line");
+    if (currentStep === 4) setToggleChart("Line");
   }, [currentTutorialStep]);
-
+  //Function to handle tutorial close
   const handleClose = () => {
     setShowTutorial(false);
     setCurrentStep(1);
@@ -114,8 +112,7 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
               {currentTutorialStep.content}
             </div>
 
-            {currentStep !== tutorialSteps.length &&
-            currentStep !== 3  ? (
+            {currentStep !== tutorialSteps.length && currentStep !== 3 ? (
               <>
                 <button
                   className="rounded-50 btn btn-primary rounded-pill"

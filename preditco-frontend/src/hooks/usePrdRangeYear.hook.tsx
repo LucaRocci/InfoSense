@@ -3,14 +3,13 @@ import { useState, useEffect } from "react";
 import { predictionDataResponse } from "./useFetchPr.hook";
 import { useSearchParams } from "react-router-dom";
 //Type imorts
-import { DataChart, OptionChart } from "./useStcChart.hook";
+import { DataChart } from "./useStcChart.hook";
 
 //hook for mapping the api response to chartjs valid object
 const usePrdRangeYear = (
   apiData: predictionDataResponse[] | null
 ): [
   data: DataChart[],
-  option: OptionChart,
   singleData: DataChart
 ] => {
 
@@ -29,31 +28,6 @@ const usePrdRangeYear = (
         tension: 0.5,
       }
     ],
-  });
-  //Char option state
-  const option : OptionChart = ({
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "",
-      },
-      legend: {
-        position: "top" as const,
-        display: false
-      },
-      tooltip: {
-        titleFont: {
-          size: 20,
-        },
-        bodyFont: {
-          size: 20,
-        },
-        footerFont: {
-          size: 10, // there is no footer by default
-        },
-      },
-    },
   });
 
   //Effect for change the chart settings on api change request
@@ -122,7 +96,7 @@ const usePrdRangeYear = (
   }, [apiData]);
 
   //Return the states
-  return [data, option, singleData];
+  return [data, singleData];
 };
 
 export default usePrdRangeYear;

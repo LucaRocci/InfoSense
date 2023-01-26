@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 
 // Import Type
 import { dataResponse } from "./useFetch.hook";
-import { DataChart, OptionChart } from "./useStcChart.hook";
+import { DataChart } from "./useStcChart.hook";
 
 // Hook for mapping the api response to chartjs valid object
 const useStcSingleYear = (
   apiData: dataResponse[] | string[] | null | boolean
-): [data: DataChart, option: OptionChart, doughnutData: DataChart[]] => {
+): [data: DataChart, doughnutData: DataChart[]] => {
 
   // SearchParam hook
   const [doughnutData, setDoughnutData] = useState<DataChart[]>([
@@ -77,30 +77,6 @@ const useStcSingleYear = (
     ],
   });
 
-  // Char option state
-  const option : OptionChart = ({
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "",
-      },
-      legend: {
-        position: "top" as const
-      },
-      tooltip: {
-        titleFont: {
-          size: 20,
-        },
-        bodyFont: {
-          size: 20,
-        },
-        footerFont: {
-          size: 10, // There is no footer by default
-        },
-      },
-    },
-  });
 
   // Effect for change the chart settings on api change request
   useEffect(() => {
@@ -108,8 +84,8 @@ const useStcSingleYear = (
 
       const labels:any[] = [];
 
-      var totalArrival:number[] = [] ;
-      var totalPres:number[] = [];
+      let totalArrival:number[] = [] ;
+      let totalPres:number[] = [];
 
 
       // Mapping data api, divided by arrival and presense per each year
@@ -188,13 +164,13 @@ const useStcSingleYear = (
         labels: labels,
         datasets: [
           {
-            label: 'Arrivi',
+            label: 'Arrivals',
             data: mappedArrival,
             backgroundColor: "#4571eb" ,
             tension: 0.2,
           },
           {
-            label:'Presenza',
+            label:'Stays',
             data: mappedPres,
             backgroundColor: "#aa23c5",
             tension: 0.2,
@@ -205,7 +181,7 @@ const useStcSingleYear = (
   }, [apiData]);
 
   //Return the states
-  return [data, option, doughnutData ];
+  return [data, doughnutData ];
 };
 
 export default useStcSingleYear;

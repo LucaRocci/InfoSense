@@ -2,15 +2,14 @@
 import { useEffect, useState } from "react";
 //Bootstrap components imports
 import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
-import { Link, useLocation, useNavigation } from "react-router-dom";
-
+//React-router-dom imports
+import { Link, useLocation } from "react-router-dom";
 //Import logos
 import { ReactComponent as PredictoLogo } from "../../assets/logos/logo-predicto.svg";
 import { ReactComponent as PredictoLogoWhite } from "../../assets/logos/logo-predicto-white.svg";
 import { ReactComponent as InfosenseLogo } from "../../assets/logos/logo-infosense-navbar.svg";
 import { ReactComponent as IstatLogo } from "../../assets/logos/logo-istat.svg";
 import { ReactComponent as Github } from "../../assets/logos/gitHubwhite.svg";
-
 //Import style
 import "./Navbar.scss";
 

@@ -15,6 +15,8 @@ import avatarFederico from "../assets/avatar/avatar-federico.svg";
 import avatarFedericoHover from "../assets/avatar/avatar-federico-hover.svg";
 import avatarMatteo from "../assets/avatar/avatar-matteo.svg";
 import avatarMatteoHover from "../assets/avatar/avatar-matteo-hover.svg";
+//Type imports
+import { OptionChart } from "../hooks/useStcChart.hook";
 
 // Interface for avatar
 interface WorkerType {
@@ -28,7 +30,7 @@ interface WorkerType {
 const localHost = "localhost:8080";
 const server = "18.102.24.178:8080";
 
-export const activeHost = server;
+export const activeHost = localHost;
 
 // Our team members
 export const workers: WorkerType[] = [
@@ -143,3 +145,55 @@ export const label = {
     </div>
   ),
 };
+
+//Prediction chart option
+ export  const prdOption : OptionChart = ({
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        text: "",
+      },
+      legend: {
+        position: "top" as const,
+        display: false
+      },
+      tooltip: {
+        titleFont: {
+          size: 20,
+        },
+        bodyFont: {
+          size: 20,
+        },
+        footerFont: {
+          size: 10, // there is no footer by default
+        },
+      },
+    },
+  });
+
+
+//Stc Option chart
+export  const stcOption : OptionChart = ({
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: true,
+        text: "",
+      },
+      legend: {
+        position: "top" as const,
+      },
+      tooltip: {
+        titleFont: {
+          size: 20,
+        },
+        bodyFont: {
+          size: 20,
+        },
+        footerFont: {
+          size: 10, // there is no footer by default
+        },
+      },
+    },
+  });

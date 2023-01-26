@@ -14,8 +14,9 @@ import DropDown from "../DropDown/DropDown.component";
 import { TutorialModalType } from "./tutorial-modal-compare.component";
 
 const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
+  //Hook for set serachParam
   const [, setSearchParam] = useSearchParams();
-
+  //Handle form submit
   const handleOnYearSubmit = (e: any) => {
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
@@ -28,7 +29,7 @@ const TutorialYearCompare: FC<TutorialModalType> = ({ setCurrentStep }) => {
       country: e.target[2].value,
       year: e.target[3].value,
     });
-
+    //Go next step
     setCurrentStep(9);
   };
 

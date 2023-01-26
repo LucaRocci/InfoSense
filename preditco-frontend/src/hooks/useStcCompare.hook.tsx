@@ -6,12 +6,12 @@ import { useSearchParams } from "react-router-dom";
 
 //Import Type
 import { dataResponse } from "./useFetch.hook";
-import { DataChart, OptionChart } from "./useStcChart.hook";
+import { DataChart } from "./useStcChart.hook";
 
 //hook for mapping the api response to chartjs valid object
-const useStcChart = (
+const useStcCompare = (
   apiData: dataResponse[] | string[] | null | boolean
-): [data: DataChart, option: OptionChart] => {
+): [data: DataChart] => {
   //SearchParam hook
   const [searchParam] = useSearchParams();
   //Single Chart setting state for year chart
@@ -39,30 +39,6 @@ const useStcChart = (
         backgroundColor: "rgba(51, 162, 235, 0.5)",
       },
     ],
-  });
-  //Char option state
-  const option : OptionChart = ({
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "",
-      },
-      legend: {
-        position: "top" as const,
-      },
-      tooltip: {
-        titleFont: {
-          size: 20,
-        },
-        bodyFont: {
-          size: 20,
-        },
-        footerFont: {
-          size: 10, // there is no footer by default
-        },
-      },
-    },
   });
 
   //Effect for change the chart settings on api change request
@@ -148,7 +124,7 @@ const useStcChart = (
     }
   }, [apiData]);
   //Return the states
-  return [data, option];
+  return [data];
 };
 
-export default useStcChart;
+export default useStcCompare;

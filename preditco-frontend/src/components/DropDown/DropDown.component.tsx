@@ -36,7 +36,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
       ? ProvinceUrl
       : ""
   );
-
+ //Function for handle change activityType
   const handleChange = (e: any) => {
     if (type === "activityType") {
       if (e.target.value === "hotel" || e.target.value === "non-hotel") {
@@ -44,7 +44,7 @@ const DropDown: FC<DropDownProps> = ({ type, setShowType }) => {
       } else if (typeof setShowType !== "undefined") setShowType(false);
     }
   };
-
+ // render the rigth dropdown 
   return (
     <>
       <label>

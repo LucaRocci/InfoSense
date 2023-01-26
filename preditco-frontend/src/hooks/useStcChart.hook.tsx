@@ -50,7 +50,6 @@ const useStcChart = (
   apiData: dataResponse[] | string[] | null | boolean
 ): [
   data: DataChart,
-  option: OptionChart,
   filterData: DataChart[] | boolean,
   rangeYear: number[]
 ] => {
@@ -73,30 +72,6 @@ const useStcChart = (
         backgroundColor: "#aa23c5",
       },
     ],
-  });
-  //Char option state
-  const option : OptionChart = ({
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: "",
-      },
-      legend: {
-        position: "top" as const,
-      },
-      tooltip: {
-        titleFont: {
-          size: 20,
-        },
-        bodyFont: {
-          size: 20,
-        },
-        footerFont: {
-          size: 10, // there is no footer by default
-        },
-      },
-    },
   });
 
   //Effect for change the chart settings on api change request
@@ -131,7 +106,7 @@ const useStcChart = (
     });
   }, [apiData]);
   //Return the states
-  return [data, option, filterData, rangeYear];
+  return [data, filterData, rangeYear];
 };
 
 export default useStcChart;

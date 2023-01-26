@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import DropDown from "../DropDown/DropDown.component";
-
+//Form props
 type FormPropsType = {
   type: string;
   handleClose: () => void;
@@ -16,9 +16,11 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
   const [searchParam, setSearchParam] = useSearchParams();
   //State for add dropdown menu type if activityType=alberghi or activityType=extra-alberghieri
   const [showType, setShowType] = useState<boolean>(false);
+  //State tracking datepicker value 
   const [date, setDate] = useState<string>(`${new Date().getFullYear()}-${new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 3) : new Date().getMonth() + 3}`);
+  //State for text error datepicker
   const [error, setError] = useState<string>('')
-
+  //Effect on datepicker value change (control error in input)
   useEffect(() => {
     const now = new Date();
     const prdDate = new Date(date);
@@ -39,6 +41,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
       setError('*Select at most 5 years from today!')
       return
     }
+    //No chrome controls
     if(Number(`${date[5]}${date[6]}`) > 12){
       setError('*Select a valid month')
       return
@@ -63,7 +66,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
       setShowType(true);
   }, [searchParam.get("activityType")]);
 
-  //Function to handle the form submit
+  //Functions to handle the form submit
   const handleOnStandardSubmit = (e: any) => {
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
@@ -120,7 +123,6 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
     handleClose();
   };
 
-  //Function to handle the form submit
   const handleOnRangeSubmit = (e: any) => {
     //PreventDefault and stopPropagation beccause is singlepage application and for stop the propagation of the event
     e.preventDefault();
@@ -128,6 +130,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
 
     const now = new Date();
     const prdDate = new Date(e.target[5].value);
+    //Controls
     if (Number(prdDate.getFullYear()) < Number(now.getFullYear()))
       return
     if ((Number(prdDate.getFullYear()) === Number(now.getFullYear())) && (Number(prdDate.getMonth()) <= Number(now.getMonth()) || Number(prdDate.getMonth()) === (Number(now.getMonth()) + 1)))
@@ -160,7 +163,7 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
 
       handleClose();
     };
-
+    // Render the rigth form
     return (
       <>
         {type === "standard" && (
