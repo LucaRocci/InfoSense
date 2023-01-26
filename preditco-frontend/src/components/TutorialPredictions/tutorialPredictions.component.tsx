@@ -48,12 +48,12 @@ const TutorialPrediction: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       element: "",
     },
     {
-      heading: "Step 1: Month-range",
+      heading: "Step 2: Month-range",
       content: <TutorialPredictionMonth setCurrentStep={setCurrentStep} />,
       element: "#setting",
     },
     {
-      heading: "Step 2: Line Chart",
+      heading: "Step 3: Line Chart",
       content: "Familiarize yourself with our line chart visualization",
       element: "#line",
     },
