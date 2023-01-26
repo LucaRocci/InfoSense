@@ -18,17 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 
-CREATE USER 'predicto';
-GRANT USAGE ON *.* TO `predicto`@`%` IDENTIFIED BY PASSWORD '*F9457A5D56FD5D6B3B65A6456E9204B0F9C43D25';
-
-COMMIT;
 
 --
 
 --
 
 -- --------------------------------------------------------
-START TRANSACTION;
+
 --
 -- Struttura della tabella `context`
 --
@@ -37,6 +33,14 @@ CREATE DATABASE `predicto`;
 
 USE predicto;
 
+CREATE USER 'predicto';
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO `predicto`@`%` IDENTIFIED BY PASSWORD '*F9457A5D56FD5D6B3B65A6456E9204B0F9C43D25';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `predicto`.* TO `predicto`@`%`;
+
+COMMIT;
+
+START TRANSACTION;
 CREATE TABLE `context` (
   `id_context` bigint(20) NOT NULL,
   `arrive_stay` varchar(10) DEFAULT NULL,
