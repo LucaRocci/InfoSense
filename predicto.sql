@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Gen 22, 2023 alle 19:02
+-- Creato il: Gen 25, 2023 alle 17:47
 -- Versione del server: 10.4.27-MariaDB
 -- Versione PHP: 8.1.12
 
@@ -17,15 +17,25 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+
+CREATE USER 'predicto';
+GRANT USAGE ON *.* TO `predicto`@`%` IDENTIFIED BY PASSWORD '*F9457A5D56FD5D6B3B65A6456E9204B0F9C43D25';
+
+COMMIT;
+
 --
--- Database: `predicto`
+
 --
 
 -- --------------------------------------------------------
-
+START TRANSACTION;
 --
 -- Struttura della tabella `context`
 --
+
+CREATE DATABASE `predicto`;
+
+USE predicto;
 
 CREATE TABLE `context` (
   `id_context` bigint(20) NOT NULL,
