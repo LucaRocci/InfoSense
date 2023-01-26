@@ -25,19 +25,19 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
     e.stopPropagation();
     
     //Check if dropdwon for type has value or not to change the searchParams
-    if (e.target[4].value.length === 0)
+    if (e.target[3].value.length === 0)
       setSearchParam({
         kind: "standard",
-        province: e.target[1].value,
-        activityType: e.target[2].value,
-        country: e.target[3].value,
+        province: e.target[0].value,
+        activityType: e.target[1].value,
+        country: e.target[2].value,
       });
     else
       setSearchParam({
-        province: e.target[1].value,
-        activityType: e.target[2].value,
-        country: e.target[3].value,
-        type: e.target[4].value,
+        province: e.target[0].value,
+        activityType: e.target[1].value,
+        country: e.target[2].value,
+        type: e.target[3].value,
       });
     //Go next step
     setCurrentStep(3);
@@ -51,7 +51,6 @@ const TutorialModalStandard: FC<TutorialModalType> = ({ setCurrentStep }) => {
         onSubmit={handleOnStandardSubmit}
         onChange={(e) => e.stopPropagation()}
       >
-        <DropDown type="region" />
         <DropDown type="province" />
         <DropDown type="activityType" setShowType={setShowType} />
         <DropDown type="country" />

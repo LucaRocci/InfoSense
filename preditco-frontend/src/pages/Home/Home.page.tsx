@@ -172,9 +172,9 @@ const Home = () => {
               className="d-flex justify-content-center"
             >
               <Button
-                variant="primary rounded-pill"
+                variant="secondary rounded-pill"
                 size="lg"
-                className="my-2 my-md-0 mx-md-2 rounded-50"
+                className="my-2 my-md-0 mx-md-2 rounded-50 text-white"
               >
                 Tutorial
               </Button>

@@ -9,7 +9,6 @@ import { DataChart } from "./useStcChart.hook";
 const useStcSingleYear = (
   apiData: dataResponse[] | string[] | null | boolean
 ): [data: DataChart, doughnutData: DataChart[]] => {
-
   // SearchParam hook
   const [doughnutData, setDoughnutData] = useState<DataChart[]>([
     {
@@ -113,14 +112,12 @@ const useStcSingleYear = (
       // Structure chart Doudhnut
       const mappedDoudhnutData = [
         {
-          labels: labels,
+          labels: labels.slice(2),
           datasets: [
             {
-              label: '# of Arrivals',
-              data: mappedArrival,
+              label: ' Arrivals',
+              data: mappedArrival.slice(2),
               backgroundColor: [
-                '#0000FF',
-                '#3300FF',
                 '#6600FF',
                 '#9900FF',
                 '#CC00FF',
@@ -134,14 +131,12 @@ const useStcSingleYear = (
           ],
         },
         {
-          labels: labels,
+          labels: labels.slice(2),
           datasets: [
             {
-              label: '# of Stays',
-              data: mappedPres,
+              label: ' Stays',
+              data: mappedPres.slice(2),
               backgroundColor:  [
-                '#0000FF',
-                '#3300FF',
                 '#6600FF',
                 '#9900FF',
                 '#CC00FF',
@@ -161,17 +156,17 @@ const useStcSingleYear = (
 
       // Structure chart Doudhnut
       setData({
-        labels: labels,
+        labels: labels.slice(2),
         datasets: [
           {
             label: 'Arrivals',
-            data: mappedArrival,
+            data: mappedArrival.slice(2),
             backgroundColor: "#4571eb" ,
             tension: 0.2,
           },
           {
             label:'Stays',
-            data: mappedPres,
+            data: mappedPres.slice(2),
             backgroundColor: "#aa23c5",
             tension: 0.2,
           },

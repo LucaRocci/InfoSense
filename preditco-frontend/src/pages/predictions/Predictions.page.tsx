@@ -53,7 +53,7 @@ const Predictions = () => {
               .get("indicator")
               }
             {' (' + searchParam
-              .get("steps") + ' Month)'}
+              .get("steps") + ' Months)'}
           </p>
           <div className="d-flex flex-row">
             <button
