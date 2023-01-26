@@ -76,7 +76,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
     e.stopPropagation();
 
     const now = new Date();
-    const prdDate = new Date(e.target[5].value);
+    const prdDate = new Date(e.target[4].value);
     //Controls
     if (Number(prdDate.getFullYear()) < Number(now.getFullYear())) return;
     if (
@@ -107,7 +107,7 @@ const TutorialPredictionMonth: FC<TutorialModalMonth> = ({
       activityType: e.target[1].value,
       country: e.target[2].value,
       indicator: e.target[3].value,
-      steps: steps.toString(),
+      steps: String(steps)
     });
     //Go next steps
     setCurrentStep(4);
