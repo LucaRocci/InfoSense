@@ -394,3 +394,26 @@ The useEffect hook is used to check the kind of the searchParams and if it's **'
 The component also makes use of several React Bootstrap components for the layout, and also imports several assets (icons) and other components (ModalSetting, StcChartView, TutorialOverlay, StcCompareView and StcSingleYearView).
 
 It also uses scss stylesheet for styling.
+
+## Function
+
+### map.function
+
+This code exports a function called stcChartMap that takes in a single argument, apiData. The purpose of this function is to take data from an API, map it, and return an object containing several arrays that will be used to create a chart.
+
+### enviroment
+
+Here we provide const for different poupouse, like option for the chart, form labels etc.
+
+```javascript
+//Env var
+const localHost = "localhost:8080";
+const server = "18.102.24.178:8080";
+
+export const activeHost = localHost;
+```
+
+This code is used to switch between a local development environment and a remote production environment by changing the value of activeHost.
+
+By default, the code is pointing to the local environment, which is "localhost:8080" but it can be changed to the remote environment by changing the value of activeHost to server.
+
