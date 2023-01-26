@@ -59,83 +59,80 @@ Your app is ready to be deployed!
 
 ```
 .
-├── Folder /**predicto-frontend**/
-│   ├── Folder / **node_module**
-│   ├── Folder / **public**
-│   ├── Folder / **src**/
-│   │   ├── Folder / **\_\_functions**/
-│   │   │   ├── **enviroment.tsx**
-│   │   │   └── **map.functions.tsx**
-│   │   ├── Folder / **asset**/
-│   │   │   ├── Folder / **animation**
-│   │   │   ├── Folder / **icon**
-│   │   │   ├── Folder / **image**
-│   │   │   └── FOlder / **logos**
-│   │   ├── Folder / **components**/
-│   │   │   ├── Folder / **DropDown**/
-│   │   │   │   └── **DropDown.component.tsx**
-│   │   │   ├── Folder / **Footer**/
-│   │   │   │   ├── **Footer.component.tsx**
-│   │   │   │   └── **Footer.scss**
-│   │   │   ├── Folder / **Fomr**/
-│   │   │   │   └── **Form.component.tsx**
-│   │   │   ├── Folder / **Modal**/
-│   │   │   │   └── **Modal.component.tsx**
-│   │   │   ├── Folder / **Navbar**/
-│   │   │   │   ├── **Navbar.component.tsx**
-│   │   │   │   └── **Navbar.scss**
-│   │   │   ├── Folder / **Root**/
-│   │   │   │   └── **Root.component.tsx**
-│   │   │   ├── Folder / **SrcChartView**/
-│   │   │   │   ├── **CarouselChart.component.tsx**
-│   │   │   │   ├── **SingleChart.component.tsx**
-│   │   │   │   ├── **StcChartView.component.tsx**
-│   │   │   │   ├── **StcCompareView.component.tsx**
-│   │   │   │   └── **StcSingleYearView.component.tsx**
-│   │   │   └── Folder / **Tutorial**/
-│   │   │       ├── **tutorial-modal-compare.component.tsx**
-│   │   │       ├── **tutorial-modal-standard.component.tsx**
-│   │   │       ├── **tutorial-modal-year.component.tsx**
-│   │   │       ├── **tutorial.component.tsx**
-│   │   │       └── **tutorial.component.scss**
-│   │   ├── Folder / **hooks**/
-│   │   │   ├── **useFetch.hook.tsx**
+├── predicto-frontend/
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── animations/
+│   │   │   ├── icons/
+│   │   │   ├── images/
+│   │   │   └── logos/
+│   │   ├── components/
+│   │   │   ├── DropDown/
+│   │   │   │   └── DropDown.tsx
+│   │   │   ├── Footer/
+│   │   │   │   ├── Footer.tsx
+│   │   │   │   └── Footer.scss
+│   │   │   ├── Form/
+│   │   │   │   └── Form.tsx
+│   │   │   ├── Modal/
+│   │   │   │   └── Modal.tsx
+│   │   │   ├── Navbar/
+│   │   │   │   ├── Navbar.tsx
+│   │   │   │   └── Navbar.scss
+│   │   │   ├── Root/
+│   │   │   │   └── Root.tsx
+│   │   │   ├── Charts/
+│   │   │   │   ├── CarouselChart.tsx
+│   │   │   │   ├── SingleChart.tsx
+│   │   │   │   ├── StcChartView.tsx
+│   │   │   │   ├── StcCompareView.tsx
+│   │   │   │   └── StcSingleYearView.tsx
+│   │   │   ├── Tutorial/
+│   │   │   │   ├── tutorial-modal-compare.tsx
+│   │   │   │   ├── tutorial-modal-standard.tsx
+│   │   │   │   ├── tutorial-modal-year.tsx
+│   │   │   │   ├── tutorial.tsx
+│   │   │   │   └── tutorial.scss
+│   │   ├── hooks/
+│   │   │   ├── useFetch.tsx
 │   │   │   ├── **usePrdChart.hook.tsx**
 │   │   │   ├── **useStcChart.hook.tsx**
 │   │   │   ├── **useStcCompare.hook.tsx**
 │   │   │   └── **useStcSingleYear.hook.tsx**
-│   │   ├── Folder / **pages**/
-│   │   │   ├── Folder / **home**/
-│   │   │   │   ├── **Home.page.tsx**
-│   │   │   │   └── **home.scss**
-│   │   │   ├── Folder / **login**/
-│   │   │   │   ├── **Login.page.tsx**
-│   │   │   │   └── **login.scss**
-│   │   │   ├── Folder / **predictions**/
-│   │   │   │   ├── **Predictions.page.tsx**
-│   │   │   │   └── **predictions.scss**
-│   │   │   ├── Folder / **privacy**/
-│   │   │   │   ├── **Privacy.page.tsx**
-│   │   │   │   └── **Term.page.tsx**
-│   │   │   └── Folder / **statistics**/
-│   │   │       ├── **Statistics.page.tsx**
-│   │   │       └── **statistics.scss**
-│   │   ├── **App.scss**
-│   │   ├── **App.test.tsx**
-│   │   ├── **App.tsx**
-│   │   ├── **colors.scss**
-│   │   ├── **index.scss**
-│   │   ├── **index.tsx**
-│   │   ├── **logo.svg**
-│   │   ├── **react-app-end.d.ts**
-│   │   ├── **reportWebVitals.ts**
-│   │   └── **setupTest.ts**
-│   ├── **.gitignore**
-│   ├── **package-lock.json**
-│   ├── **package.json**
-│   ├── **server.js**
-│   └── **tsconfig.json**
-└── **README.md**
+│   │   ├── pages
+│   │   │   ├── home
+│   │   │   │   ├── Home.page.tsx
+│   │   │   │   └── home.scss
+│   │   │   ├── login
+│   │   │   │   ├── Login.page.tsx
+│   │   │   │   └── login.scss
+│   │   │   ├── predictions
+│   │   │   │   ├── Predictions.page.tsx
+│   │   │   │   └── predictions.scss
+│   │   │   ├── privacy
+│   │   │   │   ├── Privacy.page.tsx
+│   │   │   │   └── Term.page.tsx
+│   │   │   └── statistics
+│   │   │       ├── Statistics.page.tsx
+│   │   │       └── statistics.scss
+│   │   ├── App.scss
+│   │   ├── App.test.tsx
+│   │   ├── App.tsx
+│   │   ├── colors.scss
+│   │   ├── index.scss
+│   │   ├── index.tsx
+│   │   ├── logo.svg
+│   │   ├── react-app-end.d.ts
+│   │   ├── reportWebVitals.ts
+│   │   └── setupTest.ts
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── tsconfig.json
+└── README.md
 ```
 
 ---
