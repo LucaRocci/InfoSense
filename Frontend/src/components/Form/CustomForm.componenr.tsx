@@ -61,7 +61,8 @@ const CustomForm: FC<FormPropsType> = ({ type, handleClose }) => {
   useEffect(() => {
     if (
       searchParam.get("activityType") === "hotel" ||
-      searchParam.get("activityType") === "non-hotel"
+      searchParam.get("activityType") === "non-hotel" ||
+      searchParam.get("activityType") === null
     )
       setShowType(true);
   }, [searchParam.get("activityType")]);

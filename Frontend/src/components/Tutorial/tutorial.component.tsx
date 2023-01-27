@@ -31,7 +31,7 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
   //State for tutorial steps
   const [currentStep, setCurrentStep] = useState(1);
   //Hook for searchParam
-  const [searchParam] = useSearchParams();
+  const [searchParam, setSearchParam] = useSearchParams();
 
   //Open tutorial if searchParam tutorial=open
   useEffect(() => {
@@ -127,7 +127,8 @@ const TutorialOverlay: FC<TutorialOverlayType> = ({ setToggleChart }) => {
       setToggleChart("Bar");
     if (currentStep === 4 || currentStep === 7 || currentStep === 10)
       setToggleChart("Line");
-    if (currentStep === 11) setToggleChart("Doughnut");
+    if (currentStep === 11) 
+      setToggleChart("Doughnut");
   }, [currentTutorialStep]);
 //Function to handle tutorial close
   const handleClose = () => {
