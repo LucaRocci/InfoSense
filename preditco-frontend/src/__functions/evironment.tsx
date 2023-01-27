@@ -26,7 +26,7 @@ interface WorkerType {
   field: string;
 }
 
-//Env var
+//Dev var endoint
 const localHost = "localhost:8080";
 const server = "18.102.24.178:8080";
 
